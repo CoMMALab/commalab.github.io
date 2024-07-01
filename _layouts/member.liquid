@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div class="post">
+  {% if page.image %}
+    <div class="profile float-right">
+      {% assign profile_image_path = page.image | prepend: 'assets/img/people/' %}
+        {% assign profile_image_class = 'img-fluid z-depth-1 roded' %}
+      {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.2}}px, (min-width: 576px) 30, 95vw"{% endcapture %}
+      {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image cache_bust=true %}
+    </div>
+      {% if page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% endif %}
+  {% endif %}
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.first_name }} {{ page.last_name }}</h1>
+    <h5 class="post-description">{{ page.position }}, {{ page.pronouns }}</h5>
+  </header>
+
+  <h3>
+  {% if page.email %}
+      <a href="mailto:{{ page.email | encode_email }}" class="card-link"><i class="fas fa-envelope"></i></a>
+  {% endif %}
+  {% if page.phone %}
+      <a href="tel:{{ page.phone }}" class="card-link"><i class="fas fa-phone"></i></a>
+  {% endif %}
+  {% if page.google_scholar %}
+      <a href="https://scholar.google.com/citations?user={{ page.google_scholar }}" class="card-link" target="_blank"><i class="ai ai-google-scholar"></i></a>
+  {% endif %}
+  {% if page.linkedin %}
+      <a href="https://linkedin.com/in/{{ page.linkedin }}/" class="card-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+  {% endif %}
+  {% if page.orcid %}
+      <a href="https://orcid.org/{{ page.orcid }}" class="card-link" target="_blank"><i class="fab fa-orcid"></i></a>
+  {% endif %}
+  {% if page.twitter %}
+      <a href="https://twitter.com/{{ page.twitter }}" class="card-link" target="_blank"><i class="fab fa-twitter"></i></a>
+  {% endif %}
+  {% if page.github %}
+      <a href="https://github.com/{{ page.github }}" class="card-link" target="_blank"><i class="fab fa-github"></i></a>
+  {% endif %}
+  {% if page.cv %}
+  {% capture cv_path %}assets/pdf/cv/{{ page.cv }}{% endcapture %}
+      <a href="{{ cv_path | relative_url }}" class="card-link" target="_blank"><i class="ai ai-cv"></i></a>
+  {% endif %}
+  {% if page.website %}
+      <a href="{{ page.website }}" class="card-link" target="_blank"><i class="fas fa-globe"></i></a>
+  {% endif %}
+  </h3>
+
+  <article>
+    {{ content }}
+  </article>
+
+  <br style="clear:both" />
+  <div class="publications">
+    {% bibliography -q @*[author~={{ page.last_name }}] %}
+  </div>
+</div>
