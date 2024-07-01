@@ -1,8 +1,0 @@
-- name: Long-Horizon Planning
-  video: tamp.webm
-
-- name: Planning with Constraints
-  video: constraints.webm
-
-- name: Real-time Performance
-  video: fast_planning.webm

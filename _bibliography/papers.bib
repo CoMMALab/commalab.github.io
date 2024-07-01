@@ -14,13 +14,13 @@
   title = {Collision-Affording Point Trees: SIMD-Amenable Nearest Neighbors for Fast Collision Checking},
   booktitle = rss,
   year    = {2024},
-  note = {Equal Contribution. To Appear.},
   pdf = {https://arxiv.org/abs/2406.02807},
   abstract = {Motion planning against sensor data is often a critical bottleneck in real-time robot control. For sampling-based motion planners, which are effective for high-dimensional systems such as manipulators, the most time-intensive component is collision checking. We present a novel spatial data structure, the collision-affording point tree (CAPT): an exact representation of point clouds that accelerates collision-checking queries between robots and point clouds by an order of magnitude, with an average query time of less than 10 nanoseconds on 3D scenes comprising thousands of points. With the CAPT, sampling-based planners can generate valid, high-quality paths in under a millisecond, with total end-to-end computation time faster than 60 FPS, on a single thread of a consumer-grade CPU. We also present a point cloud filtering algorithm, based on space-filling curves, which reduces the number of points in a point cloud while preserving structure. Our approach enables robots to plan at real-time speeds in sensed environments, opening up potential uses of planning for high-dimensional systems in dynamic, changing, and unmodeled environments.},
   video = {https://www.youtube.com/watch?v=BzDKdrU1VpM},
   blog = {https://claytonwramsey.com/blog/captree},
   code = {https://github.com/kavrakilab/vamp},
-  selected = {true}
+  selected = {true},
+  projects = {realtime,software},
 }
 
 @InProceedings{thomason2024vamp,
@@ -31,9 +31,9 @@
   booktitle     = icra,
   pdf = {https://arxiv.org/pdf/2309.14545.pdf},
   abstract = {Modern sampling-based motion planning algorithms typically take between hundreds of milliseconds to dozens of seconds to find collision-free motions for high degree-of-freedom problems. This paper presents performance improvements of more than 500x over the state-of-the-art, bringing planning times into the range of microseconds and solution rates into the range of kilohertz, without specialized hardware. Our key insight is how to exploit fine-grained parallelism within sampling-based planners, providing generality-preserving algorithmic improvements to any such planner and significantly accelerating critical subroutines, such as forward kinematics and collision checking. We demonstrate our approach over a diverse set of challenging, realistic problems for complex robots ranging from 7 to 14 degrees-of-freedom. Moreover, we show that our approach does not require high-power hardware by also evaluating on a low-power single-board computer. The planning speeds demonstrated are fast enough to reside in the range of control frequencies and open up new avenues of motion planning research.},
-  note = {Equal Contribution.},
   code = {https://github.com/kavrakilab/vamp},
-  selected = {true}
+  selected = {true},
+  projects = {realtime,software},
 }
 
 @InProceedings{quintero2024impdist,
@@ -44,7 +44,8 @@
   booktitle     = icra,
   pdf = {https://arxiv.org/pdf/2309.16862.pdf},
   abstract = {Motion planning under sensing uncertainty is critical for robots in unstructured environments to guarantee safety for both the robot and any nearby humans. Most work on planning under uncertainty does not scale to high-dimensional robots such as manipulators, assumes simplified geometry of the robot or environment, or requires per-object knowledge of noise. Instead, we propose a method that directly models sensor-specific aleatoric uncertainty to find safe motions for high-dimensional systems in complex environments, without exact knowledge of environment geometry. We combine a novel implicit neural model of stochastic signed distance functions with a hierarchical optimization-based motion planner to plan low-risk motions without sacrificing path quality. Our method also explicitly bounds the risk of the path, offering trustworthiness. We empirically validate that our method produces safe motions and accurate risk bounds and is safer than baseline approaches.},
-  preview = {impdist.png}
+  preview = {impdist.png},
+  projects = {implicit},
 }
 
 
@@ -56,6 +57,7 @@
   booktitle     = icra,
   pdf = {http://khen.io/icra24appendix.pdf},
   abstract = {Long-horizon task planning is important for robot autonomy, especially as a subroutine for frameworks such as Integrated Task and Motion Planning. However, task planning is computationally challenging and struggles to scale to realistic problem settings. We propose to accelerate task planning over an agent's lifetime by integrating learned abstract strategies: a generalizable planning experience encoding introduced in earlier work. In this work, we contribute a practical approach to planning with strategies by introducing a novel formalism of planning in a skill-augmented domain. We also introduce and formulate the notion of a skill's affordance, which indicates its predicted benefit to the solution, and use it to guide the planning and skill grounding processes. Together, our observations yield an affordance-directed, lazy-search planning algorithm, which can seamlessly compose strategies and actions to solve long-horizon planning problems. We evaluate our planner in an object rearrangement domain, where we demonstrate performance benefits relative to a state-of-the-art task planner.},
+  projects = {long-horizon},
 }
 
 
@@ -70,7 +72,8 @@
   pages={2861-2868},
   doi={10.1109/IROS55552.2023.10341460},
   pdf = {https://arxiv.org/pdf/2308.03385.pdf},
-  abstract = {Robotics and automation are poised to change the landscape of home and work in the near future. Robots are adept at deliberately moving, sensing, and interacting with their environments. The pervasive use of this technology promises societal and economic payoffs due to its capabilities - conversely, the capabilities of robots to move within and sense the world around them is susceptible to abuse. Robots, unlike typical sensors, are inherently autonomous, active, and deliberate. Such automated agents can become AI double agents liable to violate the privacy of coworkers, privileged spaces, and other stakeholders. In this work we highlight the understudied and inevitable threats to privacy that can be posed by the autonomous, deliberate motions and sensing of robots. We frame the problem within broader sociotechnological questions alongside a comprehensive review. The privacy-aware motion planning problem is formulated in terms of cost functions that can be modified to induce privacy-aware behavior - preserving, agnostic, or violating. Simulated case studies in manipulation and navigation, with altered cost functions, are used to demonstrate how privacy-violating threats can be easily injected, sometimes with only small changes in performance (solution path lengths). Such functionality is already widely available. This preliminary work is meant to lay the foundations for near-future, holistic, interdisciplinary investigations that can address questions surrounding privacy in intelligent robotic behaviors determined by planning algorithms.}
+  abstract = {Robotics and automation are poised to change the landscape of home and work in the near future. Robots are adept at deliberately moving, sensing, and interacting with their environments. The pervasive use of this technology promises societal and economic payoffs due to its capabilities - conversely, the capabilities of robots to move within and sense the world around them is susceptible to abuse. Robots, unlike typical sensors, are inherently autonomous, active, and deliberate. Such automated agents can become AI double agents liable to violate the privacy of coworkers, privileged spaces, and other stakeholders. In this work we highlight the understudied and inevitable threats to privacy that can be posed by the autonomous, deliberate motions and sensing of robots. We frame the problem within broader sociotechnological questions alongside a comprehensive review. The privacy-aware motion planning problem is formulated in terms of cost functions that can be modified to induce privacy-aware behavior - preserving, agnostic, or violating. Simulated case studies in manipulation and navigation, with altered cost functions, are used to demonstrate how privacy-violating threats can be easily injected, sometimes with only small changes in performance (solution path lengths). Such functionality is already widely available. This preliminary work is meant to lay the foundations for near-future, holistic, interdisciplinary investigations that can address questions surrounding privacy in intelligent robotic behaviors determined by planning algorithms.},
+  projects = {hri}
 }
 
 @Article{bayraktar2023,
@@ -84,8 +87,10 @@
   pages={4529--4536},
   doi={10.1109/LRA.2023.3282788},
   pdf = {https://arxiv.org/pdf/2212.02955.pdf},
-  abstract = {Rearrangement puzzles are variations of rearrangement problems in which the elements of a problem are potentially logically linked together. To efficiently solve such puzzles, we develop a motion planning approach based on a new state space that is logically factored, integrating the capabilities of the robot through factors of simultaneously manipulatable joints of an object. Based on this factored state space, we propose less-actions RRT (LA-RRT), a planner which optimizes for a low number of actions to solve a puzzle. At the core of our approach lies a new path defragmentation method, which rearranges and optimizes consecutive edges to minimize action cost. We solve six rearrangement scenarios with a Fetch robot, involving planar table puzzles and an escape room scenario. LA-RRT significantly outperforms the next best asymptotically-optimal planner by 4.01 to 6.58 times improvement in final action cost.}
+  abstract = {Rearrangement puzzles are variations of rearrangement problems in which the elements of a problem are potentially logically linked together. To efficiently solve such puzzles, we develop a motion planning approach based on a new state space that is logically factored, integrating the capabilities of the robot through factors of simultaneously manipulatable joints of an object. Based on this factored state space, we propose less-actions RRT (LA-RRT), a planner which optimizes for a low number of actions to solve a puzzle. At the core of our approach lies a new path defragmentation method, which rearranges and optimizes consecutive edges to minimize action cost. We solve six rearrangement scenarios with a Fetch robot, involving planar table puzzles and an escape room scenario. LA-RRT significantly outperforms the next best asymptotically-optimal planner by 4.01 to 6.58 times improvement in final action cost.},
+  projects = {long-horizon},
 }
+
 
 @InProceedings{lee2023physics,
   abbr = {ICRA},
@@ -98,7 +103,8 @@
   pages={8104-8111},
   doi={10.1109/ICRA48891.2023.10160377},
   pdf = {https://kavrakilab.org/publications/lee2023-simulation-actions.pdf},
-  abstract = {3D object reconfiguration encompasses common robot manipulation tasks in which a set of objects must be moved through a series of physically feasible state changes into a desired final configuration. Object reconfiguration is challenging to solve in general, as it requires efficient reasoning about environment physics that determine action validity. This information is typically manually encoded in an explicit transition system. Constructing these explicit encodings is tedious and error-prone, and is often a bottleneck for planner use. In this work, we explore embedding a physics simulator within a motion planner to implicitly discover and specify the valid actions from any state, removing the need for manual specification of action semantics. Our experiments demonstrate that the resulting simulation-based planner can effectively produce physically valid rearrangement trajectories for a range of 3D object reconfiguration problems without requiring more than an environment description and start and goal arrangements.}
+  abstract = {3D object reconfiguration encompasses common robot manipulation tasks in which a set of objects must be moved through a series of physically feasible state changes into a desired final configuration. Object reconfiguration is challenging to solve in general, as it requires efficient reasoning about environment physics that determine action validity. This information is typically manually encoded in an explicit transition system. Constructing these explicit encodings is tedious and error-prone, and is often a bottleneck for planner use. In this work, we explore embedding a physics simulator within a motion planner to implicitly discover and specify the valid actions from any state, removing the need for manual specification of action semantics. Our experiments demonstrate that the resulting simulation-based planner can effectively produce physically valid rearrangement trajectories for a range of 3D object reconfiguration problems without requiring more than an environment description and start and goal arrangements.},
+  projects = {long-horizon,implicit},
 }
 
 @InProceedings{quintero2023optimal,
@@ -112,7 +118,9 @@
   pages={3707-3713},
   doi={10.1109/ICRA48891.2023.10161455},
   pdf = {https://kavrakilab.org/publications/quintero2023-optimal-tmp.pdf},
-  abstract = {Many methods that solve robot planning problems, such as task and motion planners, employ discrete symbolic search to find sequences of valid symbolic actions that are grounded with motion planning. Much of the efficacy of these planners lies in this grounding—bad placement and grasp choices can lead to inefficient planning when a problem has many geometric constraints. Moreover, grounding methods such as naı̈ve sampling often fail to find appropriate values for these choices in the presence of clutter. Towards efficient task and motion planning, we present a novel optimization-based approach for grounding to solve cluttered problems that have many constraints that arise from geometry. Our approach finds an optimal grounding and can provide feedback to discrete search for more effective planning. We demonstrate our method against baseline methods in complex simulated environments.}
+  abstract = {Many methods that solve robot planning problems, such as task and motion planners, employ discrete symbolic search to find sequences of valid symbolic actions that are grounded with motion planning. Much of the efficacy of these planners lies in this grounding—bad placement and grasp choices can lead to inefficient planning when a problem has many geometric constraints. Moreover, grounding methods such as naı̈ve sampling often fail to find appropriate values for these choices in the presence of clutter. Towards efficient task and motion planning, we present a novel optimization-based approach for grounding to solve cluttered problems that have many constraints that arise from geometry. Our approach finds an optimal grounding and can provide feedback to discrete search for more effective planning. We demonstrate our method against baseline methods in complex simulated environments.},
+  projects = {long-horizon},
+
 }
 
 @article{kingston2023tro,
@@ -129,7 +137,9 @@
   abstract = {Robotic manipulation is inherently continuous, but typically has an underlying discrete structure, such as if an object is grasped. Many problems like these are multi-modal, such as pick-and-place tasks where every object grasp and placement is a mode. Multi-modal problems require finding a sequence of transitions between modes - for example, a particular sequence of object picks and placements. However, many multi-modal planners fail to scale when motion planning is difficult (e.g., in clutter) or the task has a long horizon (e.g., rearrangement). This work presents solutions for multi-modal scalability in both these areas. For motion planning, we present an experience-based planning framework ALEF which reuses experience from similar modes both online and from training data. For task satisfaction, we present a layered planning approach that uses a discrete lead to bias search towards useful mode transitions, informed by weights over mode transitions. Together, these contributions enable multi-modal planners to tackle complex manipulation tasks that were previously infeasible or inefficient, and provide significant improvements in scenes with high-dimensional robots.},
   video = {<https://player.vimeo.com/video/743110686?loop=1&color=ffffff&byline=0&portrait=0},
   selected = {true},
-  preview = {r2_walking.jpg}
+  preview = {r2_walking.jpg},
+  projects = {long-horizon,constraints},
+
 }
 
 @Article{chamzas2021mbm,
@@ -146,7 +156,8 @@
   abstract = {Recently, there has been a wealth of development in motion planning for robotic manipulationnew motion planners are continuously proposed, each with its own unique set of strengths and weaknesses. However, evaluating these new planners is challenging, and researchers often create their own ad-hoc problems for benchmarking, which is time-consuming, prone to bias, and does not directly compare against other state-of-the-art planners. We present MotionBenchMaker, an open-source tool to generate benchmarking datasets for realistic robot manipulation problems. MotionBenchMaker is designed to be an extensible, easy-to-use tool that allows users to both generate datasets and benchmark them by comparing motion planning algorithms. Empirically, we show the benefit of using MotionBenchMaker as a tool to procedurally generate datasets which helps in the fair evaluation of planners. We also present a suite of over 40 prefabricated datasets, with 5 different commonly used robots in 8 environments, to serve as a common ground for future motion planning research.},
   video    = {https://www.youtube.com/watch?v=t96Py0QX0NI},
   talk     = {https://www.youtube.com/watch?v=dCxXZWGQIlQ},
-  code = {https://github.com/KavrakiLab/motion_bench_maker}
+  code = {https://github.com/KavrakiLab/motion_bench_maker},
+  projects = {software},
 }
 
 @InProceedings{kingston2022robowflex,
@@ -162,7 +173,8 @@
   talk          = {https://www.youtube.com/watch?v=mPDE3QSkLJ0},
   video         = {https://player.vimeo.com/video/760062092?h=68a0b835cf&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479},
   nominated          = {Nominated for Best Paper for Industrial Robotics Research for Practicality.},
-  code = {https://github.com/KavrakiLab/robowflex}
+  code = {https://github.com/KavrakiLab/robowflex},
+  projects = {software},
 }
 
 @InProceedings{kingston2021,
@@ -174,7 +186,9 @@
   pages     = {6922--6927},
   doi       = {10.1109/IROS51168.2021.9636236},
   pdf       = {http://www.kavrakilab.org/publications/kingston2021experience-foliations.pdf},
-  abstract  = {Many robotic manipulation problems are multi-modal—they consist of a discrete set of mode families (e.g., whether an object is grasped or placed) each with a continuum of parameters (e.g., where exactly an object is grasped). Core to these problems is solving single-mode motion plans, i.e., given a mode from a mode family (e.g., a specific grasp), find a feasible motion to transition to the next desired mode. Many planners for such problems have been proposed, but complex manipulation plans may require prohibitively long computation times due to the difficulty of solving these underlying single-mode problems. It has been shown that using experience from similar planning queries can significantly improve the efficiency of motion planning. However, even though modes from the same family are similar, they impose different constraints on the planning problem, and thus experience gained in one mode cannot be directly applied to another. We present a new experience-based framework, ALEF , for such multi-modal planning problems. ALEF learns using paths from single-mode problems from a mode family, and applies this experience to novel modes from the same family. We evaluate ALEF on a variety of challenging problems and show a significant improvement in the efficiency of sampling-based planners both in isolation and within a multi-modal manipulation planner.}
+  abstract  = {Many robotic manipulation problems are multi-modal—they consist of a discrete set of mode families (e.g., whether an object is grasped or placed) each with a continuum of parameters (e.g., where exactly an object is grasped). Core to these problems is solving single-mode motion plans, i.e., given a mode from a mode family (e.g., a specific grasp), find a feasible motion to transition to the next desired mode. Many planners for such problems have been proposed, but complex manipulation plans may require prohibitively long computation times due to the difficulty of solving these underlying single-mode problems. It has been shown that using experience from similar planning queries can significantly improve the efficiency of motion planning. However, even though modes from the same family are similar, they impose different constraints on the planning problem, and thus experience gained in one mode cannot be directly applied to another. We present a new experience-based framework, ALEF , for such multi-modal planning problems. ALEF learns using paths from single-mode problems from a mode family, and applies this experience to novel modes from the same family. We evaluate ALEF on a variety of challenging problems and show a significant improvement in the efficiency of sampling-based planners both in isolation and within a multi-modal manipulation planner.},
+  projects = {long-horizon,constraints},
+
 }
 
 @InProceedings{moll2021hyper,
@@ -187,7 +201,8 @@
   doi       = {10.1109/IROS51168.2021.9636651},
   pdf       = {http://kavrakilab.org/publications/moll2021hyperplan.pdf},
   abstract  = {Over the years, many motion planning algorithms have been proposed. It is often unclear which algorithm might be best suited for a particular class of problems. The problem is compounded by the fact that algorithm performance can be highly dependent on parameter settings. This paper shows that hyperparameter optimization is an effective tool in both algorithm selection and parameter tuning over a given set of motion planning problems. We present different loss functions for optimization that capture different notions of optimality. The approach is evaluated on a broad range of scenes using two different manipulators, a Fetch and a Baxter. We show that optimized planning algorithm performance significantly improves upon baseline performance and generalizes broadly in the sense that performance improvements carry over to problems that are very different from the ones considered during optimization.},
-  code = {https://github.com/KavrakiLab/hyperplan}
+  code = {https://github.com/KavrakiLab/hyperplan},
+  projects = {realtime,software},
 }
 
 @InProceedings{chamzas2021flame,
@@ -202,7 +217,8 @@
   doi       = {10.1109/ICRA48506.2021.9561104},
   pages     = {1283--1289},
   video     = {https://www.youtube.com/watch?v=cH4_lIjjs58},
-  code = {https://github.com/KavrakiLab/pyre}
+  code = {https://github.com/KavrakiLab/pyre},
+  projects = {implicit}
 }
 
 @InProceedings{wells2021icra,
@@ -214,7 +230,9 @@
   abstract  = {Robots have begun operating and collaborating with humans in industrial and social settings. This collaboration introduces challenges: the robot must plan while taking the human’s actions into account. In prior work, the problem was posed as a 2-player deterministic game, with a limited number of human moves. The limit on human moves is unintuitive, and in many settings determinism is undesirable. In this paper, we present a novel planning method for collaborative human-robot manipulation tasks via probabilistic synthesis. We introduce a probabilistic manipulation domain that captures the interaction by allowing for both robot and human actions with states that represent the configurations of the objects in the workspace. The task is specified using Linear Temporal Logic over finite traces (LTLf). We then transform our manipulation domain into a Markov Decision Process (MDP) and synthesize an optimal policy to satisfy the specification on this MDP. We present two novel contributions: a formalization of probabilistic manipulation domains allowing us to apply existing techniques and a comparison of different encodings of these domains. Our framework is validated on a physical UR5 robot.},
   pdf       = {http://www.kavrakilab.org/publications/wells2021-finite-horizon-synthesis.pdf},
   doi       = {10.1109/ICRA48506.2021.9561297},
-  pages     = {6336--6342}
+  pages     = {6336--6342},
+  projects = {long-horizon,hri},
+
 }
 
 @InBook{kingston2020book,
@@ -228,6 +246,7 @@
   address   = {Berlin, Heidelberg},
   isbn      = {978-3-642-41610-1},
   doi       = {10.1007/978-3-642-41610-1_174-1},
+  projects = {constraints},
 }
 
 @InProceedings{kingston2020leads,
@@ -241,6 +260,7 @@ abbr = {ICRA},
   pdf       = {http://kavrakilab.org/publications/kingston2020weighting-multi-modal-leads.pdf},
   doi       = {10.1109/ICRA40945.2020.9197545},
   video     = {https://player.vimeo.com/video/393316293?loop=1&color=ffffff&byline=0&portrait=0},
+  projects = {long-horizon,constraints},
 }
 
 @InCollection{kingston2020isrr,
@@ -257,7 +277,8 @@ abbr = {ICRA},
   doi       = {10.1007/978-3-030-28619-4_62},
   pdf       = {http://kavrakilab.org/publications/kingston2017decoupling-constraints.pdf},
   video     = {https://player.vimeo.com/video/261052837?loop=1&color=ffffff&byline=0&portrait=0},
-  code = {https://ompl.kavrakilab.org/constrainedPlanning.html}
+  code = {https://ompl.kavrakilab.org/constrainedPlanning.html},
+  projects = {constraints},
 }
 
 @Article{kingston2019imacs,
@@ -275,7 +296,8 @@ abbr = {IJRR},
   pdf      = {http://kavrakilab.org/publications/kingston2019exploring-implicit-spaces-for-constrained.pdf},
   code = {https://ompl.kavrakilab.org/constrainedPlanning.html},
   selected = {true},
-  preview = {parallel.jpg}
+  preview = {parallel.jpg},
+  projects = {constraints},
 }
 
 @InCollection{habibi2018dars,
@@ -306,6 +328,7 @@ abbr = {IJRR},
   doi      = {10.1177/0278364918761570},
   pdf      = {http://kavrakilab.org/publications/dantam2018incremental-tmp.pdf},
   code = {http://tmkit.kavrakilab.org/},
+  projects = {long-horizon},
 }
 
 @Article{kingston2018ar,
@@ -320,7 +343,8 @@ abbr = {IJRR},
   abstract = {Robots with many degrees of freedom (e.g., humanoid robots and mobile manipulators) have increasingly been employed to accomplish realistic tasks in domains such as disaster relief, spacecraft logistics, and home caretaking. Finding feasible motions for these robots autonomously is essential for their operation. Sampling-based motion planning algorithms have been shown to be effective for these high-dimensional systems. However, incorporating task constraints (e.g., keeping a cup level, writing on a board) into the planning process introduces significant challenges. is survey describes the families of methods for sampling-based planning with constraints and places them on a spectrum delineated by their complexity. Constrained sampling-based methods are based upon two core primitive operations: (1) sampling constraint-satisfying configurations and (2) generating constraint-satisfying continuous motion. Although the basics of sampling-based planning are presented for contextual background, the survey focuses on the representation of constraints and sampling-based planners that incorporate constraints.},
   doi      = {10.1146/annurev-control-060117-105226},
   pdf      = {http://kavrakilab.org/publications/kingston2018sampling-based-methods-for-motion-planning.pdf},
-  preview = {r2_tasks.jpg}
+  preview = {r2_tasks.jpg},
+  projects = {constraints},
 }
 
 @InProceedings{baker2017r2,
@@ -335,6 +359,7 @@ abbr = {IJRR},
   doi       = {10.1109/ARSO.2017.8025204},
   pdf       = {http://kavrakilab.org/publications/baker2017robonaut-2-and-you.pdf},
   video     = {https://player.vimeo.com/video/287250170?loop=1&color=ffffff&byline=0&portrait=0},
+  projects = {constraints,software},
 }
 
 @InProceedings{dantam2016tmp,
@@ -349,7 +374,8 @@ abbr = {RSS},
   doi       = {10.15607/RSS.2016.XII.002},
   pdf       = {http://kavrakilab.org/publications/dantam2016tmp.pdf},
   video     = {https://player.vimeo.com/video/287250215?loop=1&color=ffffff&byline=0&portrait=0},
-  code = {http://tmkit.kavrakilab.org/}
+  code = {http://tmkit.kavrakilab.org/},
+  projects = {long-horizon},
 }
 
 @InProceedings{kingston2015lc3,
@@ -363,7 +389,8 @@ abbr = {RSS},
   doi       = {10.1109/HUMANOIDS.2015.7363455},
   pdf       = {http://kavrakilab.org/publications/kingston2015lc3.pdf},
   video     = {https://player.vimeo.com/video/287250192?loop=1&color=ffffff&byline=0&portrait=0},
-  code = {http://amino.dyalab.org}
+  code = {http://amino.dyalab.org},
+  projects = {constraints},
 }
 
 @InCollection{habibi2015aamas,

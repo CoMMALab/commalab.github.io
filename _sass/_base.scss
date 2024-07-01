@@ -158,6 +158,8 @@ ul.task-list input[type="checkbox"] {
 
 .card {
   background-color: var(--global-card-bg-color);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
   .card-img {
     width: 100%;
@@ -838,6 +840,10 @@ footer.sticky-bottom {
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;
+}
+
+figure {
+    margin: 0;
 }
 
 pre {

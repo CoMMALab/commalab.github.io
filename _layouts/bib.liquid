@@ -178,6 +178,8 @@
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
+
+{% comment %}
     {% if entry.month %}
       {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
     {% endif %}
@@ -187,6 +189,8 @@
     {% if entry.location %}
       {% capture entrytype %}{{entrytype}}{{ ", " }}{{entry.location}}{% endcapture %}
     {% endif -%}
+{% endcomment %}
+
     {% if entry.additional_info %}
       {% capture entrytype %}{{entrytype}}{{entry.additional_info | markdownify | remove: '<p>' | remove: '</p>' }}{% endcapture %}
     {% endif %}
@@ -195,7 +199,13 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
+
+{% comment %}
     {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+{% endcomment %}
+
+    {% capture periodical %}{{ entrytype }}{% endcapture %}
+
     <div class="periodical">
       {{ periodical | strip }}
     </div>
