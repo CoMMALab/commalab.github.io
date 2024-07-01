@@ -1,0 +1,30 @@
+"ICRA":
+  url: https://ieee-icra.org
+  color: "#daaa00"
+
+"IROS":
+  url: https://ieee-iros.org/
+  color: "#DA9200"
+
+"RSS":
+  url: https://roboticsconference.org/
+  color: "#DA7900"
+
+"RAL":
+  url: https://www.ieee-ras.org/publications/ra-l
+  name: RA-L
+  color: "#BB921F"
+
+"TRO":
+  url: https://www.ieee-ras.org/publications/t-ro
+  name: T-RO
+  color: "#9C793E"
+
+"IJRR":
+  url: https://journals.sagepub.com/home/ijr
+  color: "#7D615D"
+
+"AR":
+  name: "Ann. Rev."
+  url: https://www.annualreviews.org/
+  color: "#555960"

@@ -1,0 +1,53 @@
+"kingston":
+  - firstname: ["Zachary", "Z.", "Z. K.", "Zachary Kingston"]
+    url: https://zkingston.com
+    member: true
+
+"ramsey":
+  - firstname: ["Clayton W.", "C. W.", "Clayton W. Ramsey"]
+    url: https://claytonwramsey.com
+
+"thomason":
+  - firstname: ["Wil", "W. T.", "Wil Thomason"]
+    url: https://wbthomason.com/
+
+"kavraki":
+  - firstname: ["Lydia E.", "L. E.", "Lydia E. Kavraki"]
+    url: https://profiles.rice.edu/faculty/lydia-e-kavraki
+
+"dantam":
+  - firstname: ["Neil T.", "N. T.", "Neil T. Dantam"]
+    url: http://www.neil.dantam.name/
+
+"moll":
+  - firstname: ["Mark", "Mark Moll"]
+    url: https://moll.ai/
+
+"wells":
+  - firstname: ["Andrew M.", "Andrew M. Wells"]
+    url: https://andrewmw94.github.io/
+
+"chamzas":
+  - firstname: ["Constantinos", "Constantions Chamzas"]
+    url: https://cchamzas.com/
+
+"quintero-pena":
+  - firstname: ["Carlos", "Carlos Quintero-Pena", "Quintero-Pena"]
+    clean_last_name: ["Quintero-Peña"]
+    url: https://carlosquinterop.github.io/
+
+"elimelech":
+  - firstname: ["Khen", "Khen Elimelech"]
+    url: http://khen.io/
+
+"shome":
+  - firstname: ["Rahul"]
+    url: https://www.rahulsho.me/
+
+"orthey":
+  - firstname: ["Andreas"]
+    url: https://www.aorthey.com/
+
+"pan":
+  - firstname: ["Tianyang"]
+    url: https://www.tianyangpan.com/
