@@ -8,10 +8,17 @@ layout: default
     <p class="post-description">{{ page.description }}</p>
   </header>
 
+
+  <div class="big-profile float-right">
+  {% capture project_video %}assets/video/{{ page.video }}{% endcapture %}
+  {% include video.liquid path=project_video class="img-fluid z-depth-1" controls="true" autoplay="true" muted="true" loop="true" %}
+  </div>
+
   <article>
     {{ content }}
   </article>
 
+  <br style="clear:both" />
   <div class="publications">
     {% bibliography -q @*[projects~={{ page.key }}] %}
   </div>

@@ -22,4 +22,6 @@ Throughout my Ph.D. studies, I was funded by a NASA Space Technology Research Fe
 
 I am an Associate Editor for IEEE Robotics and Automation Letters under Planning and Simulation and the current maintainer of the [Open Motion Planning Library](https://ompl.kavrakilab.org/), an open-source library with standard implementations of state-of-the-art sampling-based motion planners.
 
-My research interests broadly encompass algorithms, methods, and software for high-dimensional robot (i.e., robots with many joints) decision-making and motion planning: how to make a robot achieve a complex task with many constraints quickly and efficiently?
+My research interests broadly encompass algorithms, methods, and software for complex robots to make decisions and find feasible or optimal motions to achieve task objectives safely in the world.
+I am interested in techniques that generalize and apply to any robotic system, constraint, or environment and are fast, efficient, and easy to use within a broader system.
+I am also interested in the intersection between the theory and practice of robotics algorithms, finding where software engineering, hardware acceleration, and intelligent algorithm design can synergize to create a whole greater than the sum of its parts.

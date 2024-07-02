@@ -20,11 +20,10 @@ nav_rank: 2
             {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
             {%
                 include figure.liquid
-                loading="eager"
+                loading="lazy"
                 path=member_image
                 sizes = "200px"
                 class="preview z-depth-1 rounded"
-                zoomable=true
                 alt=entry.preview
              %}
             </div>
@@ -38,6 +37,8 @@ nav_rank: 2
                         {{ member.teaser }}
                     </p>
                     </a>
+                    
+                    <div style="position: absolute; bottom: 1em;">
                     {% if member.email %}
                         <a href="mailto:{{ member.email | encode_email }}" class="card-link"><i class="fas fa-envelope"></i></a>
                     {% endif %}
@@ -69,6 +70,7 @@ nav_rank: 2
                     <!-- <p class="card-text"> -->
                     <!--     <small class="test-muted"><i class="fas fa-thumbtack"></i> {{ member.address | replace: '<br />', ', ' }}</small> -->
                     <!-- </p> -->
+                    </div>
                 </div>
             </div>
         </div>

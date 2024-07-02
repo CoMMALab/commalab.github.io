@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Projects
+title: Research Areas
 permalink: /projects/
 description:
 nav: true
@@ -20,6 +20,9 @@ horizontal: false
             <a href="{{ project.url }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
+                    <h6 class = "text-muted">
+                    {{ project.caption }}
+                    </h6>
                 </div>
             </a>
             </div>
