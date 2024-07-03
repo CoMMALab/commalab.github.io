@@ -28,3 +28,7 @@
   name: "Ann. Rev."
   url: https://www.annualreviews.org/
   color: "#555960"
+
+"WKSP":
+  name: "Workshop"
+  color: "#505050"

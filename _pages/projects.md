@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Research Areas
+title: Research
 permalink: /projects/
 description:
 nav: true
@@ -8,7 +8,8 @@ nav_order: 3
 horizontal: false
 ---
 
-{% for project in site.projects %}
+{% assign projects = site.projects | sort: "rank" | uniq %}
+{% for project in projects %}
 <p>
     <div class="card hoverable">
         <div class="row no-gutters">

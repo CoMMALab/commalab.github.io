@@ -58,8 +58,15 @@
   {% endif %}
   <!-- Entry bib key -->
   <div class="{% if site.enable_publication_thumbnails %}col-sm-10{% else %}col-sm-12{% endif %}">
+
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    {% if entry.chapter and entry.type == 'inbook' %}
+      <div class="title">{{ entry.chapter }}, <i>{{ entry.title }}</i></div>
+    {% else %}
+      <div class="title">{{ entry.title }}</div>
+    {% endif %}
+
+
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -99,7 +106,8 @@
 
         {% if coauthor_url %}
             {%- if coauthor_ismember -%}
-              <a href="{{coauthor_url}}">
+              {% assign member_page_path = coauthor_url | prepend: 'members/' %}
+              <a href="{{ member_page_path | relative_url }}">
                 {{- author.first }} {{ author_last_html -}}
               </a>
             {%- else -%}

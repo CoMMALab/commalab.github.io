@@ -1,10 +1,7 @@
 "kingston":
   - firstname: ["Zachary"]
-    url: https://zkingston.com
+    url: kingston
     member: true
-
-
-
 
 "ramsey":
   - firstname: ["Clayton W."]

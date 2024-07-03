@@ -1,9 +1,9 @@
 ---
 layout: project
 key: hri
-title: Human-Robot Interaction
+title: Human-Robot Collaboration
 video: hri.webm
-caption: How should a robot move and act when there are humans present?
+caption: How should a robot move and act to work with humans?
 rank: 5
 ---
 
