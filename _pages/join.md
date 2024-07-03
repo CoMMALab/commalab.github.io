@@ -27,7 +27,12 @@ Please note that all admission decisions are made by the admissions committee.
 ## Existing Purdue Undergraduate/Masters/Doctoral Students
 
 Please email the PI directly with your résumé or CV and a cover letter about why you are interested in working in the lab and your relevant experience.
-It is also recommend to take a course offered by the PI and express your interest in joining the lab.
+It is also recommend to [take a course offered by the PI](/teaching) and express your interest in joining the lab.
+
+## Collaboration
+
+We are always interested in potential collaborations in academia, industry, and elsewhere that synergize with the direction of the CoMMA Lab!
+Please email the PI directly
 
 ## Diversity and Inclusion
 

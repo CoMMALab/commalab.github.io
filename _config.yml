@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: CoMMA Lab @ Purdue University # the website title (if blank, full name will be used instead)
+title: CoMMA Lab @ Purdue # the website title (if blank, full name will be used instead)
 # first_name: You
 # middle_name: R.
 # last_name: Name
@@ -190,6 +190,9 @@ collections:
   members:
     output: true
     permalink: /members/:path/
+  classes:
+    output: true
+    permalink: /classes/:path/
 
 announcements:
   enabled: true
@@ -312,8 +315,9 @@ scholar:
   locale: en
 
   source: /_bibliography/
-  bibliography: papers.bib
+  bibliography: "**/*.bib{,tex}"
   bibliography_template: bib
+
   # Note: if you have latex math in your bibtex, the latex filter
   # preprocessing may conflict with MathJAX if the latter is enabled.
   # See https://github.com/alshedivat/al-folio/issues/357.
@@ -366,6 +370,7 @@ filtered_bibtex_keywords:
     talk,
     website,
     projects,
+    week
   ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)

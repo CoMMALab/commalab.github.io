@@ -10,6 +10,6 @@ nav_order: 2
 <div class="publications">
 * indicates equal contribution.
 
-{% bibliography %}
+{% bibliography --file papers %}
 
 </div>

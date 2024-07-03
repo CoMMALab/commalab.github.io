@@ -37,8 +37,7 @@ nav_rank: 2
                         {{ member.teaser }}
                     </p>
                     </a>
-                    
-                    <div style="position: absolute; bottom: 1em;">
+                    <div>
                     {% if member.email %}
                         <a href="mailto:{{ member.email | encode_email }}" class="card-link"><i class="fas fa-envelope"></i></a>
                     {% endif %}

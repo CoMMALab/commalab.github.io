@@ -20,6 +20,6 @@ layout: default
 
   <br style="clear:both" />
   <div class="publications">
-    {% bibliography -q @*[projects~={{ page.key }}] %}
+    {% bibliography --file papers -q @*[projects~={{ page.key }}] %}
   </div>
 </div>

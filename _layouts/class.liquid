@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% capture syllabus_url %}assets/pdf/syllabus/{{ page.syllabus }}{% endcapture %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.course_number }}: {{ page.title }}</h1>
+    <p class="post-description h2"><a href="{{ syllabus_url | relative_url }}">Full Syllabus</a></p>
+  </header>
+
+
+  <div class="big-profile float-right">
+  {% capture member_image %}assets/img/classes/{{ page.preview }}{% endcapture %}
+  {%
+      include figure.liquid
+      loading="lazy"
+      path=member_image
+      sizes = "200px"
+      class="preview z-depth-1 rounded"
+      alt=entry.preview
+   %}
+  </div>
+
+  <article>
+    {{ content }}
+  </article>
+
+  <br style="clear:both" />
+</div>

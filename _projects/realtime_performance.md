@@ -4,7 +4,7 @@ key: realtime
 title: Real-time Performance
 video: fast_planning.webm
 front: true
-caption: Performance engineering for robotics to think and act as fast as possible.
+caption: Performance engineering so robots can think and act as fast as possible.
 rank: 3
 ---
 

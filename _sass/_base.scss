@@ -27,10 +27,12 @@ table {
   td,
   th {
     font-size: 1rem;
+    padding: .5em;
   }
 
   th {
     font-weight: bold;
+    padding: .2em;
   }
 }
 
@@ -224,7 +226,8 @@ ul.task-list input[type="checkbox"] {
   font-size: 0.875rem;
 
   a {
-    color: inherit;
+    color: var(--global-theme-color);
+    border-bottom: 1px dashed var(--global-theme-color);
 
     &:hover {
       color: var(--global-theme-color);
