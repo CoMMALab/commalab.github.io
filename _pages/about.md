@@ -9,7 +9,13 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ...
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Welcome to the <text class="highlight">Co</text>mputational <text class="highlight">M</text>otion, <text class="highlight">M</text>anipulation, and <text class="highlight">A</text>utonomy lab in Purdue University's Computer Science Department!
+
+## About Us
+
+Our research broadly encompasses algorithms, methods, and software for complex robots or autonomous systems to make decisions and find feasible or optimal motions to achieve task objectives safely in the world.
+We are interested in techniques that generalize and apply to any robotic system, constraint, or environment and are fast, efficient, and easy to use within a broader system---our approaches can be applied to robots that work in factories, the home, hospitals, and even in space.
+We are also interested in the intersection between the theory and practice of robotics algorithms, finding where software engineering, hardware acceleration, and intelligent algorithm design can synergize to create a whole greater than the sum of its parts.
 
 <hr/>
 <h2>Research Areas</h2>
