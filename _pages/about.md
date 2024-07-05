@@ -13,8 +13,8 @@ Welcome to the <text class="highlight">Co</text>mputational <text class="highlig
 
 ## About Us
 
-Our research broadly encompasses algorithms, methods, and software for complex robots or autonomous systems to make decisions and find feasible or optimal motions to achieve task objectives safely in the world.
-We are interested in techniques that generalize and apply to any robotic system, constraint, or environment and are fast, efficient, and easy to use within a broader system---our approaches can be applied to robots that work in factories, the home, hospitals, and even in space.
+Our research broadly encompasses algorithms, methods, and software for complex robots or autonomous systems to achieve complicated tasks in the real world, focusing on how robots make decisions about what actions to do, in what sequence to do those actions, and how to move in the world to accomplish those actions.
+We are interested in techniques that generalize and apply to any robotic system, constraint, or environment and are fast, efficient, and easy to use within a broader system---we want our approaches to apply to robots that work in factories, the home, hospitals, and even space.
 We are also interested in the intersection between the theory and practice of robotics algorithms, finding where software engineering, hardware acceleration, and intelligent algorithm design can synergize to create a whole greater than the sum of its parts.
 
 <hr/>
