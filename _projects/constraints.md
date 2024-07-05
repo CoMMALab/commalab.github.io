@@ -8,4 +8,6 @@ caption: Methods to generate robot motion that adhere to complex task constraint
 rank: 1
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Interacting with the world imposes constraints on your motion: you open doors about their hinge, pull drawers along their rails, keep glasses of liquid upright so they do not spill, and more.
+Respecting these constraints while still generating feasible or optimal motion is complex and requires careful consideration in the design of planning algorithms and how the constraints are specified and satisfied.
+There are also many exciting considerations when there are many constraints that need to be satisfied simultaneously (*e.g.*, a humanoid robot that must open a door, keep a glass upright, and maintain balance, or as shown in the video, a parallel mechanism with many interacting arms) or in sequence (*e.g.*, as shown in the video, Robonaut 2 traversing multiple handrails, opening the hatch, and so on).
