@@ -23,6 +23,12 @@ strong {
     color: var(--global-hover-color);
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }

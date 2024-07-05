@@ -9,7 +9,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ...
 
-Welcome to the <text class="highlight">Co</text>mputational <text class="highlight">M</text>otion, <text class="highlight">M</text>anipulation, and <text class="highlight">A</text>utonomy lab in Purdue University's Computer Science Department!
+Welcome to the <text class="highlight">Co</text>mputational <text class="highlight">M</text>otion, <text class="highlight">M</text>anipulation, and <text class="highlight">A</text>utonomy lab in <a href="https://www.purdue.edu/">Purdue University's</a> <a href="https://www.cs.purdue.edu/">Computer Science Department</a>!
 
 ## About Us
 

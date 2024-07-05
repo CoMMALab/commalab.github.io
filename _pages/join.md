@@ -9,7 +9,7 @@ nav_order: 6
 
 # Joining the CoMMA Lab
 
-We are always interested to hear from motivated undergradate and graduate researchers!
+We are always interested to hear from motivated undergraduate and graduate researchers!
 Please take a look at the [About page](/) and our [Research Areas](/projects) to see whether your background experiences, classwork, and interests align with the technical direction of the lab.
 
 While not strictly required, it is recommended that you have experience in:
@@ -28,11 +28,6 @@ Please note that all admission decisions are made by the admissions committee.
 
 Please email the PI directly with your résumé or CV and a cover letter about why you are interested in working in the lab and your relevant experience.
 It is also recommend to [take a course offered by the PI](/teaching) and express your interest in joining the lab.
-
-## Collaboration
-
-We are always interested in potential collaborations in academia, industry, and elsewhere that synergize with the direction of the CoMMA Lab!
-Please email the PI directly
 
 ## Diversity and Inclusion
 
