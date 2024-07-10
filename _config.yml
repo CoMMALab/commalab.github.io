@@ -370,7 +370,8 @@ filtered_bibtex_keywords:
     talk,
     website,
     projects,
-    week
+    week,
+    nominated,
   ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)

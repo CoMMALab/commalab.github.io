@@ -2,14 +2,18 @@
 layout: about
 title: About
 permalink: /
-subtitle: Computational Motion, Manipulation, and Autonomy Lab
+# subtitle: Computational Motion, Manipulation, and Autonomy Lab
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ...
 
-Welcome to the <text class="highlight">Co</text>mputational <text class="highlight">M</text>otion, <text class="highlight">M</text>anipulation, and <text class="highlight">A</text>utonomy lab in <a href="https://www.purdue.edu/">Purdue University's</a> <a href="https://www.cs.purdue.edu/">Computer Science Department</a>!
+<p>
+<h5>
+Welcome to the <b class="highlight">Co</b>mputational <b class="highlight">M</b>otion, <b class="highlight">M</b>anipulation, and <b class="highlight">A</b>utonomy lab in <a href="https://www.purdue.edu/">Purdue University's</a> <a href="https://www.cs.purdue.edu/">Computer Science Department</a>!
+</h5>
+</p>
 
 ## About Us
 

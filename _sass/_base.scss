@@ -21,6 +21,7 @@ strong {
 
 .highlight {
     color: var(--global-hover-color);
+    text-decoration: underline;
 }
 
 .center {
@@ -30,29 +31,29 @@ strong {
 }
 
 hr {
-  border-top: 1px solid var(--global-divider-color);
+    border-top: 1px solid var(--global-divider-color);
 }
 
 table {
-  td,
-  th {
-    font-size: 1rem;
-    padding: .5em;
-  }
+    td,
+    th {
+        font-size: 1rem;
+        padding: .5em;
+    }
 
-  th {
-    font-weight: bold;
-    padding: .2em;
-  }
+    th {
+        font-weight: bold;
+        padding: .2em;
+    }
 }
 
 a,
 table.table a {
-  color: var(--global-theme-color);
-
-  &:hover {
     color: var(--global-theme-color);
-    text-decoration: underline;
+
+    &:hover {
+        color: var(--global-theme-color);
+        text-decoration: underline;
   }
 
   &:hover:after :not(.nav-item.dropdown) {
