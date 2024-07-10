@@ -7,4 +7,6 @@ caption: Methods that incorporate learned or implicit components into planning a
 rank: 5
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Robots must learn from experience and data to be efficient in unmodeled, unknown, and previously unseen domains.
+There are many methods for learning implicit models of the world, which capture everything from a 3D reconstruction of a scene, quantifying the risk of collision, understanding task constraints from human demonstrations, and more.
+There are endless opportunities for integrating these models within existing algorithm frameworks or new neurosymbolic approaches to generalize planning capabilities to previously considered intractable problems.

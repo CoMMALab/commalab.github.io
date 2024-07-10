@@ -7,4 +7,6 @@ caption: Software engineering for robotics and planning algorithms.
 rank: 4
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Modern robots are complex computer systems involving enormous amounts of software to handle everything from drivers to communicate to physical interfaces, middleware to communicate between disparate processes, and machine learning kernels to process incoming data to make decisions in real-time.
+Robots' unique challenges (heterogeneous hardware, programmed and learned components, handling physical environments, emergent behavior in the real world, etc.) merit special consideration from the software used by practitioners and researchers.
+Developing software components, libraries, and robot systems requires understanding and shaping code around these distinguishing use cases.

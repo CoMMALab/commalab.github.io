@@ -11,9 +11,11 @@ social: false # includes social icons at the bottom of the page
 
 <p>
 <h5>
-Welcome to the <b class="highlight">Co</b>mputational <b class="highlight">M</b>otion, <b class="highlight">M</b>anipulation, and <b class="highlight">A</b>utonomy lab in <a href="https://www.purdue.edu/">Purdue University's</a> <a href="https://www.cs.purdue.edu/">Computer Science Department</a>!
+Welcome to the <b class="highlight">Co</b>mputational <b class="highlight">M</b>otion, <b class="highlight">M</b>anipulation, and <b class="highlight">A</b>utonomy (CoMMA) lab at <a href="https://www.purdue.edu/">Purdue</a>!
 </h5>
 </p>
+
+<br>
 
 ## About Us
 
@@ -33,7 +35,7 @@ We are also interested in the intersection between the theory and practice of ro
         <a href="{{ project.url }}">
         <h5 class="card-title">{{ project.title }}</h5>
         {% capture project_video %}assets/video/{{ project.video }}{% endcapture %}
-        {% include video.liquid path=project_video class="img-fluid z-depth-1" controls="true" autoplay="true" muted="true" loop="true" %}
+        {% include video.liquid path=project_video class="img-fluid z-depth-1" autoplay="true" muted="true" loop="true" %}
         </a>
     </div>
     </div>
