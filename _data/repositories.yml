@@ -8,3 +8,6 @@ github_repos:
   - KavrakiLab/vamp
   - KavrakiLab/robowflex
   - KavrakiLab/motion_bench_maker
+  - KavrakiLab/captree-rs
+  - KavrakiLab/hyperplan
+  - KavrakiLab/pyre

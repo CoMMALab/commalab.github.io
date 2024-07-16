@@ -32,3 +32,7 @@
 "WKSP":
   name: "Workshop"
   color: "#505050"
+
+"ABS":
+  name: "Abstract"
+  color: "#505050"
