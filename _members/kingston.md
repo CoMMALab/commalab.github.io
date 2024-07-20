@@ -10,7 +10,7 @@ email: "zkingston@purdue.edu"
 linkedin: "zachary-kingston-79421b294"
 website: "https://zkingston.com"
 orcid: "0000-0002-3896-5110"
-google_scholar: "55jqt2MAAAAJ"
+google_scholar: "PqcZ56cAAAAJ"
 cv: "kingston.pdf"
 image: "zachary_kingston.jpg"
 group: Principal Investigator
