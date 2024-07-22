@@ -29,7 +29,7 @@ We are also interested in the intersection between the theory and practice of ro
 <div class="row">
 {% assign projects = site.projects | where: "front","true" %}
 {% for project in projects %}
-    <div class="col-sm-4 col-md-4">
+    <div class="col-sm-4 col-md-4 tight-col">
     <div class="card hoverable">
     <div class="card-body">
         <a href="{{ project.url }}">
@@ -43,7 +43,7 @@ We are also interested in the intersection between the theory and practice of ro
 {% endfor %}
 {% assign projects = site.projects | where: "front",empty %}
 {% for project in projects %}
-    <div class="col-sm-4 col-md-4">
+    <div class="col-sm-4 col-md-4 tight-col">
     <div class="card hoverable">
     <div class="card-body">
         <a href="{{ project.url }}">

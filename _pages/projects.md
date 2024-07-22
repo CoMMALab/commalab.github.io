@@ -15,7 +15,7 @@ horizontal: false
         <div class="row no-gutters">
             <div class="col-sm-4 col-md-3">
                 {% capture project_video %}assets/video/{{ project.video }}{% endcapture %}
-                {% include video.liquid path=project_video class="img-fluid z-depth-1" controls="true" autoplay="true" muted="true" loop="true" %}
+                {% include video.liquid path=project_video class="img-fluid z-depth-1" autoplay="true" muted="true" loop="true" %}
             </div>
             <div class="team col-sm-8 col-md-9">
             <a href="{{ project.url }}">
