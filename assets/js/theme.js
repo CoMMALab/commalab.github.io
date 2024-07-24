@@ -3,12 +3,19 @@
 // Toggle through light, dark, and system theme settings.
 let toggleThemeSetting = () => {
   let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
+  // if (themeSetting == "system") {
+  //   setThemeSetting("light");
+  // } else if (themeSetting == "light") {
+  //   setThemeSetting("dark");
+  // } else {
+  //   setThemeSetting("system");
+  // }
+
+
+  if (themeSetting == "light") {
     setThemeSetting("dark");
   } else {
-    setThemeSetting("system");
+    setThemeSetting("light");
   }
 };
 
@@ -209,8 +216,12 @@ let transTheme = () => {
 // "system". Default is "system".
 let determineThemeSetting = () => {
   let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
-    themeSetting = "system";
+  // if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
+  //   themeSetting = "system";
+  // }
+
+  if (themeSetting != "dark" && themeSetting != "light") {
+    themeSetting = "dark";
   }
   return themeSetting;
 };
