@@ -12,8 +12,10 @@
   abbr = {ABS},
   author  = {Qingxi Meng and Carlos Quintero-Peña and Zachary Kingston and Vaibhav Unhelkar and Lydia E. Kavraki},
   title   = {Perception-aware Planning for Robotics: Challenges and Opportunities},
-  booktitle = { 40th Anniversary of the IEEE Conference on Robotics and Automation (ICRA@40)},
+  booktitle = {40th Anniversary of the IEEE Conference on Robotics and Automation (ICRA@40)},
   year    = {2024},
+  pdf = {https://kavrakilab.org/publications/meng2024-review.pdf},
+  abstract = {In this work, we argue that new methods are needed to generate robot motion for navigation or manipulation while effectively achieving perception goals. We support our argument by conducting experiments with a simulated robot that must accomplish a primary task, such as manipulation or navigation, while concurrently monitoring an object in the environment. Our preliminary study demonstrates that a decoupled approach fails to achieve high success in either action-focused motion generation or perception goals, motivating further developments of approaches that holistically consider both goals.},
   projects={implicit,hri}
 }
 
@@ -23,6 +25,7 @@
   title = {Collision-Affording Point Trees: SIMD-Amenable Nearest Neighbors for Fast Collision Checking},
   booktitle = rss,
   year    = {2024},
+  doi       = {10.15607/RSS.2024.XX.038},
   pdf = {https://arxiv.org/abs/2406.02807},
   abstract = {Motion planning against sensor data is often a critical bottleneck in real-time robot control. For sampling-based motion planners, which are effective for high-dimensional systems such as manipulators, the most time-intensive component is collision checking. We present a novel spatial data structure, the collision-affording point tree (CAPT): an exact representation of point clouds that accelerates collision-checking queries between robots and point clouds by an order of magnitude, with an average query time of less than 10 nanoseconds on 3D scenes comprising thousands of points. With the CAPT, sampling-based planners can generate valid, high-quality paths in under a millisecond, with total end-to-end computation time faster than 60 FPS, on a single thread of a consumer-grade CPU. We also present a point cloud filtering algorithm, based on space-filling curves, which reduces the number of points in a point cloud while preserving structure. Our approach enables robots to plan at real-time speeds in sensed environments, opening up potential uses of planning for high-dimensional systems in dynamic, changing, and unmodeled environments.},
   video = {https://www.youtube.com/watch?v=BzDKdrU1VpM},

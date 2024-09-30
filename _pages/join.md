@@ -7,6 +7,12 @@ nav: true
 nav_order: 6
 ---
 
+<p>
+<h1>
+<b class="highlight">We are hiring for multiple Ph.D. positions for the Fall 2025 semester!</b>
+</h1>
+</p>
+
 # Joining the CoMMA Lab
 
 We are always interested to hear from motivated undergraduate and graduate researchers!
