@@ -36,3 +36,7 @@
 "ABS":
   name: "Abstract"
   color: "#505050"
+
+"ARXIV":
+  name: "arXiv"
+  color: "#b31b1b"
