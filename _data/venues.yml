@@ -10,6 +10,10 @@
   url: https://roboticsconference.org/
   color: "#DA7900"
 
+"ISRR":
+  url: http://ifrr.org/isrr
+  color: "#e33900"
+
 "RAL":
   url: https://www.ieee-ras.org/publications/ra-l
   name: RA-L
