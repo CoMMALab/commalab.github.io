@@ -11,7 +11,7 @@
 @InProceedings{liang2024ropras,
   abbr={ISRR},
   title={Scaling Long-Horizon Online {POMDP} Planning via Rapid State Space Sampling}, 
-  author={Yuanchu Liang and Edward Kim and Wil Thomason and Zachary Kingston and Hanna Kurniawati and Lydia E. Kavraki},
+  author={Yuanchu Liang* and Edward Kim* and Wil Thomason* and Zachary Kingston* and Hanna Kurniawati and Lydia E. Kavraki},
   booktitle = {International Symposium of Robotics Research},
   year={2024},
   pdf={https://arxiv.org/abs/2411.07032},
@@ -29,6 +29,8 @@
   archivePrefix={arXiv},
   primaryClass={cs.RO},
   pdf={https://arxiv.org/abs/2411.17902},
+  video={https://www.youtube.com/watch?v=Lb_5Znpcleg},
+  code={https://robotic-esp.com/code/fcitstar/},
   abstract={Improving the performance of motion planning algorithms for high-degree-of-freedom robots usually requires reducing the cost or frequency of computationally expensive operations. Traditionally, and especially for asymptotically optimal sampling-based motion planners, the most expensive operations are local motion validation and querying the nearest neighbours of a configuration.
 Recent advances have significantly reduced the cost of motion validation by using single instruction/multiple data (SIMD) parallelism to improve solution times for satisficing motion planning problems. These advances have not yet been applied to asymptotically optimal motion planning.
 This paper presents Fully Connected Informed Trees (FCIT*), the first fully connected, informed, anytime almost-surely asymptotically optimal (ASAO) algorithm. FCIT* exploits the radically reduced cost of edge evaluation via SIMD parallelism to build and search fully connected graphs. This removes the need for nearest-neighbours structures, which are a dominant cost for many sampling-based motion planners, and allows it to find initial solutions faster than state-of-the-art ASAO (VAMP, OMPL) and satisficing (OMPL) algorithms on the MotionBenchMaker dataset while converging towards optimal plans in an anytime manner.},
@@ -59,6 +61,7 @@ This paper presents Fully Connected Informed Trees (FCIT*), the first fully conn
   archivePrefix={arXiv},
   primaryClass={cs.RO},
   pdf={https://arxiv.org/abs/2410.21630},
+  code={https://github.com/JBVAkshaya/PlanningOnManifoldIntersection},
   abstract={Cooperative manipulation tasks impose various structure-, task-, and robot-specific constraints on mobile manipulators. However, current methods struggle to model and solve these myriad constraints simultaneously. We propose a twofold solution: first, we model constraints as a family of manifolds amenable to simultaneous solving. Second, we introduce the constrained nonlinear Kaczmarz (cNKZ) projection technique to produce constraint-satisfying solutions. Experiments show that cNKZ dramatically outperforms baseline approaches, which cannot find solutions at all. We integrate cNKZ with a sampling-based motion planning algorithm to generate complex, coordinated motions for 3 to 6 mobile manipulators (18--36 DoF), with cNKZ solving up to 80 nonlinear constraints simultaneously and achieving up to a 92\% success rate in cluttered environments. We also demonstrate our approach on hardware using three Turtlebot3 Waffle Pi robots with OpenMANIPULATOR-X arms.},
   note={Under Review},
   projects = {constraints},
