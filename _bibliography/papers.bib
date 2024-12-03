@@ -20,6 +20,36 @@
   projects={realtime},
 }
 
+@misc{wilson2024fcit,
+  abbr = {ARXIV},
+  title={Nearest-Neighbourless Asymptotically Optimal Motion Planning with Fully Connected Informed Trees ({FCIT}*)}, 
+  author={Tyler S. Wilson and Wil Thomason and Zachary Kingston and Lydia E. Kavraki and Jonathan D. Gammell},
+  year={2024},
+  eprint={2411.17902},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2411.17902},
+  abstract={Improving the performance of motion planning algorithms for high-degree-of-freedom robots usually requires reducing the cost or frequency of computationally expensive operations. Traditionally, and especially for asymptotically optimal sampling-based motion planners, the most expensive operations are local motion validation and querying the nearest neighbours of a configuration.
+Recent advances have significantly reduced the cost of motion validation by using single instruction/multiple data (SIMD) parallelism to improve solution times for satisficing motion planning problems. These advances have not yet been applied to asymptotically optimal motion planning.
+This paper presents Fully Connected Informed Trees (FCIT*), the first fully connected, informed, anytime almost-surely asymptotically optimal (ASAO) algorithm. FCIT* exploits the radically reduced cost of edge evaluation via SIMD parallelism to build and search fully connected graphs. This removes the need for nearest-neighbours structures, which are a dominant cost for many sampling-based motion planners, and allows it to find initial solutions faster than state-of-the-art ASAO (VAMP, OMPL) and satisficing (OMPL) algorithms on the MotionBenchMaker dataset while converging towards optimal plans in an anytime manner.},
+  note={Under Review},
+  projects = {realtime},
+}
+
+@misc{guo2024stac,
+  abbr = {ARXIV},
+  title={Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation}, 
+  author={Weihang Guo and Zachary Kingston and Kaiyu Hang and Lydia E. Kavraki},
+  year={2024},
+  eprint={2412.00366},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2412.00366},
+  abstract={Multi-robot motion planning for high degree-of-freedom manipulators in shared, constrained, and narrow spaces is a complex problem and essential for many scenarios such as construction, surgery, and more. Traditional coupled and decoupled methods either scale poorly or lack completeness, and hybrid methods that compose paths from individual robots together require the enumeration of many paths before they can find valid composite solutions. This paper introduces Scheduling to Avoid Collisions (StAC), a hybrid approach that more effectively composes paths from individual robots by scheduling (adding random stops and coordination motion along each path) and generates paths that are more likely to be feasible by using bidirectional feedback between the scheduler and motion planner for informed sampling. StAC uses 10 to 100 times fewer paths from the low-level planner than state-of-the-art baselines on challenging problems in manipulator cases.},
+  note={Under Review},
+  projects = {constraints},
+}
+
 @misc{agrawal2024cnkz,
   abbr = {ARXIV},
   title={Constrained Nonlinear {Kaczmarz} Projection on Intersections of Manifolds for Coordinated Multi-Robot Mobile Manipulation}, 
