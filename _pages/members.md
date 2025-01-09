@@ -9,7 +9,7 @@ nav_rank: 2
 
 {% assign groups = site.members | sort: "group_rank" | map: "group" | uniq %}
 {% for group in groups %}
-# {{ group }}
+## {{ group }}
 
     {% assign members = site.members | sort: "lastname" | where: "group", group %}
     {% for member in members %}
