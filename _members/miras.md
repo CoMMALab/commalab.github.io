@@ -4,13 +4,13 @@ title: Miras Mengdibayev
 first_name: Miras
 last_name: Mengdibayev
 pronouns: he/him
-position: "Visiting scholar at Department of Computer Science"
+position: "Visiting Scholars"
 github: "mmengdib"
 email: "mmengdib@purdue.edu"
 linkedin: "mmengdib"
 image: "miras.jpg"
 group: Visiting Scholar
-group_rank: 5
+group_rank: 4
 ---
 
 I am a Visiting Scholar in the [Computer Science Department](https://www.cs.purdue.edu/) at [Purdue University](https://www.purdue.edu/) in the CoMMA Lab.
