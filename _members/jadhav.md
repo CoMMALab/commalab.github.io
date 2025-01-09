@@ -14,4 +14,4 @@ group: Member
 group_rank: 0
 ---
 
-I am a Sophomore studying CS and Math at [Purdue University](https://www.purdue.edu/). My research interests include hardware accelerated motion planning, physical AI, and LLMs.
+I am a sophomore studying CS and Math at [Purdue University](https://www.purdue.edu/). My research interests include hardware accelerated motion planning, physical AI, and LLMs.
