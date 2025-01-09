@@ -10,7 +10,7 @@ email: "jadhav14@purdue.edu"
 linkedin: "pranav-jadhav-499677281"
 website: "https://github.com/pranavjad"
 image: "pranav_jadhav.jpg"
-group: Undergraduate Student
+group: Undergraduate Students
 group_rank: 5
 ---
 
