@@ -4,7 +4,6 @@ title: Pranav Jadhav
 first_name: Pranav
 last_name: Jadhav
 pronouns: he/him
-position: "Undergraduate Researcher"
 github: "pranavjad"
 email: "jadhav14@purdue.edu"
 linkedin: "pranav-jadhav-499677281"

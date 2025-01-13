@@ -13,7 +13,7 @@ nav_rank: 2
 
     {% assign members = site.members | sort: "lastname" | where: "group", group %}
     {% for member in members %}
-<p>
+<p style="margin-bottom:10px">
     <div class="card hoverable">
         <div class="row no-gutters">
             <div class="col-sm-3 col-md-2">
@@ -74,9 +74,9 @@ nav_rank: 2
             </div>
         </div>
     </div>
-</p>
-<br>
+    </p>
     {% endfor %}
+<br>
 {% endfor %}
 
 

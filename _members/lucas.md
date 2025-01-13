@@ -4,7 +4,6 @@ title: Lucas Chen
 first_name: Lucas
 last_name: Chen
 pronouns: he/him
-position: "Master's Student"
 github: "reschivon"
 email: "chen4007@purdue.edu"
 linkedin: "i-make-robots"

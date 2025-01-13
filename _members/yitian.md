@@ -4,7 +4,6 @@ title: Yitian Gao
 first_name: Yitian
 last_name: Gao
 pronouns: he/him
-position: "Master's Student"
 github: "gao634"
 email: "gao634@purdue.edu"
 linkedin: "yitian-gao-80843b250"

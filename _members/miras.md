@@ -4,7 +4,6 @@ title: Miras Mengdibayev
 first_name: Miras
 last_name: Mengdibayev
 pronouns: he/him
-position: "Visiting Scholar"
 github: "mmengdib"
 email: "mmengdib@purdue.edu"
 linkedin: "mmengdib"
