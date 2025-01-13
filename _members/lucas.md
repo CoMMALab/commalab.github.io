@@ -4,13 +4,13 @@ title: Lucas Chen
 first_name: Lucas
 last_name: Chen
 pronouns: he/him
-position: "Student Researcher"
+position: "Master's Student"
 github: "reschivon"
 email: "chen4007@purdue.edu"
 linkedin: "i-make-robots"
 image: "lucas.jpg"
-group: TODO
-group_rank: TODO
+group: Master's Students
+group_rank: 3
 ---
 
 I am a Master's student at the CoMMA lab in the [Computer Science Department](https://www.cs.purdue.edu/) of [Purdue University](https://www.purdue.edu/).
