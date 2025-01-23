@@ -47,6 +47,9 @@ nav_rank: 2
                     {% if member.google_scholar %}
                         <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" class="card-link" target="_blank"><i class="ai ai-google-scholar"></i></a>
                     {% endif %}
+                    {% if member.dblp %}
+                        <a href="https://dblp.org/pid/{{ member.dblp }}.html" class="card-link" target="_blank"><i class="ai ai-dblp"></i></a>
+                    {% endif %}
                     {% if member.linkedin %}
                         <a href="https://linkedin.com/in/{{ member.linkedin }}/" class="card-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                     {% endif %}

@@ -30,6 +30,9 @@ layout: default
   {% if page.google_scholar %}
       <div class="col-1" style="margin:2px;"><a href="https://scholar.google.com/citations?user={{ page.google_scholar }}" class="card-link" target="_blank"><i class="ai ai-google-scholar"></i></a></div>
   {% endif %}
+  {% if page.dblp %}
+      <div class="col-1" style="margin:2px;"><a href="https://dblp.org/pid/{{ page.dblp }}.html" class="card-link" target="_blank"><i class="ai ai-dblp"></i></a></div>
+  {% endif %}
   {% if page.linkedin %}
       <div class="col-1" style="margin:2px;"><a href="https://linkedin.com/in/{{ page.linkedin }}/" class="card-link" target="_blank"><i class="fab fa-linkedin"></i></a></div>
   {% endif %}

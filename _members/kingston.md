@@ -11,6 +11,7 @@ linkedin: "zachary-kingston-79421b294"
 website: "https://zkingston.com"
 orcid: "0000-0002-3896-5110"
 google_scholar: "PqcZ56cAAAAJ"
+dblp: "173/7760"
 cv: "kingston.pdf"
 image: "zachary_kingston.jpg"
 group: Principal Investigator
