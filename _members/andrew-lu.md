@@ -10,7 +10,7 @@ linkedin: "andrewyunlu"
 website: "https://github.com/AndrewLuGit"
 image: "andrew_lu.jpg"
 group: Undergraduate Students
-group_rank: 6
+group_rank: 5
 ---
 
 I am a junior studying CS at [Purdue University](https://www.purdue.edu/). My research interests include real-time motion planning, multi-agent task planning, and game playing.
