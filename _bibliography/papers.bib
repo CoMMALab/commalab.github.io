@@ -8,22 +8,12 @@
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
 
-@InProceedings{liang2024ropras,
-  abbr={ISRR},
-  title={Scaling Long-Horizon Online {POMDP} Planning via Rapid State Space Sampling}, 
-  author={Yuanchu Liang* and Edward Kim* and Wil Thomason* and Zachary Kingston* and Hanna Kurniawati and Lydia E. Kavraki},
-  booktitle = {International Symposium of Robotics Research},
-  year={2024},
-  pdf={https://arxiv.org/abs/2411.07032},
-  abstract={Partially Observable Markov Decision Processes (POMDPs) are a general and principled framework for motion planning under uncertainty. Despite tremendous improvement in the scalability of POMDP solvers, long-horizon POMDPs (e.g., $\geq$ 15 steps) remain difficult to solve. This paper proposes a new approximate online POMDP solver, called Reference-Based Online POMDP Planning via Rapid State Space Sampling (ROP-RaS3). ROP-RaS3 uses novel extremely fast sampling-based motion planning techniques to sample the state space and generate a diverse set of macro actions online which are then used to bias belief-space sampling and infer high-quality policies without requiring exhaustive enumeration of the action space---a fundamental constraint for modern online POMDP solvers. ROP-RaS3 is evaluated on various long-horizon POMDPs, including on a problem with a planning horizon of more than 100 steps and a problem with a 15-dimensional state space that requires more than 20 look ahead steps. In all of these problems, ROP-RaS3 substantially outperforms other state-of-the-art methods by up to multiple folds.},
-  projects={realtime},
-}
-
-@misc{wilson2024fcit,
-  abbr = {ARXIV},
+@inproceedings{wilson2024fcit,
+  abbr = {ICRA},
   title={Nearest-Neighbourless Asymptotically Optimal Motion Planning with Fully Connected Informed Trees ({FCIT}*)}, 
   author={Tyler S. Wilson and Wil Thomason and Zachary Kingston and Lydia E. Kavraki and Jonathan D. Gammell},
-  year={2024},
+  year={2025},
+  booktitle     = icra,
   eprint={2411.17902},
   archivePrefix={arXiv},
   primaryClass={cs.RO},
@@ -33,8 +23,51 @@
   abstract={Improving the performance of motion planning algorithms for high-degree-of-freedom robots usually requires reducing the cost or frequency of computationally expensive operations. Traditionally, and especially for asymptotically optimal sampling-based motion planners, the most expensive operations are local motion validation and querying the nearest neighbours of a configuration.
 Recent advances have significantly reduced the cost of motion validation by using single instruction/multiple data (SIMD) parallelism to improve solution times for satisficing motion planning problems. These advances have not yet been applied to asymptotically optimal motion planning.
 This paper presents Fully Connected Informed Trees (FCIT*), the first fully connected, informed, anytime almost-surely asymptotically optimal (ASAO) algorithm. FCIT* exploits the radically reduced cost of edge evaluation via SIMD parallelism to build and search fully connected graphs. This removes the need for nearest-neighbours structures, which are a dominant cost for many sampling-based motion planners, and allows it to find initial solutions faster than state-of-the-art ASAO (VAMP, OMPL) and satisficing (OMPL) algorithms on the MotionBenchMaker dataset while converging towards optimal plans in an anytime manner.},
-  note={Under Review},
+  note={To Appear},
   projects = {realtime},
+}
+
+@inproceedings{agrawal2024cnkz,
+  abbr = {ICRA},
+  title={Constrained Nonlinear {Kaczmarz} Projection on Intersections of Manifolds for Coordinated Multi-Robot Mobile Manipulation}, 
+  author={Akshaya Agrawal and Parker Mayer and Zachary Kingston and Geoffrey A. Hollinger},
+  year={2025},
+  booktitle     = icra,
+  eprint={2410.21630},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2410.21630},
+  code={https://github.com/JBVAkshaya/PlanningOnManifoldIntersection},
+  abstract={Cooperative manipulation tasks impose various structure-, task-, and robot-specific constraints on mobile manipulators. However, current methods struggle to model and solve these myriad constraints simultaneously. We propose a twofold solution: first, we model constraints as a family of manifolds amenable to simultaneous solving. Second, we introduce the constrained nonlinear Kaczmarz (cNKZ) projection technique to produce constraint-satisfying solutions. Experiments show that cNKZ dramatically outperforms baseline approaches, which cannot find solutions at all. We integrate cNKZ with a sampling-based motion planning algorithm to generate complex, coordinated motions for 3 to 6 mobile manipulators (18--36 DoF), with cNKZ solving up to 80 nonlinear constraints simultaneously and achieving up to a 92\% success rate in cluttered environments. We also demonstrate our approach on hardware using three Turtlebot3 Waffle Pi robots with OpenMANIPULATOR-X arms.},
+  note={To Appear},
+  projects = {constraints},
+}
+
+@inproceedings{guo2024castl,
+  abbr = {ICRA},
+  title={{CaStL}: Constraints as Specifications through {LLM} Translation for Long-Horizon Task and Motion Planning}, 
+  author={Weihang Guo and Zachary Kingston and Lydia E. Kavraki},
+  year={2025},
+  booktitle     = icra,
+  eprint={2410.22225},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2410.22225},
+  abstract={Large Language Models (LLMs) have demonstrated remarkable ability in long-horizon Task and Motion Planning (TAMP) by translating clear and straightforward natural language problems into formal specifications such as the Planning Domain Definition Language (PDDL). However, real-world problems are often ambiguous and involve many complex constraints. In this paper, we introduce Constraints as Specifications through LLMs (CaStL), a framework that identifies constraints such as goal conditions, action ordering, and action blocking from natural language in multiple stages. CaStL translates these constraints into PDDL and Python scripts, which are solved using an custom PDDL solver. Tested across three PDDL domains, CaStL significantly improves constraint handling and planning success rates from natural language specification in complex scenarios.},
+  note={To Appear},
+  projects={long-horizon,hri}
+}
+
+
+@InProceedings{liang2024ropras,
+  abbr={ISRR},
+  title={Scaling Long-Horizon Online {POMDP} Planning via Rapid State Space Sampling}, 
+  author={Yuanchu Liang* and Edward Kim* and Wil Thomason* and Zachary Kingston* and Hanna Kurniawati and Lydia E. Kavraki},
+  booktitle = {International Symposium of Robotics Research},
+  year={2024},
+  pdf={https://arxiv.org/abs/2411.07032},
+  abstract={Partially Observable Markov Decision Processes (POMDPs) are a general and principled framework for motion planning under uncertainty. Despite tremendous improvement in the scalability of POMDP solvers, long-horizon POMDPs (e.g., $\geq$ 15 steps) remain difficult to solve. This paper proposes a new approximate online POMDP solver, called Reference-Based Online POMDP Planning via Rapid State Space Sampling (ROP-RaS3). ROP-RaS3 uses novel extremely fast sampling-based motion planning techniques to sample the state space and generate a diverse set of macro actions online which are then used to bias belief-space sampling and infer high-quality policies without requiring exhaustive enumeration of the action space---a fundamental constraint for modern online POMDP solvers. ROP-RaS3 is evaluated on various long-horizon POMDPs, including on a problem with a planning horizon of more than 100 steps and a problem with a 15-dimensional state space that requires more than 20 look ahead steps. In all of these problems, ROP-RaS3 substantially outperforms other state-of-the-art methods by up to multiple folds.},
+  projects={realtime},
 }
 
 @misc{guo2024stac,
@@ -49,35 +82,6 @@ This paper presents Fully Connected Informed Trees (FCIT*), the first fully conn
   abstract={Multi-robot motion planning for high degree-of-freedom manipulators in shared, constrained, and narrow spaces is a complex problem and essential for many scenarios such as construction, surgery, and more. Traditional coupled and decoupled methods either scale poorly or lack completeness, and hybrid methods that compose paths from individual robots together require the enumeration of many paths before they can find valid composite solutions. This paper introduces Scheduling to Avoid Collisions (StAC), a hybrid approach that more effectively composes paths from individual robots by scheduling (adding random stops and coordination motion along each path) and generates paths that are more likely to be feasible by using bidirectional feedback between the scheduler and motion planner for informed sampling. StAC uses 10 to 100 times fewer paths from the low-level planner than state-of-the-art baselines on challenging problems in manipulator cases.},
   note={Under Review},
   projects = {constraints},
-}
-
-@misc{agrawal2024cnkz,
-  abbr = {ARXIV},
-  title={Constrained Nonlinear {Kaczmarz} Projection on Intersections of Manifolds for Coordinated Multi-Robot Mobile Manipulation}, 
-  author={Akshaya Agrawal and Parker Mayer and Zachary Kingston and Geoffrey A. Hollinger},
-  year={2024},
-  eprint={2410.21630},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO},
-  pdf={https://arxiv.org/abs/2410.21630},
-  code={https://github.com/JBVAkshaya/PlanningOnManifoldIntersection},
-  abstract={Cooperative manipulation tasks impose various structure-, task-, and robot-specific constraints on mobile manipulators. However, current methods struggle to model and solve these myriad constraints simultaneously. We propose a twofold solution: first, we model constraints as a family of manifolds amenable to simultaneous solving. Second, we introduce the constrained nonlinear Kaczmarz (cNKZ) projection technique to produce constraint-satisfying solutions. Experiments show that cNKZ dramatically outperforms baseline approaches, which cannot find solutions at all. We integrate cNKZ with a sampling-based motion planning algorithm to generate complex, coordinated motions for 3 to 6 mobile manipulators (18--36 DoF), with cNKZ solving up to 80 nonlinear constraints simultaneously and achieving up to a 92\% success rate in cluttered environments. We also demonstrate our approach on hardware using three Turtlebot3 Waffle Pi robots with OpenMANIPULATOR-X arms.},
-  note={Under Review},
-  projects = {constraints},
-}
-
-@misc{guo2024castl,
-  abbr = {ARXIV},
-  title={{CaStL}: Constraints as Specifications through {LLM} Translation for Long-Horizon Task and Motion Planning}, 
-  author={Weihang Guo and Zachary Kingston and Lydia E. Kavraki},
-  year={2024},
-  eprint={2410.22225},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO},
-  pdf={https://arxiv.org/abs/2410.22225},
-  abstract={Large Language Models (LLMs) have demonstrated remarkable ability in long-horizon Task and Motion Planning (TAMP) by translating clear and straightforward natural language problems into formal specifications such as the Planning Domain Definition Language (PDDL). However, real-world problems are often ambiguous and involve many complex constraints. In this paper, we introduce Constraints as Specifications through LLMs (CaStL), a framework that identifies constraints such as goal conditions, action ordering, and action blocking from natural language in multiple stages. CaStL translates these constraints into PDDL and Python scripts, which are solved using an custom PDDL solver. Tested across three PDDL domains, CaStL significantly improves constraint handling and planning success rates from natural language specification in complex scenarios.},
-  note={Under Review},
-  projects={long-horizon,hri}
 }
 
 @InProceedings{meng2024icra40,

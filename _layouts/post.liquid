@@ -58,6 +58,11 @@ layout: default
           {% endunless %}
         {% endfor %}
       {% endif %}
+
+      {% if page.linkedin %}
+      <br>
+      <a href="{{ page.linkedin }}" class="card-link" target="_blank"><i class="fab fa-linkedin"></i>&nbsp;See this post on LinkedIn</a>
+      {% endif %}
     </p>
   </header>
 
