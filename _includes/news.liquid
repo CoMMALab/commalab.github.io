@@ -18,6 +18,10 @@
           <tr>
             <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
             <td>
+
+              {% if item.linkedin %}
+                <a href="{{ item.linkedin }}" class="card-link" target="_blank"><i class="fab fa-linkedin"></i></a>&nbsp;
+              {% endif %}
               {% if item.inline %}
                 {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
               {% else %}
