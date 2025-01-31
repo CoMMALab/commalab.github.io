@@ -8,6 +8,23 @@
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
 
+
+@inproceedings{chengao2025diffsim,
+  abbr = {RoboSoft},
+  title={Physics-Grounded Differentiable Simulation for Soft Growing Robots}, 
+  author={Lucas Chen and Yitian Gao and Sicheng Wang and Francesco Fuentes and Laura H. Blumenschein and Zachary Kingston},
+  year={2025},
+  booktitle = {IEEE-RAS International Conference on soft robotics},
+  eprint={2501.17963},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2501.17963},
+  code={https://github.com/CoMMALab/DiffVineSimPy},
+  abstract={     Soft-growing robots (i.e., vine robots) are a promising class of soft robots that allow for navigation and growth in tightly confined environments. However, these robots remain challenging to model and control due to the complex interplay of the inflated structure and inextensible materials, which leads to obstacles for autonomous operation and design optimization. Although there exist simulators for these systems that have achieved qualitative and quantitative success in matching high-level behavior, they still often fail to capture realistic vine robot shapes using simplified parameter models and have difficulties in high-throughput simulation necessary for planning and parameter optimization. We propose a differentiable simulator for these systems, enabling the use of the simulator "in-the-loop" of gradient-based optimization approaches to address the issues listed above. With the more complex parameter fitting made possible by this approach, we experimentally validate and integrate a closed-form nonlinear stiffness model for thin-walled inflated tubes based on a first-principles approach to local material wrinkling. Our simulator also takes advantage of data-parallel operations by leveraging existing differentiable computation frameworks, allowing multiple simultaneous rollouts. We demonstrate the feasibility of using a physics-grounded nonlinear stiffness model within our simulator, and how it can be an effective tool in sim-to-real transfer. We provide our implementation open source.},
+  note={To Appear},
+  projects = {software},
+}
+
 @inproceedings{wilson2024fcit,
   abbr = {ICRA},
   title={Nearest-Neighbourless Asymptotically Optimal Motion Planning with Fully Connected Informed Trees ({FCIT}*)}, 

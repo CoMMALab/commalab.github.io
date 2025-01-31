@@ -3,6 +3,20 @@
     url: kingston
     member: true
 
+"gao":
+  - firstname: ["Yitian"]
+    url: yitian
+    member: true
+
+"chen":
+  - firstname: ["Lucas"]
+    url: lucas
+    member: true
+
+"blumenschein":
+  - firstname: ["Laura H."]
+    url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
+
 "ramsey":
   - firstname: ["Clayton W."]
     url: https://claytonwramsey.com
