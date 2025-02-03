@@ -104,7 +104,7 @@
         {% endif %}
 
         {%- if forloop.length > 1 -%}
-          {%- if forloop.first == false %},&nbsp;{% endif -%}
+          {%- if forloop.first == false %}, {% endif -%}
           {%- if forloop.last and author_array_limit == author_array_size %}and&nbsp;{% endif -%}
         {%- endif -%}
 
@@ -112,15 +112,15 @@
             {%- if coauthor_ismember -%}
               {%- assign member_page_path = coauthor_url | prepend: 'members/' -%}
               <a href="{{ member_page_path | relative_url }}">
-                {{- author.first }} {{ author_last_html -}}
+                {{- author.first }}&nbsp;{{ author_last_html -}}
               </a>
             {%- else -%}
               <a href="{{coauthor_url}}" class="nonmember">
-                {{- author.first }} {{ author_last_html -}}
+                {{- author.first }}&nbsp;{{ author_last_html -}}
               </a>
             {%- endif -%}
         {%- else -%}
-          {{- author.first }} {{ author_last_html -}}
+          {{- author.first }}&nbsp;{{ author_last_html -}}
         {%- endif -%}
 
         {% endcapture %}{{ author_block | strip }}
