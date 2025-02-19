@@ -7,9 +7,9 @@ pronouns: he/him
 github: "stalhabukhari"
 email: "bukhars@purdue.edu"
 linkedin: "stalhabukhari"
-website: "stalhabukhari.github.io"
+website: "https://stalhabukhari.github.io"
 image: "talha.jpeg"
-group: PhD Students
+group: Ph.D. Students
 group_rank: 2
 ---
 
