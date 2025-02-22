@@ -4,10 +4,10 @@ title: Shyam Sivasubramanian
 first_name: Shyam
 last_name: Sivasubramanian
 pronouns: he/him
-github: Shyam-Sivasubramanian
-email: sivasubr@purdue.edu
-linkedin: shyam-sivasubramanian-69a420216
-image: shyam.jpg
+github: "Shyam-Sivasubramanian"
+email: "sivasubr@purdue.edu"
+linkedin: "shyam-sivasubramanian-69a420216"
+image: "shyam.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
