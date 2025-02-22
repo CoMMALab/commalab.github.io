@@ -12,4 +12,4 @@ group: Undergraduate Students
 group_rank: 5
 ---
 
-I am a sophomore studying computer and data science at[Purdue University](https://www.purdue.edu/) My research interests include motion planning, LLMs, and reinforcement learning.
+I am a sophomore studying computer and data science at [Purdue University](https://www.purdue.edu/) My research interests include motion planning, LLMs, and reinforcement learning.
