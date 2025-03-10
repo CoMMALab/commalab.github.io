@@ -5,6 +5,12 @@ title: Team
 description:
 nav: true
 nav_rank: 2
+
+carousels:
+  - images:
+    - image: /assets/img/group_photos/2025_03_09_katana_sushi.jpg
+      label: Group Dinner at Katana Sushi, March 2025
+
 ---
 
 {% assign groups = site.members | sort: "group_rank" | map: "group" | uniq %}
@@ -82,4 +88,5 @@ nav_rank: 2
 <br>
 {% endfor %}
 
-
+<h2>Group Photos</h2>
+{% include carousel.html height="50" unit="%" duration="7" number="1" %}
