@@ -22,7 +22,7 @@ carousels:
 <p style="margin-bottom:10px">
     <div class="card hoverable">
         <div class="row no-gutters">
-            <div class="col-sm-3 col-md-2">
+            <div class="col-5 col-xs-3 col-sm-3">
             {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
             {%
                 include figure.liquid
@@ -33,7 +33,7 @@ carousels:
                 alt=entry.preview
              %}
             </div>
-            <div class="team col-sm-9 col-md-10">
+            <div class="team col-7 col-xs-9 col-sm-9">
                 <div class="card-body">
                     <a href="{{ member.url }}">
                     <h5 class="card-title">{{ member.first_name }} {{ member.last_name }}</h5>
@@ -45,39 +45,33 @@ carousels:
                     </a>
                     <div>
                     {% if member.email %}
-                        <a href="mailto:{{ member.email | encode_email }}" class="card-link"><i class="fas fa-envelope"></i></a>
-                    {% endif %}
-                    {% if member.phone %}
-                        <a href="tel:{{ member.phone }}" class="card-link"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:{{ member.email | encode_email }}"><i class="fas fa-envelope"></i></a>
                     {% endif %}
                     {% if member.google_scholar %}
-                        <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" class="card-link" target="_blank"><i class="ai ai-google-scholar"></i></a>
+                        <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" target="_blank"><i class="ai ai-google-scholar"></i></a>
                     {% endif %}
                     {% if member.dblp %}
-                        <a href="https://dblp.org/pid/{{ member.dblp }}.html" class="card-link" target="_blank"><i class="ai ai-dblp"></i></a>
+                        <a href="https://dblp.org/pid/{{ member.dblp }}.html" target="_blank"><i class="ai ai-dblp"></i></a>
                     {% endif %}
                     {% if member.linkedin %}
-                        <a href="https://linkedin.com/in/{{ member.linkedin }}/" class="card-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://linkedin.com/in/{{ member.linkedin }}/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     {% endif %}
                     {% if member.orcid %}
-                        <a href="https://orcid.org/{{ member.orcid }}" class="card-link" target="_blank"><i class="fab fa-orcid"></i></a>
+                        <a href="https://orcid.org/{{ member.orcid }}" target="_blank"><i class="fab fa-orcid"></i></a>
                     {% endif %}
                     {% if member.twitter %}
-                        <a href="https://twitter.com/{{ member.twitter }}" class="card-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/{{ member.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
                     {% endif %}
                     {% if member.github %}
-                        <a href="https://github.com/{{ member.github }}" class="card-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/{{ member.github }}" target="_blank"><i class="fab fa-github"></i></a>
                     {% endif %}
                     {% if member.cv %}
                     {% capture cv_path %}assets/pdf/cv/{{ member.cv }}{% endcapture %}
-                        <a href="{{ cv_path | relative_url }}" class="card-link" target="_blank"><i class="ai ai-cv"></i></a>
+                        <a href="{{ cv_path | relative_url }}" target="_blank"><i class="ai ai-cv"></i></a>
                     {% endif %}
                     {% if member.website %}
-                        <a href="{{ member.website }}" class="card-link" target="_blank"><i class="fas fa-globe"></i></a>
+                        <a href="{{ member.website }}" target="_blank"><i class="fas fa-globe"></i></a>
                     {% endif %}
-                    <!-- <p class="card-text"> -->
-                    <!--     <small class="test-muted"><i class="fas fa-thumbtack"></i> {{ member.address | replace: '<br />', ', ' }}</small> -->
-                    <!-- </p> -->
                     </div>
                 </div>
             </div>
