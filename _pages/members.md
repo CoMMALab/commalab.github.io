@@ -22,7 +22,7 @@ carousels:
 <p style="margin-bottom:10px">
     <div class="card hoverable">
         <div class="row no-gutters">
-            <div class="col-5 col-xs-3 col-sm-3">
+            <div class="col-5 col-xs-3 col-sm-3 col-md-2">
             {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
             {%
                 include figure.liquid
@@ -33,7 +33,7 @@ carousels:
                 alt=entry.preview
              %}
             </div>
-            <div class="team col-7 col-xs-9 col-sm-9">
+            <div class="team col-7 col-xs-9 col-sm-9 col-md-10">
                 <div class="card-body">
                     <a href="{{ member.url }}">
                     <h5 class="card-title">{{ member.first_name }} {{ member.last_name }}</h5>
