@@ -13,6 +13,11 @@
     url: lucas
     member: true
 
+"jadhav":
+  - firstname: ["Pranav"]
+    url: jadhav
+    member: true
+
 "blumenschein":
   - firstname: ["Laura H."]
     url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
@@ -129,3 +134,7 @@
 "gammell":
   - firstname: ["Jonathan D."]
     url: https://robotic-esp.com/people/gammell/
+
+"plancher":
+  - firstname: ["Brian"]
+    url: https://brianplancher.com/

@@ -8,6 +8,21 @@
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
 
+@misc{huangjadhav2025prrtc,
+  abbr = {ARXIV},
+  title={{pRRTC}: {GPU}-Parallel {RRT}-Connect for Fast, Consistent, and Low-Cost Motion Planning}, 
+  author={Chih H. Huang and Pranav Jadhav and Brian Plancher and Zachary Kingston},
+  year={2025},
+  eprint={2503.06757},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2503.06757},
+  abstract={Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely used variant, RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots. However, these methods remain computationally intensive, particularly in complex environments that require many collision checks. As such, to improve performance, recent efforts have explored parallelizing specific components of RRT, such as collision checking or running multiple planners independently, but no prior work has integrated parallelism at multiple levels of the algorithm for robotic manipulation. In this work, we present pRRTC, a GPU-accelerated implementation of RRT-Connect that achieves parallelism across the entire algorithm through multithreaded expansion and connection, SIMT-optimized collision checking, and hierarchical parallelism optimization, improving efficiency, consistency, and initial solution cost. We evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees-of-freedom, demonstrating up to 6x average speedup on constrained reaching tasks at high collision checking resolution compared to state-of-the-art. pRRTC also demonstrates a 5x reduction in solution time variance and 1.5x improvement in initial path costs compared to state-of-the-art motion planners in complex environments across all robots.},
+  note={Under Review},
+  code={https://github.com/CoMMALab/pRRTC},
+  projects = {realtime},
+}
+
 @inproceedings{chengao2025diffsim,
   abbr = {RoboSoft},
   preview = {robosoft25.jpg},
