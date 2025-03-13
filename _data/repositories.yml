@@ -6,8 +6,11 @@ repo_description_lines_max: 2
 github_repos:
   - ompl/ompl
   - KavrakiLab/vamp
+  - CoMMALab/pRRTC
+  - CoMMALab/DiffVineSimPy
   - KavrakiLab/robowflex
   - KavrakiLab/motion_bench_maker
   - KavrakiLab/captree-rs
   - KavrakiLab/hyperplan
   - KavrakiLab/pyre
+
