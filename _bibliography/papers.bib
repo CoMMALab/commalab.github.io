@@ -23,6 +23,21 @@
   projects = {realtime},
 }
 
+@misc{coumar2025foam,
+  abbr = {ARXIV},
+  title={Foam: A Tool for Spherical Approximation of Robot Geometry}, 
+  author={Sai Coumar and Gilbert Chang and Nihar Kodkani and Zachary Kingston},
+  year={2025},
+  eprint={2503.13704},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  pdf={https://arxiv.org/abs/2503.13704},
+  abstract={Many applications in robotics require primitive spherical geometry, especially in cases where efficient distance queries are necessary. Manual creation of spherical models is time-consuming and prone to errors. This paper presents Foam, a tool to generate spherical approximations of robot geometry from an input Universal Robot Description Format (URDF) file. Foam provides a robust preprocessing pipeline to handle mesh defects and a number of configuration parameters to control the level and approximation of the spherization, and generates an output URDF with collision geometry specified only by spheres. We demonstrate Foam on a number of standard robot models on common tasks, and demonstrate improved collision checking and distance query performance with only a minor loss in fidelity compared to the true collision geometry. We release our tool as an open source Python library and containerized command-line application to facilitate adoption across the robotics community.},
+  note={Under Review},
+  code={https://github.com/CoMMALab/foam},
+  projects={software}
+}
+
 @inproceedings{chengao2025diffsim,
   abbr = {RoboSoft},
   preview = {robosoft25.jpg},
@@ -89,6 +104,19 @@ This paper presents Fully Connected Informed Trees (FCIT*), the first fully conn
   abstract={Large Language Models (LLMs) have demonstrated remarkable ability in long-horizon Task and Motion Planning (TAMP) by translating clear and straightforward natural language problems into formal specifications such as the Planning Domain Definition Language (PDDL). However, real-world problems are often ambiguous and involve many complex constraints. In this paper, we introduce Constraints as Specifications through LLMs (CaStL), a framework that identifies constraints such as goal conditions, action ordering, and action blocking from natural language in multiple stages. CaStL translates these constraints into PDDL and Python scripts, which are solved using an custom PDDL solver. Tested across three PDDL domains, CaStL significantly improves constraint handling and planning success rates from natural language specification in complex scenarios.},
   note={To Appear},
   projects={long-horizon,hri}
+}
+
+@misc{coumar2025ascii,
+  abbr = {ARXIV},
+  title={Evaluating Machine Learning Approaches for {ASCII} Art Generation}, 
+  author={Sai Coumar and Zachary Kingston},
+  year={2025},
+  eprint={2503.14375},
+  archivePrefix={arXiv},
+  primaryClass={cs.GR},
+  pdf={https://arxiv.org/abs/2503.14375},
+  abstract={Generating structured ASCII art using computational techniques demands a careful interplay between aesthetic representation and computational precision, requiring models that can effectively translate visual information into symbolic text characters. Although Convolutional Neural Networks (CNNs) have shown promise in this domain, the comparative performance of deep learning architectures and classical machine learning methods remains unexplored. This paper explores the application of contemporary ML and DL methods to generate structured ASCII art, focusing on three key criteria: fidelity, character classification accuracy, and output quality. We investigate deep learning architectures, including Multilayer Perceptrons (MLPs), ResNet, and MobileNetV2, alongside classical approaches such as Random Forests, Support Vector Machines (SVMs) and k-Nearest Neighbors (k-NN), trained on an augmented synthetic dataset of ASCII characters. Our results show that complex neural network architectures often fall short in producing high-quality ASCII art, whereas classical machine learning classifiers, despite their simplicity, achieve performance similar to CNNs. Our findings highlight the strength of classical methods in bridging model simplicity with output quality, offering new insights into ASCII art synthesis and machine learning on image data with low dimensionality.},
+  code={https://github.com/saiccoumar/deep_ascii_converter}
 }
 
 

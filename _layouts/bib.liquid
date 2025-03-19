@@ -104,7 +104,8 @@
         {% endif %}
 
         {%- if forloop.length > 1 -%}
-          {%- if forloop.first == false %}, {% endif -%}
+          {%- if forloop.first == false and author_array_size != 2 %}, {% endif -%}
+          {%- if forloop.first == false and author_array_size == 2 %}&nbsp;{% endif -%}
           {%- if forloop.last and author_array_limit == author_array_size %}and&nbsp;{% endif -%}
         {%- endif -%}
 

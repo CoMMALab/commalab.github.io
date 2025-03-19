@@ -18,6 +18,16 @@
     url: jadhav
     member: true
 
+"chang":
+  - firstname: ["Gilbert"]
+    url: chang
+    member: true
+
+"kodkani":
+  - firstname: ["Nihar"]
+    url: kodkani
+    member: true
+
 "blumenschein":
   - firstname: ["Laura H."]
     url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
