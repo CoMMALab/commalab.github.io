@@ -7,7 +7,7 @@ pronouns: he/him
 github: "Kaivalya-Agrawal"
 email: "agraw201@purdue.edu"
 linkedin: "kaivalya-agrawal-682996211/"
-image: "kaivalya.png"
+image: "kaivalya.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
