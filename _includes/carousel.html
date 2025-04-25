@@ -27,7 +27,9 @@
         <div class="carousel__track">
           <ul>
             {% for item in page.carousels[number].images %}
-              <li class="carousel__slide" style="background-image: url('{{ item.image }}');"><p style="margin:15px;">{{ item.label }}</p></li>
+              <li class="carousel__slide" style="background-image: url('{{ item.image }}');">
+                <div class="carousel__label">{{ item.label }}</div>
+              </li>
             {% endfor %}
           </ul>
         </div>
@@ -177,6 +179,18 @@
   background-position: center;
 }
 {% endfor %}
+
+/* Added for label positioning */
+.carousel__label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  z-index: 2;
+}
 </style>
 
 <script>

@@ -10,6 +10,8 @@ carousels:
   - images:
     - image: /assets/img/group_photos/2025_03_09_katana_sushi.jpg
       label: Group Dinner at Katana Sushi, March 2025
+    - image: /assets/img/group_photos/2025_04_25_robosoft.jpg
+      label: Yitian and Lucas presenting at Robosoft 2025
 
 ---
 
