@@ -12,6 +12,8 @@ carousels:
       label: Group Dinner at Katana Sushi, March 2025
     - image: /assets/img/group_photos/2025_04_25_robosoft.jpg
       label: Yitian and Lucas presenting at Robosoft 2025
+    - image: /assets/img/group_photos/2025_04_29_climbing.jpg
+      label: Rock Climbing at Climb Lafeyette, April 2025
 
 ---
 
