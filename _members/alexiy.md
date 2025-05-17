@@ -13,6 +13,6 @@ group: Master's Students
 group_rank: 3
 ---
 
-Hey! I'm a MS student in CoMMA lab @ Purdue. I'm still exploring my research interests. Currently interested in behavioral cloning and creating general purpose manipulation policies.
+Hey! I'm a MS student in CoMMA lab @ Purdue. I'm still exploring my research interests, but I'm currently interested in behavioral cloning and creating general purpose manipulation policies.
 
 In the past, I have worked on Physics-informed Motion Planning, Code-as-Policies, and classical robotics @ SpaceX. I have also dabbled with a bit of RL and vision.
