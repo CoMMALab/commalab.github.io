@@ -15,6 +15,4 @@ group_rank: 3
 
 Hey! I'm a MS student in CoMMA lab @ Purdue. I'm still exploring my research interests. Currently interested in behavioral cloning and creating general purpose manipulation policies.
 
-In the past, I have worked on Physics-informed Motion Planning, Code-as-Policies, and dabbled with a bit of RL and vision.
-
-Always feel free to reach out / shoot a message!
+In the past, I have worked on Physics-informed Motion Planning, Code-as-Policies, and classical robotics @ SpaceX. I have also dabbled with a bit of RL and vision.
