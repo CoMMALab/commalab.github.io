@@ -25,6 +25,7 @@ AORRTC was tested with the Panda (7 DoF) and Fetch (8 DoF) robotic arms on the M
   note={Under Review},
   code={https://robotic-esp.com/code/aorrtc/},
   projects = {realtime},
+  selected = {true}
 }
 
 @misc{huangjadhav2025prrtc,
@@ -75,7 +76,7 @@ AORRTC was tested with the Panda (7 DoF) and Fetch (8 DoF) robotic arms on the M
   selected = {true}
 }
 
-@inproceedings{wilson2024fcit,
+@inproceedings{wilson2025fcit,
   abbr = {ICRA},
   title={Nearest-Neighbourless Asymptotically Optimal Motion Planning with Fully Connected Informed Trees ({FCIT}*)}, 
   author={Tyler S. Wilson and Wil Thomason and Zachary Kingston and Lydia E. Kavraki and Jonathan D. Gammell},
@@ -94,7 +95,7 @@ This paper presents Fully Connected Informed Trees (FCIT*), the first fully conn
   projects = {realtime},
 }
 
-@inproceedings{agrawal2024cnkz,
+@inproceedings{agrawal2025cnkz,
   abbr = {ICRA},
   title={Constrained Nonlinear {Kaczmarz} Projection on Intersections of Manifolds for Coordinated Multi-Robot Mobile Manipulation}, 
   author={Akshaya Agrawal and Parker Mayer and Zachary Kingston and Geoffrey A. Hollinger},
@@ -110,12 +111,12 @@ This paper presents Fully Connected Informed Trees (FCIT*), the first fully conn
   projects = {constraints},
 }
 
-@inproceedings{guo2024castl,
+@inproceedings{guo2025castl,
   abbr = {ICRA},
   title={{CaStL}: Constraints as Specifications through {LLM} Translation for Long-Horizon Task and Motion Planning}, 
   author={Weihang Guo and Zachary Kingston and Lydia E. Kavraki},
   year={2025},
-  booktitle     = icra,
+  booktitle = icra,
   eprint={2410.22225},
   archivePrefix={arXiv},
   primaryClass={cs.RO},
@@ -123,6 +124,16 @@ This paper presents Fully Connected Informed Trees (FCIT*), the first fully conn
   abstract={Large Language Models (LLMs) have demonstrated remarkable ability in long-horizon Task and Motion Planning (TAMP) by translating clear and straightforward natural language problems into formal specifications such as the Planning Domain Definition Language (PDDL). However, real-world problems are often ambiguous and involve many complex constraints. In this paper, we introduce Constraints as Specifications through LLMs (CaStL), a framework that identifies constraints such as goal conditions, action ordering, and action blocking from natural language in multiple stages. CaStL translates these constraints into PDDL and Python scripts, which are solved using an custom PDDL solver. Tested across three PDDL domains, CaStL significantly improves constraint handling and planning success rates from natural language specification in complex scenarios.},
   note={To Appear},
   projects={long-horizon,hri}
+}
+
+@InProceedings{buynitsky2025wksp,
+  abbr = {WKSP},
+  author  = {Alexiy Buynitsky and Zachary Kingston},
+  title   = {Faster Behavior Cloning with Hardware-Accelerated Motion Planning},
+  booktitle     = {IEEE ICRA 2025 Workshop---RoboARCH: Robotics Acceleration with Computing Hardware and Systems},
+  year    = {2025},
+  pdf = {https://drive.google.com/file/d/1NBt92zhFCtcCSH7jrKMFAdLFEjc5qxV1/view},
+  projects={realtime,implicit}
 }
 
 @misc{coumar2025ascii,
@@ -508,7 +519,6 @@ abbr = {IJRR},
   doi      = {10.1177/0278364919868530},
   pdf      = {http://kavrakilab.org/publications/kingston2019exploring-implicit-spaces-for-constrained.pdf},
   code = {https://ompl.kavrakilab.org/constrainedPlanning.html},
-  selected = {true},
   preview = {parallel.jpg},
   projects = {constraints},
 }

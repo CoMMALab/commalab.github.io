@@ -28,6 +28,11 @@
     url: kodkani
     member: true
 
+"buynitsky":
+  - firstname: ["Alexiy"]
+    url: alexiy
+    member: true
+
 "blumenschein":
   - firstname: ["Laura H."]
     url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
@@ -148,3 +153,7 @@
 "plancher":
   - firstname: ["Brian"]
     url: https://brianplancher.com/
+
+"wilson":
+  - firstname: ["Tyler S."]
+    url: https://robotic-esp.com/people/twilson/
