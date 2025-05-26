@@ -14,6 +14,8 @@ carousels:
       label: Yitian and Lucas presenting at Robosoft 2025
     - image: /assets/img/group_photos/2025_04_29_climbing.jpg
       label: Rock Climbing at Climb Lafeyette, April 2025
+    - image: /assets/img/group_photos/2025_05_19_icra.jpg
+      label: Collage of the CoMMA Lab at ICRA 2025
 
 ---
 
