@@ -44,3 +44,7 @@
 "ARXIV":
   name: "arXiv"
   color: "#b31b1b"
+
+"OCEANS":
+  name: "OCEANS"
+  color: "#009dc4"
