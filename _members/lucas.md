@@ -9,6 +9,7 @@ email: "chen4007@purdue.edu"
 linkedin: "i-make-robots"
 image: "lucas.jpg"
 group: Master's Students
+position: Master's Student
 group_rank: 3
 ---
 

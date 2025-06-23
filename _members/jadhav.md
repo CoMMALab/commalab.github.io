@@ -7,7 +7,6 @@ pronouns: he/him
 github: "pranavjad"
 email: "jadhav14@purdue.edu"
 linkedin: "pranav-jadhav-499677281"
-website: "https://github.com/pranavjad"
 image: "pranav_jadhav.jpg"
 group: Undergraduate Students
 group_rank: 5

@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Shrutheesh
-first_name: Shrutheesh R
+first_name: Shrutheesh R.
 last_name: Iyer
 pronouns: he/him
 github: "ShrutheeshIR"

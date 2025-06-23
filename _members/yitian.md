@@ -9,6 +9,7 @@ email: "gao634@purdue.edu"
 linkedin: "yitian-gao-80843b250"
 image: "yitian.jpg"
 group: Master's Students
+position: Master's Student
 group_rank: 3
 ---
 

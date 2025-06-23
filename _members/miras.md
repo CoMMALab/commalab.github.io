@@ -8,7 +8,8 @@ github: "mmengdib"
 email: "mmengdib@purdue.edu"
 linkedin: "mmengdib"
 image: "miras.jpg"
-group: Visiting Scholars
+group: Master's Students
+position: Visiting Scholar
 group_rank: 4
 ---
 

@@ -19,11 +19,93 @@ carousels:
 
 ---
 
-{% assign groups = site.members | sort: "group_rank" | map: "group" | uniq %}
+<style>
+.student-grid-tile {
+    max-width: 160px;
+    text-align: center;
+}
+
+.student-grid-tile .student-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5%;
+    margin-bottom: 5px;
+}
+
+.student-grid-tile .student-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.student-grid-tile .student-subtitle {
+    font-size: 0.65rem;
+    color: grey;
+}
+
+.student-grid-tile .student-links {
+    font-size: 0.75rem;
+}
+
+.student-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+</style>
+
+{% assign active_members = "" | split: "" %}
+{% for item in site.members %}
+  {% unless item.alumni %}
+    {% assign active_members = active_members | push: item %}
+  {% endunless %}
+{% endfor %}
+
+{% assign groups = active_members | sort: "group_rank" | map: "group" | uniq %}
 {% for group in groups %}
+
 ## {{ group }}
 
-    {% assign members = site.members | sort: "lastname" | where: "group", group %}
+{% assign members = active_members | sort: "group_rank" | where: "group", group %}
+
+{% if group == "Undergraduate Students" %}
+<!-- Grid layout for undergraduate students -->
+<div class="student-grid-container">
+    {% for member in members %}
+    <div class="student-grid-tile">
+        <a href="{{ member.url }}">
+            {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
+            {% include figure.liquid loading="lazy" path=member_image class="student-image" alt=member.first_name %}
+            <div class="student-name">{{ member.first_name }} {{ member.last_name }}</div>
+            {% if member.pronouns %}<div class="student-subtitle">({{ member.pronouns }})</div>{% endif %}
+        </a>
+        <div>
+            {% if member.email %}
+                <a href="mailto:{{ member.email | encode_email }}" title="Email"><i class="fas fa-envelope"></i></a>
+            {% endif %}
+            {% if member.google_scholar %}
+                <a href="https://scholar.google.com/citations?user={{ member.google_scholar }}" target="_blank"><i class="ai ai-google-scholar"></i></a>
+            {% endif %}
+            {% if member.twitter %}
+                <a href="https://twitter.com/{{ member.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+            {% endif %}
+            {% if member.github %}
+                <a href="https://github.com/{{ member.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            {% endif %}
+            {% if member.linkedin %}
+                <a href="https://linkedin.com/in/{{ member.linkedin }}/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if member.website %}
+                <a href="{{ member.website }}" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<!-- Standard layout for other groups -->
     {% for member in members %}
 <p style="margin-bottom:10px">
     <div class="card hoverable">
@@ -85,8 +167,28 @@ carousels:
     </div>
     </p>
     {% endfor %}
+{% endif %}
 <br>
 {% endfor %}
 
 <h2>Group Photos</h2>
 {% include carousel.html height="50" unit="%" duration="7" number="1" %}
+
+<br>
+<h2>Past Members</h2>
+
+<ul>
+{% assign members = site.members | sort: "lastname" | where: "alumni", true %}
+{% for member in members %}
+<li>
+{% if member.website %}
+<a href="{{member.website}}">{{ member.first_name }} {{ member.last_name }}</a>
+{% else %}
+{{ member.first_name }} {{ member.last_name }}
+{% endif %}
+{% if member.now_at %}
+&nbsp;({{ member.now_at }})
+{% endif %}
+</li>
+{% endfor %}
+<ul>

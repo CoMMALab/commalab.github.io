@@ -7,7 +7,6 @@ pronouns: he/him
 github: "AndrewLuGit"
 email: "lu987@purdue.edu"
 linkedin: "andrewyunlu"
-website: "https://github.com/AndrewLuGit"
 image: "andrew_lu.jpg"
 group: Undergraduate Students
 group_rank: 5
