@@ -9,7 +9,7 @@ email: "scoumar@purdue.edu"
 linkedin: "saicoumar"
 website: "https://saiccoumar.github.io/"
 orcid: "0009-0003-9635-9463"
-image: "sai."
+image: "sai.jpg"
 group: Ph.D. Students
 group_rank: 2
 ---
