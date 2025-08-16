@@ -7,6 +7,7 @@ pronouns: he/him
 github: "Shyam-Sivasubramanian"
 email: "sivasubr@purdue.edu"
 linkedin: "shyam-sivasubramanian-69a420216"
+website: "https://shyam-sivasubramanian.github.io/personalwebsite/"
 image: "shyam.jpg"
 group: Undergraduate Students
 group_rank: 5
