@@ -3,7 +3,7 @@ layout: page
 permalink: /classes/
 title: Teaching
 description:
-nav: true
+nav: false
 nav_order: 5
 ---
 
