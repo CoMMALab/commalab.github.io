@@ -7,8 +7,10 @@ github_repos:
   - ompl/ompl
   - KavrakiLab/vamp
   - CoMMALab/pRRTC
+  - CoMMALab/cricket
   - CoMMALab/foam
   - CoMMALab/DiffVineSimPy
+  - CoMMALab/ActVineSimPy
   - KavrakiLab/robowflex
   - KavrakiLab/motion_bench_maker
   - KavrakiLab/captree-rs

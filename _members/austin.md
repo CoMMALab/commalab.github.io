@@ -7,7 +7,7 @@ pronouns: he/him
 github: "agarret7"
 email: "ajg@purdue.edu"
 linkedin: "austin-garrett-3b2350136"
-website: "austingarrett.dev"
+website: "https://austingarrett.dev/"
 image: "austin.jpg"
 group: Ph.D. Students
 group_rank: 2
