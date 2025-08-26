@@ -10,7 +10,7 @@ linkedin: "muyangyan"
 website: "https://muyangyan.github.io/"
 image: "muyang.jpg"
 group: Undergraduate Students
-group_rank: 2
+group_rank: 5
 ---
 
 Hi! I'm Mu, I’m senior in CS at Purdue researching Neuro-symbolic AI for robotics. I’m advised by [Prof. Zak Kingston](https://zkingston.com/) and [Prof. Yexiang Xue](https://www.cs.purdue.edu/homes/yexiang/) at Purdue CS, and [Prof. Katia Sycara](https://www.cs.cmu.edu/~sycara/) at CMU’s Robotics Institute
