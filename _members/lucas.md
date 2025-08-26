@@ -7,6 +7,7 @@ pronouns: he/him
 github: "reschivon"
 email: "chen4007@purdue.edu"
 linkedin: "i-make-robots"
+google_scholar: "1nU-etIAAAAJ"
 image: "lucas.jpg"
 group: Master's Students
 position: Master's Student

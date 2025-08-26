@@ -38,6 +38,18 @@
     url: sai
     member: true
 
+"agrawal":
+  - firstname: ["Akshaya"]
+    url: https://www.akshayaagrawal.com/
+  - firstname: ["Kaivalya"]
+    url: kaivalya
+    member: true
+
+"bukhari":
+  - firstname: ["S. Talha"]
+    member: true
+    url: talha
+
 "blumenschein":
   - firstname: ["Laura H."]
     url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
@@ -138,10 +150,6 @@
 "hollinger":
   - firstname: ["Geoffrey A."]
     url: https://engineering.oregonstate.edu/people/geoff-hollinger
-
-"agrawal":
-  - firstname: ["Akshaya"]
-    url: https://www.akshayaagrawal.com/
 
 "kurniawati":
   - firstname: ["Hanna"]

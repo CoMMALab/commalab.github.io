@@ -181,11 +181,7 @@ carousels:
 {% assign members = site.members | sort: "lastname" | where: "alumni", true %}
 {% for member in members %}
 <li>
-{% if member.website %}
-<a href="{{member.website}}">{{ member.first_name }} {{ member.last_name }}</a>
-{% else %}
-{{ member.first_name }} {{ member.last_name }}
-{% endif %}
+<a href="{{member.url}}">{{ member.first_name }} {{ member.last_name }}</a>
 {% if member.now_at %}
 &nbsp;({{ member.now_at }})
 {% endif %}

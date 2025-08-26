@@ -8,6 +8,7 @@ github: "ShrutheeshIR"
 email: "iyer270@purdue.edu"
 linkedin: "ShrutheeshIR"
 website: "https://shrutheeshir.github.io/"
+google_scholar: "7sa9emUAAAAJ"
 image: "shrutheesh.jpg"
 group: Ph.D. Students
 group_rank: 2

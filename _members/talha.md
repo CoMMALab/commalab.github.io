@@ -8,6 +8,7 @@ github: "stalhabukhari"
 email: "bukhars@purdue.edu"
 linkedin: "stalhabukhari"
 website: "https://stalhabukhari.github.io"
+google_scholar: "B-lOirkAAAAJ"
 image: "talha.jpeg"
 group: Ph.D. Students
 group_rank: 2

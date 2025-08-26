@@ -8,6 +8,7 @@ github: "hanlany"
 email: "yang3034@purdue.edu"
 linkedin: "hanlanyang"
 website: "https://hanlany.github.io/"
+google_scholar: "m0eRXXIAAAAJ"
 image: "hanlan.jpg"
 group: Ph.D. Students
 group_rank: 2
