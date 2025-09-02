@@ -40,7 +40,8 @@
 
 "agrawal":
   - firstname: ["Akshaya"]
-    url: https://www.akshayaagrawal.com/
+    url: akshaya
+    member: true
   - firstname: ["Kaivalya"]
     url: kaivalya
     member: true
