@@ -8,14 +8,16 @@ nav_rank: 2
 
 carousels:
   - images:
-    - image: /assets/img/group_photos/2025_03_09_katana_sushi.jpg
-      label: Group Dinner at Katana Sushi, March 2025
-    - image: /assets/img/group_photos/2025_04_25_robosoft.jpg
-      label: Yitian and Lucas presenting at Robosoft 2025
-    - image: /assets/img/group_photos/2025_04_29_climbing.jpg
-      label: Rock Climbing at Climb Lafeyette, April 2025
+    - image: /assets/img/group_photos/2025_09_06_icra_party.jpg
+      label: Pushing for ICRA 2026, September 2025
     - image: /assets/img/group_photos/2025_05_19_icra.jpg
       label: Collage of the CoMMA Lab at ICRA 2025
+    - image: /assets/img/group_photos/2025_04_29_climbing.jpg
+      label: Rock Climbing at Climb Lafeyette, April 2025
+    - image: /assets/img/group_photos/2025_04_25_robosoft.jpg
+      label: Yitian and Lucas presenting at Robosoft 2025
+    - image: /assets/img/group_photos/2025_03_09_katana_sushi.jpg
+      label: Group Dinner at Katana Sushi, March 2025
 
 ---
 
