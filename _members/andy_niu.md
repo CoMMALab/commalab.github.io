@@ -1,3 +1,4 @@
+---
 layout: member
 title: Under Graduate
 first_name: Andy
@@ -9,3 +10,4 @@ linkedin: "https://www.linkedin.com/in/andrewniu/"
 image: "andy_niu.png"
 group: Undergraduate Students
 group_rank: 5
+---
