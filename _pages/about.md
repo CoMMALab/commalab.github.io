@@ -27,27 +27,15 @@ We are also interested in the intersection between the theory and practice of ro
 <h2>Research Areas</h2>
 <p>
 <div class="row">
-{% assign projects = site.projects | where: "front","true" %}
+{% assign projects = site.projects | sort: "rank" %}
 {% for project in projects %}
-    <div class="col-sm-4 col-md-4 tight-col">
+    <div class="col-sm-6 col-md-6 tight-col">
     <div class="card hoverable">
     <div class="card-body">
         <a href="{{ project.url }}">
         <h5 class="card-title">{{ project.title }}</h5>
         {% capture project_video %}assets/video/{{ project.video }}{% endcapture %}
         {% include video.liquid path=project_video class="img-fluid z-depth-1" autoplay="true" muted="true" loop="true" %}
-        </a>
-    </div>
-    </div>
-    </div>
-{% endfor %}
-{% assign projects = site.projects | where: "front",empty %}
-{% for project in projects %}
-    <div class="col-sm-4 col-md-4 tight-col">
-    <div class="card hoverable">
-    <div class="card-body">
-        <a href="{{ project.url }}">
-        <h5 class="card-title">{{ project.title }}</h5>
         </a>
     </div>
     </div>
