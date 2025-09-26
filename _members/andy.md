@@ -7,7 +7,7 @@ pronouns: he/him
 github: "andyhl-96"
 email: "liu3458@purdue.edu"
 linkedin: "andrew-h-liu-b6a45b168"
-image: "andy.jpg"
+image: "andy1.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
