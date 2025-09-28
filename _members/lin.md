@@ -11,4 +11,4 @@ image: "zihan.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
-I'm an Undergraduate student in Robotics Engineering Technology and Math at Purdue University. My interests are in Robotic system design and control. 
+I'm an Undergraduate student in Robotics Engineering Technology and Math at Purdue University. My interests are in Robotic system design and control.
