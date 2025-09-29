@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://commalab.github.io/sitemap.xml
+Sitemap: https://commalab.org/sitemap.xml
