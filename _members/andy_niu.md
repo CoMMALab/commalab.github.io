@@ -7,7 +7,7 @@ pronouns: he/him
 github: "aniu2240"
 email: "niua@purdue.edu"
 linkedin: "andrewniu"
-image: "andy_niu.png"
+image: "andy_niu.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---

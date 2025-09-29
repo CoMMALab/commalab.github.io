@@ -6,6 +6,20 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+@misc{meng2025look,
+  title        = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
+  author       = {Qingxi Meng and Emiliano Flores and Carlos Quintero-Peña and Peizhu Qian and Zachary Kingston and Shannan K. Hamlin and Vaibhav Unhelkar and Lydia E. Kavraki},
+  abstract     = {     In this work, we address the problem of planning robot motions for a high-degree-of-freedom (DoF) robot that effectively achieves a given perception task while the robot and the perception target move in a dynamic environment. Achieving navigation and perception tasks simultaneously is challenging, as these objectives often impose conflicting requirements. Existing methods that compute motion under perception constraints fail to account for obstacles, are designed for low-DoF robots, or rely on simplified models of perception. Furthermore, in dynamic real-world environments, robots must replan and react quickly to changes and directly evaluating the quality of perception (e.g., object detection confidence) is often expensive or infeasible at runtime. This problem is especially important in human-centered environments such as homes and hospitals, where effective perception is essential for safe and reliable operation. To address these challenges, we propose a GPU-parallelized perception-score-guided probabilistic roadmap planner with a neural surrogate model (PS-PRM). The planner explicitly incorporates the estimated quality of a perception task into motion planning for high-DoF robots. Our method uses a learned model to approximate perception scores and leverages GPU parallelism to enable efficient online replanning in dynamic settings. We demonstrate that our planner, evaluated on high-DoF robots, outperforms baseline methods in both static and dynamic environments in both simulation and real-robot experiments.},
+  eprint       = {2509.19610},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.RO},
+  year         = 2025,
+  pdf          = {https://arxiv.org/abs/2509.19610},
+  projects     = {implicit,realtime,hri},
+  note         = {Under Review},
+  abbr         = {ARXIV},
+  preview      = {lookasyouleap.jpg}
+}
 @misc{gaochen2025actsim,
   title        = {Parallel Simulation of Contact and Actuation for Soft Growing Robots},
   author       = {Yitian Gao* and Lucas Chen* and Priyanka Bhovad and Sicheng Wang and Zachary Kingston and Laura H. Blumenschein},
@@ -16,7 +30,7 @@
   year         = 2025,
   pdf          = {https://arxiv.org/abs/2509.15180},
   code         = {https://github.com/CoMMALab/ActVineSimPy},
-  projects     = {implicit,realtime,softrob},
+  projects     = {implicit,softrob},
   note         = {Under Review},
   abbr         = {ARXIV},
   preview      = {actsim.gif}
@@ -54,6 +68,7 @@
   abstract     = {Finding high-quality solutions quickly is an important objective in motion planning. This is especially true for high-degree-of-freedom robots. Satisficing planners have traditionally found feasible solutions quickly but provide no guarantees on their optimality, while almost-surely asymptotically optimal (a.s.a.o.) planners have probabilistic guarantees on their convergence towards an optimal solution but are more computationally expensive. This paper uses the AO-x meta-algorithm to extend the satisficing RRT-Connect planner to optimal planning. The resulting Asymptotically Optimal RRT-Connect (AORRTC) finds initial solutions in similar times as RRT-Connect and uses any additional planning time to converge towards the optimal solution in an anytime manner. It is proven to be probabilistically complete and a.s.a.o. AORRTC was tested with the Panda (7 DoF) and Fetch (8 DoF) robotic arms on the MotionBenchMaker dataset. These experiments show that AORRTC finds initial solutions as fast as RRT-Connect and faster than the tested state-of-the-art a.s.a.o. algorithms while converging to better solutions faster. AORRTC finds solutions to difficult high-DoF planning problems in milliseconds where the other a.s.a.o. planners could not consistently find solutions in seconds. This performance was demonstrated both with and without single instruction/multiple data (SIMD) acceleration.},
   journal      = ral,
   year         = 2025,
+  doi          = {10.1109/LRA.2025.3615522},
   pdf          = {https://arxiv.org/abs/2505.10542},
   code         = {https://robotic-esp.com/code/aorrtc/},
   video        = {https://www.youtube.com/watch?v=j1itxP3KuiM},
@@ -88,7 +103,8 @@
   pdf          = {https://arxiv.org/abs/2503.13704},
   code         = {https://github.com/CoMMALab/foam},
   projects     = {software},
-  abbr         = {ARXIV}
+  abbr         = {ARXIV},
+  preview      = {foam.jpg}
 }
 @inproceedings{agrawal2025mrangler,
   title        = {Underwater Multi-Robot Simulation and Motion Planning in Angler},
@@ -251,7 +267,7 @@
   pdf          = {https://arxiv.org/pdf/2309.16862.pdf},
   projects     = {implicit},
   abbr         = {ICRA},
-  preview      = {impdist.png}
+  preview      = {impdist.jpg}
 }
 @inproceedings{elimelech2024skills,
   title        = {Accelerating Long-Horizon Planning with Affordance-Directed Dynamic Grounding of Abstract Strategies},

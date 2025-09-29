@@ -11,6 +11,7 @@ image: "miras.jpg"
 group: Master's Students
 position: Visiting Scholar
 group_rank: 4
+alumni: true
 ---
 
 I am a Visiting Scholar in the [Computer Science Department](https://www.cs.purdue.edu/) at [Purdue University](https://www.purdue.edu/) in the CoMMA Lab.
