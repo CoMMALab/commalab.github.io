@@ -51,6 +51,19 @@
     member: true
     url: talha
 
+"yang":
+  - firstname: ["Hanlan"]
+    member: true
+    url: hanlan
+
+"likhachev":
+  - firstname: ["Maxim"]
+    url: https://www.cs.cmu.edu/~maxim/
+
+"mishani":
+  - firstname: ["Itamar"]
+    url: https://imishani.github.io/
+
 "blumenschein":
   - firstname: ["Laura H."]
     url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
