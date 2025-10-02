@@ -52,3 +52,7 @@
 "AAMAS":
   name: "AAMAS"
   color: "#4FAF8D"
+
+"HUMANOIDS":
+  name: "Humanoids"
+  color: "#008800"
