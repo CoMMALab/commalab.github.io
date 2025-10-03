@@ -293,16 +293,9 @@
       {% if entry.website %}
         <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
       {% endif %}
-
       {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}">
-        <i
-          class="ai ai-doi ml-1"
-        >
-        </i>
-        </a>
+        <a href="https://doi.org/{{ entry.doi }}" class="ai ai-doi"></a>
       {% endif %}
-
     </div>
     {% if site.enable_publication_badges %}
       {% assign entry_has_altmetric_badge = false %}

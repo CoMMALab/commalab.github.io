@@ -9,7 +9,7 @@
 @misc{yang2025pachs,
   title        = {Parallel Heuristic Search as Inference for Actor-Critic Reinforcement Learning Models},
   author       = {Hanlan Yang and Itamar Mishani and Luca Pivetti and Zachary Kingston and Maxim Likhachev},
-  abstract     = {Actor-Critic models are a class of model-free deep reinforcement learning (RL) algorithms that have demonstrated effectiveness across various robot learning tasks. While considerable research has focused on improving training stability and data sampling efficiency, most deployment strategies have remained relatively simplistic, typically relying on direct actor policy rollouts. In contrast, we propose \pachs{} (\textit{P}arallel \textit{A}ctor-\textit{C}ritic \textit{H}euristic \textit{S}earch), an efficient parallel best-first search algorithm for inference that leverages both components of the actor-critic architecture: the actor network generates actions, while the critic network provides cost-to-go estimates to guide the search. Two levels of parallelism are employed within the search -- actions and cost-to-go estimates are generated in batches by the actor and critic networks respectively, and graph expansion is distributed across multiple threads. We demonstrate the effectiveness of our approach in robotic manipulation tasks, including collision-free motion planning and contact-rich interactions such as non-prehensile pushing.},
+  abstract     = {Actor-Critic models are a class of model-free deep reinforcement learning (RL) algorithms that have demonstrated effectiveness across various robot learning tasks. While considerable research has focused on improving training stability and data sampling efficiency, most deployment strategies have remained relatively simplistic, typically relying on direct actor policy rollouts. In contrast, we propose PACHS (Parallel Actor-Critic Heuristic Search), an efficient parallel best-first search algorithm for inference that leverages both components of the actor-critic architecture: the actor network generates actions, while the critic network provides cost-to-go estimates to guide the search. Two levels of parallelism are employed within the search -- actions and cost-to-go estimates are generated in batches by the actor and critic networks respectively, and graph expansion is distributed across multiple threads. We demonstrate the effectiveness of our approach in robotic manipulation tasks, including collision-free motion planning and contact-rich interactions such as non-prehensile pushing.},
   eprint       = {2509.25402},
   archiveprefix = {arXiv},
   primaryclass = {cs.RO},
@@ -88,7 +88,6 @@
   code         = {https://robotic-esp.com/code/aorrtc/},
   video        = {https://www.youtube.com/watch?v=j1itxP3KuiM},
   projects     = {realtime},
-  note         = {To Appear},
   abbr         = {RAL},
   preview      = {aorrtc.jpg},
   selected     = {true}
@@ -200,7 +199,8 @@
   year         = 2025,
   pdf          = {https://drive.google.com/file/d/1NBt92zhFCtcCSH7jrKMFAdLFEjc5qxV1/view},
   projects     = {realtime,implicit},
-  abbr         = {WKSP}
+  abbr         = {WKSP},
+  preview      = {fast_bc.jpg}
 }
 @misc{coumar2025ascii,
   title        = {Evaluating Machine Learning Approaches for {ASCII} Art Generation},
@@ -212,7 +212,8 @@
   year         = 2025,
   pdf          = {https://arxiv.org/abs/2503.14375},
   code         = {https://github.com/saiccoumar/deep_ascii_converter},
-  abbr         = {ARXIV}
+  abbr         = {ARXIV},
+  preview      = {ascii.jpg}
 }
 @inproceedings{liang2024ropras,
   title        = {Scaling Long-Horizon Online {POMDP} Planning via Rapid State Space Sampling},
@@ -222,7 +223,8 @@
   year         = 2024,
   pdf          = {https://arxiv.org/abs/2411.07032},
   projects     = {realtime},
-  abbr         = {ISRR}
+  abbr         = {ISRR},
+  preview      = {ropras_1.jpg}
 }
 @misc{guo2024stac,
   title        = {Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation},
@@ -313,31 +315,6 @@
   pdf          = {https://arxiv.org/pdf/2401.12317.pdf},
   projects     = {software},
   note         = {Invited Contributor}
-}
-@inproceedings{Quintero2024wksp,
-  title        = {Stochastic Implicit Neural Signed Distance Functions for Safe Motion Planning under Sensing Uncertainty},
-  author       = {Carlos Quintero-Peña and Wil Thomason and Zachary Kingston and Anastasios Kyrillidis and Lydia E. Kavraki},
-  booktitle    = {IEEE ICRA 2024 Workshop---Back to the Future: Robot Learning Going Probabilistic},
-  year         = 2024,
-  pdf          = {https://openreview.net/pdf?id=YEcJR7PTl8},
-  projects     = {implicit},
-  abbr         = {WKSP}
-}
-@inproceedings{Ramsey2024wksp,
-  title        = {Dynamic Motion Planning from Perception via Accelerated Point Cloud Collision Checking},
-  author       = {Clayton W. Ramsey and Zachary Kingston* and Wil Thomason* and Lydia E. Kavraki},
-  booktitle    = {IEEE ICRA 2024 Workshop---Agile Robotics: From Perception to Dynamic Action},
-  year         = 2024,
-  projects     = {software,realtime},
-  abbr         = {WKSP}
-}
-@inproceedings{Meng2024wksp,
-  title        = {Monitoring Constraints for Robotic Tutors in Nurse Education: A Motion Planning Perspective},
-  author       = {Qingxi Meng* and Carlos Quintero-Peña* and Zachary Kingston and Nicole M. Fontenot and Shannan K. Hamlin and Vaibhav Unhelkar and Lydia E. Kavraki},
-  booktitle    = {IEEE ICRA 2024 Workshop---Workshop on Nursing Robotics},
-  year         = 2024,
-  projects     = {implicit,hri},
-  abbr         = {WKSP}
 }
 @inproceedings{shome2023privacy,
   title        = {Robots as AI Double Agents: Privacy in Motion Planning},
@@ -518,7 +495,8 @@
   publisher    = {Springer Berlin Heidelberg},
   address      = {Berlin, Heidelberg},
   projects     = {constraints},
-  chapter      = {Planning Under Manifold Constraints}
+  chapter      = {Planning Under Manifold Constraints},
+  preview      = {constraint.jpg}
 }
 @inproceedings{kingston2020leads,
   title        = {Informing Multi-Modal Planning with Synergistic Discrete Leads},
