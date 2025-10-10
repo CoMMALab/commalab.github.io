@@ -6,6 +6,22 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+@misc{chen2025spasm,
+  title        = {Differentiable Particle Optimization for Fast Sequential Manipulation}, 
+  author       = {Lucas Chen and Shrutheesh Raman Iyer and Zachary Kingston},
+  abstract     = {Sequential robot manipulation tasks require finding collision-free trajectories that satisfy geometric constraints across multiple object interactions in potentially high-dimensional configuration spaces. Solving these problems in real-time and at large scales has remained out of reach due to computational requirements. Recently, GPU-based acceleration has shown promising results, but prior methods achieve limited performance due to CPU-GPU data transfer overhead and complex logic that prevents full hardware utilization. To this end, we present SPaSM (Sampling Particle optimization for Sequential Manipulation), a fully GPU-parallelized framework that compiles constraint evaluation, sampling, and gradient-based optimization into optimized CUDA kernels for end-to-end trajectory optimization without CPU coordination. The method consists of a two-stage particle optimization strategy: first solving placement constraints through massively parallel sampling, then lifting solutions to full trajectory optimization in joint space. Unlike hierarchical approaches, SPaSM jointly optimizes object placements and robot trajectories to handle scenarios where motion feasibility constrains placement options. Experimental evaluation on challenging benchmarks demonstrates solution times in the realm of milliseconds with a 100\% success rate; a 4000x speedup compared to existing approaches.},
+  eprint       = {2510.07674},
+  archivePrefix ={arXiv},
+  primaryClass = {cs.RO},
+  year         = 2025,
+  pdf          = {https://arxiv.org/abs/2510.07674}, 
+  projects     = {realtime,long-horizon,constraints},
+  note         = {Under Review},
+  abbr         = {ARXIV},
+  website      = {../spasm-site},
+  video        = {../spasm-site/static/videos/SPaSM_video.mp4},
+  preview      = {spasm.gif}
+}
 @misc{yasutake2025hjcdik,
   title        = {{HJCD-IK}: {GPU}-Accelerated Inverse Kinematics through Batched Hybrid Jacobian Coordinate Descent}, 
   author       = {Cael Yasutake and Zachary Kingston and Brian Plancher},
@@ -43,7 +59,7 @@
   primaryclass = {cs.RO},
   year         = 2025,
   pdf          = {https://arxiv.org/abs/2509.19610},
-  projects     = {implicit,realtime,hri},
+  projects     = {implicit,realtime,hri,constraints},
   note         = {Under Review},
   abbr         = {ARXIV},
   preview      = {lookasyouleap.jpg}
