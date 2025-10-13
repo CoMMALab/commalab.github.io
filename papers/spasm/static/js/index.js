@@ -101,3 +101,50 @@ function setInterpolationImage2(i) {
   image.oncontextmenu = function() { return false; };
   $('#interpolation-image-wrapper-2').empty().append(image);
 }
+
+// zoom.js
+document.addEventListener('DOMContentLoaded', () => {
+  const zoomables = document.querySelectorAll('.zoom-container');
+  const overlay = document.getElementById('zoomOverlay');
+  let currentZoom = null;
+
+  zoomables.forEach(container => {
+    container.addEventListener('click', e => {
+      if (e.target.closest('input, button, select, a, textarea, .no-zoom')) return;
+
+      // Close previously zoomed item if another is clicked
+      if (currentZoom && currentZoom !== container) closeZoom(currentZoom);
+
+      if (container.classList.contains('zoomed')) {
+        closeZoom(container);
+      } else {
+        openZoom(container);
+      }
+    });
+  });
+
+  overlay.addEventListener('click', () => {
+    if (currentZoom) closeZoom(currentZoom);
+  });
+
+  window.addEventListener('keydown', e => {
+    const key = e.key || e.code || '';
+    if ((key === 'Escape' || key === 'Esc') && currentZoom) {
+      closeZoom(currentZoom);
+    }
+  }, true);
+
+  function openZoom(el) {
+    el.classList.add('zoomed');
+    overlay.style.display = 'block';
+    requestAnimationFrame(() => (overlay.style.opacity = '1'));
+    currentZoom = el;
+  }
+
+  function closeZoom(el) {
+    el.classList.remove('zoomed');
+    overlay.style.opacity = '0';
+    setTimeout(() => (overlay.style.display = 'none'), 300);
+    currentZoom = null;
+  }
+});
