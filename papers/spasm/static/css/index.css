@@ -155,3 +155,38 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.zoom-container {
+  display: inline-block;
+  cursor: zoom-in;
+  position: relative;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  z-index: 1;
+}
+#zoomOverlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* --- Active zoomed state --- */
+.zoom-container.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.25);
+  transform-origin: center center;
+  z-index: 999;
+  cursor: zoom-out;
+}
+
+.zoom-container.zoomed ~ #zoomOverlay {
+  display: block;
+  opacity: 1;
+}

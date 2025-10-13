@@ -145,7 +145,7 @@
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./static/videos/hero.webm"
-                type="video/mp4">
+                type="video/webm">
       </video>
       <h2 class="subtitle has-text-centered">
           <span class="dnerf">SPaSM</span> solves sequential manipulation problems in <b><i>milliseconds</i></b>
@@ -172,7 +172,7 @@
           </p>
           <p>
             Unlike hierarchical approaches, SPaSM jointly optimizes object placements and robot trajectories to handle scenarios where motion feasibility constrains placement options.
-            Experimental evaluation on challenging benchmarks demonstrates solution times in the realm of <b>milliseconds</b> with a 100% success rate; a 4000x speedup compared to existing approaches.
+            Experimental evaluation on challenging benchmarks demonstrates solution times in the realm of <b>milliseconds</b> with a 100% success rate; a <b>4000x</b> speedup compared to existing approaches.
           </p>
         </div>
       </div>
@@ -211,9 +211,11 @@
                  alt="Interpolate start reference image."/>
             <p>Initial State</p>
           </div>
-          <div class="column interpolation-video-column">
+          <div class="column interpolation-video-column zoom-container" id="zoomDiv1">
+          <div class="zoom-content">
             <div id="interpolation-image-wrapper">
               Loading...
+            </div>
             </div>
             <input class="slider is-fullwidth is-large is-info"
                    id="interpolation-slider"
@@ -240,9 +242,11 @@
                  alt="Interpolate start reference image."/>
             <p>Initial State</p>
           </div>
-          <div class="column interpolation-video-column">
+          <div class="column interpolation-video-column zoom-container" id="zoomDiv2">
+          <div class="zoom-content">
             <div id="interpolation-image-wrapper-2">
               Loading...
+            </div>
             </div>
             <input class="slider is-fullwidth is-large is-info"
                    id="interpolation-slider-2"
@@ -266,7 +270,7 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX (preprint)</h2>
     <pre><code>@article{chen2025spasm,
-    author={Lucas Chen and Shrutheesh Raman Iyer and Zachary Kingston},
+    author={Lucas Chen and Shrutheesh R. Iyer and Zachary Kingston},
     title={Differentiable Particle Optimization for Fast Sequential Manipulation}, 
     year={2025},
     eprint={2510.07674},
