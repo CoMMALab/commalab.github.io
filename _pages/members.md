@@ -8,16 +8,18 @@ nav_rank: 2
 
 carousels:
   - images:
+    - image: /assets/img/group_photos/2025_10_12_katana_sushi.jpg
+      label: Dinner at Katana Sushi, Fall 2025
     - image: /assets/img/group_photos/2025_09_06_icra_party.jpg
-      label: Pushing for ICRA 2026, Sep. 2025
+      label: Pushing for ICRA 2026
     - image: /assets/img/group_photos/2025_05_19_icra.jpg
       label: CoMMA Lab at ICRA 2025
     - image: /assets/img/group_photos/2025_04_29_climbing.jpg
-      label: Rock Climbing, Apr. 2025
+      label: Rock Climbing, Spring 2025
     - image: /assets/img/group_photos/2025_04_25_robosoft.jpg
       label: Yitian and Lucas at Robosoft 2025
     - image: /assets/img/group_photos/2025_03_09_katana_sushi.jpg
-      label: Dinner at Katana Sushi, Mar. 2025
+      label: Dinner at Katana Sushi, Spring 2025
 
 ---
 
