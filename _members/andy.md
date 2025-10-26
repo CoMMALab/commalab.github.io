@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Andy Liu
-first_name: Andy
+first_name: Andrew H.
 last_name: Liu
 pronouns: he/him
 github: "andyhl-96"

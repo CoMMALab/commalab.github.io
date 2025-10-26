@@ -6,6 +6,22 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+@misc{mao2025cde,
+  title        = {CDE: Concept-Driven Exploration for Reinforcement Learning}, 
+  author       = {Le Mao and Andrew H. Liu and Renos Zabounidis and Zachary Kingston and Joseph Campbell},
+  abstract     = {Intelligent exploration remains a critical challenge in reinforcement learning (RL), especially in visual control tasks. Unlike low-dimensional state-based RL, visual RL must extract task-relevant structure from raw pixels, making exploration inefficient. We propose Concept-Driven Exploration (CDE), which leverages a pre-trained vision-language model (VLM) to generate object-centric visual concepts from textual task descriptions as weak, potentially noisy supervisory signals. Rather than directly conditioning on these noisy signals, CDE trains a policy to reconstruct the concepts via an auxiliary objective, using reconstruction accuracy as an intrinsic reward to guide exploration toward task-relevant objects. Because the policy internalizes these concepts, VLM queries are only needed during training, reducing dependence on external models during deployment. Across five challenging simulated visual manipulation tasks, CDE achieves efficient, targeted exploration and remains robust to noisy VLM predictions. Finally, we demonstrate real-world transfer by deploying CDE on a Franka Research 3 arm, attaining an 80\% success rate in a real-world manipulation task.},
+  eprint       = {2510.08851},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.RO},
+  year         = 2025,
+  pdf          = {https://arxiv.org/abs/2510.08851}, 
+  projects     = {implicit},
+  note         = {Under Review},
+  abbr         = {ARXIV},
+  website      = {https://sites.google.com/view/concept-learn/home},
+  code         = {https://github.com/LeMaoLeMao/Concept-Learning},
+  preview      = {cde.png}
+}
 @misc{chen2025spasm,
   title        = {Differentiable Particle Optimization for Fast Sequential Manipulation}, 
   author       = {Lucas Chen and Shrutheesh R. Iyer and Zachary Kingston},

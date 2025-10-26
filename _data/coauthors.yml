@@ -61,6 +61,15 @@
     member: true
     url: shrutheesh
 
+"liu":
+  - firstname: ["Andrew H."]
+    member: true
+    url: andy
+
+"campbell":
+  - firstname: ["Joseph"]
+    url: https://joe-campbell.github.io/website/
+
 "likhachev":
   - firstname: ["Maxim"]
     url: https://www.cs.cmu.edu/~maxim/
