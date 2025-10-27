@@ -1,6 +1,6 @@
 ---
 layout: member
-title: Shrutheesh
+title: Shrutheesh R. Iyer
 first_name: Shrutheesh R.
 last_name: Iyer
 pronouns: he/him

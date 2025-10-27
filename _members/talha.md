@@ -1,6 +1,6 @@
 ---
 layout: member
-title: Talha
+title: S. Talha Bukhari
 first_name: S. Talha
 last_name: Bukhari
 pronouns: he/him

@@ -1,6 +1,6 @@
 ---
 layout: member
-title: Akshaya
+title: Akshaya Agrawal
 first_name: Akshaya
 last_name: Agrawal
 pronouns: she/her

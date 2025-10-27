@@ -1,6 +1,6 @@
 ---
 layout: member
-title: Under Graduate
+title: Andy Niu
 first_name: Andy
 last_name: Niu
 pronouns: he/him

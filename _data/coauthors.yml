@@ -66,6 +66,11 @@
     member: true
     url: andy
 
+"ruan":
+  - firstname: ["Joseph"]
+    member: true
+    url: jlruan
+
 "campbell":
   - firstname: ["Joseph"]
     url: https://joe-campbell.github.io/website/

@@ -1,7 +1,7 @@
 ---
 layout: member
-title: Joseph Ruan
-first_name: Joey
+title: Joey Ruan
+first_name: Joseph
 last_name: Ruan
 pronouns: he/they
 github: "jlruan"

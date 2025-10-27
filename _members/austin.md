@@ -1,6 +1,6 @@
 ---
 layout: member
-title: Austin
+title: Austin J. Garrett
 first_name: Austin J.
 last_name: Garrett
 pronouns: he/him
@@ -13,7 +13,7 @@ group: Ph.D. Students
 group_rank: 2
 ---
 
-I am an incoming PhD student at the CoMMA Lab at Purdue University, advised by Dr. Zachary Kingston. My research aims to develop robotic agents that can reason about uncertainty while incrementally refining probabilistic models of motion.
+I am a first year PhD student at the CoMMA Lab at Purdue University, advised by Dr. Zachary Kingston. My research aims to develop robotic agents that can reason about uncertainty while incrementally refining probabilistic models of motion.
 
 To this end, I bring probabilistic programming to robotics. Probabilistic programming is an emerging paradigm for building inference kernels that automatically construct particle-based approximations of complex, multimodal posteriors. I hypothesize that by leveraging these kernels, robotic systems can generalize trajectory inference across discontinuities in dynamics and environments—scenarios where gradient-based methods alone often fail.
 

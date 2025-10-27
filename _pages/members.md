@@ -80,8 +80,8 @@ carousels:
     <div class="student-grid-tile">
         <a href="{{ member.url }}">
             {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
-            {% include figure.liquid loading="lazy" path=member_image class="student-image" alt=member.first_name %}
-            <div class="student-name">{{ member.first_name }} {{ member.last_name }}</div>
+            {% include figure.liquid loading="lazy" path=member_image class="student-image" alt=member.title %}
+            <div class="student-name">{{ member.title }}</div>
             {% if member.pronouns %}<div class="student-subtitle">({{ member.pronouns }})</div>{% endif %}
         </a>
         <div>
@@ -128,7 +128,7 @@ carousels:
             <div class="team col-7 col-xs-9 col-sm-9 col-md-10">
                 <div class="card-body">
                     <a href="{{ member.url }}">
-                    <h5 class="card-title">{{ member.first_name }} {{ member.last_name }}</h5>
+                    <h5 class="card-title">{{ member.title }}</h5>
                     {% if member.position %}<h6 class="card-subtitle mb-2 text-muted">{{ member.position }}</h6>{% endif %}
                     {% if member.pronouns %}<h6 class="card-subtitle mb-2 text-muted">({{ member.pronouns }})</h6>{% endif %}
                     <p class="card-text">
