@@ -6,6 +6,20 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+@misc{yan2025vizcoast,
+  title        = {Using {VLM} Reasoning to Constrain Task and Motion Planning}, 
+  author       = {Muyang Yan and Miras Mengdibayev and Ardon Floros and Weihang Guo and Lydia E. Kavraki and Zachary Kingston},
+  abstract     = {In task and motion planning, high-level task planning is done over an abstraction of the world to enable efficient search in long-horizon robotics problems. However, the feasibility of these task-level plans relies on the downward refinability of the abstraction into continuous motion. When a domain's refinability is poor, task-level plans that appear valid may ultimately fail during motion planning, requiring replanning and resulting in slower overall performance. Prior works mitigate this by encoding refinement issues as constraints to prune infeasible task plans. However, these approaches only add constraints upon refinement failure, expending significant search effort on infeasible branches. We propose VIZ-COAST, a method of leveraging the common-sense spatial reasoning of large pretrained Vision-Language Models to identify issues with downward refinement a priori, bypassing the need to fix these failures during planning. Experiments on two challenging TAMP domains show that our approach is able to extract plausible constraints from images and domain descriptions, drastically reducing planning times and, in some cases, eliminating downward refinement failures altogether, generalizing to a diverse range of instances from the broader domain.},
+  year         = 2025,
+  eprint       = {2510.25548},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.RO},
+  pdf          = {https://arxiv.org/abs/2510.25548}, 
+  projects     = {long-horizion,implicit},
+  note         = {Under Review},
+  abbr         = {ARXIV},
+  preview      = {viz_coast.png}
+}
 @misc{sabbadini2025replan,
   title        = {Revisiting Replanning from Scratch: Real-Time Incremental Planning with Fast Almost-Surely Asymptotically Optimal Planners}, 
   author       = {Mitchell E. C. Sabbadini and Andrew H. Liu and Joseph Ruan and Tyler S. Wilson and Zachary Kingston and Jonathan D. Gammell},
@@ -24,7 +38,7 @@ This paper revisits the long-held assumption that reactive replanning requires u
   preview      = {from_scratch.png}
 }
 @misc{mao2025cde,
-  title        = {CDE: Concept-Driven Exploration for Reinforcement Learning}, 
+  title        = {{CDE}: Concept-Driven Exploration for Reinforcement Learning}, 
   author       = {Le Mao and Andrew H. Liu and Renos Zabounidis and Zachary Kingston and Joseph Campbell},
   abstract     = {Intelligent exploration remains a critical challenge in reinforcement learning (RL), especially in visual control tasks. Unlike low-dimensional state-based RL, visual RL must extract task-relevant structure from raw pixels, making exploration inefficient. We propose Concept-Driven Exploration (CDE), which leverages a pre-trained vision-language model (VLM) to generate object-centric visual concepts from textual task descriptions as weak, potentially noisy supervisory signals. Rather than directly conditioning on these noisy signals, CDE trains a policy to reconstruct the concepts via an auxiliary objective, using reconstruction accuracy as an intrinsic reward to guide exploration toward task-relevant objects. Because the policy internalizes these concepts, VLM queries are only needed during training, reducing dependence on external models during deployment. Across five challenging simulated visual manipulation tasks, CDE achieves efficient, targeted exploration and remains robust to noisy VLM predictions. Finally, we demonstrate real-world transfer by deploying CDE on a Franka Research 3 arm, attaining an 80\% success rate in a real-world manipulation task.},
   eprint       = {2510.08851},

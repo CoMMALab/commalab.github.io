@@ -71,6 +71,21 @@
     member: true
     url: jlruan
 
+"yan":
+  - firstname: ["Muyang"]
+    member: true
+    url: muyang
+
+"mengdibayev":
+  - firstname: ["Miras"]
+    member: true
+    url: miras
+
+"floros":
+  - firstname: ["Ardon"]
+    member: true
+    url: ardon
+
 "campbell":
   - firstname: ["Joseph"]
     url: https://joe-campbell.github.io/website/
