@@ -9,7 +9,7 @@ email: "zhan4196@purdue.edu"
 linkedin: "kevin-ys-zhang"
 website: "https://kevin-ys-zhang.github.io/"
 google_scholar: "n13x13cAAAAJ"
-image: "kevin_zhang.jpg"
+image: "kevin_zhang.png"
 group: Ph.D. Students
 group_rank: 2
 ---
