@@ -13,12 +13,8 @@ social: false # includes social icons at the bottom of the page
 #fill {
   fill: var(--global-bg-color);
 }
-
+#banner-text,
 #stroke {
-  fill: var(--global-text-color);
-}
-
-#text1 {
   fill: var(--global-text-color);
 }
 
@@ -50,7 +46,6 @@ social: false # includes social icons at the bottom of the page
 <svg viewBox="0 0 200 65.000001" version="1.1" id="svg1">
   <g
      id="g16"
-     transform="translate(-91.32516,-119.79237)"
      inkscape:label="back">
     <path
        style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;enable-background:accumulate;stop-color:#000000"
@@ -63,7 +58,6 @@ social: false # includes social icons at the bottom of the page
   </g>
   <g
      id="g15"
-     transform="translate(-91.32516,-119.79237)"
      inkscape:label="middle">
     <path
        style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;enable-background:accumulate;stop-color:#000000"
@@ -76,7 +70,6 @@ social: false # includes social icons at the bottom of the page
   </g>
   <g
      id="g14"
-     transform="translate(-91.32516,-119.79237)"
      inkscape:label="front">
     <path
        style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;enable-background:accumulate;stop-color:#000000"
@@ -88,14 +81,14 @@ social: false # includes social icons at the bottom of the page
        d="m 106.65293,137.07122 c -0.42477,-0.0162 -0.84043,0.0161 -1.23972,0.0935 -0.79858,0.15488 -1.53225,0.49123 -2.14457,0.99219 -1.22464,1.00191 -1.93322,2.60865 -1.93322,4.46071 v 18.01182 c 0,3.70411 2.61289,7.24501 6.10712,8.16022 l 11.42411,2.99207 c 0.84266,0.22071 1.12194,0.6391 1.30638,1.06247 0.18443,0.42337 0.1819,0.76584 0.1819,0.76584 v 0.01 0.01 c 0,1.76799 1.16932,3.37263 2.87115,3.81837 l 4.12688,1.08159 c 0.85092,0.22287 1.75072,0.0532 2.39055,-0.47026 0.63983,-0.52346 0.98805,-1.35244 0.98805,-2.23655 v -26.02938 c 0,-3.70411 -2.61288,-7.24502 -6.10712,-8.16023 l -16.67598,-4.36717 c -0.43678,-0.1144 -0.87076,-0.17867 -1.29553,-0.19482 z m -0.0801,1.99058 c 0.27413,0.0131 0.56412,0.0579 0.86971,0.13797 l 16.67599,4.36924 c 2.44472,0.64032 4.61315,3.51417 4.61315,6.22443 v 26.02942 c 0,0.38709 -0.12545,0.58235 -0.25373,0.6873 -0.12827,0.10494 -0.29146,0.16964 -0.61753,0.0842 l -4.12895,-1.08211 c -0.64832,-0.16981 -1.36829,-1.09738 -1.37666,-1.86914 5.8e-4,-0.0731 -0.003,-0.80568 -0.34778,-1.59783 -0.36375,-0.835 -1.20072,-1.82382 -2.63447,-2.19935 l -11.4241,-2.99206 c -2.44473,-0.64033 -4.61316,-3.51417 -4.61316,-6.22443 v -18.01182 c 0,-1.35513 0.48585,-2.32861 1.19889,-2.91197 0.35651,-0.29167 0.77918,-0.49837 1.26401,-0.59169 0.24241,-0.0467 0.5005,-0.0653 0.77463,-0.0522 z m 0.96738,19.82359 c -1.14147,0 -2.08773,0.94626 -2.08773,2.08773 0,1.14147 0.94626,2.08979 2.08773,2.08979 1.14148,0 2.08773,-0.94832 2.08773,-2.08979 -10e-6,-1.14147 -0.94625,-2.08773 -2.08773,-2.08773 z m 16.15044,4.32584 c -1.14148,-1e-5 -2.08773,0.94676 -2.08773,2.08824 0,1.14148 0.94625,2.08774 2.08773,2.08773 1.14148,0 2.08979,-0.94626 2.08979,-2.08773 0,-1.14147 -0.94831,-2.08824 -2.08979,-2.08824 z" />
   </g>
   <text
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, @wght=800';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 800;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill-opacity:1;stroke-width:0.264583;stroke-linecap:round"
+     style="font-size:9.87778px;font-family:sans-serif;font-variation-settings:'wght' 800;fill-opacity:1;stroke-width:0.264583;stroke-linecap:round"
      x="56.910175"
      y="22.519995"
-     id="text1">
-     <tspan sodipodi:role="line" x="56.910175" y="22.519995" id="tspan">Computational Motion, </tspan>
-     <tspan sodipodi:role="line" x="56.910175" y="34.867218" id="tspan">Manipulation, and Autonomy</tspan>
-     <tspan sodipodi:role="line" x="56.910175" y="47.214443" id="tspan">Laboratory </tspan></text> 
+     id="banner-text">
+     <tspan sodipodi:role="line" x="56.910175" y="22.519995">Computational Motion, </tspan>
+     <tspan sodipodi:role="line" x="56.910175" y="34.867218">Manipulation, and Autonomy</tspan>
+     <tspan sodipodi:role="line" x="56.910175" y="47.214443">Laboratory </tspan>
+  </text> 
 </svg>
 </div>
 
