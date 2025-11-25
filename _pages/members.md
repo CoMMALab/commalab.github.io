@@ -8,6 +8,8 @@ nav_rank: 2
 
 carousels:
   - images:
+    - image: /assets/img/group_photos/2025_11_25_defenses.jpg
+      label: Yitian and Lucas's Master's Defense
     - image: /assets/img/group_photos/2025_10_12_katana_sushi.jpg
       label: Dinner at Katana Sushi, Fall 2025
     - image: /assets/img/group_photos/2025_09_06_icra_party.jpg
