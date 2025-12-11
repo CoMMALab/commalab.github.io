@@ -8,26 +8,18 @@ nav_order: 3
 horizontal: false
 ---
 
+<div class="row">
 {% assign projects = site.projects | sort: "rank" | uniq %}
 {% for project in projects %}
-<p>
-    <div class="card hoverable">
-        <div class="row no-gutters">
-            <div class="col-sm-4 col-md-3">
-                {% capture project_video %}assets/video/{{ project.video }}{% endcapture %}
-                {% include video.liquid path=project_video class="img-fluid z-depth-1" autoplay="true" muted="true" loop="true" %}
-            </div>
-            <div class="team col-sm-8 col-md-9">
+    <div class="col-12 col-md-6 mb-3">
+        <div class="card hoverable h-100">
             <a href="{{ project.url }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
-                    <h6 class = "text-muted">
-                    {{ project.caption }}
-                    </h6>
+                    <h6 class="text-muted">{{ project.caption }}</h6>
                 </div>
             </a>
-            </div>
         </div>
     </div>
-</p>
 {% endfor %}
+</div>

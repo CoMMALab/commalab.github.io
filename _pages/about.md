@@ -117,8 +117,8 @@ We are also interested in the intersection between the theory and practice of ro
     <div class="card-body">
         <a href="{{ project.url }}">
         <h5 class="card-title">{{ project.title }}</h5>
-        {% capture project_video %}assets/video/{{ project.video }}{% endcapture %}
-        {% include video.liquid path=project_video class="img-fluid z-depth-1" autoplay="true" muted="true" loop="true" %}
+        <!-- {% capture project_video %}assets/video/{{ project.video }}{% endcapture %} -->
+        <!-- {% include video.liquid path=project_video class="img-fluid z-depth-1" autoplay="true" muted="true" loop="true" %} -->
         </a>
     </div>
     </div>
