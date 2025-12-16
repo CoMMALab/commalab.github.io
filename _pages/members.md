@@ -8,6 +8,8 @@ nav_rank: 2
 
 carousels:
   - images:
+    - image: /assets/img/group_photos/2025_12_15_white_elephant.jpg
+      label: White Elephant Party 2025 
     - image: /assets/img/group_photos/2025_11_25_defenses.jpg
       label: Yitian and Lucas's Master's Defense
     - image: /assets/img/group_photos/2025_10_12_katana_sushi.jpg
