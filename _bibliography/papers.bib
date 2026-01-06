@@ -6,6 +6,18 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+@article{guo2026stac,
+  title        = {Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation},
+  author       = {Weihang Guo and Zachary Kingston and Kaiyu Hang and Lydia E. Kavraki},
+  abstract     = {Multi-robot motion planning for high degree-of-freedom manipulators in shared, constrained, and narrow spaces is a complex problem and essential for many scenarios such as construction, surgery, and more. Traditional coupled and decoupled methods either scale poorly or lack completeness, and hybrid methods that compose paths from individual robots together require the enumeration of many paths before they can find valid composite solutions. This paper introduces Scheduling to Avoid Collisions (StAC), a hybrid approach that more effectively composes paths from individual robots by scheduling (adding random stops and coordination motion along each path) and generates paths that are more likely to be feasible by using bidirectional feedback between the scheduler and motion planner for informed sampling. StAC uses 10 to 100 times fewer paths from the low-level planner than state-of-the-art baselines on challenging problems in manipulator cases.},
+  journal      = ral,
+  year         = 2026,
+  pdf          = {https://arxiv.org/abs/2412.00366},
+  projects     = {constraints,multi},
+  note         = {To Appear},
+  abbr         = {RAL},
+  preview      = {stac.jpg}
+}
 @misc{yan2025vizcoast,
   title        = {Using {VLM} Reasoning to Constrain Task and Motion Planning}, 
   author       = {Muyang Yan* and Miras Mengdibayev* and Ardon Floros and Weihang Guo and Lydia E. Kavraki and Zachary Kingston},
@@ -211,7 +223,7 @@ This paper revisits the long-held assumption that reactive replanning requires u
   doi          = {10.1109/OCEANS58557.2025.11104649},
   address      = {Brest, France},
   pdf          = {https://arxiv.org/abs/2506.06612},
-  projects     = {software},
+  projects     = {software,multi},
   abbr         = {OCEANS},
   preview      = {mrangler.jpg}
 }
@@ -255,7 +267,7 @@ This paper revisits the long-held assumption that reactive replanning requires u
   doi          = {10.1109/ICRA55743.2025.11127991},
   pdf          = {https://arxiv.org/abs/2410.21630},
   code         = {https://github.com/JBVAkshaya/PlanningOnManifoldIntersection},
-  projects     = {constraints},
+  projects     = {constraints,multi},
   abbr         = {ICRA},
   preview      = {cnkz.jpg}
 }
@@ -305,20 +317,6 @@ This paper revisits the long-held assumption that reactive replanning requires u
   projects     = {realtime},
   abbr         = {ISRR},
   preview      = {ropras_1.jpg}
-}
-@misc{guo2024stac,
-  title        = {Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation},
-  author       = {Weihang Guo and Zachary Kingston and Kaiyu Hang and Lydia E. Kavraki},
-  abstract     = {Multi-robot motion planning for high degree-of-freedom manipulators in shared, constrained, and narrow spaces is a complex problem and essential for many scenarios such as construction, surgery, and more. Traditional coupled and decoupled methods either scale poorly or lack completeness, and hybrid methods that compose paths from individual robots together require the enumeration of many paths before they can find valid composite solutions. This paper introduces Scheduling to Avoid Collisions (StAC), a hybrid approach that more effectively composes paths from individual robots by scheduling (adding random stops and coordination motion along each path) and generates paths that are more likely to be feasible by using bidirectional feedback between the scheduler and motion planner for informed sampling. StAC uses 10 to 100 times fewer paths from the low-level planner than state-of-the-art baselines on challenging problems in manipulator cases.},
-  eprint       = {2412.00366},
-  archiveprefix = {arXiv},
-  primaryclass = {cs.RO},
-  year         = 2024,
-  pdf          = {https://arxiv.org/abs/2412.00366},
-  projects     = {constraints},
-  note         = {Under Review},
-  abbr         = {ARXIV},
-  preview      = {stac.jpg}
 }
 @inproceedings{meng2024icra40,
   title        = {Perception-aware Planning for Robotics: Challenges and Opportunities},
@@ -641,6 +639,7 @@ This paper revisits the long-held assumption that reactive replanning requires u
   publisher    = {Springer Proceedings in Advanced Robotics},
   pdf          = {https://s3.amazonaws.com/zk-bucket/rsc/Habibi2018.pdf},
   video        = {https://player.vimeo.com/video/287250201?loop=1&color=ffffff&byline=0&portrait=0},
+  projects     = {multi},
   preview      = {swarmchar.gif}
 }
 @article{dantam2018tmp,
@@ -734,6 +733,7 @@ This paper revisits the long-held assumption that reactive replanning requires u
   publisher    = {International Foundation for Autonomous Agents and Multiagent Systems},
   pdf          = {https://zkingston.com/papers/habibi2015aamas.pdf},
   abbr         = {AAMAS},
+  projects     = {multi},
   preview      = {pipeline.png}
 }
 @inproceedings{habibi2015icra,
@@ -747,5 +747,6 @@ This paper revisits the long-held assumption that reactive replanning requires u
   pdf          = {https://zkingston.com/papers/habibi2015icra.pdf},
   video        = {https://player.vimeo.com/video/287250199?loop=1&color=ffffff&byline=0&portrait=0},
   abbr         = {ICRA},
+  projects     = {multi},
   preview      = {swarmtrans.gif}
 }
