@@ -56,3 +56,7 @@
 "HUMANOIDS":
   name: "Humanoids"
   color: "#008800"
+
+"Soft Robotics":
+  name: "SoRo"
+  color: "#F54927"
