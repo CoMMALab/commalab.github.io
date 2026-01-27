@@ -41,8 +41,8 @@ nav_order: 2
 
 <div class="filter-buttons">
   <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="article">Journal Articles</button>
-  <button class="filter-btn" data-filter="inproceedings">Conference Papers</button>
+  <button class="filter-btn" data-filter="article">Journals</button>
+  <button class="filter-btn" data-filter="inproceedings">Conferences</button>
   <button class="filter-btn" data-filter="misc">Preprints</button>
 </div>
 
@@ -55,16 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const publicationEntries = document.querySelectorAll('.bibliography li');
 
-  // Extract entry type from BibTeX code block
   publicationEntries.forEach(function(entry) {
     const bibtexDiv = entry.querySelector('.bibtex code');
     if (bibtexDiv) {
       const bibtexText = bibtexDiv.textContent;
-      // Extract the entry type (e.g., @article, @inproceedings, @misc)
       const typeMatch = bibtexText.match(/@(\w+)\s*\{/);
       if (typeMatch) {
         const entryType = typeMatch[1].toLowerCase();
-        // Map entry types to filter categories
         if (entryType === 'article') {
           entry.setAttribute('data-type', 'article');
         } else if (entryType === 'inproceedings' || entryType === 'incollection' || entryType === 'inbook') {
@@ -78,18 +75,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Handle filter button clicks
+  function updateYearSections() {
+    const yearHeaders = document.querySelectorAll('.publications h2.bibliography');
+    yearHeaders.forEach(function(yearHeader) {
+      let nextElement = yearHeader.nextElementSibling;
+      let hasVisiblePublications = false;
+
+      if (nextElement && nextElement.tagName === 'OL' && nextElement.classList.contains('bibliography')) {
+        const items = nextElement.querySelectorAll('li');
+        items.forEach(function(item) {
+          if (item.style.display !== 'none') {
+            hasVisiblePublications = true;
+          }
+        });
+      }
+
+      if (hasVisiblePublications) {
+        yearHeader.style.display = '';
+      } else {
+        yearHeader.style.display = 'none';
+      }
+    });
+  }
+
   filterButtons.forEach(function(button) {
     button.addEventListener('click', function() {
       const filter = this.getAttribute('data-filter');
 
-      // Update active button
       filterButtons.forEach(function(btn) {
         btn.classList.remove('active');
       });
       this.classList.add('active');
 
-      // Filter entries
       publicationEntries.forEach(function(entry) {
         const entryType = entry.getAttribute('data-type');
         if (filter === 'all' || entryType === filter) {
@@ -98,7 +115,11 @@ document.addEventListener('DOMContentLoaded', function() {
           entry.style.display = 'none';
         }
       });
+
+      updateYearSections();
     });
   });
+
+  updateYearSections();
 });
 </script>
