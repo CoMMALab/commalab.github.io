@@ -6,6 +6,62 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+@inproceedings{huangjadhav2025prrtc,
+  title        = {{pRRTC}: {GPU}-Parallel {RRT}-Connect for Fast, Consistent, and Low-Cost Motion Planning},
+  author       = {Chih H. Huang* and Pranav Jadhav* and Brian Plancher and Zachary Kingston},
+  abstract     = {Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely used variant, RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots. However, these methods remain computationally intensive, particularly in complex environments that require many collision checks. As such, to improve performance, recent efforts have explored parallelizing specific components of RRT, such as collision checking or running multiple planners independently, but no prior work has integrated parallelism at multiple levels of the algorithm for robotic manipulation. In this work, we present pRRTC, a GPU-accelerated implementation of RRT-Connect that achieves parallelism across the entire algorithm through multithreaded expansion and connection, SIMT-optimized collision checking, and hierarchical parallelism optimization, improving efficiency, consistency, and initial solution cost. We evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees-of-freedom, demonstrating up to 6x average speedup on constrained reaching tasks at high collision checking resolution compared to state-of-the-art. pRRTC also demonstrates a 5x reduction in solution time variance and 1.5x improvement in initial path costs compared to state-of-the-art motion planners in complex environments across all robots.},
+  booktitle    = icra,
+  year         = 2026,
+  pdf          = {https://arxiv.org/abs/2503.06757},
+  code         = {https://github.com/CoMMALab/pRRTC},
+  video        = {https://www.youtube.com/watch?v=okpqftLB6P8},
+  projects     = {realtime},
+  note         = {To Appear},
+  abbr         = {ICRA},
+  preview      = {prrtc.gif}
+}
+@inproceedings{yang2025pachs,
+  title        = {Parallel Heuristic Search as Inference for Actor-Critic Reinforcement Learning Models},
+  author       = {Hanlan Yang and Itamar Mishani and Luca Pivetti and Zachary Kingston and Maxim Likhachev},
+  abstract     = {Actor-Critic models are a class of model-free deep reinforcement learning (RL) algorithms that have demonstrated effectiveness across various robot learning tasks. While considerable research has focused on improving training stability and data sampling efficiency, most deployment strategies have remained relatively simplistic, typically relying on direct actor policy rollouts. In contrast, we propose PACHS (Parallel Actor-Critic Heuristic Search), an efficient parallel best-first search algorithm for inference that leverages both components of the actor-critic architecture: the actor network generates actions, while the critic network provides cost-to-go estimates to guide the search. Two levels of parallelism are employed within the search -- actions and cost-to-go estimates are generated in batches by the actor and critic networks respectively, and graph expansion is distributed across multiple threads. We demonstrate the effectiveness of our approach in robotic manipulation tasks, including collision-free motion planning and contact-rich interactions such as non-prehensile pushing.},
+  booktitle    = icra,
+  year         = 2026,
+  pdf          = {https://arxiv.org/abs/2509.25402},
+  projects     = {implicit},
+  note         = {To Appear},
+  abbr         = {ICRA},
+  preview      = {pachs.gif}
+}
+@misc{chen2025spasm,
+  title        = {Differentiable Particle Optimization for Fast Sequential Manipulation}, 
+  author       = {Lucas Chen and Shrutheesh R. Iyer and Zachary Kingston},
+  abstract     = {Sequential robot manipulation tasks require finding collision-free trajectories that satisfy geometric constraints across multiple object interactions in potentially high-dimensional configuration spaces. Solving these problems in real-time and at large scales has remained out of reach due to computational requirements. Recently, GPU-based acceleration has shown promising results, but prior methods achieve limited performance due to CPU-GPU data transfer overhead and complex logic that prevents full hardware utilization. To this end, we present SPaSM (Sampling Particle optimization for Sequential Manipulation), a fully GPU-parallelized framework that compiles constraint evaluation, sampling, and gradient-based optimization into optimized CUDA kernels for end-to-end trajectory optimization without CPU coordination. The method consists of a two-stage particle optimization strategy: first solving placement constraints through massively parallel sampling, then lifting solutions to full trajectory optimization in joint space. Unlike hierarchical approaches, SPaSM jointly optimizes object placements and robot trajectories to handle scenarios where motion feasibility constrains placement options. Experimental evaluation on challenging benchmarks demonstrates solution times in the realm of milliseconds with a 100\% success rate; a 4000x speedup compared to existing approaches.},
+  booktitle    = icra,
+  year         = 2026,
+  pdf          = {https://arxiv.org/abs/2510.07674}, 
+  projects     = {realtime,long-horizon,constraints},
+  note         = {To Appear},
+  abbr         = {ICRA},
+  website      = {../papers/spasm},
+  video        = {https://www.youtube.com/watch?v=VK8PYsdXNBk},
+  code         = {https://github.com/CoMMALab/SPaSM},
+  preview      = {spasm.gif}
+}
+@inproceedings{sabbadini2025replan,
+  title        = {Revisiting Replanning from Scratch: Real-Time Incremental Planning with Fast Almost-Surely Asymptotically Optimal Planners}, 
+  author       = {Mitchell E. C. Sabbadini and Andrew H. Liu and Joseph Ruan and Tyler S. Wilson and Zachary Kingston and Jonathan D. Gammell},
+  abstract     = {Robots operating in changing environments either predict obstacle changes and/or plan quickly enough to react to them. Predictive approaches require a strong prior about the position and motion of obstacles. Reactive approaches require no assumptions about their environment but must replan quickly and find high-quality paths to navigate effectively.
+Reactive approaches often reuse information between queries to reduce planning cost. These techniques are conceptually sound but updating dense planning graphs when information changes can be computationally prohibitive. It can also require significant effort to detect the changes in some applications.
+This paper revisits the long-held assumption that reactive replanning requires updating existing plans. It shows that the incremental planning problem can alternatively be solved more efficiently as a series of independent problems using fast almost-surely asymptotically optimal (ASAO) planning algorithms. These ASAO algorithms quickly find an initial solution and converge towards an optimal solution which allows them to find consistent global plans in the presence of changing obstacles without requiring explicit plan reuse. This is demonstrated with simulated experiments where Effort Informed Trees (EIT*) finds shorter median solution paths than the tested reactive planning algorithms and is further validated using Asymptotically Optimal RRT-Connect (AORRTC) on a real-world planning problem on a robot arm.},
+  booktitle    = icra,
+  year         = 2026,
+  pdf          = {https://arxiv.org/abs/2510.21074}, 
+  projects     = {realtime},
+  note         = {To Appear},
+  abbr         = {ICRA},
+  video        = {https://www.youtube.com/watch?v=XaZrFy8wGZs},
+  preview      = {from_scratch.png}
+}
 @article{gaochen2025actsim,
   title        = {Parallel Simulation of Contact and Actuation for Soft Growing Robots},
   author       = {Yitian Gao* and Lucas Chen* and Priyanka Bhovad and Sicheng Wang and Zachary Kingston and Laura H. Blumenschein},
@@ -42,26 +98,8 @@
   primaryClass = {cs.RO},
   pdf          = {https://arxiv.org/abs/2510.25548}, 
   projects     = {long-horizon,implicit},
-  note         = {Under Review},
   abbr         = {ARXIV},
   preview      = {viz_coast.png}
-}
-@misc{sabbadini2025replan,
-  title        = {Revisiting Replanning from Scratch: Real-Time Incremental Planning with Fast Almost-Surely Asymptotically Optimal Planners}, 
-  author       = {Mitchell E. C. Sabbadini and Andrew H. Liu and Joseph Ruan and Tyler S. Wilson and Zachary Kingston and Jonathan D. Gammell},
-  abstract     = {Robots operating in changing environments either predict obstacle changes and/or plan quickly enough to react to them. Predictive approaches require a strong prior about the position and motion of obstacles. Reactive approaches require no assumptions about their environment but must replan quickly and find high-quality paths to navigate effectively.
-Reactive approaches often reuse information between queries to reduce planning cost. These techniques are conceptually sound but updating dense planning graphs when information changes can be computationally prohibitive. It can also require significant effort to detect the changes in some applications.
-This paper revisits the long-held assumption that reactive replanning requires updating existing plans. It shows that the incremental planning problem can alternatively be solved more efficiently as a series of independent problems using fast almost-surely asymptotically optimal (ASAO) planning algorithms. These ASAO algorithms quickly find an initial solution and converge towards an optimal solution which allows them to find consistent global plans in the presence of changing obstacles without requiring explicit plan reuse. This is demonstrated with simulated experiments where Effort Informed Trees (EIT*) finds shorter median solution paths than the tested reactive planning algorithms and is further validated using Asymptotically Optimal RRT-Connect (AORRTC) on a real-world planning problem on a robot arm.},
-  year         = 2025,
-  eprint       = {2510.21074},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.RO},
-  pdf          = {https://arxiv.org/abs/2510.21074}, 
-  projects     = {realtime},
-  note         = {Under Review},
-  abbr         = {ARXIV},
-  video        = {https://www.youtube.com/watch?v=XaZrFy8wGZs},
-  preview      = {from_scratch.png}
 }
 @misc{mao2025cde,
   title        = {{CDE}: Concept-Driven Exploration for Reinforcement Learning}, 
@@ -73,28 +111,10 @@ This paper revisits the long-held assumption that reactive replanning requires u
   year         = 2025,
   pdf          = {https://arxiv.org/abs/2510.08851}, 
   projects     = {implicit},
-  note         = {Under Review},
   abbr         = {ARXIV},
   website      = {https://sites.google.com/view/concept-learn/home},
   code         = {https://github.com/LeMaoLeMao/Concept-Learning},
   preview      = {cde.png}
-}
-@misc{chen2025spasm,
-  title        = {Differentiable Particle Optimization for Fast Sequential Manipulation}, 
-  author       = {Lucas Chen and Shrutheesh R. Iyer and Zachary Kingston},
-  abstract     = {Sequential robot manipulation tasks require finding collision-free trajectories that satisfy geometric constraints across multiple object interactions in potentially high-dimensional configuration spaces. Solving these problems in real-time and at large scales has remained out of reach due to computational requirements. Recently, GPU-based acceleration has shown promising results, but prior methods achieve limited performance due to CPU-GPU data transfer overhead and complex logic that prevents full hardware utilization. To this end, we present SPaSM (Sampling Particle optimization for Sequential Manipulation), a fully GPU-parallelized framework that compiles constraint evaluation, sampling, and gradient-based optimization into optimized CUDA kernels for end-to-end trajectory optimization without CPU coordination. The method consists of a two-stage particle optimization strategy: first solving placement constraints through massively parallel sampling, then lifting solutions to full trajectory optimization in joint space. Unlike hierarchical approaches, SPaSM jointly optimizes object placements and robot trajectories to handle scenarios where motion feasibility constrains placement options. Experimental evaluation on challenging benchmarks demonstrates solution times in the realm of milliseconds with a 100\% success rate; a 4000x speedup compared to existing approaches.},
-  eprint       = {2510.07674},
-  archivePrefix ={arXiv},
-  primaryClass = {cs.RO},
-  year         = 2025,
-  pdf          = {https://arxiv.org/abs/2510.07674}, 
-  projects     = {realtime,long-horizon,constraints},
-  note         = {Under Review},
-  abbr         = {ARXIV},
-  website      = {../papers/spasm},
-  video        = {https://www.youtube.com/watch?v=VK8PYsdXNBk},
-  code         = {https://github.com/CoMMALab/SPaSM},
-  preview      = {spasm.gif}
 }
 @misc{yasutake2025hjcdik,
   title        = {{HJCD-IK}: {GPU}-Accelerated Inverse Kinematics through Batched Hybrid Jacobian Coordinate Descent}, 
@@ -107,23 +127,8 @@ This paper revisits the long-held assumption that reactive replanning requires u
   pdf          = {https://arxiv.org/abs/2510.07514},
   code         = {https://github.com/a2r-lab/HJCD-IK},
   projects     = {realtime,software},
-  note         = {Under Review},
   abbr         = {ARXIV},
   preview      = {hjcdik.jpg}
-}
-@misc{yang2025pachs,
-  title        = {Parallel Heuristic Search as Inference for Actor-Critic Reinforcement Learning Models},
-  author       = {Hanlan Yang and Itamar Mishani and Luca Pivetti and Zachary Kingston and Maxim Likhachev},
-  abstract     = {Actor-Critic models are a class of model-free deep reinforcement learning (RL) algorithms that have demonstrated effectiveness across various robot learning tasks. While considerable research has focused on improving training stability and data sampling efficiency, most deployment strategies have remained relatively simplistic, typically relying on direct actor policy rollouts. In contrast, we propose PACHS (Parallel Actor-Critic Heuristic Search), an efficient parallel best-first search algorithm for inference that leverages both components of the actor-critic architecture: the actor network generates actions, while the critic network provides cost-to-go estimates to guide the search. Two levels of parallelism are employed within the search -- actions and cost-to-go estimates are generated in batches by the actor and critic networks respectively, and graph expansion is distributed across multiple threads. We demonstrate the effectiveness of our approach in robotic manipulation tasks, including collision-free motion planning and contact-rich interactions such as non-prehensile pushing.},
-  eprint       = {2509.25402},
-  archiveprefix = {arXiv},
-  primaryclass = {cs.RO},
-  year         = 2025,
-  pdf          = {https://arxiv.org/abs/2509.25402},
-  projects     = {implicit},
-  note         = {Under Review},
-  abbr         = {ARXIV},
-  preview      = {pachs.gif}
 }
 @misc{meng2025look,
   title        = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
@@ -181,22 +186,6 @@ This paper revisits the long-held assumption that reactive replanning requires u
   abbr         = {RAL},
   preview      = {aorrtc.jpg},
   selected     = {true}
-}
-@misc{huangjadhav2025prrtc,
-  title        = {{pRRTC}: {GPU}-Parallel {RRT}-Connect for Fast, Consistent, and Low-Cost Motion Planning},
-  author       = {Chih H. Huang* and Pranav Jadhav* and Brian Plancher and Zachary Kingston},
-  abstract     = {Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely used variant, RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots. However, these methods remain computationally intensive, particularly in complex environments that require many collision checks. As such, to improve performance, recent efforts have explored parallelizing specific components of RRT, such as collision checking or running multiple planners independently, but no prior work has integrated parallelism at multiple levels of the algorithm for robotic manipulation. In this work, we present pRRTC, a GPU-accelerated implementation of RRT-Connect that achieves parallelism across the entire algorithm through multithreaded expansion and connection, SIMT-optimized collision checking, and hierarchical parallelism optimization, improving efficiency, consistency, and initial solution cost. We evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees-of-freedom, demonstrating up to 6x average speedup on constrained reaching tasks at high collision checking resolution compared to state-of-the-art. pRRTC also demonstrates a 5x reduction in solution time variance and 1.5x improvement in initial path costs compared to state-of-the-art motion planners in complex environments across all robots.},
-  eprint       = {2503.06757},
-  archiveprefix = {arXiv},
-  primaryclass = {cs.RO},
-  year         = 2025,
-  pdf          = {https://arxiv.org/abs/2503.06757},
-  code         = {https://github.com/CoMMALab/pRRTC},
-  video        = {https://www.youtube.com/watch?v=okpqftLB6P8},
-  projects     = {realtime},
-  note         = {Under Review},
-  abbr         = {ARXIV},
-  preview      = {prrtc.gif}
 }
 @misc{coumar2025foam,
   title        = {Foam: A Tool for Spherical Approximation of Robot Geometry},
