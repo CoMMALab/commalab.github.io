@@ -6,6 +6,7 @@
 @string{ral = {IEEE Robotics and Automation Letters}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
+
 @inproceedings{huangjadhav2025prrtc,
   title        = {{pRRTC}: {GPU}-Parallel {RRT}-Connect for Fast, Consistent, and Low-Cost Motion Planning},
   author       = {Chih H. Huang* and Pranav Jadhav* and Brian Plancher and Zachary Kingston},
@@ -88,6 +89,20 @@ This paper revisits the long-held assumption that reactive replanning requires u
   note         = {To Appear},
   abbr         = {RAL},
   preview      = {stac.jpg}
+}
+@misc{guo2026agenticlab,
+  title        = {{AgenticLab}: A Real-World Robot Agent Platform that Can See, Think, and Act},
+  author       = {Pengyuan Guo and Zhonghao Mai and Zhengtong Xu and Kaidi Zhang and Heng Zhang and Zichen Miao and Arash Ajoudani and Zachary Kingston and Qiang Qiu and Yu She},
+  abstract     = {Recent advances in large vision-language models (VLMs) have demonstrated generalizable open-vocabulary perception and reasoning, yet their real-robot manipulation capability remains unclear for long-horizon, closed-loop execution in unstructured, in-the-wild environments. Prior VLM-based manipulation pipelines are difficult to compare across different research groups' setups, and many evaluations rely on simulation, privileged state, or specially designed setups. We present AgenticLab, a model-agnostic robot agent platform and benchmark for open-world manipulation. AgenticLab provides a closed-loop agent pipeline for perception, task decomposition, online verification, and replanning. Using AgenticLab, we benchmark state-of-the-art VLM-based agents on real-robot tasks in unstructured environments. Our benchmark reveals several failure modes that offline vision-language tests (e.g., VQA and static image understanding) fail to capture, including breakdowns in multi-step grounding consistency, object grounding under occlusion and scene changes, and insufficient spatial reasoning for reliable manipulation. We will release the full hardware and software stack to support reproducible evaluation and accelerate research on general-purpose robot agents.},
+  year         = 2026,
+  eprint       = {2602.01662},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.RO},
+  pdf          = {https://arxiv.org/abs/2602.01662},
+  note         = {Under Review},
+  projects     = {implicit,long-horizon},
+  abbr         = {ARXIV},
+  preview      = {agenticlab.gif}
 }
 @misc{yan2025vizcoast,
   title        = {Using {VLM} Reasoning to Constrain Task and Motion Planning}, 

@@ -1,70 +1,77 @@
-"kingston":
-  - firstname: ["Zachary"]
-    url: kingston
-    member: true
-
-"gao":
-  - firstname: ["Yitian"]
-    url: yitian
-    member: true
-
-"chen":
-  - firstname: ["Lucas"]
-    url: lucas
-    member: true
-
-"jadhav":
-  - firstname: ["Pranav"]
-    url: jadhav
-    member: true
-
-"chang":
-  - firstname: ["Gilbert"]
-    url: chang
-    member: true
-
-"kodkani":
-  - firstname: ["Nihar"]
-    url: kodkani
-    member: true
-
-"buynitsky":
-  - firstname: ["Alexiy"]
-    url: alexiy
-    member: true
-
-"coumar":
-  - firstname: ["Sai"]
-    url: sai
-    member: true
+# Lab Members
 
 "agrawal":
   - firstname: ["Akshaya"]
+    member: true
     url: akshaya
-    member: true
   - firstname: ["Kaivalya"]
-    url: kaivalya
     member: true
+    url: kaivalya
 
 "bukhari":
   - firstname: ["S. Talha"]
     member: true
     url: talha
 
-"yang":
-  - firstname: ["Hanlan"]
+"buynitsky":
+  - firstname: ["Alexiy"]
     member: true
-    url: hanlan
+    url: alexiy
+
+"chang":
+  - firstname: ["Gilbert"]
+    member: true
+    url: chang
+
+"chen":
+  - firstname: ["Lucas"]
+    member: true
+    url: lucas
+
+"coumar":
+  - firstname: ["Sai"]
+    member: true
+    url: sai
+
+"floros":
+  - firstname: ["Ardon"]
+    member: true
+    url: Ardon
+
+"gao":
+  - firstname: ["Yitian"]
+    member: true
+    url: yitian
 
 "iyer":
   - firstname: ["Shrutheesh", "Shrutheesh R.", "Shrutheesh Raman"]
     member: true
     url: shrutheesh
 
+"jadhav":
+  - firstname: ["Pranav"]
+    member: true
+    url: jadhav
+
+"kingston":
+  - firstname: ["Zachary"]
+    member: true
+    url: kingston
+
+"kodkani":
+  - firstname: ["Nihar"]
+    member: true
+    url: kodkani
+
 "liu":
   - firstname: ["Andrew H."]
     member: true
     url: andy
+
+"mengdibayev":
+  - firstname: ["Miras"]
+    member: true
+    url: miras
 
 "ruan":
   - firstname: ["Joseph"]
@@ -76,148 +83,16 @@
     member: true
     url: muyang
 
-"mengdibayev":
-  - firstname: ["Miras"]
+"yang":
+  - firstname: ["Hanlan"]
     member: true
-    url: miras
+    url: hanlan
 
-"floros":
-  - firstname: ["Ardon"]
-    member: true
-    url: Ardon
+# External Collaborators
 
-"campbell":
-  - firstname: ["Joseph"]
-    url: https://joe-campbell.github.io/website/
-
-"likhachev":
-  - firstname: ["Maxim"]
-    url: https://www.cs.cmu.edu/~maxim/
-
-"mishani":
-  - firstname: ["Itamar"]
-    url: https://imishani.github.io/
-
-"blumenschein":
-  - firstname: ["Laura H."]
-    url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
-
-"ramsey":
-  - firstname: ["Clayton W."]
-    url: https://claytonwramsey.com
-
-"thomason":
-  - firstname: ["Wil"]
-    url: https://wbthomason.com/
-
-"kavraki":
-  - firstname: ["Lydia", "Lydia E."]
-    url: https://profiles.rice.edu/faculty/lydia-e-kavraki
-
-"dantam":
-  - firstname: ["Neil", "Neil T."]
-    url: http://www.neil.dantam.name/
-
-"moll":
-  - firstname: ["Mark"]
-    url: https://moll.ai/
-
-"wells":
-  - firstname: ["Andrew", "Andrew M."]
-    url: https://andrewmw94.github.io/
-
-"chamzas":
-  - firstname: ["Constantinos"]
-    url: https://cchamzas.com/
-
-"quintero-pena":
-  - firstname: ["Carlos"]
-    clean_last_name: ["Quintero-Peña"]
-    url: https://carlosquinterop.github.io/
-
-"elimelech":
-  - firstname: ["Khen"]
-    url: http://khen.io/
-
-"shome":
-  - firstname: ["Rahul"]
-    url: https://www.rahulsho.me/
-
-"orthey":
-  - firstname: ["Andreas"]
-    url: https://www.aorthey.com/
-
-"pan":
-  - firstname: ["Tianyang"]
-    url: https://www.tianyangpan.com/
-
-"habibi":
-  - firstname: ["Golnaz"]
-    url: https://www.ou.edu/coe/cs/people/faculty/golnaz-habibi
-
-"chaudhuri":
-  - firstname: ["Swarat"]
-    url: https://www.cs.utexas.edu/~swarat/
-
-"kyrillidis":
-  - firstname: ["Anastasios"]
-    url: http://akyrillidis.github.io/about/
-
-"vardi":
-  - firstname: ["Moshe Y."]
-    url: https://www.cs.rice.edu/~vardi/
-
-"toussaint":
-  - firstname: ["Marc"]
-    url: https://www.user.tu-berlin.de/mtoussai/
-
-"rakita":
-  - firstname: ["Daniel"]
-    url: https://dannyrakita.net/
-
-"shrivastava":
-  - firstname: ["Anshumali"]
-    url: https://www.cs.rice.edu/~as143/
-
-"lahijanian":
-  - firstname: ["Morteza"]
-    url: https://mortezalahijanian.com/
-
-"unhelkar":
-  - firstname: ["Vaibhav"]
-    url: https://unhelkar.github.io/
-
-"meng":
-  - firstname: ["Qingxi"]
-    url: https://www.linkedin.com/in/qingxi-meng-0b733a125/
-
-"guo":
-  - firstname: ["Weihang"]
-    url: https://www.whguo.me/
-
-"hollinger":
-  - firstname: ["Geoffrey A."]
-    url: https://engineering.oregonstate.edu/people/geoff-hollinger
-
-"kurniawati":
-  - firstname: ["Hanna"]
-    url: https://comp.anu.edu.au/people/hanna-kurniawati/
-
-"hang":
-  - firstname: ["Kaiyu"]
-    url: https://hangkaiyu.github.io/
-
-"gammell":
-  - firstname: ["Jonathan D."]
-    url: https://robotic-esp.com/people/gammell/
-
-"plancher":
-  - firstname: ["Brian"]
-    url: https://brianplancher.com/
-
-"wilson":
-  - firstname: ["Tyler S."]
-    url: https://robotic-esp.com/people/twilson/
+"ajoudani":
+  - firstname: ["Arash"]
+    url: https://www.iit.it/people-details/-/people/arash-ajoudani
 
 "bera":
   - firstname: ["Aniket"]
@@ -227,18 +102,179 @@
   - firstname: ["Priyanka"]
     url: https://www.linkedin.com/in/priyanka-bhovad-7028a825/
 
-"wang":
-  - firstname: ["Sicheng"]
-    url: https://www.linkedin.com/in/-sicheng-wang/
+"blumenschein":
+  - firstname: ["Laura H."]
+    url: "https://engineering.purdue.edu/ME/People/ptProfile?resource_id=241064"
 
-"qian":
-  - firstname: ["Peizhu"]
-    url: https://www.peizhuqian.com/
+"campbell":
+  - firstname: ["Joseph"]
+    url: https://joe-campbell.github.io/website/
+
+"chamzas":
+  - firstname: ["Constantinos"]
+    url: https://cchamzas.com/
+
+"chaudhuri":
+  - firstname: ["Swarat"]
+    url: https://www.cs.utexas.edu/~swarat/
+
+"dantam":
+  - firstname: ["Neil", "Neil T."]
+    url: http://www.neil.dantam.name/
+
+"elimelech":
+  - firstname: ["Khen"]
+    url: http://khen.io/
+
+"gammell":
+  - firstname: ["Jonathan D."]
+    url: https://robotic-esp.com/people/gammell/
+
+"guo":
+  - firstname: ["Weihang"]
+    url: https://www.whguo.me/
+  - firstname: ["Pengyuan"]
+    url: https://www.linkedin.com/in/pengyuan-guo-aab54084/
+
+"habibi":
+  - firstname: ["Golnaz"]
+    url: https://www.ou.edu/coe/cs/people/faculty/golnaz-habibi
+
+"hang":
+  - firstname: ["Kaiyu"]
+    url: https://hangkaiyu.github.io/
+
+"hollinger":
+  - firstname: ["Geoffrey A."]
+    url: https://engineering.oregonstate.edu/people/geoff-hollinger
+
+"kavraki":
+  - firstname: ["Lydia", "Lydia E."]
+    url: https://profiles.rice.edu/faculty/lydia-e-kavraki
+
+"kurniawati":
+  - firstname: ["Hanna"]
+    url: https://comp.anu.edu.au/people/hanna-kurniawati/
+
+"kyrillidis":
+  - firstname: ["Anastasios"]
+    url: http://akyrillidis.github.io/about/
+
+"lahijanian":
+  - firstname: ["Morteza"]
+    url: https://mortezalahijanian.com/
 
 "liang":
   - firstname: ["Yuanchu"]
     url: https://yc-liang.github.io/
 
+"likhachev":
+  - firstname: ["Maxim"]
+    url: https://www.cs.cmu.edu/~maxim/
+
+"mai":
+  - firstname: ["Zhonghao"]
+    url: https://www.linkedin.com/in/zhonghao-mai/ 
+
+"meng":
+  - firstname: ["Qingxi"]
+    url: https://www.linkedin.com/in/qingxi-meng-0b733a125/
+
+"mishani":
+  - firstname: ["Itamar"]
+    url: https://imishani.github.io/
+
+"miao":
+  - firstname: ["Zichen"]
+    url: https://zichenmiao.github.io/
+
+"moll":
+  - firstname: ["Mark"]
+    url: https://moll.ai/
+
+"orthey":
+  - firstname: ["Andreas"]
+    url: https://www.aorthey.com/
+
+"pan":
+  - firstname: ["Tianyang"]
+    url: https://www.tianyangpan.com/
+
+"plancher":
+  - firstname: ["Brian"]
+    url: https://brianplancher.com/
+
+"qian":
+  - firstname: ["Peizhu"]
+    url: https://www.peizhuqian.com/
+
+"qiu":
+  - firstname: ["Qiang"]
+    url: https://engineering.purdue.edu/~qqiu/
+
+"quintero-pena":
+  - firstname: ["Carlos"]
+    url: https://carlosquinterop.github.io/
+    clean_last_name: ["Quintero-Peña"]
+
+"rakita":
+  - firstname: ["Daniel"]
+    url: https://dannyrakita.net/
+
+"ramsey":
+  - firstname: ["Clayton W."]
+    url: https://claytonwramsey.com
+
+"she":
+  - firstname: ["Yu"]
+    url: https://engineering.purdue.edu/IE/people/ptProfile?resource_id=256650
+
+"shome":
+  - firstname: ["Rahul"]
+    url: https://www.rahulsho.me/
+
+"shrivastava":
+  - firstname: ["Anshumali"]
+    url: https://www.cs.rice.edu/~as143/
+
+"thomason":
+  - firstname: ["Wil"]
+    url: https://wbthomason.com/
+
+"toussaint":
+  - firstname: ["Marc"]
+    url: https://www.user.tu-berlin.de/mtoussai/
+
+"unhelkar":
+  - firstname: ["Vaibhav"]
+    url: https://unhelkar.github.io/
+
+"vardi":
+  - firstname: ["Moshe Y."]
+    url: https://www.cs.rice.edu/~vardi/
+
+"wang":
+  - firstname: ["Sicheng"]
+    url: https://www.linkedin.com/in/-sicheng-wang/
+
+"wells":
+  - firstname: ["Andrew", "Andrew M."]
+    url: https://andrewmw94.github.io/
+
+"wilson":
+  - firstname: ["Tyler S."]
+    url: https://robotic-esp.com/people/twilson/
+
+"xu":
+  - firstname: ["Zhengtong"]
+    url: https://zhengtongxu.github.io/website/
+
 "yasutake":
   - firstname: ["Cael"]
     url: https://caelyasutake.github.io
+
+"zhang":
+  - firstname: ["Kaidi"]
+    url: https://aaronzkd.github.io/KaidiZhang.web/
+  - firstname: ["Heng"]
+    url: https://www.linkedin.com/in/heng-zhang-ab3699219/
