@@ -122,6 +122,10 @@
   - firstname: ["Neil", "Neil T."]
     url: http://www.neil.dantam.name/
 
+"duong":
+  - firstname: ["Thai"]
+    url: https://thaipduong.github.io/ 
+
 "elimelech":
   - firstname: ["Khen"]
     url: http://khen.io/

@@ -89,6 +89,19 @@ This paper revisits the long-held assumption that reactive replanning requires u
   abbr         = {RAL},
   preview      = {stac.jpg}
 }
+@misc{duong2026akinopdf,
+  title        = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness}, 
+  author       = {Thai Duong and Clayton W. Ramsey and Zachary Kingston and Wil Thomason and Lydia E. Kavraki},
+  abstract     = {Motion planning under dynamics constraints, i.e., kinodynamic planning, enables safe robot operation by generating dynamically feasible trajectories that the robot can accurately track. For high-DoF robots such as manipulators, sampling-based motion planners are commonly used, especially for complex tasks in cluttered environments. However, enforcing constraints on robot dynamics in such planners requires solving either challenging two-point boundary value problems (BVPs) or propagating robot dynamics over time, both of which are computational bottlenecks that drastically increase planning times. Meanwhile, recent efforts have shown that sampling-based motion planners can generate plans in microseconds using parallelization, but are limited to geometric paths. This paper develops AkinoPDF, a fast parallelized sampling-based kinodynamic motion planning technique for a broad class of differentially flat robot systems, including manipulators, ground and aerial vehicles, and more. Differential flatness allows us to transform the motion planning problem from the original state space to a flat output space, where an analytical time-parameterized solution of the BVP and dynamics integration can be obtained. A trajectory in the flat output space is then converted back to a closed-form dynamically feasible trajectory in the original state space, enabling fast validation via ``single instruction, multiple data" parallelism. Our method is fast, exact, and compatible with any sampling-based motion planner. We extensively verify the effectiveness of our approach in both simulated benchmarks and real experiments with cluttered and dynamic environments, requiring mere microseconds to milliseconds of planning time.},
+  year         = 2026,
+  eprint.      = {2603.16059},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.RO},
+  pdf          = {https://arxiv.org/abs/2603.16059}, 
+  note         = {Under Review},
+  projects     = {realtime},
+  abbr         = {ARXIV}
+}
 @misc{guo2026agenticlab,
   title        = {{AgenticLab}: A Real-World Robot Agent Platform that Can See, Think, and Act},
   author       = {Pengyuan Guo and Zhonghao Mai and Zhengtong Xu and Kaidi Zhang and Heng Zhang and Zichen Miao and Arash Ajoudani and Zachary Kingston and Qiang Qiu and Yu She},
@@ -345,6 +358,7 @@ This paper revisits the long-held assumption that reactive replanning requires u
   doi          = {10.1109/ICRA57147.2024.10611190},
   pdf          = {https://arxiv.org/abs/2309.14545},
   code         = {https://github.com/kavrakilab/vamp},
+  website      = {https://zkingston.com/vamp-web},
   projects     = {realtime,software},
   abbr         = {ICRA},
   preview      = {vamp.jpg},
