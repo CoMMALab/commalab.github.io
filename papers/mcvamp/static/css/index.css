@@ -1,0 +1,367 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.results-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+.results-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.iframe-carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iframe-carousel-viewport {
+  flex: 1;
+  display: grid;
+  overflow: hidden;
+  position: relative;
+}
+
+.iframe-carousel-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateX(8%);
+  pointer-events: none;
+  transition: opacity 320ms ease, transform 320ms ease;
+  will-change: transform, opacity;
+}
+
+.iframe-carousel-slide.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.iframe-carousel-slide.is-enter-from-right {
+  opacity: 0;
+  transform: translateX(12%);
+}
+
+.iframe-carousel-slide.is-enter-from-left {
+  opacity: 0;
+  transform: translateX(-12%);
+}
+
+.iframe-carousel-slide.is-exit-to-left {
+  opacity: 0;
+  transform: translateX(-12%);
+}
+
+.iframe-carousel-slide.is-exit-to-right {
+  opacity: 0;
+  transform: translateX(12%);
+}
+
+.iframe-carousel-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 9999px;
+  background: #363636;
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.iframe-carousel-arrow:hover {
+  background: #242424;
+}
+
+.iframe-carousel-controls {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.iframe-carousel-counter {
+  font-weight: 600;
+}
+
+.iframe-carousel-buttons {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.iframe-carousel-button {
+  border: 1px solid rgba(54, 54, 54, 0.18);
+  border-radius: 9999px;
+  padding: 0.45rem 0.85rem;
+  background: #fff;
+  color: #363636;
+  font-size: 0.82rem;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.iframe-carousel-button:hover {
+  border-color: rgba(54, 54, 54, 0.45);
+  transform: translateY(-1px);
+}
+
+.iframe-carousel-button.is-active {
+  background: #363636;
+  border-color: #363636;
+  color: #fff;
+}
+
+.iframe-carousel-button:focus-visible {
+  outline: 2px solid #3273dc;
+  outline-offset: 2px;
+}
+
+.iframe-fullscreen-btn {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iframe-fullscreen-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.iframe-fullscreen-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .iframe-carousel {
+    gap: 0.4rem;
+  }
+
+  .iframe-carousel-arrow {
+    width: 2.1rem;
+    height: 2.1rem;
+    font-size: 1.4rem;
+  }
+
+  .iframe-fullscreen-btn {
+    width: 1.85rem;
+    height: 1.85rem;
+    right: 0.45rem;
+    bottom: 0.45rem;
+  }
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+.zoom-container {
+  display: inline-block;
+  cursor: zoom-in;
+  position: relative;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  z-index: 1;
+}
+#zoomOverlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* --- Active zoomed state --- */
+.zoom-container.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.25);
+  transform-origin: center center;
+  z-index: 999;
+  cursor: zoom-out;
+}
+
+.zoom-container.zoomed ~ #zoomOverlay {
+  display: block;
+  opacity: 1;
+}

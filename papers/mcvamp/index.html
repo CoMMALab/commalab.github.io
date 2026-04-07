@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="McVAMP: Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole Body Control">
+  <meta name="keywords" content="McVAMP, Constrained Planning, Manipulation, Optimization, Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>McVAMP: Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole Body Control</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://commalab.github.io">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+        <!-- For when we have others -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">
+              Search as Inference
+            </a>
+            <a class="navbar-item" href="https://arxiv.org/abs/2509.15180">
+              Soft Robot Planning
+            </a>
+            <a class="navbar-item" href="https://arxiv.org/abs/2508.17482">
+              Grasp Diffusion
+            </a>
+            <a class="navbar-item" href="https://arxiv.org/abs/2503.06757">
+              GPU RRT-Connect
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">McVAMP: Vectorizing Projection in Manifold-Constrained Motion
+              Planning for Real-Time Whole Body Control</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://shrutheeshir.github.io/">Shrutheesh R. Iyer</a>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/i-chia-chang-880063256/">I-Chia Chang</a>,</span>
+              <span class="author-block">
+                Andrew Z Liu,</span>
+              <span class="author-block">
+                <a href="https://www.thetracelab.com/ygu.html/">Yan Gu</a>,</span>
+              and
+              <span class="author-block">
+                <a href="https://commalab.org/members/kingston/">Zachary Kingston</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Purdue University</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="http://arxiv.org/abs/2510.07674" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="http://arxiv.org/abs/2510.07674" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=VK8PYsdXNBk"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/ShrutheeshIR/vamp"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/maze_solver_cropped.webm" type="video/webm">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf">McVAMP</span> solves manifold-constrained motion planning problems in
+          <b><i>milliseconds</i></b> providing the ability to generate feasible motions while reacting to dynamic
+            environments. Here, we show McVAMP solving a plane-constrained planning problem in a dynamic maze environment, by globally replanning in response to changes in the environment.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Many robot planning tasks require satisfaction of one or more constraints throughout the entire
+              trajectory.
+              For geometric constraints, manifold-constrained motion planning algorithms are capable of planning
+              collision-free path between start and goal configurations on the constraint submanifolds specified by
+              task.
+              Current state-of-the-art methods can take tens of seconds to solve these tasks for complex systems such as
+              humanoid robots, making real-world use impractical, especially in dynamic settings.
+            </p>
+            <p>
+              Inspired by recent advances in hardware accelerated motion planning, we present a CPU SIMD-accelerated
+              manifold-constrained motion planner that revisits projection-based constraint satisfaction through the
+              lens of parallelization.
+              By transforming relevant components into parallelizable structures, we use SIMD parallelism to plan
+              constraint satisfying solutions.
+            </p>
+            <p>
+              Our approach achieves up to <b>100--2000x</b> speed-ups over the state-of-the-art, making real-time
+              constrained motion planning feasible for the first time.
+              We demonstrate our planner on a real humanoid robot and show real-time whole-body quasi-static plan
+              generation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe width="911" height="486" src="https://www.youtube.com/embed/VK8PYsdXNBk" title="McVAMP: Vectorizing Projection in Manifold-Constrained Motion
+              Planning for Real-Time Whole Body Control" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Results</h2>
+          <div class="content has-text-centered">
+            <p>
+              Interactive scenes rendered with Viser recordings.
+            </p>
+          </div>
+
+          <div id="results-iframe-carousel" class="iframe-carousel">
+            <button
+              id="results-carousel-prev"
+              class="iframe-carousel-arrow"
+              type="button"
+              aria-label="Previous scene">
+              &#8249;
+            </button>
+
+            <div class="iframe-carousel-viewport" aria-live="polite">
+              <div class="iframe-carousel-slide is-active" data-slide="0" data-label="Plane No Orientation 1">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="plane-no-ori-1"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_no_ori/recording_0.viser"
+                    title="Plane No Orientation 1 "
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <div class="iframe-carousel-slide" data-slide="1" data-label="Plane Orientation 1">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="plane-ori-1"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_ori/recording_1.viser"
+                    title="Plane Orientation 1"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="2" data-label="Plane No Orientation 2">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="plane-no-ori-2"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_no_ori/recording_6.viser"
+                    title="Plane No Orientation 2"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="3" data-label="Plane Orientation 2">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="plane-ori-2"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_ori/recording_6.viser"
+                    title="Plane Orientation 2"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+
+
+              <div class="iframe-carousel-slide" data-slide="4" data-label="Line No Orientation 1">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="line-no-ori-1"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/line_no_ori/recording_8.viser"
+                    title="Line No Orientation 1"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <div class="iframe-carousel-slide" data-slide="5" data-label="Line Orientation 1">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="line-ori-1"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/line_ori/recording_8.viser"
+                    title="Line Orientation 1"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="6" data-label="Line No Orientation 2">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="line-no-ori-2"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/line_no_ori/recording_9.viser"
+                    title="Line No Orientation 2"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="7" data-label="Line Orientation 2">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="line-ori-2"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/line_ori/recording_9.viser"
+                    title="Line Orientation 2"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              
+
+
+              <!-- <div class="iframe-carousel-slide" data-slide="3">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="viser-recording-3"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_no_ori/recording_3.viser"
+                    title="Plane"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="4">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="viser-recording-4"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_no_ori/recording_4.viser"
+                    title="Plane"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="5">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="viser-recording-5"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_no_ori/recording_5.viser"
+                    title="Plane"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="iframe-carousel-slide" data-slide="6">
+                <div class="results-iframe-wrapper">
+                  <iframe
+                    id="viser-recording-6"
+                    class="results-iframe"
+                    src="http://localhost:8000/viser_recordings/?playbackPath=http://localhost:8000/viser_recordings/plane_no_ori/recording_6.viser"
+                    title="Plane"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div> -->
+
+              <button
+                id="results-carousel-fullscreen"
+                class="iframe-fullscreen-btn"
+                type="button"
+                aria-label="Open fullscreen"
+                title="Fullscreen">
+                <span class="icon is-small">
+                  <i class="fas fa-expand"></i>
+                </span>
+              </button>
+            </div>
+
+            <button
+              id="results-carousel-next"
+              class="iframe-carousel-arrow"
+              type="button"
+              aria-label="Next scene">
+              &#8250;
+            </button>
+          </div>
+
+          <div class="iframe-carousel-controls">
+            <span id="results-carousel-counter" class="iframe-carousel-counter">1 / 2</span>
+          </div>
+
+          <div id="results-carousel-buttons" class="iframe-carousel-buttons" aria-label="Select a scene"></div>
+
+          <p class="has-text-centered">
+            This in-browser interactive 3D scene is enabled by
+            <a href="https://github.com/nerfstudio-project/viser">Viser</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-4">Trajectory Optimization</h3>
+          <div class="content has-text-justified">
+            <p>
+              We perform joint object placement and trajectory optimization by using an augmented langrangian method to
+              iteratively
+              improve the plan. Use the slider here to move through the steps of the tower environment optimization
+              between the initial and optimized states.
+            </p>
+          </div>
+          <div class="columns is-vcentered interpolation-panel">
+            <div class="column is-3 has-text-centered">
+              <img src="./static/tower_pics/frame_0001.png" class="interpolation-image"
+                alt="Interpolate start reference image." />
+              <p>Initial State</p>
+            </div>
+            <div class="column interpolation-video-column zoom-container" id="zoomDiv1">
+              <div class="zoom-content">
+                <div id="interpolation-image-wrapper">
+                  Loading...
+                </div>
+              </div>
+              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider" step="1" min="0" max="100"
+                value="0" type="range">
+            </div>
+            <div class="column is-3 has-text-centered">
+              <img src="./static/tower_pics/frame_0222.png" class="interpolation-image"
+                alt="Interpolation end reference image." />
+              <p class="is-bold">Final State</p>
+            </div>
+          </div>
+          <br />
+          <h3 class="title is-4">More Trajectory Optimization</h3>
+          <div class="content has-text-justified">
+            <p>
+              Here is another example of the optimization process on the tetris environment.
+            </p>
+          </div>
+          <div class="columns is-vcentered interpolation-panel">
+            <div class="column is-3 has-text-centered">
+              <img src="./static/tetris_pics/frame_0030.png" class="interpolation-image"
+                alt="Interpolate start reference image." />
+              <p>Initial State</p>
+            </div>
+            <div class="column interpolation-video-column zoom-container" id="zoomDiv2">
+              <div class="zoom-content">
+                <div id="interpolation-image-wrapper-2">
+                  Loading...
+                </div>
+              </div>
+              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider-2" step="1" min="0" max="100"
+                value="0" type="range">
+            </div>
+            <div class="column is-3 has-text-centered">
+              <img src="./static/tetris_pics/frame_0150.png" class="interpolation-image"
+                alt="Interpolation end reference image." />
+              <p class="is-bold">Final State</p>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX (preprint)</h2>
+      <pre><code>@article{chen2025spasm,
+    author={Lucas Chen and Shrutheesh R. Iyer and Zachary Kingston},
+    title={Differentiable Particle Optimization for Fast Sequential Manipulation}, 
+    year={2025},
+    eprint={2510.07674},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO},
+    url={https://arxiv.org/abs/2510.07674}, 
+}
+
+</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="http://arxiv.org/abs/2510.07674">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/CoMMALab/SPaSM" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
