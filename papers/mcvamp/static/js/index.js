@@ -37,22 +37,27 @@ function setInterpolationImage2(i) {
   $('#interpolation-image-wrapper-2').empty().append(image);
 }
 
-function initResultsIframeCarousel() {
-  var carousel = document.getElementById('results-iframe-carousel');
-  if (!carousel) {
-    return;
-  }
-
+function initOneResultsIframeCarousel(carousel) {
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.iframe-carousel-slide'));
   if (!slides.length) {
     return;
   }
 
-  var prevBtn = document.getElementById('results-carousel-prev');
-  var nextBtn = document.getElementById('results-carousel-next');
-  var fullscreenBtn = document.getElementById('results-carousel-fullscreen');
-  var counter = document.getElementById('results-carousel-counter');
-  var buttonsContainer = document.getElementById('results-carousel-buttons');
+  var prevBtn = carousel.querySelector('.iframe-carousel-arrow:first-child');
+  var nextBtn = carousel.querySelector('.iframe-carousel-arrow:last-child');
+  var fullscreenBtn = carousel.querySelector('.iframe-fullscreen-btn');
+
+  var controlsBlock = carousel.nextElementSibling;
+  var counter = null;
+  var buttonsContainer = null;
+  if (controlsBlock && controlsBlock.classList.contains('iframe-carousel-controls')) {
+    counter = controlsBlock.querySelector('.iframe-carousel-counter');
+    var maybeButtons = controlsBlock.nextElementSibling;
+    if (maybeButtons && maybeButtons.classList.contains('iframe-carousel-buttons')) {
+      buttonsContainer = maybeButtons;
+    }
+  }
+
   var buttons = [];
   var current = Math.max(0, slides.findIndex(function(slide) {
     return slide.classList.contains('is-active');
@@ -157,6 +162,13 @@ function initResultsIframeCarousel() {
   }
 
   updateUi();
+}
+
+function initResultsIframeCarousel() {
+  var carousels = document.querySelectorAll('.iframe-carousel');
+  carousels.forEach(function(carousel) {
+    initOneResultsIframeCarousel(carousel);
+  });
 }
 
 $(document).ready(function() {
