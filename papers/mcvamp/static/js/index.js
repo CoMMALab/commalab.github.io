@@ -154,6 +154,19 @@ function initOneResultsIframeCarousel(carousel) {
 
   function toggleActiveSlidePlayback() {
     var activeSlide = slides[current];
+    var video = activeSlide ? activeSlide.querySelector('video') : null;
+    if (video) {
+      if (video.paused) {
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function() {});
+        }
+      } else {
+        video.pause();
+      }
+      return;
+    }
+
     var iframe = activeSlide ? activeSlide.querySelector('iframe') : null;
     if (!iframe) {
       return;
@@ -255,8 +268,25 @@ function initOneResultsIframeCarousel(carousel) {
   function updateUi() {
     slides.forEach(function(slide, index) {
       var active = index === current;
+      var prev = index === ((current - 1 + slides.length) % slides.length);
+      var next = index === ((current + 1) % slides.length);
       slide.classList.toggle('is-active', active);
+      slide.classList.toggle('is-prev', prev && !active);
+      slide.classList.toggle('is-next', next && !active);
+      slide.classList.toggle('is-hidden', !active && !prev && !next);
       slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+
+      var video = slide.querySelector('video');
+      if (video) {
+        if (active) {
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function() {});
+          }
+        } else {
+          video.pause();
+        }
+      }
     });
 
     if (counter) {
