@@ -50,8 +50,17 @@ function initOneResultsIframeCarousel(carousel) {
   var controlsBlock = carousel.nextElementSibling;
   var counter = null;
   var buttonsContainer = null;
+  var playPauseBtn = null;
   if (controlsBlock && controlsBlock.classList.contains('iframe-carousel-controls')) {
     counter = controlsBlock.querySelector('.iframe-carousel-counter');
+    playPauseBtn = controlsBlock.querySelector('.iframe-playpause-btn');
+    if (!playPauseBtn) {
+      playPauseBtn = document.createElement('button');
+      playPauseBtn.type = 'button';
+      playPauseBtn.className = 'iframe-playpause-btn';
+      playPauseBtn.textContent = 'Play/Pause';
+      controlsBlock.appendChild(playPauseBtn);
+    }
     var maybeButtons = controlsBlock.nextElementSibling;
     if (maybeButtons && maybeButtons.classList.contains('iframe-carousel-buttons')) {
       buttonsContainer = maybeButtons;
@@ -67,6 +76,170 @@ function initOneResultsIframeCarousel(carousel) {
   if (current < 0) {
     current = 0;
   }
+
+  function findToggleInTree(root) {
+    if (!root || !root.querySelectorAll) {
+      return null;
+    }
+
+    var pauseIcon = root.querySelector('svg.tabler-icon-player-pause-filled');
+    if (pauseIcon) {
+      var pauseBtn = pauseIcon.closest('button, [role="button"], .mantine-ActionIcon-root');
+      if (pauseBtn) {
+        return { element: pauseBtn, state: 'playing' };
+      }
+    }
+
+    var playIcon = root.querySelector('svg.tabler-icon-player-play-filled');
+    if (playIcon) {
+      var playBtn = playIcon.closest('button, [role="button"], .mantine-ActionIcon-root');
+      if (playBtn) {
+        return { element: playBtn, state: 'paused' };
+      }
+    }
+
+    var candidates = root.querySelectorAll('button, [role="button"], [aria-label], [title]');
+    for (var i = 0; i < candidates.length; i++) {
+      var node = candidates[i];
+      var label = ((node.getAttribute('aria-label') || '') + ' ' + (node.getAttribute('title') || '') + ' ' + (node.textContent || '')).toLowerCase();
+      if (label.includes('play') || label.includes('pause') || label.includes('toggle')) {
+        return { element: node, state: 'unknown' };
+      }
+    }
+
+    var all = root.querySelectorAll('*');
+    for (var j = 0; j < all.length; j++) {
+      var host = all[j];
+      if (host.shadowRoot) {
+        var nested = findToggleInTree(host.shadowRoot);
+        if (nested) {
+          return nested;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  function autoPauseIframe(iframe) {
+    var tries = 0;
+    var maxTries = 24;
+
+    function attemptPause() {
+      tries += 1;
+      var done = false;
+
+      try {
+        var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+        if (doc) {
+          var control = findToggleInTree(doc);
+          if (control && control.element) {
+            if (control.state === 'playing') {
+              control.element.click();
+            }
+            done = true;
+          }
+        }
+      } catch (e) {
+        // Ignore and retry while viewer initializes.
+      }
+
+      if (!done && tries < maxTries) {
+        window.setTimeout(attemptPause, 150);
+      }
+    }
+
+    attemptPause();
+  }
+
+  function toggleActiveSlidePlayback() {
+    var activeSlide = slides[current];
+    var iframe = activeSlide ? activeSlide.querySelector('iframe') : null;
+    if (!iframe) {
+      return;
+    }
+
+    try {
+      var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+      if (doc) {
+        var toggle = findToggleInTree(doc);
+        if (toggle && toggle.element) {
+          toggle.element.click();
+          return;
+        }
+      }
+    } catch (e) {
+      // Cross-origin iframe access can fail; handled by keyboard fallback below.
+    }
+
+    try {
+      if (iframe.contentWindow) {
+        iframe.focus();
+
+        var keydownSpace = new KeyboardEvent('keydown', {
+          key: ' ',
+          code: 'Space',
+          keyCode: 32,
+          which: 32,
+          bubbles: true
+        });
+        var keyupSpace = new KeyboardEvent('keyup', {
+          key: ' ',
+          code: 'Space',
+          keyCode: 32,
+          which: 32,
+          bubbles: true
+        });
+
+        var keydownK = new KeyboardEvent('keydown', {
+          key: 'k',
+          code: 'KeyK',
+          keyCode: 75,
+          which: 75,
+          bubbles: true
+        });
+        var keyupK = new KeyboardEvent('keyup', {
+          key: 'k',
+          code: 'KeyK',
+          keyCode: 75,
+          which: 75,
+          bubbles: true
+        });
+
+        iframe.contentWindow.dispatchEvent(keydownSpace);
+        iframe.contentWindow.dispatchEvent(keyupSpace);
+        iframe.contentWindow.dispatchEvent(keydownK);
+        iframe.contentWindow.dispatchEvent(keyupK);
+
+        if (iframe.contentDocument) {
+          iframe.contentDocument.dispatchEvent(keydownSpace);
+          iframe.contentDocument.dispatchEvent(keyupSpace);
+          iframe.contentDocument.dispatchEvent(keydownK);
+          iframe.contentDocument.dispatchEvent(keyupK);
+        }
+
+        iframe.contentWindow.postMessage({ type: 'toggle-play-pause' }, '*');
+      }
+    } catch (e) {
+      // Final fallback intentionally no-op.
+    }
+  }
+
+  slides.forEach(function(slide) {
+    var iframe = slide.querySelector('iframe');
+    if (!iframe) {
+      return;
+    }
+
+    iframe.addEventListener('load', function() {
+      autoPauseIframe(iframe);
+    });
+
+    // If already loaded by the time this runs, still try to pause.
+    if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+      autoPauseIframe(iframe);
+    }
+  });
 
   function getSlideLabel(slide, index) {
     var iframe = slide.querySelector('iframe');
@@ -158,6 +331,12 @@ function initOneResultsIframeCarousel(carousel) {
       if (requestFullscreen) {
         requestFullscreen.call(fullscreenTarget);
       }
+    });
+  }
+
+  if (playPauseBtn) {
+    playPauseBtn.addEventListener('click', function() {
+      toggleActiveSlidePlayback();
     });
   }
 

@@ -16,5 +16,65 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      (function () {
+        function findToggleInTree(root) {
+          if (!root || !root.querySelectorAll) return null;
+
+          var pauseIcon = root.querySelector('svg.tabler-icon-player-pause-filled');
+          if (pauseIcon) {
+            var pauseBtn = pauseIcon.closest('button, [role="button"], .mantine-ActionIcon-root');
+            if (pauseBtn) return pauseBtn;
+          }
+
+          var playIcon = root.querySelector('svg.tabler-icon-player-play-filled');
+          if (playIcon) {
+            var playBtn = playIcon.closest('button, [role="button"], .mantine-ActionIcon-root');
+            if (playBtn) return playBtn;
+          }
+
+          var generic = root.querySelector('button[aria-label*="Play" i], button[aria-label*="Pause" i], button[title*="Play" i], button[title*="Pause" i]');
+          if (generic) return generic;
+
+          var all = root.querySelectorAll('*');
+          for (var i = 0; i < all.length; i++) {
+            var host = all[i];
+            if (host.shadowRoot) {
+              var nested = findToggleInTree(host.shadowRoot);
+              if (nested) return nested;
+            }
+          }
+
+          return null;
+        }
+
+        function togglePlayback() {
+          var toggle = findToggleInTree(document);
+          if (toggle) {
+            toggle.click();
+            return true;
+          }
+
+          // Fallback for players that bind keyboard shortcuts.
+          var keydownSpace = new KeyboardEvent('keydown', { key: ' ', code: 'Space', keyCode: 32, which: 32, bubbles: true });
+          var keyupSpace = new KeyboardEvent('keyup', { key: ' ', code: 'Space', keyCode: 32, which: 32, bubbles: true });
+          document.dispatchEvent(keydownSpace);
+          document.dispatchEvent(keyupSpace);
+          return false;
+        }
+
+        window.addEventListener('message', function (event) {
+          var data = event.data;
+          if (!data) return;
+          if (data === 'toggle-play-pause') {
+            togglePlayback();
+            return;
+          }
+          if (typeof data === 'object' && data.type === 'toggle-play-pause') {
+            togglePlayback();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
