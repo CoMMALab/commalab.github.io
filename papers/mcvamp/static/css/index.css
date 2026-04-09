@@ -237,6 +237,14 @@ body {
   outline-offset: 2px;
 }
 
+.results-section-nav {
+  margin: 0.75rem 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .iframe-fullscreen-btn {
   position: absolute;
   right: 0.6rem;
