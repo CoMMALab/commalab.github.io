@@ -126,7 +126,25 @@ body {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 10px;
-  background: #f5f5f5;
+  background: #fff;
+}
+
+.results-video-link {
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.results-video-link a {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.results-video-link a:hover {
+  text-decoration-thickness: 2px;
 }
 
 .results-iframe {
@@ -142,8 +160,9 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  background: #111;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
 }
 
 .results-slide-link {
@@ -175,7 +194,6 @@ body {
   inset: 0;
   width: 100%;
   opacity: 0;
-  transform: scale(0.62);
   pointer-events: none;
   transition: opacity 320ms ease, transform 320ms ease;
   will-change: transform, opacity;
@@ -185,7 +203,9 @@ body {
 .iframe-carousel-slide.is-active {
   position: relative;
   opacity: 1;
-  transform: scale(0.78);
+  width: 72%;
+  max-width: 72%;
+  margin: 0 auto;
   pointer-events: auto;
   z-index: 3;
 }
@@ -195,25 +215,46 @@ body {
   opacity: 0.7;
   pointer-events: none;
   z-index: 2;
+  width: 22%;
+  max-width: 22%;
 }
 
 .iframe-carousel-slide.is-prev {
-  transform: translateX(-64%) scale(0.5);
+  left: 0;
+  right: auto;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%) scale(0.42);
 }
 
 .iframe-carousel-slide.is-next {
-  transform: translateX(64%) scale(0.5);
+  left: auto;
+  right: 0;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%) scale(0.42);
 }
 
 .iframe-carousel-slide.is-hidden {
   opacity: 0;
-  transform: scale(0.45);
   pointer-events: none;
 }
 
 .iframe-carousel-slide.is-prev .results-iframe-wrapper,
 .iframe-carousel-slide.is-next .results-iframe-wrapper {
   aspect-ratio: 4 / 3;
+}
+
+.iframe-carousel--humanoid .results-iframe-wrapper,
+.iframe-carousel--humanoid .iframe-carousel-slide.is-prev .results-iframe-wrapper,
+.iframe-carousel--humanoid .iframe-carousel-slide.is-next .results-iframe-wrapper {
+  aspect-ratio: 3 / 4;
+}
+
+.iframe-carousel--humanoid .results-preview-video {
+  width: calc(80% - 2.5rem);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .iframe-carousel-slide.is-prev .results-slide-link,
@@ -243,7 +284,7 @@ body {
 }
 
 .iframe-carousel-controls {
-  margin-top: 0.75rem;
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,22 +295,9 @@ body {
   font-weight: 600;
 }
 
-.iframe-playpause-btn {
-  border: 1px solid rgba(54, 54, 54, 0.35);
-  border-radius: 9999px;
-  background: #fff;
-  color: #363636;
-  font-size: 0.8rem;
-  padding: 0.35rem 0.7rem;
-  cursor: pointer;
-}
-
-.iframe-playpause-btn:hover {
-  border-color: rgba(54, 54, 54, 0.6);
-}
-
 .iframe-carousel-buttons {
-  margin-top: 0.85rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -280,10 +308,15 @@ body {
   border: 1px solid rgba(54, 54, 54, 0.18);
   border-radius: 9999px;
   padding: 0.45rem 0.85rem;
+  min-height: 2.25rem;
+  max-width: 12rem;
   background: #fff;
   color: #363636;
   font-size: 0.82rem;
   line-height: 1.1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
   cursor: pointer;
   transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
     transform 180ms ease;
@@ -453,4 +486,171 @@ body {
 .zoom-container.zoomed ~ #zoomOverlay {
   display: block;
   opacity: 1;
+}
+
+.flow {
+  max-width: 920px;
+  margin: 1.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+  row-gap: 1.2rem;
+}
+
+.flow-item {
+  margin: 0;
+}
+
+.flow-item:nth-child(1) {
+  grid-area: 1 / 1;
+}
+
+.flow-item:nth-child(1) .step {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flow-item:nth-child(2) {
+  grid-area: 1 / 2;
+}
+
+.flow-item:nth-child(3) {
+  grid-area: 2 / 2;
+}
+
+.flow-item:nth-child(4) {
+  grid-area: 2 / 1;
+}
+
+.flow .step {
+  width: 100%;
+  display: block;
+  opacity: 0.45;
+  transform: scale(0.97);
+  transition: opacity 280ms ease, transform 280ms ease, box-shadow 280ms ease;
+}
+
+.flow-label {
+  margin-top: 0.55rem;
+  font-size: 0.96rem;
+  line-height: 1.35;
+  color: #7a7a7a;
+  opacity: 0.45;
+  text-align: center;
+  transition: opacity 280ms ease, color 280ms ease;
+}
+
+.flow .step.is-active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+
+.flow.is-all-active .step {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+
+.flow .step.is-active + .flow-label,
+.flow.is-all-active .flow-label {
+  color: #2f2f2f;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .flow {
+    column-gap: 0.65rem;
+    row-gap: 0.85rem;
+  }
+
+  .flow-label {
+    font-size: 0.86rem;
+    margin-top: 0.45rem;
+  }
+}
+
+.performance-plot {
+  margin: 0.2rem auto 0.45rem;
+  display: block;
+  overflow: hidden;
+}
+
+.performance-section .content {
+  margin-bottom: 0.75rem;
+}
+
+.performance-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+
+.performance-caption {
+  margin-top: 0.45rem;
+  font-size: 1.12rem;
+  line-height: 1.3;
+  text-align: center;
+  color: #2f2f2f;
+}
+
+.performance-section p.has-text-centered.is-size-7 {
+  margin-top: 0.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.performance-plot-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.performance-plot--large {
+  height: 470px;
+}
+
+.performance-plot--large .performance-plot-image {
+  height: 510px;
+}
+
+.performance-plot--small .performance-plot-image {
+  height: 510px;
+}
+
+.performance-plot--maze .performance-plot-image {
+  height: 360px;
+}
+
+@media (max-width: 768px) {
+  .performance-row {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+    margin-top: 0.9rem;
+  }
+
+  .performance-plot {
+    margin: 0.15rem auto 0.35rem;
+  }
+
+  .performance-plot--large {
+    height: 320px;
+  }
+
+  .performance-plot--large .performance-plot-image,
+  .performance-plot--small .performance-plot-image {
+    height: 420px;
+  }
+
+  .performance-plot--maze .performance-plot-image {
+    height: 285px;
+  }
+
+  .performance-caption {
+    font-size: 0.98rem;
+  }
 }
