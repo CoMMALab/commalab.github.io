@@ -130,6 +130,14 @@
   - firstname: ["Khen"]
     url: http://khen.io/
 
+"flores":
+  - firstname: ["Emiliano"]
+    url: https://github.com/EmilianoHFlores
+
+"fuentes":
+  - firstname: ["Francesco"]
+    url: https://www.linkedin.com/in/francescofuentes
+
 "gammell":
   - firstname: ["Jonathan D."]
     url: https://robotic-esp.com/people/gammell/
@@ -228,6 +236,10 @@
 "ramsey":
   - firstname: ["Clayton W."]
     url: https://claytonwramsey.com
+
+"sabbadini":
+  - firstname: ["Mitchell", "Mitchell E. C."]
+    url: https://www.mitchsabb.com/
 
 "she":
   - firstname: ["Yu"]
