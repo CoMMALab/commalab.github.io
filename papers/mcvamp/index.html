@@ -14,14 +14,13 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
@@ -117,7 +116,7 @@
                   </span>
                   <!-- Video Link. -->
                   <span class="link-block">
-                    <a href="https://www.youtube.com/watch?v=VK8PYsdXNBk"
+                    <a href="https://www.youtube.com/watch?v=HO2C4tfR8ws"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fab fa-youtube"></i>
@@ -232,12 +231,12 @@
             <figure class="flow-item">
               <img src="./static/methodology/meth1.svg" class="step is-active"
                 alt="Constrained extend step towards random sampled configuration">
-              <figcaption class="flow-label">(a) Constrained Extend step towards random sampled config</figcaption>
+              <figcaption class="flow-label">(a) Constrained Extend step towards random sampled configuration</figcaption>
             </figure>
             <figure class="flow-item">
               <img src="./static/methodology/meth2.svg" class="step"
                 alt="Multiple candidate projections around sampled point">
-              <figcaption class="flow-label">(b) Multiple candidate projection around sampled configuration</figcaption>
+              <figcaption class="flow-label">(b) Multiple candidate projections around sampled configuration</figcaption>
             </figure>
             <figure class="flow-item">
               <img src="./static/methodology/meth3.svg" class="step"
@@ -247,7 +246,7 @@
             <figure class="flow-item">
               <img src="./static/methodology/meth4.svg" class="step"
                 alt="Recursive interpolation and projection up to desired resolution">
-              <figcaption class="flow-label">(d) Recursive interpolation and projection upto desired resolution
+              <figcaption class="flow-label">(d) Recursive interpolation and projection up to desired resolution
               </figcaption>
             </figure>
           </div>
@@ -271,7 +270,7 @@
             <p>
               A 7DoF Franka Emika Panda arm with an end effector pose constraint. Here we demonstrate the planner's
               ability to conform to position and orientation constraints
-              while solving complex motion planning problems in the presense of obstacles.
+              while solving complex motion planning problems in the presence of obstacles.
             </p>
           </div>
 
@@ -398,76 +397,6 @@
           </div>
 
           <div id="results-carousel-buttons" class="iframe-carousel-buttons" aria-label="Select a scene"></div>
-
-          <!-- <p class="has-text-centered">
-            This in-browser interactive 3D scene is enabled by
-            <a href="https://github.com/nerfstudio-project/viser">Viser</a>.
-          </p> -->
-
-
-
-          <!-- <h3 class="title is-4 has-text-centered">14DoF Bimanual Relative Pose Constraint</h3>
-          <div class="content has-text-centered">
-            <p>
-              A different class of end effector constraint is the relative pose constraint between two end effectors, which is important for bimanual manipulation tasks. Here, we show McVAMP solving a bimanual relative pose constraint problem where the two end effectors must maintain a fixed relative pose during motion.
-            </p>
-          </div>
-
-          <div id="results-iframe-carousel" class="iframe-carousel">
-            <button id="results-carousel-prev" class="iframe-carousel-arrow" type="button" aria-label="Previous scene">
-              &#8249;
-            </button>
-
-            <div class="iframe-carousel-viewport" aria-live="polite">
-              <div class="iframe-carousel-slide is-active" data-slide="0" data-label="Bimanual Iiwa">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/bimanual/recording_shelf_iiwa.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/bimanual/recording_shelf_iiwa.viser" target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-              <div class="iframe-carousel-slide" data-slide="1" data-label="Plane Orientation 1">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/plane_ori/recording_1.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/plane_ori/recording_1.viser" target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-
-
-              <button id="results-carousel-fullscreen" class="iframe-fullscreen-btn" type="button"
-                aria-label="Open fullscreen" title="Fullscreen">
-                <span class="icon is-small">
-                  <i class="fas fa-expand"></i>
-                </span>
-              </button>
-            </div>
-
-            <button id="results-carousel-next" class="iframe-carousel-arrow" type="button" aria-label="Next scene">
-              &#8250;
-            </button>
-          </div>
-
-          <div class="iframe-carousel-controls">
-            <span id="results-carousel-counter" class="iframe-carousel-counter">1 / 2</span>
-          </div>
-
-          <div id="results-carousel-buttons" class="iframe-carousel-buttons" aria-label="Select a scene"></div> -->
-
-          <!-- <p class="has-text-centered">
-            This in-browser interactive 3D scene is enabled by
-            <a href="https://github.com/nerfstudio-project/viser">Viser</a>.
-          </p> -->
-
-
-
 
           <h3 class="title is-4 has-text-centered">30DoF Humanoid Digit Robot Multiple Constraints</h3>
           <div class="content has-text-centered">
@@ -607,76 +536,6 @@
       </div>
     </div>
   </section>
-
-
-  <!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h3 class="title is-4">Trajectory Optimization</h3>
-          <div class="content has-text-justified">
-            <p>
-              We perform joint object placement and trajectory optimization by using an augmented langrangian method to
-              iteratively
-              improve the plan. Use the slider here to move through the steps of the tower environment optimization
-              between the initial and optimized states.
-            </p>
-          </div>
-          <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tower_pics/frame_0001.png" class="interpolation-image"
-                alt="Interpolate start reference image." />
-              <p>Initial State</p>
-            </div>
-            <div class="column interpolation-video-column zoom-container" id="zoomDiv1">
-              <div class="zoom-content">
-                <div id="interpolation-image-wrapper">
-                  Loading...
-                </div>
-              </div>
-              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider" step="1" min="0" max="100"
-                value="0" type="range">
-            </div>
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tower_pics/frame_0222.png" class="interpolation-image"
-                alt="Interpolation end reference image." />
-              <p class="is-bold">Final State</p>
-            </div>
-          </div>
-          <br />
-          <h3 class="title is-4">More Trajectory Optimization</h3>
-          <div class="content has-text-justified">
-            <p>
-              Here is another example of the optimization process on the tetris environment.
-            </p>
-          </div>
-          <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tetris_pics/frame_0030.png" class="interpolation-image"
-                alt="Interpolate start reference image." />
-              <p>Initial State</p>
-            </div>
-            <div class="column interpolation-video-column zoom-container" id="zoomDiv2">
-              <div class="zoom-content">
-                <div id="interpolation-image-wrapper-2">
-                  Loading...
-                </div>
-              </div>
-              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider-2" step="1" min="0" max="100"
-                value="0" type="range">
-            </div>
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tetris_pics/frame_0150.png" class="interpolation-image"
-                alt="Interpolation end reference image." />
-              <p class="is-bold">Final State</p>
-            </div>
-          </div>
-          <br />
-        </div>
-      </div>
-    </div>
-  </section> -->
-
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
