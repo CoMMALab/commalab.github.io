@@ -25,15 +25,15 @@ function preloadInterpolationImages2() {
 
 function setInterpolationImage(i) {
   var image = interp_images[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
+  image.ondragstart = function () { return false; };
+  image.oncontextmenu = function () { return false; };
   $('#interpolation-image-wrapper').empty().append(image);
 }
 
 function setInterpolationImage2(i) {
   var image = interp_images_2[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
+  image.ondragstart = function () { return false; };
+  image.oncontextmenu = function () { return false; };
   $('#interpolation-image-wrapper-2').empty().append(image);
 }
 
@@ -59,7 +59,7 @@ function initOneResultsIframeCarousel(carousel) {
   }
 
   var buttons = [];
-  var current = Math.max(0, slides.findIndex(function(slide) {
+  var current = Math.max(0, slides.findIndex(function (slide) {
     return slide.classList.contains('is-active');
   }));
   var isAnimating = false;
@@ -80,7 +80,7 @@ function initOneResultsIframeCarousel(carousel) {
   }
 
   function updateUi() {
-    slides.forEach(function(slide, index) {
+    slides.forEach(function (slide, index) {
       var active = index === current;
       var prev = index === ((current - 1 + slides.length) % slides.length);
       var next = index === ((current + 1) % slides.length);
@@ -100,7 +100,7 @@ function initOneResultsIframeCarousel(carousel) {
           }
           var playPromise = video.play();
           if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(function() {});
+            playPromise.catch(function () { });
           }
         } else {
           video.pause();
@@ -112,7 +112,7 @@ function initOneResultsIframeCarousel(carousel) {
       counter.textContent = (current + 1) + ' / ' + slides.length;
     }
 
-    buttons.forEach(function(button, index) {
+    buttons.forEach(function (button, index) {
       button.classList.toggle('is-active', index === current);
       button.setAttribute('aria-pressed', index === current ? 'true' : 'false');
     });
@@ -131,7 +131,7 @@ function initOneResultsIframeCarousel(carousel) {
     current = next;
     isAnimating = true;
     updateUi();
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       isAnimating = false;
     }, 320);
   }
@@ -142,13 +142,13 @@ function initOneResultsIframeCarousel(carousel) {
 
   if (buttonsContainer) {
     buttonsContainer.innerHTML = '';
-    slides.forEach(function(slide, index) {
+    slides.forEach(function (slide, index) {
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'iframe-carousel-button';
       button.textContent = getSlideLabel(slide, index);
       button.setAttribute('aria-pressed', index === current ? 'true' : 'false');
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function () {
         moveTo(index);
       });
       buttonsContainer.appendChild(button);
@@ -157,19 +157,19 @@ function initOneResultsIframeCarousel(carousel) {
   }
 
   if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
+    prevBtn.addEventListener('click', function () {
       step(-1);
     });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
+    nextBtn.addEventListener('click', function () {
       step(1);
     });
   }
 
   if (fullscreenBtn) {
-    fullscreenBtn.addEventListener('click', function() {
+    fullscreenBtn.addEventListener('click', function () {
       var activeSlide = slides[current];
       var fullscreenTarget = activeSlide ? activeSlide.querySelector('.results-iframe-wrapper') : null;
       if (!fullscreenTarget) {
@@ -188,51 +188,51 @@ function initOneResultsIframeCarousel(carousel) {
 
 function initResultsIframeCarousel() {
   var carousels = document.querySelectorAll('.iframe-carousel');
-  carousels.forEach(function(carousel) {
+  carousels.forEach(function (carousel) {
     initOneResultsIframeCarousel(carousel);
   });
 }
 
-$(document).ready(function() {
-  $(".navbar-burger").click(function() {
+$(document).ready(function () {
+  $(".navbar-burger").click(function () {
     $(".navbar-burger").toggleClass("is-active");
     $(".navbar-menu").toggleClass("is-active");
   });
 
   var options = {
-		slidesToScroll: 1,
-		slidesToShow: 3,
-		loop: true,
-		infinite: true,
-		autoplay: false,
-		autoplaySpeed: 3000,
+    slidesToScroll: 1,
+    slidesToShow: 3,
+    loop: true,
+    infinite: true,
+    autoplay: false,
+    autoplaySpeed: 3000,
   };
 
-	var carousels = bulmaCarousel.attach('.carousel', options);
+  var carousels = bulmaCarousel.attach('.carousel', options);
 
   for (var i = 0; i < carousels.length; i++) {
-	  carousels[i].on('before:show', state => {
-	  	console.log(state);
-	  });
+    carousels[i].on('before:show', state => {
+      console.log(state);
+    });
   }
 
   var element = document.querySelector('#my-element');
   if (element && element.bulmaCarousel) {
-	  element.bulmaCarousel.on('before-show', function(state) {
-	  	console.log(state);
-	  });
+    element.bulmaCarousel.on('before-show', function (state) {
+      console.log(state);
+    });
   }
 
   preloadInterpolationImages();
   preloadInterpolationImages2();
 
-  $('#interpolation-slider').on('input', function(event) {
+  $('#interpolation-slider').on('input', function (event) {
     setInterpolationImage(this.value);
   });
   setInterpolationImage(0);
   $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
-  $('#interpolation-slider-2').on('input', function(event) {
+  $('#interpolation-slider-2').on('input', function (event) {
     setInterpolationImage2(this.value);
   });
   setInterpolationImage2(0);
@@ -301,26 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const singleDelayMs = 2000;
-  const allDelayMs = 5000;
-  const states = [0, 1, 2, 3, 'all'];
-  let stateIndex = 0;
-
-  function applyState(state) {
-    const showAll = state === 'all';
-    flow.classList.toggle('is-all-active', showAll);
-    steps.forEach((step, idx) => {
-      step.classList.toggle('is-active', !showAll && idx === state);
-    });
-  }
-
-  function runLoop() {
-    const state = states[stateIndex];
-    applyState(state);
-    stateIndex = (stateIndex + 1) % states.length;
-    const delay = state === 'all' ? allDelayMs : singleDelayMs;
-    window.setTimeout(runLoop, delay);
-  }
-
-  runLoop();
+  flow.classList.add('is-all-active');
+  steps.forEach((step) => {
+    step.classList.remove('is-active');
+  });
 });
