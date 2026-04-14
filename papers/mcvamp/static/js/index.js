@@ -1,42 +1,5 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "./static/tower_pics/";
-var NUM_INTERP_FRAMES = 222;
-var INTERP_BASE_2 = "./static/tetris_pics/";
-var NUM_INTERP_FRAMES_2 = 121;
-
-var interp_images = [];
-function preloadInterpolationImages() {
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/frame_' + String(i + 1).padStart(4, '0') + '.png';
-    interp_images[i] = new Image();
-    interp_images[i].src = path;
-  }
-}
-
-var interp_images_2 = [];
-function preloadInterpolationImages2() {
-  for (var i = 0; i < NUM_INTERP_FRAMES_2; i++) {
-    var path = INTERP_BASE_2 + '/frame_' + String(i + 30).padStart(4, '0') + '.png';
-    interp_images_2[i] = new Image();
-    interp_images_2[i].src = path;
-  }
-}
-
-function setInterpolationImage(i) {
-  var image = interp_images[i];
-  image.ondragstart = function () { return false; };
-  image.oncontextmenu = function () { return false; };
-  $('#interpolation-image-wrapper').empty().append(image);
-}
-
-function setInterpolationImage2(i) {
-  var image = interp_images_2[i];
-  image.ondragstart = function () { return false; };
-  image.oncontextmenu = function () { return false; };
-  $('#interpolation-image-wrapper-2').empty().append(image);
-}
-
 function initOneResultsIframeCarousel(carousel) {
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.iframe-carousel-slide'));
   if (!slides.length) {
@@ -222,21 +185,6 @@ $(document).ready(function () {
       console.log(state);
     });
   }
-
-  preloadInterpolationImages();
-  preloadInterpolationImages2();
-
-  $('#interpolation-slider').on('input', function (event) {
-    setInterpolationImage(this.value);
-  });
-  setInterpolationImage(0);
-  $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
-
-  $('#interpolation-slider-2').on('input', function (event) {
-    setInterpolationImage2(this.value);
-  });
-  setInterpolationImage2(0);
-  $('#interpolation-slider-2').prop('max', NUM_INTERP_FRAMES_2 - 1);
 
   initResultsIframeCarousel();
 

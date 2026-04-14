@@ -14,14 +14,13 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
@@ -50,7 +49,7 @@
             More Research
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://arxiv.org/abs/2510.07674">
+            <a class="navbar-item" href="../spasm">
               Particle Optimization for Sequential Manipulation
             </a>
             <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">
@@ -79,7 +78,7 @@
                 Planning for Real-Time Whole Body Control</h1>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
-                  <a href="https://commalab.org/">Shrutheesh R. Iyer</a>,</span>
+                  <a href="../../members/shrutheesh">Shrutheesh R. Iyer</a>,</span>
                 <span class="author-block">
                   <a href="https://www.linkedin.com/in/i-chia-chang-880063256/">I-Chia Chang</a>,</span>
                 <span class="author-block">
@@ -152,7 +151,7 @@
           </video>
           <h2 class="subtitle has-text-centered">
             <span class="dnerf">McVAMP</span> solves manifold-constrained motion planning problems in
-            <b><i>milliseconds</i></b> providing the ability to generate feasible motions while reacting to dynamic
+            <b><i>milliseconds</i></b>, providing the ability to generate feasible motions while reacting to dynamic
             environments. Here, we show McVAMP solving a plane-constrained planning problem in a dynamic maze
             environment,
             by globally replanning in response to changes in the environment.
@@ -174,8 +173,8 @@
               Many robot planning tasks require satisfaction of one or more constraints throughout the entire
               trajectory.
               For geometric constraints, manifold-constrained motion planning algorithms are capable of planning
-              collision-free path between start and goal configurations on the constraint submanifolds specified by
-              task.
+              a collision-free path between start and goal configurations on the constraint submanifolds specified by
+              the task.
               Current state-of-the-art methods can take tens of seconds to solve these tasks for complex systems such as
               humanoid robots, making real-world use impractical, especially in dynamic settings.
             </p>
@@ -184,10 +183,10 @@
               manifold-constrained motion planner that revisits projection-based constraint satisfaction through the
               lens of parallelization.
               By transforming relevant components into parallelizable structures, we use SIMD parallelism to plan
-              constraint satisfying solutions.
+              constraint-satisfying solutions.
             </p>
             <p>
-              Our approach achieves up to <b>100--2000x</b> speed-ups over the state-of-the-art, making real-time
+              Our approach achieves up to <b>100 to 2000x</b> speed-ups over the state-of-the-art, making real-time
               constrained motion planning feasible for the first time.
               We demonstrate our planner on a real humanoid robot and show real-time whole-body quasi-static plan
               generation.
@@ -223,8 +222,8 @@
               We implement a vectorized manifold-projection operator that performs the motion-extension and validation
               for a constrained RRT-connect planner. By using SIMD parallelism, we are able to perform the projection
               step for multiple samples in parallel along a connection vector,
-              which significantly speeds up the projection step and helps invalidate infeasible solutions faster, which
-              allows us to solve complex constrained planning problems in milliseconds.
+              which significantly speeds up the projection step and helps invalidate infeasible solutions faster,
+              allowing us to solve complex constrained planning problems in milliseconds.
             </p>
           </div>
 
@@ -237,18 +236,18 @@
             <figure class="flow-item">
               <img src="./static/methodology/meth2.svg" class="step"
                 alt="Multiple candidate projections around sampled point">
-              <figcaption class="flow-label">(b) Multiple candidate projection around sampled configuration</figcaption>
+              <figcaption class="flow-label">(b) Multiple candidate projections around sampled configuration</figcaption>
+            </figure>
+            <figure class="flow-item">
+              <img src="./static/methodology/meth4.svg" class="step"
+                alt="Recursive interpolation and projection up to desired resolution">
+              <figcaption class="flow-label">(d) Recursive interpolation and projection up to desired resolution
+              </figcaption>
             </figure>
             <figure class="flow-item">
               <img src="./static/methodology/meth3.svg" class="step"
                 alt="Vectorized projection of interpolated configurations">
               <figcaption class="flow-label">(c) Vectorized projection of interpolated configurations</figcaption>
-            </figure>
-            <figure class="flow-item">
-              <img src="./static/methodology/meth4.svg" class="step"
-                alt="Recursive interpolation and projection up to desired resolution">
-              <figcaption class="flow-label">(d) Recursive interpolation and projection upto desired resolution
-              </figcaption>
             </figure>
           </div>
 
@@ -266,12 +265,12 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3 has-text-centered">Results</h2>
-          <h3 class="title is-4 has-text-centered">7DoF Franka Emika Panda Arm End Effector Constraint</h3>
+          <h3 class="title is-4 has-text-centered">7-DoF Franka Emika Panda Arm End Effector Constraint</h3>
           <div class="content has-text-centered">
             <p>
-              A 7DoF Franka Emika Panda arm with an end effector pose constraint. Here we demonstrate the planner's
+              A 7-DoF Franka Emika Panda arm with an end effector pose constraint. Here we demonstrate the planner's
               ability to conform to position and orientation constraints
-              while solving complex motion planning problems in the presense of obstacles.
+              while solving complex motion planning problems in the presence of obstacles.
             </p>
           </div>
 
@@ -469,11 +468,11 @@
 
 
 
-          <h3 class="title is-4 has-text-centered">30DoF Humanoid Digit Robot Multiple Constraints</h3>
+          <h3 class="title is-4 has-text-centered">30-DoF Humanoid Digit Robot Multiple Constraints</h3>
           <div class="content has-text-centered">
             <p>
-              A 30DoF humanoid robot transporting a box with multiple constraints -- (i) Feet fixed to the ground, (ii)
-              Relative pose constraint between the hands, and (iii) Closed link constraint at the knees and (iv) Center
+              A 30-DoF humanoid robot transporting a box with multiple constraints: (i) Feet fixed to the ground, (ii)
+              Relative pose constraint between the hands, (iii) Closed link constraint at the knees, and (iv) Center
               of mass within the support polygon. The robot is able to react to dynamic obstacles in the environment
               while maintaining all constraints.
             </p>
@@ -574,17 +573,17 @@
           <h2 class="title is-4">Performance</h2>
           <div class="content has-text-justified">
             <p>
-              Quantitative comparisons across planning tasks are shown below for the 7DoF Panda arm and a 14DoF bimanual
-              IIWA arm
+              Quantitative comparisons across planning tasks are shown below for the 7-DoF Panda arm and a 14-DoF bimanual
+              IIWA arm.
             </p>
           </div>
 
           <figure class="performance-plot performance-plot--large">
             <div class="performance-plot-scroll" role="region" aria-label="Scrollable performance plot">
               <img class="performance-plot-image" src="./static/plots/line_plane_probs.svg"
-                alt="7 DoF Panda line and plane constraints comparison plot">
+                alt="7-DoF Panda line and plane constraints comparison plot">
             </div>
-            <figcaption class="performance-caption">(i) 7 DoF Panda for line and plane constraints comparison
+            <figcaption class="performance-caption">(i) 7-DoF Panda for line and plane constraints comparison
             </figcaption>
           </figure>
           <!-- <p class="has-text-centered is-size-7">Placeholder file: <code>./static/plots/line_plane_probs.svg</code></p> -->
