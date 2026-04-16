@@ -118,6 +118,10 @@
   - firstname: ["Swarat"]
     url: https://www.cs.utexas.edu/~swarat/
 
+"chang":
+  - firstname: ["I-Chia"]
+    url: https://www.linkedin.com/in/i-chia-chang-880063256/
+
 "dantam":
   - firstname: ["Neil", "Neil T."]
     url: http://www.neil.dantam.name/
@@ -141,6 +145,10 @@
 "gammell":
   - firstname: ["Jonathan D."]
     url: https://robotic-esp.com/people/gammell/
+
+"gu":
+  - firstname: ["Yan"]
+    url: https://www.thetracelab.com/ygu.html/
 
 "guo":
   - firstname: ["Weihang"]
