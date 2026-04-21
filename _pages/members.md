@@ -8,6 +8,10 @@ nav_rank: 2
 
 carousels:
   - images:
+    - image: /assets/img/group_photos/2026_04_07_boardgamenight.jpg
+      label: Board Game Night 2026
+    - image: /assets/img/group_photos/2026_03_26_purduerobotics.jpg
+      label: Purdue Robotics Day 2026
     - image: /assets/img/group_photos/2025_12_15_white_elephant.jpg
       label: White Elephant Party 2025 
     - image: /assets/img/group_photos/2025_11_25_defenses.jpg
