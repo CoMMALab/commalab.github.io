@@ -17,13 +17,13 @@
   primaryClass = {cs.RO},
   pdf          = {https://arxiv.org/pdf/2604.13323}, 
   code         = {https://github.com/CoMMALab/vamp/tree/constrained_planner?tab=readme-ov-file#manifold-constrained-planner},
-  website      = {../papers/mcvamp},
+  website      = {/papers/mcvamp},
   note         = {Under Review},
   projects     = {constraints,realtime},
   abbr         = {ARXIV},
   preview      = {mcvamp_maze.gif},
 }
-@inproceedings{huangjadhav2025prrtc,
+@inproceedings{huangjadhav2026prrtc,
   title        = {{pRRTC}: {GPU}-Parallel {RRT}-Connect for Fast, Consistent, and Low-Cost Motion Planning},
   author       = {Chih H. Huang* and Pranav Jadhav* and Brian Plancher and Zachary Kingston},
   abstract     = {Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely used variant, RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots. However, these methods remain computationally intensive, particularly in complex environments that require many collision checks. As such, to improve performance, recent efforts have explored parallelizing specific components of RRT, such as collision checking or running multiple planners independently, but no prior work has integrated parallelism at multiple levels of the algorithm for robotic manipulation. In this work, we present pRRTC, a GPU-accelerated implementation of RRT-Connect that achieves parallelism across the entire algorithm through multithreaded expansion and connection, SIMT-optimized collision checking, and hierarchical parallelism optimization, improving efficiency, consistency, and initial solution cost. We evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees-of-freedom, demonstrating up to 6x average speedup on constrained reaching tasks at high collision checking resolution compared to state-of-the-art. pRRTC also demonstrates a 5x reduction in solution time variance and 1.5x improvement in initial path costs compared to state-of-the-art motion planners in complex environments across all robots.},
@@ -37,7 +37,7 @@
   abbr         = {ICRA},
   preview      = {prrtc.gif}
 }
-@inproceedings{yang2025pachs,
+@inproceedings{yang2026pachs,
   title        = {Parallel Heuristic Search as Inference for Actor-Critic Reinforcement Learning Models},
   author       = {Hanlan Yang and Itamar Mishani and Luca Pivetti and Zachary Kingston and Maxim Likhachev},
   abstract     = {Actor-Critic models are a class of model-free deep reinforcement learning (RL) algorithms that have demonstrated effectiveness across various robot learning tasks. While considerable research has focused on improving training stability and data sampling efficiency, most deployment strategies have remained relatively simplistic, typically relying on direct actor policy rollouts. In contrast, we propose PACHS (Parallel Actor-Critic Heuristic Search), an efficient parallel best-first search algorithm for inference that leverages both components of the actor-critic architecture: the actor network generates actions, while the critic network provides cost-to-go estimates to guide the search. Two levels of parallelism are employed within the search -- actions and cost-to-go estimates are generated in batches by the actor and critic networks respectively, and graph expansion is distributed across multiple threads. We demonstrate the effectiveness of our approach in robotic manipulation tasks, including collision-free motion planning and contact-rich interactions such as non-prehensile pushing.},
@@ -49,7 +49,7 @@
   abbr         = {ICRA},
   preview      = {pachs.gif}
 }
-@inproceedings{chen2025spasm,
+@inproceedings{chen2026spasm,
   title        = {Differentiable Particle Optimization for Fast Sequential Manipulation}, 
   author       = {Lucas Chen and Shrutheesh R. Iyer and Zachary Kingston},
   abstract     = {Sequential robot manipulation tasks require finding collision-free trajectories that satisfy geometric constraints across multiple object interactions in potentially high-dimensional configuration spaces. Solving these problems in real-time and at large scales has remained out of reach due to computational requirements. Recently, GPU-based acceleration has shown promising results, but prior methods achieve limited performance due to CPU-GPU data transfer overhead and complex logic that prevents full hardware utilization. To this end, we present SPaSM (Sampling Particle optimization for Sequential Manipulation), a fully GPU-parallelized framework that compiles constraint evaluation, sampling, and gradient-based optimization into optimized CUDA kernels for end-to-end trajectory optimization without CPU coordination. The method consists of a two-stage particle optimization strategy: first solving placement constraints through massively parallel sampling, then lifting solutions to full trajectory optimization in joint space. Unlike hierarchical approaches, SPaSM jointly optimizes object placements and robot trajectories to handle scenarios where motion feasibility constrains placement options. Experimental evaluation on challenging benchmarks demonstrates solution times in the realm of milliseconds with a 100\% success rate; a 4000x speedup compared to existing approaches.},
@@ -59,12 +59,12 @@
   projects     = {realtime,long-horizon,constraints},
   note         = {To Appear},
   abbr         = {ICRA},
-  website      = {../papers/spasm},
+  website      = {/papers/spasm},
   video        = {https://www.youtube.com/watch?v=VK8PYsdXNBk},
   code         = {https://github.com/CoMMALab/SPaSM},
   preview      = {spasm.gif}
 }
-@inproceedings{sabbadini2025replan,
+@inproceedings{sabbadini2026replan,
   title        = {Revisiting Replanning from Scratch: Real-Time Incremental Planning with Fast Almost-Surely Asymptotically Optimal Planners}, 
   author       = {Mitchell E. C. Sabbadini and Andrew H. Liu and Joseph Ruan and Tyler S. Wilson and Zachary Kingston and Jonathan D. Gammell},
   abstract     = {Robots operating in changing environments either predict obstacle changes and/or plan quickly enough to react to them. Predictive approaches require a strong prior about the position and motion of obstacles. Reactive approaches require no assumptions about their environment but must replan quickly and find high-quality paths to navigate effectively.
@@ -78,6 +78,17 @@ This paper revisits the long-held assumption that reactive replanning requires u
   abbr         = {ICRA},
   video        = {https://www.youtube.com/watch?v=XaZrFy8wGZs},
   preview      = {from_scratch.png}
+}
+@inproceedings{patino2026oneshot,
+  title        = {One-shot View Planning and Online Optimization-based Replanning for Unknown Object Reconstruction}, 
+  author       = {Jos\'e J. Pati\~no and Zachary Kingston and Victor Romero-Cano and Yu-Kun Lai and Juan David Hern\'andez},
+  abstract     = {Robotic inspection tasks often require constructing high-quality 3D models of objects from a minimal number of views. Traditional next-best view planning (NBVP) approaches incrementally select view poses but fail to account for global optimality of the inspection trajectory, thus leading to inefficient inspection paths. Recent one-shot view planning (OSVP) methods address this challenge by predicting informative view poses from an initial observation. While subsequent improvements on the pioneering OSVP approach attempt to improve prediction accuracy, they can still fail when faced with out of distribution(OoD) examples. With recent advances in generative modeling, OSVP methods can infer a plausible object shape from one observation and then derive the corresponding solution set of view poses. However, because the predicted shape may deviate from the true geometry, these methods can still generate infeasible views. To overcome these limitations, we propose a novel OSVP framework that leverages RGB-D data to generate geometric priors and incorporates online video-based reconstruction. Our method formulates viewpoint selection and path optimization, so that both the calculated poses and the connecting trajectories satisfy visibility constraints, maintain smoothness, and can be locally replanned to compensate for discrepancies between predicted and real object geometries. We validate our OSVP approach through simulation benchmarks against state-of-the-art OSVP techniques and demonstrate its effectiveness on a real Franka Emika manipulator.},
+  booktitle    = icra,
+  year         = 2026,
+  pdf          = {https://orca.cardiff.ac.uk/id/eprint/184709/}, 
+  projects     = {implicit},
+  note         = {To Appear},
+  abbr         = {ICRA}
 }
 @article{fuentes2025sensing,
   title        = {Linking Exteroception and Proprioception through Improved Contact Modeling for Soft Growing Robots},
@@ -128,7 +139,8 @@ This paper revisits the long-held assumption that reactive replanning requires u
   pdf          = {https://arxiv.org/abs/2603.16059}, 
   note         = {Under Review},
   projects     = {realtime},
-  abbr         = {ARXIV}
+  abbr         = {ARXIV},
+  preview      = {diffflat.gif}
 }
 @misc{guo2026agenticlab,
   title        = {{AgenticLab}: A Real-World Robot Agent Platform that Can See, Think, and Act},
