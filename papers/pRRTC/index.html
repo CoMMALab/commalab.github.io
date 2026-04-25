@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning">
+  <meta name="keywords" content="pRRTC, Manipulation, GPU, Planning, Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://commalab.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+      <!-- For when we have others -->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">
+           Search as Inference
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2509.15180">
+            Soft Robot Planning
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2508.17482">
+            Grasp Diffusion
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/Squirtleee">Chih H. Huang*</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://commalab.org/members/jadhav/">Pranav Jadhav*</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://brianplancher.com/">Brian Plancher</a><sup>3</sup>,</span>
+            and
+            <span class="author-block">
+              <a href="https://commalab.org/members/kingston/">Zachary Kingston</a><sup>2</sup>
+            </span>
+          </div>
+          <sup>1</sup>Columbia University&nbsp;&nbsp;&nbsp;&nbsp;
+          <sup>2</sup>Purdue University&nbsp;&nbsp;&nbsp;&nbsp;
+          <sup>3</sup>Barnard College and Dartmouth College
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">* equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.06757"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.06757"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=okpqftLB6P8"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/CoMMALab/pRRTC"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/demo.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+          pRRTC finds collision-free paths in milliseconds, even for high dimensional systems <br/>
+          [deployed on a 14 degree of freedom dual Franka]
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely
+          used variant, RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots.
+          However, these methods remain computationally intensive, particularly in complex environments that require many collision
+          checks. To improve performance, recent efforts have explored parallelizing specific components of RRT such as collision
+          checking, or running multiple planners independently. However, little has been done to develop an integrated parallelism
+          approach, co-designed for large-scale parallelism. </p>
+          <p>
+          In this work we present pRRTC, a RRT-Connect based planner co-designed
+          for GPU acceleration across the entire algorithm through parallel expansion and SIMT-optimized collision checking. We
+          evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees of freedom
+          (DoF). Compared to the state-of-the-art, pRRTC achieves as much as a 10× speedup on constrained reaching tasks with
+          a 5.4× reduction in standard deviation. pRRTC also achieves a 1.4× reduction in average initial path cost. Finally, we
+          deploy pRRTC on a 14-DoF dual Franka Panda arm setup and demonstrate real-time, collision-free motion planning with
+          dynamic obstacles. We open-source our planner to support the wider community. </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-4">Three-levels of GPU-Parallelism for RRT-Connect</h3>
+        <div class="content has-text-justified">
+          <p>
+            On the high-level, pRRTC constructs two search trees in parallel. At the mid-level, pRRTC runs hundreds of parallel RRT-Connect iterations asynchronously across both trees. 
+            At the low-level, pRRTC parallelizes forward kinematics tracing, discretized edge collision checking, and nearest neighbors search.
+          </p>
+          <details style="background-color: #e8f4fc; padding: 2rem; border-radius: 12px;">
+            <summary>Design Visualization</summary>
+          <img src="./static/result/prrtc_design.png" class="prrtc_design" alt="Design of pRRTC."/>
+        </details>
+        <br/>
+          <p>
+            When benchmarked against the CPU-based SIMD-accelerated VAMP-RRTC, pRRTC achieves as much as a 10x speedup in planning time 
+           <i>(left)</i>. pRRTC also shows increasing benefit for systems of higher dimension <i>(right)</i>. 
+          </p>
+          <details style="background-color: #e8f4fc; padding: 2rem; border-radius: 12px;">
+            <summary>Benchmark Plots</summary>
+          <img src="./static/result/pRRTC_result.png" alt="pRRTC performance plots"/>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX (preprint)</h2>
+    <pre><code>@article{huang2025prrtc,
+      title={prrtc: Gpu-parallel rrt-connect for fast, consistent, and low-cost motion planning},
+      author={Huang, Chih H and Jadhav, Pranav and Plancher, Brian and Kingston, Zachary},
+      journal={arXiv preprint arXiv:2503.06757},
+      year={2025}
+    }
+
+</code></pre>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Post submission: <br/> pRRTC-inspired asymptotically optimal planner</h2>
+        <div class="content has-text-justified">
+          <p>
+            pRRTC has been paired with the AO-X meta-algorithm for almost-surely asymptotically-optimal planning.
+            We plan to release the planner in September 2026.</p>
+          </p>
+          <details style="background-color: #e8f4fc; padding: 2rem; border-radius: 12px;">
+            <summary>Result Preview</summary>
+            <p>
+              The pRRTC-based optimizing planner has been tentatively named pAORRTC, 
+              and this is in contrast with the CPU-based SIMD-accelerated <a href="https://arxiv.org/abs/2505.10542">AORRTC</a> planner (which will also be at ICRA 2026!).
+              </p><p>
+              <b>Result 1: pAORRTC vs AORRTC in terms of time to initial solution on the 8-DoF Fetch MotionBenchMaker dataset.</b>
+            </p>
+            <img src="./static/result/fetch_init.png" class="result_asao_init" alt="Result of AO-X pRRTC initial solve time."/> <br/> <br/> 
+            <p>
+              <b>Result 2: pAORRTC vs AORRTC in terms of optimization time and path cost on the 8-DoF Fetch MotionBenchMaker dataset.</b><br/> <br/>
+              <img src="./static/result/fetch_avg.png" class="result_asao_optimize" alt="Result of AO-X pRRTC optimizing time and path cost."/>
+            </p>
+          </details>
+      </div>
+    </div>
+  </div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
