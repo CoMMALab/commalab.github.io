@@ -645,14 +645,15 @@
         <span>bibtex</span>
         <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bib').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)})">Copy</button>
       </div>
-      <pre id="bib">@article{huang2025prrtc,
-  title={pRRTC: GPU-Parallel RRT-Connect for Fast,
-         Consistent, and Low-Cost Motion Planning},
-  author={Huang, Chih H and Jadhav, Pranav
-          and Plancher, Brian and Kingston, Zachary},
-  journal={arXiv preprint arXiv:2503.06757},
-  year={2025}
-}</pre>
+      <pre id="bib">
+      @inproceedings{huang2026prrtc,
+        title={pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning},
+        author={Huang, Chih H and Jadhav, Pranav and Plancher, Brian and Kingston, Zachary},
+        booktitle={2026 IEEE International Conference on Robotics and Automation (ICRA)},
+        year={2026},
+        organization={IEEE}
+      }
+</pre>
     </div>
   </section>
 
