@@ -1,284 +1,806 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning">
-  <meta name="keywords" content="pRRTC, Manipulation, GPU, Planning, Robotics">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pRRTC: GPU-Parallel RRT-Connect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --bg-card: #ffffff;
+    --surface: #eef0f4;
+    --border: #dde0e6;
+    --border-light: #e8eaef;
+    --text: #1a1d25;
+    --text-dim: #4b5060;
+    --text-muted: #8990a2;
+    --accent: #0f9b6e;
+    --accent-light: #e8f7f1;
+    --accent-border: rgba(15, 155, 110, 0.25);
+    --accent-glow: rgba(15, 155, 110, 0.06);
+    --blue: #2778c4;
+    --blue-light: #e8f1fa;
+    --amber: #c8850a;
+    --amber-light: #fdf5e6;
+    --heading: #0d0f14;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --max-w: 900px;
+    --section-gap: 4.5rem;
+  }
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; position: relative; }
+  section { margin-bottom: var(--section-gap); }
+
+  /* ══════════════════════════════════
+     TOP BAR
+     ══════════════════════════════════ */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(246, 247, 249, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-light);
+    padding: 0 1.5rem;
+  }
+  .topbar-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    height: 48px;
+  }
+
+  .dropdown { position: relative; }
+  .dropdown-toggle {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+    color: var(--text-dim); background: transparent;
+    border: 1px solid var(--border); padding: 0.35rem 0.8rem;
+    border-radius: 6px; cursor: pointer; transition: all 0.2s;
+  }
+  .dropdown-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .dropdown-toggle svg { width: 12px; height: 12px; transition: transform 0.25s ease; }
+  .dropdown.open .dropdown-toggle svg { transform: rotate(180deg); }
+  .dropdown.open .dropdown-toggle { border-color: var(--accent); color: var(--accent); }
+
+  .dropdown-menu {
+    position: absolute; top: calc(100% + 6px); left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 240px; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
+    padding: 0.4rem;
+    opacity: 0; visibility: hidden;
+    transition: all 0.2s ease;
+  }
+  .dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dropdown-menu a {
+    display: block; padding: 0.6rem 0.8rem;
+    text-decoration: none; border-radius: 7px; transition: background 0.15s;
+  }
+  .dropdown-menu a:hover { background: var(--surface); }
+  .dropdown-menu a .dm-title { font-size: 0.82rem; font-weight: 500; color: var(--heading); margin-bottom: 0.15rem; }
+  .dropdown-menu a .dm-sub { font-size: 0.7rem; color: var(--text-muted); font-family: var(--mono); }
+
+  /* ══════════════════
+     HERO
+     ══════════════════ */
+  .hero { padding: 4rem 0 2rem; text-align: center; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-light);
+    padding: 0.35rem 0.9rem; border-radius: 100px;
+    border: 1px solid var(--accent-border);
+    margin-bottom: 1.6rem;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4.5vw, 2.9rem);
+    font-weight: 700; line-height: 1.2;
+    color: var(--heading); max-width: 780px;
+    margin: 0 auto 1.4rem; letter-spacing: -0.01em;
+  }
+  .hero h1 span { color: var(--accent); }
+
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.08rem);
+    color: var(--text-dim); max-width: 600px;
+    margin: 0 auto 2.2rem; font-weight: 400;
+  }
+
+  .authors {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0.3rem 1.2rem; margin-bottom: 0.6rem; font-size: 0.95rem;
+  }
+  .authors a {
+    color: var(--text); text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .authors a:hover { color: var(--accent); border-color: var(--accent); }
+  .authors sup { color: var(--text-muted); font-size: 0.7em; margin-left: 1px; }
+
+  .affiliations {
+    text-align: center; font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 2rem; line-height: 1.8;
+  }
+  .affiliations span { white-space: nowrap; }
+
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--text-dim); background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.55rem 1.1rem; border-radius: 8px;
+    text-decoration: none; transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .links a:hover {
+    border-color: var(--accent); color: var(--accent);
+    box-shadow: 0 2px 8px var(--accent-glow); transform: translateY(-1px);
+  }
+  .links a svg { width: 16px; height: 16px; }
+
+  /* ══════════════════
+     VIDEO
+     ══════════════════ */
+  .video-pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin: 3rem auto;
+    max-width: 780px;
+  }
+  .video-wrap {
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border); background: #000;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    display: flex; flex-direction: column;
+  }
+  .video-wrap video { display: block; width: 100%; min-height: 260px; flex: 1; object-fit: cover; }
+  .video-caption {
+    padding: 0.8rem 1rem;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-light);
+    font-family: var(--serif);
+  }
+  .video-caption .vc-tag {
+    display: inline-block;
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 0.15rem 0.5rem; border-radius: 4px;
+    margin-bottom: 0.35rem;
+  }
+  .video-caption .vc-text {
+    font-size: 0.82rem; color: var(--text-dim);
+    font-style: italic; line-height: 1.5;
+  }
+
+  /* ══════════════════
+     SECTION HEADINGS
+     ══════════════════ */
+  .section-label {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.8rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 600; color: var(--heading);
+    margin-bottom: 1.2rem; letter-spacing: -0.01em;
+  }
+
+  .abstract-text {
+    font-size: 0.95rem; line-height: 1.85;
+    color: var(--text-dim); text-align: justify;
+  }
+
+  .approach-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 2rem;
+    transition: border-color 0.3s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .approach-card:hover { border-color: var(--accent-border); }
+  .approach-card .card-header { padding: 1.2rem 1.5rem 0.6rem; }
+  .approach-card .card-header h3 {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
+    color: var(--heading); margin-bottom: 0.4rem;
+  }
+  .approach-card .card-header p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
+  .approach-card img { width: 100%; display: block; padding: 1rem 1.5rem 1.5rem; }
+  .design-img { max-width: 70%; margin: 0 auto; }
+  @media (max-width: 640px) { .design-img { max-width: 100%; } }
+
+  .result-figure { margin-bottom: 2.5rem; }
+  .result-figure .fig-label {
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+    color: var(--blue); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .result-figures-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  @media (max-width: 640px) {
+    .result-figures-grid { grid-template-columns: 1fr; }
+  }
+  .result-figure { display: flex; flex-direction: column; }
+  .result-figure p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.8rem; line-height: 1.6; }
+  .result-figure img {
+    width: 100%; border-radius: 10px;
+    border: 1px solid var(--border); background: var(--bg-card);
+    padding: 1rem;
+    margin-top: auto;
+  }
+
+  /* ══════════════════════════════════
+     BENCHMARK TRAJECTORIES
+     ══════════════════════════════════ */
+  .traj-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .traj-controls {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  /* Robot selector (left side) */
+  .traj-robots {
+    display: flex; gap: 0;
+    border-right: 1px solid var(--border-light);
+    flex-shrink: 0;
+  }
+  .traj-robot-btn {
+    font-family: var(--mono); font-size: 0.73rem; font-weight: 500;
+    color: var(--text-muted); background: transparent;
+    border: none; border-bottom: 2px solid transparent;
+    padding: 0.75rem 1rem; cursor: pointer;
+    white-space: nowrap; transition: all 0.2s;
+  }
+  .traj-robot-btn:hover { color: var(--text-dim); background: var(--surface); }
+  .traj-robot-btn.active {
+    color: var(--accent); border-bottom-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Scene picker (right side) */
+  .traj-scenes {
+    display: flex; align-items: center; gap: 0.35rem;
+    padding: 0 1rem;
+    flex: 1;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .traj-scenes-label {
+    font-family: var(--mono); font-size: 0.65rem; font-weight: 600;
+    color: var(--text-muted); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-right: 0.3rem;
+    white-space: nowrap;
+  }
+  .scene-btn {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+    color: var(--text-muted); background: var(--surface);
+    border: 1.5px solid transparent;
+    border-radius: 7px; cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .scene-btn:hover { color: var(--text); background: var(--border-light); }
+  .scene-btn.active {
+    color: var(--accent); background: var(--accent-light);
+    border-color: var(--accent-border);
+  }
+
+  /* Display area */
+  .traj-display {
+    padding: 1.5rem;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .traj-display video {
+    width: 100%; max-width: 640px;
+    border-radius: 10px;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+  }
+  .traj-display-label {
+    margin-top: 0.8rem;
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--text-muted); text-align: center;
+  }
+
+  /* Mobile: stack controls */
+  @media (max-width: 640px) {
+    .traj-controls { flex-direction: column; }
+    .traj-robots { border-right: none; border-bottom: 1px solid var(--border-light); overflow-x: auto; }
+    .traj-scenes { padding: 0.6rem 0.8rem; }
+    .traj-display { padding: 1rem; }
+  }
+
+  /* ══════════════════
+     POST-SUBMISSION
+     ══════════════════ */
+  .teaser-section {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2rem;
+    position: relative; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .teaser-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+  }
+  .teaser-section .section-label { color: var(--amber); }
+  .teaser-section h2 { margin-bottom: 0.6rem; }
+  .teaser-section .teaser-intro {
+    font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.8rem; line-height: 1.7;
+  }
+  .teaser-section .teaser-intro strong { color: var(--text); font-weight: 500; }
+
+  .teaser-results { display: flex; flex-direction: column; gap: 1rem; }
+  .teaser-results .tr-card {
+    background: var(--surface); border: 1px solid var(--border-light);
+    border-radius: 10px; overflow: hidden;
+  }
+  .teaser-results .tr-card .tr-title {
+    padding: 0.8rem 1rem 0.4rem;
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--text-dim); font-family: var(--mono);
+  }
+  .teaser-results .tr-card img {
+    width: 100%; max-width: 500px; display: block;
+    margin: 0 auto; padding: 0 0.5rem 0.5rem; background: #fff;
+  }
+
+  /* BibTeX */
+  .bibtex-block {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .bibtex-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.7rem 1rem; background: var(--surface);
+    border-bottom: 1px solid var(--border-light);
+    font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted);
+  }
+  .copy-btn {
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-dim); font-family: var(--mono); font-size: 0.7rem;
+    padding: 0.25rem 0.6rem; border-radius: 5px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .bibtex-block pre {
+    padding: 1rem 1.2rem; font-family: var(--mono);
+    font-size: 0.76rem; line-height: 1.7;
+    color: var(--text-dim); overflow-x: auto; white-space: pre;
+  }
+
+  footer {
+    padding: 3rem 0; text-align: center;
+    font-size: 0.78rem; color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
+  }
+  footer a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
+  footer a:hover { color: var(--text-dim); }
+
+  @media (max-width: 640px) {
+    :root { --section-gap: 3.5rem; }
+    .hero { padding: 2.5rem 0 1rem; }
+    .container { padding: 0 1.1rem; }
+    .links a { padding: 0.5rem 0.85rem; font-size: 0.73rem; }
+    .approach-card img { padding: 0.6rem; }
+    .teaser-section { padding: 1.4rem; }
+    .topbar { padding: 0 1.1rem; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .fade-in.d1 { animation-delay: 0.05s; }
+  .fade-in.d2 { animation-delay: 0.12s; }
+  .fade-in.d3 { animation-delay: 0.2s; }
+  .fade-in.d4 { animation-delay: 0.28s; }
+  .fade-in.d5 { animation-delay: 0.36s; }
+</style>
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://commalab.github.io">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-      <!-- For when we have others -->
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
+<!-- ═══════════ TOP BAR ═══════════ -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="dropdown" id="researchDropdown">
+      <button class="dropdown-toggle" onclick="document.getElementById('researchDropdown').classList.toggle('open')">
+        More Research
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="dropdown-menu">
+        <a href="https://arxiv.org/abs/2509.25402">
+          <div class="dm-title">Search as Inference</div>
+          <div class="dm-sub">arXiv 2509.25402</div>
         </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">
-           Search as Inference
-          </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2509.15180">
-            Soft Robot Planning
-          </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2508.17482">
-            Grasp Diffusion
-          </a>
-        </div>
+        <a href="https://arxiv.org/abs/2509.15180">
+          <div class="dm-title">Soft Robot Planning</div>
+          <div class="dm-sub">arXiv 2509.15180</div>
+        </a>
+        <a href="https://arxiv.org/abs/2508.17482">
+          <div class="dm-title">Grasp Diffusion</div>
+          <div class="dm-sub">arXiv 2508.17482</div>
+        </a>
+        <a href="https://arxiv.org/abs/2604.13323">
+          <div class="dm-title">Manifold-Constrained Motion Planning</div>
+          <div class="dm-sub">arXiv 2604.13323</div>
+        </a>
+        <a href="https://arxiv.org/abs/2510.07674">
+          <div class="dm-title">Fast Sequential Manipulation</div>
+          <div class="dm-sub">arXiv 2510.07674</div>
+        </a>
       </div>
     </div>
   </div>
 </nav>
 
+<div class="container">
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://github.com/Squirtleee">Chih H. Huang*</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://commalab.org/members/jadhav/">Pranav Jadhav*</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://brianplancher.com/">Brian Plancher</a><sup>3</sup>,</span>
-            and
-            <span class="author-block">
-              <a href="https://commalab.org/members/kingston/">Zachary Kingston</a><sup>2</sup>
-            </span>
-          </div>
-          <sup>1</sup>Columbia University&nbsp;&nbsp;&nbsp;&nbsp;
-          <sup>2</sup>Purdue University&nbsp;&nbsp;&nbsp;&nbsp;
-          <sup>3</sup>Barnard College and Dartmouth College
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="fade-in d1"><div class="hero-badge">ICRA 2026</div></div>
+    <h1 class="fade-in d2">
+      <span>pRRTC:</span> GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning
+    </h1>
+    <p class="hero-sub fade-in d3">
+      10× faster planning and 5.4× more consistent, real-time collision-free motion for high-DoF robots.
+    </p>
+    <div class="authors fade-in d4">
+      <span><a href="https://github.com/Squirtleee">Chih H. Huang</a><sup>*1</sup></span>
+      <span><a href="https://commalab.org/members/jadhav/">Pranav Jadhav</a><sup>*2</sup></span>
+      <span><a href="https://brianplancher.com/">Brian Plancher</a><sup>3</sup></span>
+      <span><a href="https://commalab.org/members/kingston/">Zachary Kingston</a><sup>2</sup></span>
+    </div>
+    <div class="affiliations fade-in d4">
+      <span><sup>1</sup>Columbia University</span> &nbsp;·&nbsp;
+      <span><sup>2</sup>Purdue University</span> &nbsp;·&nbsp;
+      <span><sup>3</sup>Barnard College &amp; Dartmouth College</span>
+      <br><span style="font-style:italic; font-size: 0.78rem;">* equal contribution</span>
+    </div>
+    <div class="links fade-in d5">
+      <a href="https://arxiv.org/abs/2503.06757">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Paper
+      </a>
+      <a href="https://arxiv.org/abs/2503.06757">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        arXiv
+      </a>
+      <a href="https://www.youtube.com/watch?v=okpqftLB6P8">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video
+      </a>
+      <a href="https://github.com/CoMMALab/pRRTC">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        Code
+      </a>
+    </div>
+  </section>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">* equal contribution</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2503.06757"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2503.06757"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=okpqftLB6P8"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/CoMMALab/pRRTC"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
-
-          </div>
+  <!-- ═══════════ REAL-WORLD DEMOS ═══════════ -->
+  <section>
+    <div class="section-label">Real-World Deployment</div>
+    <h2>Hardware Demos</h2>
+    <div class="video-pair fade-in">
+      <!-- Single Franka — speed story -->
+      <div class="video-wrap">
+        <video autoplay loop muted playsinline>
+          <source src="single_robot_demo.mp4" type="video/mp4">
+        </video>
+        <div class="video-caption">
+          <div class="vc-tag">7-DoF Franka</div>
+          
+        </div>
+      </div>
+      <!-- Dual Franka — high-dim story -->
+      <div class="video-wrap">
+        <video autoplay loop muted playsinline>
+          <source src="demo.mp4" type="video/mp4">
+        </video>
+        <div class="video-caption">
+          <div class="vc-tag">14-DoF Dual Franka</div>
+          
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/demo.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-          pRRTC finds collision-free paths in milliseconds, even for high dimensional systems <br/>
-          [deployed on a 14 degree of freedom dual Franka]
-      </h2>
+  <!-- ═══════════ ABSTRACT ═══════════ -->
+  <section>
+    <div class="section-label">Abstract</div>
+    <h2>Integrated GPU Parallelism for Motion Planning</h2>
+    <div class="abstract-text">
+      Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely used variant RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots. However, these methods remain computationally intensive, particularly in complex environments that require many collision checks. To improve performance, recent efforts have explored parallelizing specific components of RRT such as collision checking, or running multiple planners independently. However, little has been done to develop an integrated parallelism approach, co-designed for large-scale parallelism.
+      <br><br>
+      In this work we present <strong style="color: var(--accent);">pRRTC</strong>, an RRT-Connect based planner co-designed for GPU acceleration across the entire algorithm through parallel expansion and SIMT-optimized collision checking. We evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees of freedom (DoF). Compared to the state-of-the-art, pRRTC achieves as much as a <strong style="color: var(--heading);">10× speedup</strong> on constrained reaching tasks with a <strong style="color: var(--heading);">5.4× reduction</strong> in standard deviation. pRRTC also achieves a <strong style="color: var(--heading);">1.4× reduction</strong> in average initial path cost. Finally, we deploy pRRTC on a 14-DoF dual Franka Panda arm setup and demonstrate real-time, collision-free motion planning with dynamic obstacles. We open-source our planner to support the wider community.
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-          Sampling-based motion planning algorithms, like the Rapidly-Exploring Random Tree (RRT) and its widely
-          used variant, RRT-Connect, provide efficient solutions for high-dimensional planning problems faced by real-world robots.
-          However, these methods remain computationally intensive, particularly in complex environments that require many collision
-          checks. To improve performance, recent efforts have explored parallelizing specific components of RRT such as collision
-          checking, or running multiple planners independently. However, little has been done to develop an integrated parallelism
-          approach, co-designed for large-scale parallelism. </p>
-          <p>
-          In this work we present pRRTC, a RRT-Connect based planner co-designed
-          for GPU acceleration across the entire algorithm through parallel expansion and SIMT-optimized collision checking. We
-          evaluate the effectiveness of pRRTC on the MotionBenchMaker dataset using robots with 7, 8, and 14 degrees of freedom
-          (DoF). Compared to the state-of-the-art, pRRTC achieves as much as a 10× speedup on constrained reaching tasks with
-          a 5.4× reduction in standard deviation. pRRTC also achieves a 1.4× reduction in average initial path cost. Finally, we
-          deploy pRRTC on a 14-DoF dual Franka Panda arm setup and demonstrate real-time, collision-free motion planning with
-          dynamic obstacles. We open-source our planner to support the wider community. </p>
+  <!-- ═══════════ APPROACH ═══════════ -->
+  <section>
+    <div class="section-label">Approach</div>
+    <h2> Multi-Scale GPU Parallel Design</h2>
+    <div class="approach-card">
+      <div class="card-header">
+        <p>
+          At the <u>mid-level</u>, pRRTC runs hundreds of parallel RRT-Connect iterations asynchronously across both trees.
+          This enables pRRTC to explore the configuration space faster and find higher quality paths.
+          At the <u>low-level</u>, pRRTC parallelizes nearest neighbors search and discretized edge collision checking.
+        </p>
+      </div>
+      <img src="./prrtc_design2.png" alt="Design of pRRTC showing three levels of parallelism" loading="lazy" class="design-img">
+    </div>
+  </section>
+
+  <!-- ═══════════ RESULTS ═══════════ -->
+  <section>
+    <div class="section-label">Results</div>
+    <h2>Benchmark Performance</h2>
+    <div class="result-figures-grid">
+      <div class="result-figure">
+        <div class="fig-label">Overall Speedup</div>
+        <p>
+          When benchmarked against the CPU-based SIMD-accelerated VAMP-RRTC, pRRTC achieves as much as a 10× speedup in planning time on the 8-DoF Fetch robot.
+        </p>
+        <img src="./fetch.png" alt="pRRTC speedup on Fetch robot" loading="lazy">
+      </div>
+      <div class="result-figure">
+        <div class="fig-label">Scaling Across Robots</div>
+        <p>
+          pRRTC shows increasing benefit for systems of higher dimension, with the largest gains on the 14-DoF Baxter robot.
+        </p>
+        <img src="./baxter_scaling.png" alt="pRRTC speedup scaling across robots" loading="lazy" style="padding: 1.9rem 1.3rem;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ BENCHMARK TRAJECTORIES ═══════════ -->
+  <section>
+    <div class="section-label">Planned Paths</div>
+    <h2>Benchmark Path Visualizations</h2>
+    <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.5rem; line-height: 1.6;">
+      Collision-free paths planned by pRRTC across robots of varying complexity. Select a robot and scene to view.
+    </p>
+
+    <div class="traj-container" id="trajViewer">
+      <div class="traj-controls">
+        <!-- Robot tabs -->
+        <div class="traj-robots">
+          <button class="traj-robot-btn active" data-robot="franka" onclick="selectRobot(this)">Franka · 7 DoF</button>
+          <button class="traj-robot-btn" data-robot="fetch" onclick="selectRobot(this)">Fetch · 8 DoF</button>
+          <button class="traj-robot-btn" data-robot="baxter" onclick="selectRobot(this)">Baxter · 14 DoF</button>
+        </div>
+        <!-- Scene picker -->
+        <div class="traj-scenes">
+          <span class="traj-scenes-label">Scene</span>
+          <button class="scene-btn active" data-scene="1" onclick="selectScene(this)">1</button>
+          <button class="scene-btn" data-scene="2" onclick="selectScene(this)">2</button>
+          <button class="scene-btn" data-scene="3" onclick="selectScene(this)">3</button>
+          <button class="scene-btn" data-scene="4" onclick="selectScene(this)">4</button>
+          <button class="scene-btn" data-scene="5" onclick="selectScene(this)">5</button>
+          <button class="scene-btn" data-scene="6" onclick="selectScene(this)">6</button>
+          <button class="scene-btn" data-scene="7" onclick="selectScene(this)">7</button>
+        </div>
+      </div>
+
+      <!-- Single large video display -->
+      <div class="traj-display">
+        <video id="trajVideo" autoplay loop muted playsinline>
+          <source id="trajSource" src="./panda/panda_bookshelf_small.mov" type="video/mp4">
+        </video>
+        <div class="traj-display-label" id="trajLabel">Franka Panda · 7 DoF — Bookshelf Small</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ BIBTEX ═══════════ -->
+  <section>
+    <div class="section-label">Citation</div>
+    <h2>BibTeX</h2>
+    <div class="bibtex-block">
+      <div class="bibtex-header">
+        <span>bibtex</span>
+        <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bib').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)})">Copy</button>
+      </div>
+      <pre id="bib">
+      @inproceedings{huang2026prrtc,
+        title={pRRTC: GPU-Parallel RRT-Connect for Fast, Consistent, and Low-Cost Motion Planning},
+        author={Huang, Chih H and Jadhav, Pranav and Plancher, Brian and Kingston, Zachary},
+        booktitle={2026 IEEE International Conference on Robotics and Automation (ICRA)},
+        year={2026},
+        organization={IEEE}
+      }
+</pre>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ POST-SUBMISSION TEASER ═══════════ -->
+  <section>
+    <div class="teaser-section">
+      <div class="section-label">Upcoming Work</div>
+      <h2>pRRTC-Inspired Asymptotically Optimal Planner</h2>
+      <div class="teaser-intro">
+        <p>
+        pRRTC has been paired with the AO-X meta-algorithm for almost-surely asymptotically-optimal planning.
+        The resulting planner, tentatively named <strong style="color: var(--blue);">pAORRTC</strong>, contrasts with the CPU-based SIMD-accelerated
+        <a href="https://arxiv.org/abs/2505.10542" style="color: var(--grey); text-decoration: underline; text-underline-offset: 2px;">AORRTC</a>. 
+        </p><p>
+        At ICRA 2026, <strong style="color: var(--blue);">pAORRTC</strong> will be presented at the <i>Frontiers of Optimization for Robotics</i> workshop on Monday and the <i>RoboARCH</i> workshop on Friday.
+        Below are some result preview, and an official release is planned for September 2026.
+        </p>
+      </div>
+      <div class="teaser-results">
+        <div class="tr-card">
+          <div class="tr-title">Initial Solve Time — 8-DoF Fetch</div>
+          <img src="fetch_init_square.png" alt="pAORRTC vs AORRTC initial solve time" loading="lazy">
+        </div>
+        <div class="tr-card">
+          <div class="tr-title">Time vs Path Cost — 8-DoF Fetch</div>
+          <img src="fetch_avg.png" alt="pAORRTC vs AORRTC time and path cost" loading="lazy">
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+  </section>
 
+</div>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h3 class="title is-4">Three levels of GPU-Parallelism for RRT-Connect</h3>
-        <div class="content has-text-justified">
-          <p>
-            On the high-level, pRRTC constructs two search trees in parallel. At the mid-level, pRRTC runs hundreds of parallel RRT-Connect iterations asynchronously across both trees. 
-            At the low-level, pRRTC parallelizes forward kinematics tracing, discretized edge collision checking, and nearest neighbors search.
-          </p>
-          <details style="background-color: #e8f4fc; padding: 2rem; border-radius: 12px;">
-            <summary>Design Visualization</summary>
-          <img src="./static/result/prrtc_design.png" class="prrtc_design" alt="Design of pRRTC."/>
-        </details>
-        <br/>
-          <p>
-            When benchmarked against the CPU-based SIMD-accelerated VAMP-RRTC, pRRTC achieves as much as a 10x speedup in planning time 
-           <i>(left)</i>. pRRTC also shows increasing benefit for systems of higher dimension <i>(right)</i>. 
-          </p>
-          <details style="background-color: #e8f4fc; padding: 2rem; border-radius: 12px;">
-            <summary>Benchmark Plots</summary>
-          <img src="./static/result/pRRTC_result.png" alt="pRRTC performance plots"/>
-          </details>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX (preprint)</h2>
-    <pre><code>@article{huang2025prrtc,
-      title={prrtc: Gpu-parallel rrt-connect for fast, consistent, and low-cost motion planning},
-      author={Huang, Chih H and Jadhav, Pranav and Plancher, Brian and Kingston, Zachary},
-      journal={arXiv preprint arXiv:2503.06757},
-      year={2025}
-    }
-
-</code></pre>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Post submission: <br/> pRRTC-inspired asymptotically optimal planner</h2>
-        <div class="content has-text-justified">
-          <p>
-            pRRTC has been paired with the AO-X meta-algorithm for almost-surely asymptotically-optimal planning.
-            We plan to release the planner in September 2026.</p>
-          </p>
-          <details style="background-color: #e8f4fc; padding: 2rem; border-radius: 12px;">
-            <summary>Result Preview</summary>
-            <p>
-              The pRRTC-based optimizing planner has been tentatively named pAORRTC, 
-              and this is in contrast with the CPU-based SIMD-accelerated <a href="https://arxiv.org/abs/2505.10542">AORRTC</a> planner (which will also be at ICRA 2026!).
-              </p><p>
-              <b>Result 1: pAORRTC vs AORRTC in terms of time to initial solution on the 8-DoF Fetch MotionBenchMaker dataset.</b>
-            </p>
-            <img src="./static/result/fetch_init.png" class="result_asao_init" alt="Result of AO-X pRRTC initial solve time."/> <br/> <br/> 
-            <p>
-              <b>Result 2: pAORRTC vs AORRTC in terms of optimization time and path cost on the 8-DoF Fetch MotionBenchMaker dataset.</b><br/> <br/>
-              <img src="./static/result/fetch_avg.png" class="result_asao_optimize" alt="Result of AO-X pRRTC optimizing time and path cost."/>
-            </p>
-          </details>
-      </div>
-    </div>
-  </div>
-
-
-<footer class="footer">
+<footer>
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-          </p>
-        </div>
-      </div>
-    </div>
+    This website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
+    Template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
   </div>
 </footer>
+
+<script>
+  // ── Dropdown ──
+  document.addEventListener('click', function(e) {
+    var dd = document.getElementById('researchDropdown');
+    if (!dd.contains(e.target)) dd.classList.remove('open');
+  });
+
+  // ── Trajectory viewer state ──
+  var currentRobot = 'franka';
+  var currentScene = 1;
+
+  // start/end in seconds; null end = play to natural end then loop from start
+  var robotMeta = {
+    franka: {
+      label: 'Franka Panda', dof: '7 DoF', folder: 'panda',
+      scenes: [
+        { file: 'panda_bookshelf_small',   label: 'Bookshelf Small',  start: 1.0, end: 6.0  },
+        { file: 'panda_bookshelf_tall',    label: 'Bookshelf Tall',   start: 1.0, end: 7.0  },
+        { file: 'panda_bookshelf_thin',    label: 'Bookshelf Thin',   start: 1.0, end: 6.0  },
+        { file: 'panda_box',               label: 'Box',              start: 2.0, end: 9.0  },
+        { file: 'panda_cage',              label: 'Cage',             start: 1.9, end: 12.0 },
+        { file: 'panda_table_pick',        label: 'Table Pick',       start: 3.0, end: 11.0 },
+        { file: 'panda_table_under_pick',  label: 'Table Under Pick', start: 2.0, end: 9.0  }
+      ]
+    },
+    fetch: {
+      label: 'Fetch', dof: '8 DoF', folder: 'fetch',
+      scenes: [
+        { file: 'fetch_bookshelf_small',   label: 'Bookshelf Small',  start: 0,   end: null },
+        { file: 'fetch_bookshelf_tall',    label: 'Bookshelf Tall',   start: 0,   end: null },
+        { file: 'fetch_bookshelf_thin',    label: 'Bookshelf Thin',   start: 2.3, end: null },
+        { file: 'fetch_box',               label: 'Box',              start: 0,   end: null },
+        { file: 'fetch_cage',              label: 'Cage',             start: 0,   end: null },
+        { file: 'fetch_table_pick',        label: 'Table Pick',       start: 0,   end: null },
+        { file: 'fetch_table_under_pick',  label: 'Table Under Pick', start: 0,   end: null }
+      ]
+    },
+    baxter: {
+      label: 'Baxter', dof: '14 DoF', folder: 'baxter',
+      scenes: [
+        { file: 'baxter_bookshelf',        label: 'Bookshelf',        start: 2.0, end: 18.0 }
+      ]
+    }
+  };
+
+  var trajTimeupdateHandler = null;
+  var trajEndedHandler = null;
+
+  function updateTrajectory() {
+    var r = robotMeta[currentRobot];
+    var idx = currentScene - 1;
+    var scene = r.scenes[idx];
+    var video = document.getElementById('trajVideo');
+    var source = document.getElementById('trajSource');
+    var lbl = document.getElementById('trajLabel');
+
+    // Remove previous listeners
+    if (trajTimeupdateHandler) { video.removeEventListener('timeupdate', trajTimeupdateHandler); trajTimeupdateHandler = null; }
+    if (trajEndedHandler)      { video.removeEventListener('ended', trajEndedHandler);           trajEndedHandler = null; }
+
+    source.src = './' + r.folder + '/' + scene.file + '.mov';
+    video.loop = false;
+    video.load();
+    video.playbackRate = currentRobot === 'fetch' ? 6 : 1;
+
+    video.addEventListener('loadedmetadata', function onMeta() {
+      video.removeEventListener('loadedmetadata', onMeta);
+      video.currentTime = scene.start;
+      video.play();
+    });
+
+    if (scene.end !== null) {
+      // Loop within [start, end]
+      trajTimeupdateHandler = function() {
+        if (video.currentTime >= scene.end) { video.currentTime = scene.start; }
+      };
+      video.addEventListener('timeupdate', trajTimeupdateHandler);
+    } else {
+      // Play to natural end, then loop back to start offset
+      trajEndedHandler = function() { video.currentTime = scene.start; video.play(); };
+      video.addEventListener('ended', trajEndedHandler);
+    }
+
+    lbl.textContent = r.label + ' \u00b7 ' + r.dof + ' \u2014 ' + scene.label;
+  }
+
+  function selectRobot(btn) {
+    document.querySelectorAll('.traj-robot-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    currentRobot = btn.getAttribute('data-robot');
+    currentScene = 1;
+    var numScenes = robotMeta[currentRobot].scenes.length;
+    document.querySelectorAll('.scene-btn').forEach(function(b, i) {
+      b.style.display = i < numScenes ? '' : 'none';
+      b.classList.toggle('active', i === 0);
+    });
+    updateTrajectory();
+  }
+
+  function selectScene(btn) {
+    document.querySelectorAll('.scene-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    currentScene = parseInt(btn.getAttribute('data-scene'));
+    updateTrajectory();
+  }
+</script>
 
 </body>
 </html>
