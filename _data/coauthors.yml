@@ -265,6 +265,10 @@
   - firstname: ["Anshumali"]
     url: https://www.cs.rice.edu/~as143/
 
+"sucan":
+  - firstname: ["Ioan A."]
+    url: https://ioan.sucan.ro/
+
 "thomason":
   - firstname: ["Wil"]
     url: https://wbthomason.com/
@@ -272,6 +276,10 @@
 "toussaint":
   - firstname: ["Marc"]
     url: https://www.user.tu-berlin.de/mtoussai/
+
+"tyrovouzis":
+  - firstname: "Theodoros"
+    url: https://www.linkedin.com/in/theodoros-tyrovouzis-52496814a/
 
 "unhelkar":
   - firstname: ["Vaibhav"]
