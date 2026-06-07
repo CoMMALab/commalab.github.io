@@ -196,7 +196,7 @@ carousels:
 <li>
 <a href="{{member.url}}">{{ member.first_name }} {{ member.last_name }}</a>
 {% if member.now_at %}
-&nbsp;({{ member.now_at }})
+&rarr;&nbsp;{{ member.now_at }}
 {% endif %}
 </li>
 {% endfor %}

@@ -8,9 +8,8 @@ github: "gao634"
 email: "gao634@purdue.edu"
 linkedin: "yitian-gao-80843b250"
 image: "yitian.jpg"
-group: Master's Students
-position: Master's Student
-group_rank: 3
+group: Ph.D. Students
+group_rank: 2
 ---
 
-I am a Master's Student at Purdue University and major in CS with an interest in AI and robotic motion planning.
+I am a Ph.D. at Purdue University with an interest in AI and robotic motion planning.

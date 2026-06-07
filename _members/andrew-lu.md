@@ -10,6 +10,8 @@ linkedin: "andrewyunlu"
 image: "andrew_lu.jpg"
 group: Undergraduate Students
 group_rank: 5
+alumni: true
+now_at: UPenn MS
 ---
 
 I am a junior studying CS at [Purdue University](https://www.purdue.edu/). My research interests include real-time motion planning, multi-agent task planning, and game playing.

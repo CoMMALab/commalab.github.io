@@ -13,7 +13,7 @@ group: Master's Students
 position: Master's Student
 group_rank: 3
 alumni: true
-now_at: UCSD
+now_at: UCSD MS
 ---
 
 Hey! I'm a MS student in CoMMA lab @ Purdue. I'm still exploring my research interests, but I'm currently interested in behavioral cloning and creating general purpose manipulation policies.
