@@ -8,6 +8,8 @@ nav_rank: 2
 
 carousels:
   - images:
+    - image: /assets/img/group_photos/2026_06_07_icra.jpg
+      label: CoMMA Lab at ICRA 2026
     - image: /assets/img/group_photos/2026_04_07_boardgamenight.jpg
       label: Board Game Night 2026
     - image: /assets/img/group_photos/2026_03_26_purduerobotics.jpg
