@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+# Required for Ruby 4.0+ compatibility
+gem 'ostruct'
+
 group :jekyll_plugins do
     gem 'classifier-reborn'
     gem 'jekyll'
