@@ -12,4 +12,4 @@ image: "jolie.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
-Hello! I'm Jolie, a Mechanical Engineering sophomore at Purdue. I am interested in Robotics, Mechanical Design, and Manufacturing. I have experience in CAD (Siemens NX, SolidWorks, Fusion 360) as well as composites manufacturing, woodworking, and CNC machining.
+Hello! I'm Jolie, a Mechanical Engineering junior at Purdue. I am interested in Robotics, Mechanical Design, and Manufacturing. I have experience in CAD (Siemens NX, SolidWorks, Fusion 360) as well as composites manufacturing, woodworking, and CNC machining.
