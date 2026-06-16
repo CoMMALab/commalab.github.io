@@ -6,7 +6,7 @@ last_name: Agrawal
 pronouns: he/him
 github: "Kaivalya-Agrawal"
 email: "agraw201@purdue.edu"
-linkedin: "kaivalya-agrawal-682996211/"
+linkedin: "kaivalya-agrawal-682996211"
 image: "kaivalya.jpg"
 group: Master's Students
 position: Master's Student
