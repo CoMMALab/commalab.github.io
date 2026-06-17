@@ -12,4 +12,4 @@ image: "gilcha.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
-Undergraduate student studying mechanical engineering, computer science, and mathematics. Research interests broadly include electromechanical systems, control theory, and robotics.
+I'm a fourth-year undergraduate student studying mechanical engineering and computer science. Previously, I've worked on humanoid robotic hands at 1X Technologies and Persona AI. My research interests broadly include bioinspired robotics and computational design.
