@@ -7,7 +7,6 @@ pronouns: he/they
 github: "vindou"
 email: "chang940@purdue.edu"
 linkedin: "gilchang"
-website: "https://gilcha.com/"
 image: "gilcha.jpg"
 group: Undergraduate Students
 group_rank: 5
