@@ -222,13 +222,37 @@
         }
   }
   {% if include.duration %}
-  setInterval(function(){
-    var j=0;
-    var elements = document.querySelectorAll('#carousel{{ number}} .carousel__control--forward');
-    for(i=(elements.length - 1);i>-1;i--) {
-      if(isVisible(elements[i])) j=i;
+  (function() {
+    var carouselId = 'carousel{{ number }}';
+    var duration = {{ include.duration }}000;
+    var intervalId = null;
+
+    function advanceCarousel() {
+      var j = 0;
+      var elements = document.querySelectorAll('#' + carouselId + ' .carousel__control--forward');
+      for (var i = (elements.length - 1); i > -1; i--) {
+        if (isVisible(elements[i])) j = i;
+      }
+      elements[j].click();
     }
-    elements[j].click();
-  },{{ include.duration }}000);
+
+    function startTimer() {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+      intervalId = setInterval(advanceCarousel, duration);
+    }
+
+    // Start the initial timer
+    startTimer();
+
+    // Reset timer when user interacts with controls or indicators
+    var controls = document.querySelectorAll('#' + carouselId + ' .carousel__control, #' + carouselId + ' .carousel__indicator');
+    controls.forEach(function(control) {
+      control.addEventListener('click', function() {
+        startTimer();
+      });
+    });
+  })();
   {% endif %}
 </script>

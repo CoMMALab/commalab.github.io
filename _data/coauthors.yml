@@ -27,6 +27,9 @@
   - firstname: ["Lucas"]
     member: true
     url: lucas
+  - firstname: ["Qingyi"]
+    member: true
+    url: qingyi_chen
 
 "coumar":
   - firstname: ["Sai"]
@@ -62,6 +65,11 @@
   - firstname: ["Nihar"]
     member: true
     url: kodkani
+
+"lu":
+  - firstname: ["Andrew"]
+    member: true
+    url: andrew-lu
 
 "liu":
   - firstname: ["Andrew H."]
@@ -240,6 +248,10 @@
   - firstname: ["Carlos"]
     url: https://carlosquinterop.github.io/
     clean_last_name: ["Quintero-Peña"]
+
+"qureshi":
+  - firstname: ["Ahmed H."]
+    url: https://qureshiahmed.github.io/
 
 "rakita":
   - firstname: ["Daniel"]

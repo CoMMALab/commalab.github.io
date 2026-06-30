@@ -68,6 +68,10 @@ layout: default
 
   <article>
     {{ content }}
+
+  {% if page.now_at %}
+  Went to: {{ page.now_at }}
+  {% endif %}
   </article>
 
   <br style="clear:both" />

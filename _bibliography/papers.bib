@@ -21,6 +21,42 @@
   abbr      = {IROS},
   preview   = {mcvamp_maze.gif}
 }
+@inproceedings{yasutake2026hjcdik,
+  title     = {{HJCD-IK}: {GPU}-Accelerated Inverse Kinematics through Batched Hybrid Jacobian Coordinate Descent},
+  author    = {Cael Yasutake and Zachary Kingston and Brian Plancher},
+  abstract  = {Inverse Kinematics (IK) is a core problem in robotics, in which joint configurations are found to achieve a desired end-effector pose. Although analytical solvers are fast and efficient, they are limited to systems with low degrees-of-freedom and specific topological structures. Numerical optimization-based approaches are more general, but suffer from high computational costs and frequent convergence to spurious local minima. Recent efforts have explored the use of GPUs to combine sampling and optimization to enhance both the accuracy and speed of IK solvers. We build on this recent literature and introduce HJCD-IK, a GPU-accelerated, sampling-based hybrid solver that combines an orientation-aware greedy coordinate descent initialization scheme with a Jacobian-based polishing routine. This design enables our solver to improve both convergence speed and overall accuracy as compared to the state-of-the-art, consistently finding solutions along the accuracy-latency Pareto frontier and often achieving order-of-magnitude gains. In addition, our method produces a broad distribution of high-quality samples, yielding the lowest maximum mean discrepancy. We release our code open-source for the benefit of the community.},
+  booktitle = iros,
+  year      = 2026,
+  pdf       = {https://arxiv.org/abs/2510.07514},
+  code      = {https://github.com/a2r-lab/HJCD-IK},
+  note      = {To Appear},
+  projects  = {realtime,software},
+  abbr      = {IROS},
+  preview   = {hjcdik.jpg}
+}
+@inproceedings{chen2026nehmo,
+  title     = {{NeHMO}: Neural {Hamilton-Jacobi} Reachability Learning for Decentralized Safe Multi-Agent Motion Planning},
+  author    = {Qingyi Chen and Zachary Kingston and Ahmed H. Qureshi},
+  abstract  = {Safe multi-arm motion planning is a challenging problem in robotics due to its high dimensionality, coupled configuration space, and complex collision constraints. Centralized planners are capable of coordinating all arms but often face scalability limitations, restricting applicability in real-time settings. On the other hand, decentralized methods are scalable and recent deep learning-based approaches have shown promising results. However, these depend on accurate behavior prediction or coordination protocols and may fail when other arms act unpredictably. To address these challenges, we introduce a neural Hamilton-Jacobi Reachability (HJR) learning-based approach to approximate a safety value function that captures worst-case inter-arm safety constraints. We further develop a decentralized trajectory optimization framework that uses the learned HJR representation for real-time planning. The proposed method is scalable and data-efficient, generalizes across multi-manipulator systems, and outperforms state-of-the-art baselines on challenging multi-arm motion planning tasks. },
+  booktitle = iros,
+  year      = 2026,
+  pdf       = {https://arxiv.org/abs/2507.13940},
+  note      = {To Appear},
+  projects  = {constraints,implicit},
+  abbr      = {IROS},
+  preview   = {}
+}
+@inproceedings{gao2026pakr,
+  title     = {Fast Asymptotically Optimal Kinodynamic Planning via Vectorization},
+  author    = {Yitian Gao and Andrew Lu and Zachary Kingston},
+  abstract  = {Sampling-based motion planners have been shown to be effective for systems with complex kinodynamic constraints and high dimensionality. However, these algorithms struggle to achieve real-time performance, leading to recent efforts to parallelize planning. While GPU-accelerated planners have achieved significant speedups, existing approaches require specialized CUDA programming that limits accessibility and portability. We present Parallel Asymptotically Optimal Kinodynamic RRT (PAKR), a massively parallel kinodynamic planner leveraging JAX and the XLA compiler to achieve GPU acceleration through standard Python tooling. By combining our parallel planner with the AO-x meta-algorithm, we achieve asymptotic optimality through fast iterative replanning. We provide a theoretical analysis of probabilistic completeness, analyze the effects of batch size and branching factor on convergence, and demonstrate scalability to complex dynamics using the MuJoCo-XLA simulator. Experiments show competitive runtimes with state-of-the-art GPU planners and superior solution quality.}, 
+  booktitle = iros,
+  year      = 2026,
+  note      = {To Appear},
+  projects  = {real-time},
+  abbr      = {IROS},
+  preview   = {}
+}
 @inproceedings{mao2026cde,
   title     = {{CDE}: Concept-Driven Exploration for Reinforcement Learning},
   author    = {Le Mao and Andrew H. Liu and Renos Zabounidis and Yanan Niu and Zachary Kingston and Joseph Campbell},
@@ -34,19 +70,6 @@
   projects  = {implicit},
   abbr      = {IROS},
   preview   = {cde.png}
-}
-@inproceedings{yasutake2026hjcdik,
-  title     = {{HJCD-IK}: {GPU}-Accelerated Inverse Kinematics through Batched Hybrid Jacobian Coordinate Descent},
-  author    = {Cael Yasutake and Zachary Kingston and Brian Plancher},
-  abstract  = {Inverse Kinematics (IK) is a core problem in robotics, in which joint configurations are found to achieve a desired end-effector pose. Although analytical solvers are fast and efficient, they are limited to systems with low degrees-of-freedom and specific topological structures. Numerical optimization-based approaches are more general, but suffer from high computational costs and frequent convergence to spurious local minima. Recent efforts have explored the use of GPUs to combine sampling and optimization to enhance both the accuracy and speed of IK solvers. We build on this recent literature and introduce HJCD-IK, a GPU-accelerated, sampling-based hybrid solver that combines an orientation-aware greedy coordinate descent initialization scheme with a Jacobian-based polishing routine. This design enables our solver to improve both convergence speed and overall accuracy as compared to the state-of-the-art, consistently finding solutions along the accuracy-latency Pareto frontier and often achieving order-of-magnitude gains. In addition, our method produces a broad distribution of high-quality samples, yielding the lowest maximum mean discrepancy. We release our code open-source for the benefit of the community.},
-  booktitle = iros,
-  year      = 2026,
-  pdf       = {https://arxiv.org/abs/2510.07514},
-  code      = {https://github.com/a2r-lab/HJCD-IK},
-  note      = {To Appear},
-  projects  = {realtime,software},
-  abbr      = {IROS},
-  preview   = {hjcdik.jpg}
 }
 @inproceedings{huangjadhav2026prrtc,
   title     = {{pRRTC}: {GPU}-Parallel {RRT}-Connect for Fast, Consistent, and Low-Cost Motion Planning},
@@ -125,7 +148,7 @@
   pdf      = {https://arxiv.org/abs/2606.04355},
   code     = {https://github.com/RDLLab/ROPRAS3},
   projects = {realtime},
-  note     = {To Appear},
+  doi      = {10.1177/02783649261453546},
   abbr     = {IJRR},
   preview  = {ropras_shelf.gif}
 }
