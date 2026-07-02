@@ -27,7 +27,7 @@
         <div class="carousel__track">
           <ul>
             {% for item in page.carousels[number].images %}
-              <li class="carousel__slide" style="background-image: url('{{ item.image }}');">
+              <li class="carousel__slide" data-bg="{{ item.image }}"{% if forloop.first %} style="background-image: url('{{ item.image }}');"{% endif %}>
                 <div class="carousel__label">{{ item.label }}</div>
               </li>
             {% endfor %}
@@ -221,6 +221,36 @@
             }
         }
   }
+  // Lazy load carousel images
+  (function() {
+    var carousel = document.getElementById('carousel{{ number }}');
+    if (!carousel) return;
+
+    var slides = carousel.querySelectorAll('.carousel__slide[data-bg]');
+    var radios = carousel.querySelectorAll('.carousel__activator');
+
+    function loadSlideImage(index) {
+      var slide = slides[index];
+      if (slide && slide.dataset.bg && !slide.style.backgroundImage) {
+        slide.style.backgroundImage = 'url(' + slide.dataset.bg + ')';
+      }
+    }
+
+    // Preload adjacent slides when a radio changes
+    radios.forEach(function(radio, index) {
+      radio.addEventListener('change', function() {
+        loadSlideImage(index);
+        // Preload next and previous
+        if (index > 0) loadSlideImage(index - 1);
+        if (index < slides.length - 1) loadSlideImage(index + 1);
+      });
+    });
+
+    // Load first two slides initially
+    loadSlideImage(0);
+    loadSlideImage(1);
+  })();
+
   {% if include.duration %}
   (function() {
     var carouselId = 'carousel{{ number }}';

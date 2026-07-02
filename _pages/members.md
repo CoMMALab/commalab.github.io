@@ -150,8 +150,9 @@ carousels:
                     <div class="card-body">
                         <a href="{{ member.url }}">
                         <h5 class="card-title">{{ member.title }}</h5>
-                        {% if member.position %}<h6 class="card-subtitle mb-2 text-muted">{{ member.position }}</h6>{% endif %}
+                        {% if member.position %}<h6 class="card-subtitle mb-2 text-muted">{{ member.position }}</h6>{% elsif member.group == "Ph.D. Students" %}<h6 class="card-subtitle mb-2 text-muted">Ph.D. Student</h6>{% endif %}
                         {% if member.pronouns %}<h6 class="card-subtitle mb-2 text-muted">({{ member.pronouns }})</h6>{% endif %}
+                        {% if member.co_advised %}<h6 class="card-subtitle mb-2 text-muted">Co-advised with {{ member.co_advised }}</h6>{% endif %}
                         <p class="card-text">
                             {{ member.teaser }}
                         </p>
@@ -203,7 +204,7 @@ carousels:
 <h2>Past Members</h2>
 
 <ul>
-{% assign members = site.members | sort: "lastname" | where: "alumni", true %}
+{% assign members = site.members | sort: "last_name" | where: "alumni", true %}
 {% for member in members %}
 <li>
 <a href="{{member.url}}">{{ member.first_name }} {{ member.last_name }}</a>
@@ -212,4 +213,4 @@ carousels:
 {% endif %}
 </li>
 {% endfor %}
-<ul>
+</ul>

@@ -8,13 +8,17 @@ nav_order: 2
 ---
 
 <style>
-.filter-buttons {
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 2rem;
-  text-align: center;
 }
 
 .filter-btn {
-  margin: 0.25rem;
+  margin: 0;
   padding: 0.5rem 1rem;
   border: 2px solid var(--global-theme-color);
   background-color: transparent;
@@ -34,16 +38,36 @@ nav_order: 2
   background-color: var(--global-theme-color);
   color: var(--global-bg-color);
 }
+
+#publication-search {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--global-theme-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--global-bg-color);
+  color: var(--global-text-color);
+  min-width: 200px;
+}
+
+#publication-search:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--global-theme-color);
+}
+
+#publication-search::placeholder {
+  color: var(--global-text-color);
+  opacity: 0.5;
+}
 </style>
 
 <div class="publications">
-* indicates equal contribution.
 
-<div class="filter-buttons">
+<div class="filter-bar">
   <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn" data-filter="article">Journals</button>
   <button class="filter-btn" data-filter="inproceedings">Conferences</button>
   <button class="filter-btn" data-filter="misc">Preprints</button>
+  <input type="text" id="publication-search" placeholder="Search...">
 </div>
 
 {% bibliography --file papers %}
@@ -54,8 +78,16 @@ nav_order: 2
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const publicationEntries = document.querySelectorAll('.bibliography li');
+  const searchInput = document.getElementById('publication-search');
+  let currentFilter = 'all';
+  let currentSearch = '';
 
+  // Store searchable text for each entry
   publicationEntries.forEach(function(entry) {
+    // Get searchable text (title, authors, venue, abstract)
+    const textContent = entry.textContent.toLowerCase();
+    entry.setAttribute('data-searchtext', textContent);
+
     const bibtexDiv = entry.querySelector('.bibtex code');
     if (bibtexDiv) {
       const bibtexText = bibtexDiv.textContent;
@@ -98,26 +130,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  function applyFilters() {
+    publicationEntries.forEach(function(entry) {
+      const entryType = entry.getAttribute('data-type');
+      const searchText = entry.getAttribute('data-searchtext');
+
+      const matchesType = currentFilter === 'all' || entryType === currentFilter;
+      const matchesSearch = currentSearch === '' || searchText.includes(currentSearch);
+
+      if (matchesType && matchesSearch) {
+        entry.style.display = '';
+      } else {
+        entry.style.display = 'none';
+      }
+    });
+
+    updateYearSections();
+  }
+
   filterButtons.forEach(function(button) {
     button.addEventListener('click', function() {
-      const filter = this.getAttribute('data-filter');
+      currentFilter = this.getAttribute('data-filter');
 
       filterButtons.forEach(function(btn) {
         btn.classList.remove('active');
       });
       this.classList.add('active');
 
-      publicationEntries.forEach(function(entry) {
-        const entryType = entry.getAttribute('data-type');
-        if (filter === 'all' || entryType === filter) {
-          entry.style.display = '';
-        } else {
-          entry.style.display = 'none';
-        }
-      });
-
-      updateYearSections();
+      applyFilters();
     });
+  });
+
+  searchInput.addEventListener('input', function() {
+    currentSearch = this.value.toLowerCase().trim();
+    applyFilters();
   });
 
   updateYearSections();

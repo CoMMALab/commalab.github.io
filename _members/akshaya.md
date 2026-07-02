@@ -12,6 +12,7 @@ google_scholar: "PAPrDuwAAAAJ"
 image: "akshaya.jpg"
 group: Ph.D. Students
 group_rank: 2
+co_advised: "Geoff Hollinger"
 ---
 
 I am a robotics researcher working on Multi-Robot Motion Planning. As a robotics Ph.D. student at Oregon State University, I am advised and mentored by Geoff Hollinger and Zak Kingston. My passion is to enable a team of robots to perform tasks that are larger than us (humans). 

@@ -12,9 +12,14 @@ layout: default
     <h5 class="post-description">
     {% if page.position %}
     {{ page.position }}<br/>
+    {% elsif page.group == "Ph.D. Students" %}
+    Ph.D. Student<br/>
     {% endif %}
     {% if page.pronouns %}
-    ({{ page.pronouns }})
+    ({{ page.pronouns }})<br/>
+    {% endif %}
+    {% if page.co_advised %}
+    Co-advised with {{ page.co_advised }}
     {% endif %}
     </h5>
   </header>
