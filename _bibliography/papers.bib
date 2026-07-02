@@ -40,11 +40,11 @@
   abstract  = {Safe multi-arm motion planning is a challenging problem in robotics due to its high dimensionality, coupled configuration space, and complex collision constraints. Centralized planners are capable of coordinating all arms but often face scalability limitations, restricting applicability in real-time settings. On the other hand, decentralized methods are scalable and recent deep learning-based approaches have shown promising results. However, these depend on accurate behavior prediction or coordination protocols and may fail when other arms act unpredictably. To address these challenges, we introduce a neural Hamilton-Jacobi Reachability (HJR) learning-based approach to approximate a safety value function that captures worst-case inter-arm safety constraints. We further develop a decentralized trajectory optimization framework that uses the learned HJR representation for real-time planning. The proposed method is scalable and data-efficient, generalizes across multi-manipulator systems, and outperforms state-of-the-art baselines on challenging multi-arm motion planning tasks. },
   booktitle = iros,
   year      = 2026,
-  pdf       = {https://arxiv.org/abs/2507.13940},
+  pdf       = {https://arxiv.org/abs/2607.00326},
   code      = {https://github.com/qingyichen/nehmo-dev},
   video     = {https://www.youtube.com/watch?v=IZiePX0p1Mc},
   note      = {To Appear},
-  projects  = {constraints,implicit},
+  projects  = {multi,implicit},
   abbr      = {IROS},
   preview   = {nehmo.gif}
 }
@@ -179,7 +179,6 @@
   projects = {implicit,softrob},
   abbr     = {Soft Robotics},
   preview  = {actsim.gif},
-  selected = {true}
 }
 @article{guo2026stac,
   title    = {Efficient Multi-Robot Motion Planning for Manifold-Constrained Manipulators by Randomized Scheduling and Informed Path Generation},
@@ -266,7 +265,6 @@
   projects = {realtime},
   abbr     = {RAL},
   preview  = {aorrtc.jpg},
-  selected = {true}
 }
 @inproceedings{agrawal2025mrangler,
   title     = {Underwater Multi-Robot Simulation and Motion Planning in Angler},
@@ -425,7 +423,6 @@
   projects  = {realtime,software},
   abbr      = {RSS},
   preview   = {capt.gif},
-  selected  = {true}
 }
 @inproceedings{thomason2024vamp,
   title     = {Motions in Microseconds via Vectorized Sampling-Based Planning},
@@ -441,7 +438,6 @@
   projects  = {realtime,software},
   abbr      = {ICRA},
   preview   = {vamp.jpg},
-  selected  = {true}
 }
 @inproceedings{quintero2024impdist,
   title     = {Stochastic Implicit Neural Signed Distance Functions for Safe Motion Planning under Sensing Uncertainty},
@@ -553,7 +549,6 @@
   projects = {long-horizon,constraints},
   abbr     = {TRO},
   preview  = {r2_walking.jpg},
-  selected = {true}
 }
 @article{chamzas2021mbm,
   title    = {MotionBenchMaker: A Tool to Generate and Benchmark Motion Planning Datasets},

@@ -60,11 +60,14 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
-    <!-- Selected papers -->
+    <!-- Random papers -->
     <hr/>
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Randomly Selected Publications</a>
+        <button id="reroll-publications" title="Reroll publications" style="background: none; border: none; cursor: pointer; font-size: 0.7em; vertical-align: middle; color: var(--global-theme-color);">
+          <i class="fas fa-dice"></i>
+        </button>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}

@@ -91,7 +91,11 @@ carousels:
     {% for member in members %}
     <div class="student-grid-tile">
         <a href="{{ member.url }}">
-            {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
+            {% if member.image %}
+              {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
+            {% else %}
+              {% assign member_image = "assets/img/commie.png" %}
+            {% endif %}
             {% include figure.liquid loading="lazy" path=member_image class="student-image" alt=member.title %}
             <div class="student-name">{{ member.title }}</div>
             {% if member.pronouns %}<div class="student-subtitle">({{ member.pronouns }})</div>{% endif %}
@@ -128,7 +132,11 @@ carousels:
         <div class="card hoverable h-100">
             <div class="row no-gutters">
                 <div class="col-5 col-xs-3 col-sm-3 col-md-4">
-                {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
+                {% if member.image %}
+                  {% capture member_image %}assets/img/people/{{ member.image }}{% endcapture %}
+                {% else %}
+                  {% assign member_image = "assets/img/commie.png" %}
+                {% endif %}
                 {%
                     include figure.liquid
                     loading="lazy"

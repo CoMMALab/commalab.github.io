@@ -1,7 +1,7 @@
 ---
 layout: project
 key: implicit
-title: Implicit and Learned Models
+title: Learning plus Planning
 video: implicit.webm
 caption: Methods that incorporate learned or implicit components into planning algorithms.
 rank: 5

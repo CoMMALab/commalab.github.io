@@ -1,3 +1,45 @@
-<div class="publications">
-  {% bibliography --file papers --group_by none --query @*[selected=true]* %}
+<div class="publications random-publications">
+  {% bibliography --file papers --group_by none %}
 </div>
+
+<script>
+(function() {
+  var container = document.querySelector('.random-publications .bibliography');
+  if (!container) return;
+
+  var items = Array.from(container.querySelectorAll('li'));
+
+  function selectRandomPublications() {
+    if (items.length <= 5) return;
+
+    // Create a shuffled copy
+    var shuffled = items.slice();
+    for (var i = shuffled.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+
+    var selected = shuffled.slice(0, 5);
+
+    // Hide all, then show selected
+    items.forEach(function(item) {
+      item.style.display = 'none';
+    });
+
+    selected.forEach(function(item) {
+      item.style.display = '';
+    });
+  }
+
+  // Initial selection
+  selectRandomPublications();
+
+  // Reroll button
+  var rerollBtn = document.getElementById('reroll-publications');
+  if (rerollBtn) {
+    rerollBtn.addEventListener('click', selectRandomPublications);
+  }
+})();
+</script>
