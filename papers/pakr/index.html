@@ -3,27 +3,18 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-    content="McVAMP: Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole Body Control">
-  <meta name="keywords" content="McVAMP, Constrained Planning, Manipulation, Optimization, Robotics">
+  <meta name="description" content="PAKR: Fast Asymptotically Optimal Kinodynamic Planning via Vectorization">
+  <meta name="keywords" content="PAKR, Kinodynamic Planning, GPU Acceleration, Asymptotically Optimal Planning, Robotics">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>McVAMP: Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole Body Control</title>
+  <title>PAKR: Fast Asymptotically Optimal Kinodynamic Planning via Vectorization</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
 </head>
 
 <body>
@@ -43,24 +34,14 @@
             <i class="fas fa-home"></i>
           </span>
         </a>
-        <!-- For when we have others -->
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More Research
-          </a>
+          <a class="navbar-link">More Research</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="../spasm">
-              Particle Optimization for Sequential Manipulation
-            </a>
-            <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">
-              Search as Inference
-            </a>
-            <a class="navbar-item" href="https://arxiv.org/abs/2508.17482">
-              Grasp Diffusion
-            </a>
-            <a class="navbar-item" href="https://arxiv.org/abs/2503.06757">
-              GPU RRT-Connect
-            </a>
+            <a class="navbar-item" href="../spasm">Particle Optimization for Sequential Manipulation</a>
+            <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">Search as Inference</a>
+            <a class="navbar-item" href="https://arxiv.org/abs/2508.17482">Grasp Diffusion</a>
+            <a class="navbar-item" href="../pRRTC">GPU RRT-Connect</a>
+            <a class="navbar-item" href="../mcvamp">Constrained Vectorized Motion Planning</a>
           </div>
         </div>
       </div>
@@ -74,68 +55,43 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">McVAMP: Vectorizing Projection in Manifold-Constrained Motion
-                Planning for Real-Time Whole Body Control</h1>
+              <h1 class="title is-1 publication-title">PAKR: Fast Asymptotically Optimal Kinodynamic Planning via Vectorization</h1>
               <div class="is-size-5 publication-authors">
-                <span class="author-block">
-                  <a href="../../members/shrutheesh">Shrutheesh R. Iyer</a>,</span>
-                <span class="author-block">
-                  <a href="https://www.linkedin.com/in/i-chia-chang-880063256/">I-Chia Chang</a>,</span>
-                <span class="author-block">
-                  Andrew Z Liu,</span>
-                <span class="author-block">
-                  <a href="https://www.thetracelab.com/ygu.html/">Yan Gu</a>,</span>
+                <span class="author-block"><a href="https://commalab.org/members/yitian/">Yitian Gao</a>,</span>
+                <span class="author-block"><a href="https://commalab.org/members/andrew-lu/">Andrew Lu</a>,</span>
                 and
-                <span class="author-block">
-                  <a href="https://commalab.org/members/kingston/">Zachary Kingston</a>
-                </span>
+                <span class="author-block"><a href="https://commalab.org/members/kingston/">Zachary Kingston</a></span>
               </div>
-
               <div class="is-size-5 publication-authors">
                 <span class="author-block">Purdue University</span>
               </div>
-
               <div class="column has-text-centered">
                 <div class="publication-links">
-                  <!-- PDF Link. -->
                   <span class="link-block">
-                    <a href="https://arxiv.org/pdf/2604.13323" class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
+                    <a href="https://arxiv.org/pdf/2607.03987" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-file-pdf"></i></span>
                       <span>Paper</span>
                     </a>
                   </span>
                   <span class="link-block">
-                    <a href="https://arxiv.org/abs/2604.13323" class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="ai ai-arxiv"></i>
-                      </span>
+                    <a href="https://arxiv.org/abs/2607.03987" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="ai ai-arxiv"></i></span>
                       <span>arXiv</span>
                     </a>
                   </span>
-                  <!-- Video Link. -->
                   <span class="link-block">
-                    <a href="https://www.youtube.com/embed/HO2C4tfR8ws"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fab fa-youtube"></i>
-                      </span>
+                    <a href="https://www.youtube.com/embed/EjxSVqkC3sk?si=4-8CbtKs6PLqL8JA" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fab fa-youtube"></i></span>
                       <span>Video</span>
                     </a>
                   </span>
-                  <!-- Code Link. -->
                   <span class="link-block">
-                    <a href="https://github.com/CoMMALab/vamp/tree/constrained_planner?tab=readme-ov-file#manifold-constrained-planner"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
+                    <a href="https://github.com/CoMMALab/pakr" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fab fa-github"></i></span>
                       <span>Code</span>
                     </a>
                   </span>
                 </div>
-
               </div>
             </div>
           </div>
@@ -147,14 +103,11 @@
       <div class="container is-max-desktop">
         <div class="hero-body">
           <video id="teaser" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/maze_solver_cropped.webm" type="video/webm">
+            <source src="./static/videos/pakr_clip1.7.webm" type="video/webm">
           </video>
           <h2 class="subtitle has-text-centered">
-            <span class="dnerf">McVAMP</span> solves manifold-constrained motion planning problems in
-            <b><i>milliseconds</i></b>, providing the ability to generate feasible motions while reacting to dynamic
-            environments. Here, we show McVAMP solving a plane-constrained planning problem in a dynamic maze
-            environment,
-            by globally replanning in response to changes in the environment.
+            Here we show 6d double integrator trajectories on a tree environment. As the cost threshold decreases,
+            the planner finds more optimal solutions, narrowing the spread of the trajectories.
           </h2>
         </div>
       </div>
@@ -164,51 +117,47 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Many robot planning tasks require satisfaction of one or more constraints throughout the entire
-              trajectory.
-              For geometric constraints, manifold-constrained motion planning algorithms are capable of planning
-              a collision-free path between start and goal configurations on the constraint submanifolds specified by
-              the task.
-              Current state-of-the-art methods can take tens of seconds to solve these tasks for complex systems such as
-              humanoid robots, making real-world use impractical, especially in dynamic settings.
+              Sampling-based motion planners have been shown to be effective for systems with complex
+              kinodynamic constraints and high dimensionality.
+              However, these algorithms struggle to achieve real-time performance, leading to recent
+              efforts to parallelize planning.
+              While GPU-accelerated planners have achieved significant speedups, existing approaches
+              require specialized CUDA programming that limits accessibility and portability.
             </p>
             <p>
-              Inspired by recent advances in hardware accelerated motion planning, we present a CPU SIMD-accelerated
-              manifold-constrained motion planner that revisits projection-based constraint satisfaction through the
-              lens of parallelization.
-              By transforming relevant components into parallelizable structures, we use SIMD parallelism to plan
-              constraint-satisfying solutions.
+              We present Parallel Asymptotically Optimal Kinodynamic RRT (PAKR), a massively parallel
+              kinodynamic planner leveraging JAX and the XLA compiler to achieve GPU acceleration
+              through standard Python tooling.
+              By combining our parallel planner with the AO-x meta-algorithm, we achieve asymptotic
+              optimality through fast iterative replanning.
             </p>
             <p>
-              Our approach achieves up to <b>100 to 2000x</b> speed-ups over the state-of-the-art, making real-time
-              constrained motion planning feasible for the first time.
-              We demonstrate our planner on a real humanoid robot and show real-time whole-body quasi-static plan
-              generation.
+              We provide a theoretical analysis of probabilistic completeness, analyze the effects of
+              batch size and branching factor on convergence, and demonstrate scalability to complex
+              dynamics using the MuJoCo-XLA simulator.
+              Experiments show competitive runtimes with state-of-the-art GPU planners and superior solution quality.
             </p>
           </div>
         </div>
       </div>
-      <!--/ Abstract. -->
 
-      <!-- Paper video. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Video</h2>
           <div class="publication-video">
-            <iframe width="911" height="486" src="https://www.youtube.com/embed/HO2C4tfR8ws" title="McVAMP: Vectorizing Projection in Manifold-Constrained Motion
-              Planning for Real-Time Whole Body Control" frameborder="0"
+            <iframe width="911" height="486" src="https://www.youtube.com/embed/EjxSVqkC3sk?si=4-8CbtKs6PLqL8JA"
+              title="PAKR: Fast Asymptotically Optimal Kinodynamic Planning via Vectorization"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-      <!--/ Paper video. -->
     </div>
   </section>
 
@@ -219,352 +168,119 @@
           <h3 class="title is-4">Methodology</h3>
           <div class="content has-text-justified">
             <p>
-              We implement a vectorized manifold-projection operator that performs the motion-extension and validation
-              for a constrained RRT-connect planner. By using SIMD parallelism, we are able to perform the projection
-              step for multiple samples in parallel along a connection vector,
-              which significantly speeds up the projection step and helps invalidate infeasible solutions faster,
-              allowing us to solve complex constrained planning problems in milliseconds.
+              Utilizing the Python-JAX jit compiler, we compile the RRT planner into a single GPU kernel, minimizing device transfer overhead.
+              The planner performs node selection, action sampling, forward simulation, and tree building in large batches, enabling efficient parallelism.
+              With a fast single-solve time, we can iteratively replan with decreasing cost thresholds to achieve asymptotic optimality at high frequencies.
             </p>
           </div>
-
-          <div class="flow">
-            <figure class="flow-item">
-              <img src="./static/methodology/meth1.svg" class="step is-active"
-                alt="Constrained extend step towards random sampled configuration">
-              <figcaption class="flow-label">(a) Constrained Extend step towards random sampled config</figcaption>
-            </figure>
-            <figure class="flow-item">
-              <img src="./static/methodology/meth2.svg" class="step"
-                alt="Multiple candidate projections around sampled point">
-              <figcaption class="flow-label">(b) Multiple candidate projections around sampled configuration</figcaption>
-            </figure>
-            <figure class="flow-item">
-              <img src="./static/methodology/meth4.svg" class="step"
-                alt="Recursive interpolation and projection up to desired resolution">
-              <figcaption class="flow-label">(d) Recursive interpolation and projection up to desired resolution
-              </figcaption>
-            </figure>
-            <figure class="flow-item">
-              <img src="./static/methodology/meth3.svg" class="step"
-                alt="Vectorized projection of interpolated configurations">
-              <figcaption class="flow-label">(c) Vectorized projection of interpolated configurations</figcaption>
-            </figure>
-          </div>
-
-          <br />
         </div>
       </div>
     </div>
   </section>
-
-
-
 
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3 has-text-centered">Results</h2>
-          <h3 class="title is-4 has-text-centered">7-DoF Franka Emika Panda Arm End Effector Constraint</h3>
+
+          <h3 class="title is-4 has-text-centered">KinoPAX Experiments</h3>
           <div class="content has-text-centered">
             <p>
-              A 7-DoF Franka Emika Panda arm with an end effector pose constraint. Here we demonstrate the planner's
-              ability to conform to position and orientation constraints
-              while solving complex motion planning problems in the presence of obstacles.
+              These environments were taking from KinoPAX, a CUDA implementation of accelerated kinodynamic planning.
+              Three dynamics models are used: 6d double integrator, 6d dubins airplane, and 12d quadrotor.
             </p>
           </div>
-
-          <div id="results-iframe-carousel" class="iframe-carousel">
-            <button id="results-carousel-prev" class="iframe-carousel-arrow" type="button" aria-label="Previous scene">
-              &#8249;
-            </button>
-
-            <div class="iframe-carousel-viewport" aria-live="polite">
-              <div class="iframe-carousel-slide is-active" data-slide="0" data-label="Plane No Orientation 1">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/plane_no_ori/recording_0.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/plane_no_ori/recording_0.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
+          <div class="results-grid">
+            <div class="grid-item">
+              <div class="trimmed-img-container">
+                <img src="static/results/sol1.png" alt="Initial Tree">
               </div>
-              <div class="iframe-carousel-slide" data-slide="1" data-label="Plane Orientation 1">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/plane_ori/recording_1.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/plane_ori/recording_1.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-              <div class="iframe-carousel-slide" data-slide="2" data-label="Plane No Orientation 2">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/plane_no_ori/recording_6.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/plane_no_ori/recording_6.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-              <div class="iframe-carousel-slide" data-slide="3" data-label="Plane Orientation 2">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/plane_ori/recording_6.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/plane_ori/recording_6.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-
-
-              <div class="iframe-carousel-slide" data-slide="4" data-label="Line No Orientation 1">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/line_no_ori/recording_8.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/line_no_ori/recording_8.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-              <div class="iframe-carousel-slide" data-slide="5" data-label="Line Orientation 1">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/line_ori/recording_8.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/line_ori/recording_8.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-              <div class="iframe-carousel-slide" data-slide="6" data-label="Line No Orientation 2">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/line_no_ori/recording_9.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/line_no_ori/recording_9.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-              <div class="iframe-carousel-slide" data-slide="7" data-label="Line Orientation 2">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/line_ori/recording_9.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/line_ori/recording_9.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-
-
-
-              <button id="results-carousel-fullscreen" class="iframe-fullscreen-btn" type="button"
-                aria-label="Open fullscreen" title="Fullscreen">
-                <span class="icon is-small">
-                  <i class="fas fa-expand"></i>
-                </span>
-              </button>
+              <p class="caption">(a) Initial Tree</p>
             </div>
-
-            <button id="results-carousel-next" class="iframe-carousel-arrow" type="button" aria-label="Next scene">
-              &#8250;
-            </button>
+            <div class="grid-item">
+              <div class="trimmed-img-container">
+                <img src="static/results/sol2.png" alt="Initial Narrow">
+              </div>
+              <p class="caption">(b) Initial Narrow</p>
+            </div>
+            <div class="grid-item">
+              <div class="trimmed-img-container">
+                <img src="static/results/sol3.png" alt="Initial House">
+              </div>
+              <p class="caption">(c) Initial House</p>
+            </div>
+            <div class="grid-item">
+              <div class="trimmed-img-container">
+                <img src="static/results/aosol1.png" alt="Final Tree">
+              </div>
+              <p class="caption">(d) Final Tree</p>
+            </div>
+            <div class="grid-item">
+              <div class="trimmed-img-container">
+                <img src="static/results/aosol2.png" alt="Final Narrow">
+              </div>
+              <p class="caption">(e) Final Narrow</p>
+            </div>
+            <div class="grid-item">
+              <div class="trimmed-img-container">
+                <img src="static/results/aosol3.png" alt="Final House">
+              </div>
+              <p class="caption">(f) Final House</p>
+            </div>
           </div>
+          <p>
+            Depiction of 10 initial and final solution trajectories (green lines) and 3d obstacle
+            environments for PAKR, run with the double integrator model. The start and goal regions are represented
+            by the blue and green spheres. Cost criterion is set to distance traveled to better visualize convergence.
+          </p>
 
-          <div class="iframe-carousel-controls">
-            <span id="results-carousel-counter" class="iframe-carousel-counter">1 / 2</span>
-          </div>
-
-          <div id="results-carousel-buttons" class="iframe-carousel-buttons" aria-label="Select a scene"></div>
-
-          <!-- <p class="has-text-centered">
-            This in-browser interactive 3D scene is enabled by
-            <a href="https://github.com/nerfstudio-project/viser">Viser</a>.
-          </p> -->
-
-
-
-          <!-- <h3 class="title is-4 has-text-centered">14DoF Bimanual Relative Pose Constraint</h3>
+          <h3 class="title is-4 has-text-centered">DynoBench Experiments</h3>
           <div class="content has-text-centered">
             <p>
-              A different class of end effector constraint is the relative pose constraint between two end effectors, which is important for bimanual manipulation tasks. Here, we show McVAMP solving a bimanual relative pose constraint problem where the two end effectors must maintain a fixed relative pose during motion.
+              To compare against optimal planners, we also evaluate against DynoBench's iDb-A* and SST* implementations.
+              Four dynamics models are used: 3d unicycle with velocity control, 5d unicycle with acceleration control,
+              4d acrobot, and 12d quadrotor.
             </p>
           </div>
-
-          <div id="results-iframe-carousel" class="iframe-carousel">
-            <button id="results-carousel-prev" class="iframe-carousel-arrow" type="button" aria-label="Previous scene">
-              &#8249;
-            </button>
-
-            <div class="iframe-carousel-viewport" aria-live="polite">
-              <div class="iframe-carousel-slide is-active" data-slide="0" data-label="Bimanual Iiwa">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/bimanual/recording_shelf_iiwa.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/bimanual/recording_shelf_iiwa.viser" target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-              <div class="iframe-carousel-slide" data-slide="1" data-label="Plane Orientation 1">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/plane_ori/recording_1.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/plane_ori/recording_1.viser" target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-
-
-              <button id="results-carousel-fullscreen" class="iframe-fullscreen-btn" type="button"
-                aria-label="Open fullscreen" title="Fullscreen">
-                <span class="icon is-small">
-                  <i class="fas fa-expand"></i>
-                </span>
-              </button>
-            </div>
-
-            <button id="results-carousel-next" class="iframe-carousel-arrow" type="button" aria-label="Next scene">
-              &#8250;
-            </button>
+          <figure class="result-figure">
+            <img src="./static/results/uni_solutions.png" alt="DynoBench results figure">
+            <figcaption class="result-caption">Solutions for the 3D unicycle problem.</figcaption>
+          </figure>
+          <div class="result-video-wrap">
+            <video autoplay muted loop playsinline>
+              <source src="./static/videos/pakr_clip3.webm" type="video/webm">
+            </video>
+            <p class="result-caption">4d acrobot problem visualized in mujoco.</p>
           </div>
 
-          <div class="iframe-carousel-controls">
-            <span id="results-carousel-counter" class="iframe-carousel-counter">1 / 2</span>
-          </div>
-
-          <div id="results-carousel-buttons" class="iframe-carousel-buttons" aria-label="Select a scene"></div> -->
-
-          <!-- <p class="has-text-centered">
-            This in-browser interactive 3D scene is enabled by
-            <a href="https://github.com/nerfstudio-project/viser">Viser</a>.
-          </p> -->
-
-
-
-
-          <h3 class="title is-4 has-text-centered">30-DoF Humanoid Digit Robot Multiple Constraints</h3>
+          <h3 class="title is-4 has-text-centered">MJX Experiments</h3>
           <div class="content has-text-centered">
             <p>
-              A 30-DoF humanoid robot transporting a box with multiple constraints: (i) Feet fixed to the ground, (ii)
-              Relative pose constraint between the hands, (iii) Closed link constraint at the knees, and (iv) Center
-              of mass within the support polygon. The robot is able to react to dynamic obstacles in the environment
-              while maintaining all constraints.
+              We also run our planner with the MuJoCo-XLA simulator, which provides GPU-accelerated physics simulation for
+              complex dynamics. With MJX, we solve a 4d cartpole problem and a 10d block push problem. In addition, we
+              use a soft growing vine simulator to demonstrate the ability of PAKR to handle complex, high-dimensional dynamics.
             </p>
           </div>
-
-          <div id="results-iframe-carousel" class="iframe-carousel iframe-carousel--humanoid">
-            <button id="results-carousel-prev" class="iframe-carousel-arrow" type="button" aria-label="Previous scene">
-              &#8249;
-            </button>
-
-            <div class="iframe-carousel-viewport" aria-live="polite">
-              <div class="iframe-carousel-slide is-active" data-slide="0" data-label="Dynamic Obstacle Dodge">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" data-playback-rate="1" autoplay muted loop playsinline
-                    preload="metadata">
-                    <source src="./static/viser_recordings/digit/digit_dodge.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/digit/recording.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-              <div class="iframe-carousel-slide" data-slide="1" data-label="Real World Dynamic Obstacle Dodge">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" data-playback-rate="0.5" autoplay muted loop playsinline
-                    preload="metadata">
-                    <source src="./static/viser_recordings/digit/digit_dodge_real.webm" type="video/webm">
-                  </video>
-                </div>
-                <!-- <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/digit/digit_dodge.viser" target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div> -->
-              </div>
-
-
-              <div class="iframe-carousel-slide" data-slide="2" data-label="Box Transport between Shelves">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="./static/viser_recordings/digit/recording_shelf.webm" type="video/webm">
-                  </video>
-                </div>
-                <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/digit/recording_shelf.viser"
-                    target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div>
-              </div>
-
-              <div class="iframe-carousel-slide" data-slide="3" data-label="Real World Box Transport between Shelves">
-                <div class="results-iframe-wrapper">
-                  <video class="results-preview-video" data-playback-rate="0.95" autoplay muted loop playsinline
-                    preload="metadata">
-                    <source src="./static/viser_recordings/digit/digit_shelf_real.webm" type="video/webm">
-                  </video>
-                </div>
-                <!-- <div class="results-video-link has-text-centered">
-                  <a href="https://commalab.org/papers/mcvamp/static/viser_recordings?playbackPath=/papers/mcvamp/static/viser_recordings/digit/digit_dodge.viser" target="_blank" rel="noopener noreferrer">View 3D viz</a>
-                </div> -->
-              </div>
-
-
-              <button id="results-carousel-fullscreen" class="iframe-fullscreen-btn" type="button"
-                aria-label="Open fullscreen" title="Fullscreen">
-                <span class="icon is-small">
-                  <i class="fas fa-expand"></i>
-                </span>
-              </button>
+          <div class="result-video-row">
+            <div class="result-video-wrap">
+              <video autoplay muted loop playsinline>
+                <source src="./static/videos/pakr_clip4.webm" type="video/webm">
+              </video>
+              <p class="result-caption">10d blockpush problem. Left has an easier start position.</p>
             </div>
-
-            <button id="results-carousel-next" class="iframe-carousel-arrow" type="button" aria-label="Next scene">
-              &#8250;
-            </button>
+            <div class="result-video-wrap">
+              <video autoplay muted loop playsinline>
+                <source src="./static/videos/pakr_clip5.webm" type="video/webm">
+              </video>
+              <p class="result-caption">Soft growing vine planning problem</p>
+            </div>
           </div>
-
-          <div class="iframe-carousel-controls">
-            <span id="results-carousel-counter" class="iframe-carousel-counter">1 / 2</span>
-          </div>
-
-          <div id="results-carousel-buttons" class="iframe-carousel-buttons" aria-label="Select a scene"></div>
-
-          <!-- <p class="has-text-centered">
-            This in-browser interactive 3D scene is enabled by
-            <a href="https://github.com/nerfstudio-project/viser">Viser</a>.
-          </p> -->
-
 
         </div>
       </div>
     </div>
   </section>
-
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -573,135 +289,270 @@
           <h2 class="title is-4">Performance</h2>
           <div class="content has-text-justified">
             <p>
-              Quantitative comparisons across planning tasks are shown below for the 7-DoF Panda arm and a 14-DoF bimanual
-              IIWA arm.
+              We evaluate the performance of PAKR against KinoPAX, a gpu-accelerated planner, and two optimal planners: iDb-A* and SST*.
+              We also analyze the convergence behavior of PAKR with respect to iterations and time, demonstrating its
+              ability to find high-quality solutions efficiently.
             </p>
           </div>
 
-          <figure class="performance-plot performance-plot--large">
-            <div class="performance-plot-scroll" role="region" aria-label="Scrollable performance plot">
-              <img class="performance-plot-image" src="./static/plots/line_plane_probs.svg"
-                alt="7-DoF Panda line and plane constraints comparison plot">
+          <!-- Stacked subfigure pair (mirrors LaTeX \begin{subfigure}{\linewidth}) -->
+          <figure class="perf-subfigure-stack">
+            <div class="perf-subfigure-img">
+              <img src="./static/results/aorrt_iterations_col.png" alt="PAKR convergence analysis — iterations">
             </div>
-            <figcaption class="performance-caption">(i) 7-DoF Panda for line and plane constraints comparison
+            <div class="perf-subfigure-spacer"></div>
+            <div class="perf-subfigure-img">
+              <img src="./static/results/aorrt_time_col.png" alt="PAKR convergence analysis — time">
+            </div>
+            <figcaption class="performance-caption">
+              PAKR convergence analysis showing median cost and interquartile range (IQR) across 100 runs
+              for the double integrator in environment A with a cost threshold of 1.49.
             </figcaption>
           </figure>
-          <!-- <p class="has-text-centered is-size-7">Placeholder file: <code>./static/plots/line_plane_probs.svg</code></p> -->
 
-          <div class="performance-row">
-            <figure class="performance-plot performance-plot--small">
-              <img class="performance-plot-image" src="./static/plots/maze_benchmark.svg"
-                alt="Maze benchmark comparison plot">
-              <figcaption class="performance-caption">(ii) Solving a maze benchmark</figcaption>
-            </figure>
-            <figure class="performance-plot performance-plot--small">
-              <img class="performance-plot-image" src="./static/plots/bimanual_transport.svg"
-                alt="Bimanual transport problem comparison plot">
-              <figcaption class="performance-caption">(iii) Bimanual transport problem comparisons</figcaption>
-            </figure>
-          </div>
+          <!-- Table 1: KinoPAX comparison -->
+          <figure class="paper-table-figure">
+            <table class="paper-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th colspan="2">Env A</th>
+                  <th colspan="2">Env B</th>
+                  <th colspan="2">Env C</th>
+                </tr>
+                <tr class="subheader">
+                  <th>Dynamics</th>
+                  <th>Planner</th>
+                  <th>Time</th>
+                  <th>Nodes</th>
+                  <th>Time</th>
+                  <th>Nodes</th>
+                  <th>Time</th>
+                  <th>Nodes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2" class="rowgroup">6D DI</td>
+                  <td>KinoPAX</td>
+                  <td>5.0ms</td><td>164k</td>
+                  <td>3.5ms</td><td>144k</td>
+                  <td>6.3ms</td><td>193k</td>
+                </tr>
+                <tr>
+                  <td>PAKR</td>
+                  <td><strong>2.5ms</strong></td><td><strong>9k</strong></td>
+                  <td><strong>1.8ms</strong></td><td><strong>21k</strong></td>
+                  <td><strong>5.5ms</strong></td><td><strong>19k</strong></td>
+                </tr>
+                <tr class="section-divider">
+                  <td rowspan="2" class="rowgroup">6D DA</td>
+                  <td>KinoPAX</td>
+                  <td><strong>4.4ms</strong></td><td>63k</td>
+                  <td><strong>3.7ms</strong></td><td>72k</td>
+                  <td><strong>7.6ms</strong></td><td>107k</td>
+                </tr>
+                <tr>
+                  <td>PAKR</td>
+                  <td>5.4ms</td><td><strong>19k</strong></td>
+                  <td>5.9ms</td><td><strong>32k</strong></td>
+                  <td>14.9ms</td><td><strong>57k</strong></td>
+                </tr>
+                <tr class="section-divider">
+                  <td rowspan="2" class="rowgroup">12D QC</td>
+                  <td>KinoPAX</td>
+                  <td>17.8ms</td><td>285k</td>
+                  <td>17.8ms</td><td>285k</td>
+                  <td><strong>24.6ms</strong></td><td>333k</td>
+                </tr>
+                <tr>
+                  <td>PAKR</td>
+                  <td><strong>14.9ms</strong></td><td><strong>71k</strong></td>
+                  <td><strong>17.1ms</strong></td><td><strong>147k</strong></td>
+                  <td>51.4ms</td><td><strong>173k</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <figcaption class="performance-caption">Comparison of PAKR vs. KinoPAX across dynamics models and environments. Bold denotes best per cell.</figcaption>
+          </figure>
 
-          <!-- <p class="has-text-centered is-size-7">Placeholder file: <code>./static/plots/bimanual_transport.svg</code></p> -->
+          <!-- Table 2: Convergence stats -->
+          <figure class="paper-table-figure">
+            <table class="paper-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th colspan="4">Environment A</th>
+                  <th colspan="4">Environment B</th>
+                  <th colspan="4">Environment C</th>
+                </tr>
+                <tr class="subheader">
+                  <th>Dynamics</th>
+                  <th>Time<sub>1</sub></th><th>Cost<sub>1</sub></th><th>Time<sub>f</sub></th><th>Cost<sub>f</sub></th>
+                  <th>Time<sub>1</sub></th><th>Cost<sub>1</sub></th><th>Time<sub>f</sub></th><th>Cost<sub>f</sub></th>
+                  <th>Time<sub>1</sub></th><th>Cost<sub>1</sub></th><th>Time<sub>f</sub></th><th>Cost<sub>f</sub></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="rowgroup">6D DI</td>
+                  <td>2.3ms</td><td>1.76</td><td>28.0ms</td><td>1.51</td>
+                  <td>1.8ms</td><td>2.03</td><td>20.0ms</td><td>1.54</td>
+                  <td>4.9ms</td><td>3.11</td><td>45.0ms</td><td>2.33</td>
+                </tr>
+                <tr>
+                  <td class="rowgroup">6D DA</td>
+                  <td>4.8ms</td><td>1.71</td><td>22.0ms</td><td>1.56</td>
+                  <td>5.9ms</td><td>1.69</td><td>6.0ms</td><td>1.66</td>
+                  <td>14.8ms</td><td>3.42</td><td>32.0ms</td><td>2.98</td>
+                </tr>
+                <tr>
+                  <td class="rowgroup">12D QC</td>
+                  <td>13.1ms</td><td>2.16</td><td>20.1ms</td><td>1.98</td>
+                  <td>17.1ms</td><td>2.42</td><td>31.0ms</td><td>2.11</td>
+                  <td>55.6ms</td><td>3.98</td><td>165.4ms</td><td>3.62</td>
+                </tr>
+              </tbody>
+            </table>
+            <figcaption class="performance-caption">Convergence results for PAKR on KinoPAX environments and models. Median times and costs of the initial and final solutions.</figcaption>
+          </figure>
+
+          <!-- Table 3: DynoBench comparison -->
+          <figure class="paper-table-figure">
+            <table class="paper-table">
+              <thead>
+                <tr class="subheader">
+                  <th>Problem</th>
+                  <th>Alg.</th>
+                  <th>SR%</th>
+                  <th>Time<sub>1</sub></th>
+                  <th>Cost<sub>1</sub></th>
+                  <th>Cost<sub>f</sub></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3" class="rowgroup">Unicycle 1</td>
+                  <td>iDb-A*</td><td>100</td><td>254ms</td><td>5.80s</td><td>5.10s</td>
+                </tr>
+                <tr>
+                  <td>SST*</td><td>100</td><td>600ms</td><td>8.34s</td><td><strong>4.41s</strong></td>
+                </tr>
+                <tr>
+                  <td>PAKR</td><td>100</td><td><strong>1.3ms</strong></td><td><strong>4.62s</strong></td><td>4.46s</td>
+                </tr>
+                <tr class="section-divider">
+                  <td rowspan="3" class="rowgroup">Unicycle 2</td>
+                  <td>iDb-A*</td><td>12</td><td>4637ms</td><td>8.70s</td><td>8.70s</td>
+                </tr>
+                <tr>
+                  <td>SST*</td><td>100</td><td>398ms</td><td>14.15s</td><td>6.95s</td>
+                </tr>
+                <tr>
+                  <td>PAKR</td><td>100</td><td><strong>1.4ms</strong></td><td><strong>5.40s</strong></td><td><strong>4.75s</strong></td>
+                </tr>
+                <tr class="section-divider">
+                  <td rowspan="3" class="rowgroup">Acrobot</td>
+                  <td>iDb-A*</td><td>100</td><td>1450ms</td><td>5.24s</td><td>4.96s</td>
+                </tr>
+                <tr>
+                  <td>SST*</td><td>74</td><td>3298ms</td><td>4.36s</td><td>3.39s</td>
+                </tr>
+                <tr>
+                  <td>PAKR</td><td>100</td><td><strong>13ms</strong></td><td><strong>3.87s</strong></td><td><strong>3.22s</strong></td>
+                </tr>
+                <tr class="section-divider">
+                  <td rowspan="3" class="rowgroup">Quadcopter</td>
+                  <td>iDb-A*</td><td>100</td><td>1387ms</td><td><strong>2.56s</strong></td><td><strong>2.21s</strong></td>
+                </tr>
+                <tr>
+                  <td>SST*</td><td>41</td><td>85457ms</td><td>9.64s</td><td>9.42s</td>
+                </tr>
+                <tr>
+                  <td>PAKR</td><td>100</td><td><strong>175ms</strong></td><td>7.54s</td><td>6.23s</td>
+                </tr>
+              </tbody>
+            </table>
+            <figcaption class="performance-caption">DynoBench comparison against iDb-A* and SST*. Unicycle 1 uses velocity control; Unicycle 2 uses force control.</figcaption>
+          </figure>
+
+          <!-- Table 4: Batch size / branching factor sweep -->
+          <figure class="paper-table-figure">
+            <table class="paper-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th colspan="4">Branching Factor (A)</th>
+                </tr>
+                <tr class="subheader">
+                  <th>Batch</th>
+                  <th>Metric</th>
+                  <th>2</th><th>16</th><th>64</th><th>128</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4" class="rowgroup">4k</td>
+                  <td>Success (%)</td><td>100.0</td><td>100.0</td><td>99.0</td><td>94.0</td>
+                </tr>
+                <tr><td>Time (ms)</td><td>19.5</td><td>16.1</td><td>26.7</td><td>41.9</td></tr>
+                <tr><td>Iters</td><td>22.0</td><td>36.0</td><td>69.0</td><td>104.0</td></tr>
+                <tr><td>Nodes</td><td><strong>37.6k</strong></td><td>57.7k</td><td>107.5k</td><td>168.1k</td></tr>
+                <tr class="section-divider">
+                  <td rowspan="4" class="rowgroup">8k</td>
+                  <td>Success (%)</td><td>100.0</td><td>100.0</td><td>97.0</td><td>93.0</td>
+                </tr>
+                <tr><td>Time (ms)</td><td>24.5</td><td><strong>13.1</strong></td><td>19.0</td><td>26.7</td></tr>
+                <tr><td>Iters</td><td>15.0</td><td>21.0</td><td>39.0</td><td>57.0</td></tr>
+                <tr><td>Nodes</td><td>54.3k</td><td>70.9k</td><td>124.9k</td><td>181.9k</td></tr>
+                <tr class="section-divider">
+                  <td rowspan="4" class="rowgroup">16k</td>
+                  <td>Success (%)</td><td>100.0</td><td>100.0</td><td>97.0</td><td>87.0</td>
+                </tr>
+                <tr><td>Time (ms)</td><td>47.2</td><td>14.3</td><td>17.1</td><td>14.3</td></tr>
+                <tr><td>Iters</td><td>12.0</td><td>14.0</td><td>25.0</td><td>25.0</td></tr>
+                <tr><td>Nodes</td><td>89.9k</td><td>103.8k</td><td>162.7k</td><td>163.3k</td></tr>
+                <tr class="section-divider">
+                  <td rowspan="4" class="rowgroup">32k</td>
+                  <td>Success (%)</td><td>100.0</td><td>100.0</td><td>99.0</td><td>86.0</td>
+                </tr>
+                <tr><td>Time (ms)</td><td>115.3</td><td>26.9</td><td>20.1</td><td>19.9</td></tr>
+                <tr><td>Iters</td><td><strong>10.0</strong></td><td>12.0</td><td>17.0</td><td>20.0</td></tr>
+                <tr><td>Nodes</td><td>154.6k</td><td>175.5k</td><td>232.3k</td><td>277.0k</td></tr>
+              </tbody>
+            </table>
+            <figcaption class="performance-caption">Batch size and branching factor sensitivity on 12D Quadcopter (Env A). Bold values are global minimums for time, iteration count, and tree size.</figcaption>
+          </figure>
+
         </div>
       </div>
     </div>
   </section>
-
-
-  <!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h3 class="title is-4">Trajectory Optimization</h3>
-          <div class="content has-text-justified">
-            <p>
-              We perform joint object placement and trajectory optimization by using an augmented langrangian method to
-              iteratively
-              improve the plan. Use the slider here to move through the steps of the tower environment optimization
-              between the initial and optimized states.
-            </p>
-          </div>
-          <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tower_pics/frame_0001.png" class="interpolation-image"
-                alt="Interpolate start reference image." />
-              <p>Initial State</p>
-            </div>
-            <div class="column interpolation-video-column zoom-container" id="zoomDiv1">
-              <div class="zoom-content">
-                <div id="interpolation-image-wrapper">
-                  Loading...
-                </div>
-              </div>
-              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider" step="1" min="0" max="100"
-                value="0" type="range">
-            </div>
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tower_pics/frame_0222.png" class="interpolation-image"
-                alt="Interpolation end reference image." />
-              <p class="is-bold">Final State</p>
-            </div>
-          </div>
-          <br />
-          <h3 class="title is-4">More Trajectory Optimization</h3>
-          <div class="content has-text-justified">
-            <p>
-              Here is another example of the optimization process on the tetris environment.
-            </p>
-          </div>
-          <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tetris_pics/frame_0030.png" class="interpolation-image"
-                alt="Interpolate start reference image." />
-              <p>Initial State</p>
-            </div>
-            <div class="column interpolation-video-column zoom-container" id="zoomDiv2">
-              <div class="zoom-content">
-                <div id="interpolation-image-wrapper-2">
-                  Loading...
-                </div>
-              </div>
-              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider-2" step="1" min="0" max="100"
-                value="0" type="range">
-            </div>
-            <div class="column is-3 has-text-centered">
-              <img src="./static/tetris_pics/frame_0150.png" class="interpolation-image"
-                alt="Interpolation end reference image." />
-              <p class="is-bold">Final State</p>
-            </div>
-          </div>
-          <br />
-        </div>
-      </div>
-    </div>
-  </section> -->
-
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX (preprint)</h2>
-      <pre><code>@misc{iyer2026vectorizingprojectionmanifoldconstrainedmotion,
-      title={Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole-Body Control}, 
-      author={Shrutheesh R Iyer and I-Chia Chang and Andrew Z. Liu and Yan Gu and Zachary Kingston},
+      <pre><code>@misc{gao2026fastasymptoticallyoptimalkinodynamic,
+      title={Fast Asymptotically Optimal Kinodynamic Planning via Vectorization}, 
+      author={Yitian Gao and Andrew Lu and Zachary Kingston},
       year={2026},
-      eprint={2604.13323},
+      eprint={2607.03987},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2604.13323}, 
-}
-
-</code></pre>
+      url={https://arxiv.org/abs/2607.03987}, 
+    }</code></pre>
     </div>
   </section>
-
 
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <a class="icon-link" href="http://arxiv.org/abs/2604.13323">
+        <a class="icon-link" href="http://arxiv.org/abs/2607.03987">
           <i class="fas fa-file-pdf"></i>
         </a>
-        <a class="icon-link" href="https://github.com/CoMMALab/vamp/tree/constrained_planner?tab=readme-ov-file#manifold-constrained-planner" class="external-link" disabled>
+        <a class="icon-link" href="https://github.com/CoMMALab/pakr">
           <i class="fab fa-github"></i>
         </a>
       </div>
@@ -709,13 +560,11 @@
         <div class="column is-8">
           <div class="content">
             <p>
-              This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
             <p>
-              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
-                code</a> of this website,
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
               we just ask that you link back to this page in the footer.
               Please remember to remove the analytics code included in the header of the website which
               you do not want on your website.
