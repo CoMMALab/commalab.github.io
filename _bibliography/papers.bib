@@ -4,6 +4,7 @@
 @string{icra = {IEEE International Conference on Robotics and Automation}}
 @string{iros = {IEEE/RSJ International Conference on Intelligent Robots and Systems}}
 @string{ral = {IEEE Robotics and Automation Letters}}
+@string{ram = {IEEE Robotics and Automation Magazine}}
 @string{tro = {IEEE Transactions on Robotics}}
 @string{ijrr = {The International Journal of Robotics Research}}
 
@@ -197,21 +198,19 @@
   abbr     = {RAL},
   preview  = {stac.jpg}
 }
-@misc{guo2026ompl,
-  title         = {The Open Motion Planning Library 2.0},
-  author        = {Weihang Guo and Theodoros Tyrovouzis and Emiliano Flores and Clayton W. Ramsey and Zachary Kingston and Ioan A. Şucan and Mark Moll and Lydia E. Kavraki},
-  abstract      = {The Open Motion Planning Library (OMPL), first released in 2008, has become a cornerstone of the motion planning community, providing implementations of a wide range of state-of-the-art sampling-based algorithms. Over almost two decades of continuous development, we have steadily expanded the library with new planners, state spaces, and problem formulations. These additions range from asymptotically optimal and lazy planners to constrained motion planning and planning with temporal-logic goals. Building on this foundation, we introduce OMPL 2.0, a major evolution of the library that targets real-time motion planning through hardware acceleration and integrates seamlessly with modern AI research workflows. We also reflect on how OMPL and the field of motion planning have grown together over the years, and discuss the library's broader impact on the research community.},
-  year          = 2026,
-  eprint        = {2605.29301},
-  archiveprefix = {arXiv},
-  primaryclass  = {cs.RO},
-  pdf           = {https://arxiv.org/abs/2605.29301},
-  code          = {https://github.com/ompl/ompl},
-  website       = {https://ompl.kavrakilab.org/},
-  note          = {Under Review},
-  projects      = {software},
-  abbr          = {ARXIV},
-  preview       = {ompl.jpg}
+@article{guo2026ompl,
+  title    = {The Open Motion Planning Library 2.0},
+  author   = {Weihang Guo and Theodoros Tyrovouzis and Emiliano Flores and Clayton W. Ramsey and Zachary Kingston and Ioan A. Şucan and Mark Moll and Lydia E. Kavraki},
+  abstract = {The Open Motion Planning Library (OMPL), first released in 2008, has become a cornerstone of the motion planning community, providing implementations of a wide range of state-of-the-art sampling-based algorithms. Over almost two decades of continuous development, we have steadily expanded the library with new planners, state spaces, and problem formulations. These additions range from asymptotically optimal and lazy planners to constrained motion planning and planning with temporal-logic goals. Building on this foundation, we introduce OMPL 2.0, a major evolution of the library that targets real-time motion planning through hardware acceleration and integrates seamlessly with modern AI research workflows. We also reflect on how OMPL and the field of motion planning have grown together over the years, and discuss the library's broader impact on the research community.},
+  journal  = ram,
+  year     = 2026,
+  pdf      = {https://arxiv.org/abs/2605.29301},
+  code     = {https://github.com/ompl/ompl},
+  website  = {https://ompl.kavrakilab.org/},
+  note     = {To Appear},
+  projects = {software},
+  abbr     = {RAM},
+  preview  = {ompl.jpg}
 }
 @misc{duong2026akinopdf,
   title         = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
@@ -341,19 +340,17 @@
   abbr      = {ICRA},
   preview   = {castl.gif}
 }
-@misc{meng2025look,
-  title         = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
-  author        = {Qingxi Meng and Emiliano Flores and Carlos Quintero-Peña and Peizhu Qian and Zachary Kingston and Shannan K. Hamlin and Vaibhav Unhelkar and Lydia E. Kavraki},
-  abstract      = {In this work, we address the problem of planning robot motions for a high-degree-of-freedom (DoF) robot that effectively achieves a given perception task while the robot and the perception target move in a dynamic environment. Achieving navigation and perception tasks simultaneously is challenging, as these objectives often impose conflicting requirements. Existing methods that compute motion under perception constraints fail to account for obstacles, are designed for low-DoF robots, or rely on simplified models of perception. Furthermore, in dynamic real-world environments, robots must replan and react quickly to changes and directly evaluating the quality of perception (e.g., object detection confidence) is often expensive or infeasible at runtime. This problem is especially important in human-centered environments such as homes and hospitals, where effective perception is essential for safe and reliable operation. To address these challenges, we propose a GPU-parallelized perception-score-guided probabilistic roadmap planner with a neural surrogate model (PS-PRM). The planner explicitly incorporates the estimated quality of a perception task into motion planning for high-DoF robots. Our method uses a learned model to approximate perception scores and leverages GPU parallelism to enable efficient online replanning in dynamic settings. We demonstrate that our planner, evaluated on high-DoF robots, outperforms baseline methods in both static and dynamic environments in both simulation and real-robot experiments.},
-  eprint        = {2509.19610},
-  archiveprefix = {arXiv},
-  primaryclass  = {cs.RO},
-  year          = 2025,
-  pdf           = {https://arxiv.org/abs/2509.19610},
-  projects      = {implicit,realtime,hri,constraints},
-  note          = {Under Review},
-  abbr          = {ARXIV},
-  preview       = {lookasyouleap.jpg}
+@article{meng2025look,
+  title    = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
+  author   = {Qingxi Meng and Emiliano Flores and Carlos Quintero-Peña and Peizhu Qian and Zachary Kingston and Shannan K. Hamlin and Vaibhav Unhelkar and Lydia E. Kavraki},
+  abstract = {In this work, we address the problem of planning robot motions for a high-degree-of-freedom (DoF) robot that effectively achieves a given perception task while the robot and the perception target move in a dynamic environment. Achieving navigation and perception tasks simultaneously is challenging, as these objectives often impose conflicting requirements. Existing methods that compute motion under perception constraints fail to account for obstacles, are designed for low-DoF robots, or rely on simplified models of perception. Furthermore, in dynamic real-world environments, robots must replan and react quickly to changes and directly evaluating the quality of perception (e.g., object detection confidence) is often expensive or infeasible at runtime. This problem is especially important in human-centered environments such as homes and hospitals, where effective perception is essential for safe and reliable operation. To address these challenges, we propose a GPU-parallelized perception-score-guided probabilistic roadmap planner with a neural surrogate model (PS-PRM). The planner explicitly incorporates the estimated quality of a perception task into motion planning for high-DoF robots. Our method uses a learned model to approximate perception scores and leverages GPU parallelism to enable efficient online replanning in dynamic settings. We demonstrate that our planner, evaluated on high-DoF robots, outperforms baseline methods in both static and dynamic environments in both simulation and real-robot experiments.},
+  journal  = tro,
+  year     = 2026,
+  pdf      = {https://arxiv.org/abs/2509.19610},
+  projects = {implicit,realtime,hri,constraints},
+  note     = {To Appear},
+  abbr     = {TRO},
+  preview  = {lookasyouleap.jpg}
 }
 @misc{yan2025vizcoast,
   title         = {Using {VLM} Reasoning to Constrain Task and Motion Planning},

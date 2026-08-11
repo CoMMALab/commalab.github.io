@@ -35,6 +35,11 @@
   name: RA-L
   color: "#9C7A2E"
 
+"RAM":
+  url: https://www.ieee-ras.org/publications/ram
+  name: RA-M
+  color: "#A85F7A"
+
 "TRO":
   url: https://www.ieee-ras.org/publications/t-ro
   name: T-RO
