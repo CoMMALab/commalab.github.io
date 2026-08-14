@@ -212,6 +212,19 @@
   abbr     = {RAM},
   preview  = {ompl.jpg}
 }
+@misc{bayraktar2026peel,
+  title         = {{PEEL}: Parallel Extraction for Long-Horizon Disassembly Planning via Scale-Invariant Sampling},
+  author        = {Servet B. Bayraktar and Andreas Orthey and Zachary Kingston and Marc Toussaint},
+  abstract      = {Long-horizon multi-part object disassembly requires robots to compute feasible sequences of collision-free removal motions, even in the presence of tight, narrow escape corridors. To efficiently solve such disassembly problems, we propose Parallel Extraction for Long-Horizon Disassembly (PEEL), an algorithm which efficiently computes disassembly motions for object assemblies and feeds them to a robot manipulator for execution. PEEL uses sampling-based motion planning to compute single-object motions through the use of a scale-invariant sampling scheme, where the object scale is estimated in a burn-in phase and a subsequent directional sampler exploits the scale. This sampling scheme is integrated into a multi-arm bandit rapidly-exploring random tree (MAB-RRT) planner, which switches between different samplers depending on the reward signal received. Using MAB-RRT, the PEEL algorithm runs a batch of planners in parallel to obtain an ordered graph specifying the sequence in which object parts have to be removed. We show that MAB-RRT can efficiently solve single-part disassemblies with 100 percent success rate on 76 assemblies, and that it is robust to its parameters. By integrating MAB-RRT into PEEL, we solve four long-horizon disassembly problems using the Fetch manipulator robot involving 10 to 17 individual object parts.},
+  year          = 2026,
+  eprint        = {2608.08773},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.RO},
+  pdf           = {https://arxiv.org/abs/2608.08773},
+  note          = {Under Review},
+  projects      = {long-horizon},
+  abbr          = {ARXIV}
+}
 @misc{duong2026akinopdf,
   title         = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
   author        = {Thai Duong and Clayton W. Ramsey and Zachary Kingston and Wil Thomason and Lydia E. Kavraki},
