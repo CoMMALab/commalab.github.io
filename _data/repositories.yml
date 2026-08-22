@@ -1,19 +1,71 @@
 github_users:
   - zkingston
 
-repo_description_lines_max: 2
-
+# Static repository cards. Stars are a snapshot; update them by hand when you
+# want fresh numbers (or drop the `stars` key to hide the count on a card).
 github_repos:
-  - ompl/ompl
-  - KavrakiLab/vamp
-  - CoMMALab/pRRTC
-  - CoMMALab/cricket
-  - CoMMALab/foam
-  - CoMMALab/DiffVineSimPy
-  - CoMMALab/ActVineSimPy
-  - KavrakiLab/robowflex
-  - KavrakiLab/motion_bench_maker
-  - KavrakiLab/captree-rs
-  - KavrakiLab/hyperplan
-  - KavrakiLab/pyre
-
+  - repo: ompl/ompl
+    name: OMPL
+    description: The Open Motion Planning Library.
+    language: C++
+    stars: 2131
+  - repo: KavrakiLab/vamp
+    name: VAMP
+    description: SIMD-accelerated sampling-based motion planning.
+    language: C++
+    stars: 473
+  - repo: CoMMALab/pRRTC
+    name: pRRTC
+    description: GPU-parallel RRT-Connect.
+    language: Cuda
+    stars: 79
+  - repo: CoMMALab/cricket
+    name: cricket
+    description: Tracing compiler with CppAD and Pinocchio.
+    language: C++
+    stars: 50
+  - repo: CoMMALab/foam
+    name: foam
+    description: Convert URDF geometry to spheres.
+    language: Python
+    stars: 183
+  - repo: CoMMALab/DiffVineSimPy
+    name: DiffVineSimPy
+    description: Physics-grounded differentiable simulation for soft growing robots.
+    language: Python
+    stars: 3
+  - repo: CoMMALab/ActVineSimPy
+    name: ActVineSimPy
+    description: Automatically synthesize vine robots to solve mazes.
+    language: Python
+    stars: 1
+  - repo: CoMMALab/pyroffi
+    name: pyroffi
+    description: A modular toolkit for robot kinematic optimization.
+    language: Python
+    stars: 6
+  - repo: KavrakiLab/robowflex
+    name: Robowflex
+    description: Making MoveIt easy.
+    language: C++
+    stars: 136
+  - repo: KavrakiLab/motion_bench_maker
+    name: MotionBenchMaker
+    description: Generate and benchmark datasets for robot manipulation problems.
+    language: C++
+    stars: 112
+  - repo: KavrakiLab/capt
+    name: CAPT
+    description: Rust implementation of the Collision-Affording Point Tree for fast pointcloud collision checking.
+    language: Rust
+    stars: 37
+  - repo: KavrakiLab/pyre
+    name: PYRE
+    description: SPARK and FLAME, two learning-for-motion-planning frameworks for high-DOF robots.
+    language: C++
+    stars: 26
+  - repo: KavrakiLab/hyperplan
+    name: HyperPlan
+    description: Motion planning hyperparameter optimization.
+    language: Python
+    stars: 13

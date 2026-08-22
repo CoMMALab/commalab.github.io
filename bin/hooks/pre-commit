@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#
+# Refresh the cached GitHub metadata in _data/repositories.yml before a commit.
+#
+# Install (from the repository root):
+#
+#     ln -sf ../../bin/hooks/pre-commit .git/hooks/pre-commit
+#
+# The symlink keeps the hook under version control, so edits here take effect
+# without reinstalling. Skip the hook for one commit with `git commit -n`.
+#
+# The refresh is capped at once a day. Force one with:
+#
+#     bin/update_repositories.py --force
+
+set -u
+
+MAX_AGE=86400
+DATA_FILE="_data/repositories.yml"
+
+root=$(git rev-parse --show-toplevel) || exit 0
+cd "$root" || exit 0
+
+script="bin/update_repositories.py"
+[ -x "$script" ] || exit 0
+
+# Remember whether the file already had uncommitted edits. If it did, the hook
+# must not sweep them into this commit on the author's behalf.
+dirty=0
+if ! git diff --quiet -- "$DATA_FILE"; then
+  dirty=1
+fi
+
+"./$script" --max-age "$MAX_AGE"
+status=$?
+
+case $status in
+  0)
+    # No change, or the refresh was skipped or GitHub was unreachable.
+    exit 0
+    ;;
+  1)
+    if [ "$dirty" -eq 1 ]; then
+      echo "pre-commit: $DATA_FILE was refreshed, but it also had unstaged edits." >&2
+      echo "pre-commit: review the diff and stage it yourself, then commit again." >&2
+      exit 1
+    fi
+    git add -- "$DATA_FILE"
+    echo "pre-commit: refreshed $DATA_FILE and added it to this commit."
+    exit 0
+    ;;
+  *)
+    echo "pre-commit: could not refresh $DATA_FILE (exit $status)." >&2
+    echo "pre-commit: fix the file, or bypass this check with 'git commit -n'." >&2
+    exit 1
+    ;;
+esac
