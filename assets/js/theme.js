@@ -12,6 +12,10 @@ let toggleThemeSetting = () => {
   // }
 
 
+  // Animate the colour change, but only here: on the initial page load the same
+  // animation makes the whole page fade in, which is not wanted.
+  transTheme();
+
   if (themeSetting == "light") {
     setThemeSetting("dark");
   } else {
@@ -32,7 +36,6 @@ let setThemeSetting = (themeSetting) => {
 let applyTheme = () => {
   let theme = determineComputedTheme();
 
-  transTheme();
   setHighlight(theme);
   setGiscusTheme(theme);
   setSearchTheme(theme);
@@ -258,6 +261,8 @@ let initTheme = () => {
 
   // Add event listener to the system theme preference change.
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+    // The page is already on screen here, so animate the change.
+    transTheme();
     applyTheme();
   });
 };

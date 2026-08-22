@@ -169,6 +169,35 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 }
 
+// Shadows
+//
+// MDBootstrap sets these, several of them with !important. This stylesheet
+// loads after mdb.min.css, so an equally specific rule later in the cascade
+// wins. The values come from the theme, so light mode gets the softer set.
+
+.card,
+.btn,
+.z-depth-1 {
+  box-shadow: var(--global-shadow-1) !important;
+}
+
+.z-depth-1-half,
+.z-depth-2,
+.hoverable:hover {
+  box-shadow: var(--global-shadow-2) !important;
+}
+
+.z-depth-3 {
+  box-shadow: var(--global-shadow-3) !important;
+}
+
+// Re-assert the flat variant. MDBootstrap declares it earlier in the cascade,
+// so without this the `.btn` rule above would put a shadow back on the
+// publication buttons, which ask for `z-depth-0`.
+.z-depth-0 {
+  box-shadow: none !important;
+}
+
 // Card
 
 .card {
