@@ -12,4 +12,4 @@ group: Ph.D. Students
 group_rank: 2
 ---
 
-I am a Ph.D. student at Purdue University with an interest in AI and robotic motion planning.
+I am a Ph.D. student at Purdue University with an interest in AI and robotic motion planning. Specifically, I specialize in kinodynamic planning such as for soft vine robots, nonprehensile manipulation, and dynamic systems.
