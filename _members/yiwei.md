@@ -7,6 +7,7 @@ pronouns: she/her
 github: "yiwei19"
 email: "wei577@purdue.edu"
 image: "yiwei.png"
+crop_top: true
 group: Undergraduate Students
 group_rank: 5
 ---

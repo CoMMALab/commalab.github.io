@@ -63,6 +63,20 @@ carousels:
     font-size: 0.75rem;
 }
 
+/* Card photos are natural-aspect at 100% width, so every row sits at a
+   different height. Match the square crop the undergrad grid already uses. */
+.card .preview {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* Set `crop_top: true` in a member's front matter when the centered square
+   crops their head. Works on both the cards and the undergrad grid. */
+.crop-top {
+    object-position: top;
+}
+
 .student-grid-container {
     display: flex;
     flex-wrap: wrap;
@@ -96,7 +110,8 @@ carousels:
             {% else %}
               {% assign member_image = "assets/img/commie.png" %}
             {% endif %}
-            {% include figure.liquid loading="lazy" path=member_image class="student-image" alt=member.title %}
+            {% capture member_image_class %}student-image{% if member.crop_top %} crop-top{% endif %}{% endcapture %}
+            {% include figure.liquid loading="lazy" path=member_image class=member_image_class alt=member.title %}
             <div class="student-name">{{ member.title }}</div>
             {% if member.pronouns %}<div class="student-subtitle">({{ member.pronouns }})</div>{% endif %}
         </a>
@@ -137,12 +152,13 @@ carousels:
                 {% else %}
                   {% assign member_image = "assets/img/commie.png" %}
                 {% endif %}
+                {% capture member_image_class %}preview z-depth-1 rounded{% if member.crop_top %} crop-top{% endif %}{% endcapture %}
                 {%
                     include figure.liquid
                     loading="lazy"
                     path=member_image
                     sizes = "200px"
-                    class="preview z-depth-1 rounded"
+                    class=member_image_class
                     alt=entry.preview
                  %}
                 </div>

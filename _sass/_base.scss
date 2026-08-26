@@ -4,6 +4,13 @@
 
 // Typography
 
+// MDBootstrap sets Roboto Light (300) on the body, which reads thin at the sizes
+// this theme uses. Regular is already in the Google Fonts set we load. Headings
+// keep MDB's 300 -- override h1-h6 here too if they should thicken as well.
+body {
+  font-weight: 400;
+}
+
 p,
 h1,
 h2,
@@ -61,6 +68,13 @@ table.table a {
   &:hover:after :not(.nav-item.dropdown) {
     width: 100%;
   }
+}
+
+// News rows sit beside a bold date column, which makes an inherited 400 read
+// light for both the titles and the inline prose. Medium is already in the
+// Roboto set we load. The dates keep their own `bold` from the `table th` rule.
+.news td {
+    font-weight: 500;
 }
 
 .table-dark {
@@ -802,6 +816,7 @@ footer.sticky-bottom {
       margin-bottom: 1rem;
 
       .preview {
+        border: 1px solid var(--global-divider-color);
       }
 
       .abbr {

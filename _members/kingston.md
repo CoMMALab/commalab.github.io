@@ -14,6 +14,7 @@ google_scholar: "PqcZ56cAAAAJ"
 dblp: "173/7760"
 cv: "kingston.pdf"
 image: "zachary_kingston.jpg"
+crop_top: true
 group: Principal Investigator
 group_rank: 0
 ---

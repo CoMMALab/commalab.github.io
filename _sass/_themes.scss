@@ -7,8 +7,10 @@
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$off-black-color};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purdue-color-2-dark};
-  --global-hover-color: #{$purdue-color-2-dark};
+  // Purdue "Aged". The brighter $purdue-color-2-dark is only 3.6:1 on white,
+  // under the 4.5:1 AA floor for the links and nav that use this token.
+  --global-theme-color: #{$purdue-color-1};
+  --global-hover-color: #{$purdue-color-1};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
