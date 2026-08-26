@@ -212,7 +212,19 @@
   website  = {https://ompl.kavrakilab.org/},
   year     = 2026
 }
-@article{meng2025look,
+@article{duong2026akinopdf,
+  abbr     = {TRO},
+  abstract      = {Motion planning under dynamics constraints, i.e., kinodynamic planning, enables safe robot operation by generating dynamically feasible trajectories that the robot can accurately track. For high-DoF robots such as manipulators, sampling-based motion planners are commonly used, especially for complex tasks in cluttered environments. However, enforcing constraints on robot dynamics in such planners requires solving either challenging two-point boundary value problems (BVPs) or propagating robot dynamics over time, both of which are computational bottlenecks that drastically increase planning times. Meanwhile, recent efforts have shown that sampling-based motion planners can generate plans in microseconds using parallelization, but are limited to geometric paths. This paper develops AkinoPDF, a fast parallelized sampling-based kinodynamic motion planning technique for a broad class of differentially flat robot systems, including manipulators, ground and aerial vehicles, and more. Differential flatness allows us to transform the motion planning problem from the original state space to a flat output space, where an analytical time-parameterized solution of the BVP and dynamics integration can be obtained. A trajectory in the flat output space is then converted back to a closed-form dynamically feasible trajectory in the original state space, enabling fast validation via ``single instruction, multiple data" parallelism. Our method is fast, exact, and compatible with any sampling-based motion planner. We extensively verify the effectiveness of our approach in both simulated benchmarks and real experiments with cluttered and dynamic environments, requiring mere microseconds to milliseconds of planning time.},
+  author        = {Thai Duong and Clayton W. Ramsey and Zachary Kingston and Wil Thomason and Lydia E. Kavraki},
+  journal  = tro,
+  note          = {To Appear},
+  pdf           = {https://arxiv.org/abs/2603.16059},
+  preview       = {diffflat.gif},
+  projects      = {realtime},
+  title         = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
+  year          = 2026
+}
+@article{meng2026look,
   abbr     = {TRO},
   abstract = {In this work, we address the problem of planning robot motions for a high-degree-of-freedom (DoF) robot that effectively achieves a given perception task while the robot and the perception target move in a dynamic environment. Achieving navigation and perception tasks simultaneously is challenging, as these objectives often impose conflicting requirements. Existing methods that compute motion under perception constraints fail to account for obstacles, are designed for low-DoF robots, or rely on simplified models of perception. Furthermore, in dynamic real-world environments, robots must replan and react quickly to changes and directly evaluating the quality of perception (e.g., object detection confidence) is often expensive or infeasible at runtime. This problem is especially important in human-centered environments such as homes and hospitals, where effective perception is essential for safe and reliable operation. To address these challenges, we propose a GPU-parallelized perception-score-guided probabilistic roadmap planner with a neural surrogate model (PS-PRM). The planner explicitly incorporates the estimated quality of a perception task into motion planning for high-DoF robots. Our method uses a learned model to approximate perception scores and leverages GPU parallelism to enable efficient online replanning in dynamic settings. We demonstrate that our planner, evaluated on high-DoF robots, outperforms baseline methods in both static and dynamic environments in both simulation and real-robot experiments.},
   author   = {Qingxi Meng and Emiliano Flores and Carlos Quintero-Peña and Peizhu Qian and Zachary Kingston and Shannan K. Hamlin and Vaibhav Unhelkar and Lydia E. Kavraki},
@@ -239,20 +251,6 @@
   title         = {{PEEL}: Parallel Extraction for Long-Horizon Disassembly Planning via Scale-Invariant Sampling},
   video         = {https://peel-disassembly.surge.sh/#videos},
   website       = {https://peel-disassembly.surge.sh/},
-  year          = 2026
-}
-@misc{duong2026akinopdf,
-  abbr          = {ARXIV},
-  abstract      = {Motion planning under dynamics constraints, i.e., kinodynamic planning, enables safe robot operation by generating dynamically feasible trajectories that the robot can accurately track. For high-DoF robots such as manipulators, sampling-based motion planners are commonly used, especially for complex tasks in cluttered environments. However, enforcing constraints on robot dynamics in such planners requires solving either challenging two-point boundary value problems (BVPs) or propagating robot dynamics over time, both of which are computational bottlenecks that drastically increase planning times. Meanwhile, recent efforts have shown that sampling-based motion planners can generate plans in microseconds using parallelization, but are limited to geometric paths. This paper develops AkinoPDF, a fast parallelized sampling-based kinodynamic motion planning technique for a broad class of differentially flat robot systems, including manipulators, ground and aerial vehicles, and more. Differential flatness allows us to transform the motion planning problem from the original state space to a flat output space, where an analytical time-parameterized solution of the BVP and dynamics integration can be obtained. A trajectory in the flat output space is then converted back to a closed-form dynamically feasible trajectory in the original state space, enabling fast validation via ``single instruction, multiple data" parallelism. Our method is fast, exact, and compatible with any sampling-based motion planner. We extensively verify the effectiveness of our approach in both simulated benchmarks and real experiments with cluttered and dynamic environments, requiring mere microseconds to milliseconds of planning time.},
-  archiveprefix = {arXiv},
-  author        = {Thai Duong and Clayton W. Ramsey and Zachary Kingston and Wil Thomason and Lydia E. Kavraki},
-  eprint.       = {2603.16059},
-  note          = {Under Review},
-  pdf           = {https://arxiv.org/abs/2603.16059},
-  preview       = {diffflat.gif},
-  primaryclass  = {cs.RO},
-  projects      = {realtime},
-  title         = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
   year          = 2026
 }
 @misc{guo2026planar,
