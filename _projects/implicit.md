@@ -3,6 +3,7 @@ layout: project
 key: implicit
 title: Learning plus Planning
 video: implicit.webm
+front: true
 caption: Methods that incorporate learned or implicit components into planning algorithms.
 rank: 5
 ---

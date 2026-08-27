@@ -17,6 +17,8 @@ horizontal: false
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <h6 class="text-muted">{{ project.caption }}</h6>
+                    {% capture project_video %}assets/video/{{ project.video }}{% endcapture %}
+                    {% include video.liquid path=project_video class="img-fluid z-depth-1 mt-3" autoplay="true" muted="true" loop="true" %}
                 </div>
             </a>
         </div>

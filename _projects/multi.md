@@ -2,8 +2,7 @@
 layout: project
 key: multi 
 title: Multi-Robot Planning
-video: 
-front: true
+video: multi.webm
 caption: Planning to coordinate multiple robots to achieve tasks that require collaboration.
 rank: 8
 ---
