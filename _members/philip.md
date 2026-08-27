@@ -10,5 +10,6 @@ linkedin: "philip-wis"
 image: "philip_wisniewski.jpg"
 group: Undergraduate Students
 group_rank: 5
+alumni: true
 ---
 Howdy, I'm Phil, an undergraduate student studying computer science at Purdue University. I'm broadly interested in AI/ML, robotics, HPC, and low latency systems.
