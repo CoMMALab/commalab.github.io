@@ -253,6 +253,34 @@
   website       = {https://peel-disassembly.surge.sh/},
   year          = 2026
 }
+@misc{bukhari2026meanflow,
+  abbr          = {ARXIV},
+  abstract      = {Grasp synthesis is a core task in robotic manipulation, for which the solution typically forms a multimodal distribution rather than a point estimate. Generative robotic grasping aims to learn this distribution with deep generative models such as diffusion and flow-based approaches. The iterative nature of such generative models makes them flexible and generalizable; however, multi-step sampling impedes the time-critical operation required in robotics. We devise an approach to fast generative grasping based on MeanFlow on the product Lie group SO(3) x R^3. The training objective couples a purely algebraic semigroup consistency condition with Riemannian Conditional Flow Matching on the product Lie group that anchors the average velocity to the data distribution. The resulting Lie Group-constrained MeanFlow formulation samples reliable grasps in at most 5 network evaluations, matching the grasp generation performance of state-of-the-art diffusion and flow-based models on the ACRONYM dataset at millisecond-scale inference latency (up to 39 times speed-up). We further demonstrate that the approach directly translates to real-world robotic grasping without additional training or domain adaptation, exhibiting robust grasp synthesis under observation noise.},
+  archiveprefix = {arXiv},
+  author        = {S. Talha Bukhari and Yi Wei and Ruiqi Ni and Zachary Kingston and Aniket Bera},
+  eprint        = {2608.26076},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2608.26076},
+  preview       = {rmf.png},
+  primaryclass  = {cs.RO},
+  projects      = {implicit},
+  title         = {Fast Generative Grasping via {L}ie Group-Constrained {MeanFlow}},
+  year          = 2026
+}
+@misc{coumar2026anytime,
+  abbr          = {ARXIV},
+  abstract      = {Global Tensor Motion Planning (GTMP) solves motion planning with batched tensor operations over a layered multipartite graph. We generalize GTMP so that adjacent-layer edges are realized by any black-box local planner (e.g., linear interpolation, splines, sampling-based planning, trajectory optimization, or generative sampling). We provide two anytime policies on top of this generalization: Anytime GTMP with random restarts at a fixed budget, which covers every homotopy class almost surely, and AO-GTMP with informed expansion with growing budgets, which converges to the optimal cost. We prove that a single sampled graph covers every endpoint-fixed homotopy class admitting a delta-clear representative of bounded length. We also prove that additional samples per layer reduce the per-layer miss probability exponentially, whereas stronger local planners reduce the required layer count only sublinearly. On manipulation benchmarks the method matches state-of-the-art performance, and on 2D navigation it returns batches of topologically diverse solutions, while the informed baselines concentrate on one or two classes.},
+  archiveprefix = {arXiv},
+  author        = {Sai Coumar and An T. Le and Zachary Kingston},
+  eprint        = {2608.25830},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2608.25830},
+  preview       = {agtmp.png},
+  primaryclass  = {cs.RO},
+  projects      = {realtime},
+  title         = {Anytime Global Tensor Motion Planning},
+  year          = 2026
+}
 @misc{guo2026planar,
   abbr          = {ARXIV},
   abstract      = {Recent advances in vision-language models (VLMs) have enabled increasing progress in real-world robot manipulation. However, long-horizon manipulation in unstructured environments requires VLMs to reason about changing scene states, action constraints, and execution outcomes, which remains difficult with natural language reasoning alone. We present PLanAR, a planning-language-grounded robot agent framework for open-vocabulary, long-horizon manipulation. PLanAR uses a planning-language interface to define the VLM reasoning space: object predicates represent scene states, action schemas specify robot skills with preconditions and effects, and symbolic plans provide executable intermediate representations. This interface enables stepwise verification: after each action, PLanAR uses onboard observations to check whether the expected symbolic effects have been achieved, allowing the VLM-based agent to update task states, detect failures, and replan when execution deviates from expectation. Across robot embodiments, VLM backends, and tasks including stacking, crossword solving, and long-horizon kitchen workflows, PLanAR demonstrates strong real-world capability while revealing key limitations of current VLMs in embodied reasoning.},

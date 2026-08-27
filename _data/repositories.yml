@@ -8,12 +8,12 @@ github_repos:
     name: OMPL
     description: The Open Motion Planning Library.
     language: C++
-    stars: 2131
+    stars: 2134
   - repo: KavrakiLab/vamp
     name: VAMP
     description: SIMD-accelerated sampling-based motion planning.
     language: C++
-    stars: 473
+    stars: 474
   - repo: CoMMALab/pRRTC
     name: pRRTC
     description: GPU-parallel RRT-Connect.
@@ -23,12 +23,12 @@ github_repos:
     name: cricket
     description: Tracing compiler with CppAD and Pinocchio.
     language: C++
-    stars: 50
+    stars: 51
   - repo: CoMMALab/foam
     name: foam
     description: Convert URDF geometry to spheres.
     language: Python
-    stars: 183
+    stars: 184
   - repo: CoMMALab/DiffVineSimPy
     name: DiffVineSimPy
     description: Physics-grounded differentiable simulation for soft growing robots.
@@ -68,4 +68,4 @@ github_repos:
     name: HyperPlan
     description: Motion planning hyperparameter optimization.
     language: Python
-    stars: 13
+    stars: 14

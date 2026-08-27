@@ -196,6 +196,10 @@
   - firstname: ["Morteza"]
     url: https://mortezalahijanian.com/
 
+"le":
+  - firstname: ["An T.", "An"]
+    url: https://anindex.github.io/
+
 "liang":
   - firstname: ["Yuanchu"]
     url: https://yc-liang.github.io/
@@ -223,6 +227,10 @@
 "moll":
   - firstname: ["Mark"]
     url: https://moll.ai/
+
+"ni":
+  - firstname: ["Ruiqi"]
+    url: https://ruiqini.github.io/
 
 "orthey":
   - firstname: ["Andreas"]
@@ -304,6 +312,11 @@
 "wang":
   - firstname: ["Sicheng"]
     url: https://www.linkedin.com/in/-sicheng-wang/
+
+"wei":
+  - firstname: ["Yi"]
+    member: true
+    url: yiwei
 
 "wells":
   - firstname: ["Andrew", "Andrew M."]
