@@ -3,7 +3,8 @@
 <figure>
   {% if extension == 'mp4' or extension == 'webm' or extension == 'ogg' %}
     <video
-      src="{% if include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url }}{% endif %}"
+      data-src="{% if include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url }}{% endif %}"
+      preload="none"
       {% if include.class %}
         class="{{ include.class }}"
       {% endif %}
@@ -37,6 +38,7 @@
       {% endif %}
       {% if include.autoplay %}
         autoplay
+        playsinline
       {% endif %}
       {% if include.controls %}
         controls
@@ -49,6 +51,8 @@
       {% endif %}
       {% if include.poster %}
         poster="{{ include.poster }}"
+      {% elsif extension == 'webm' or extension == 'mp4' or extension == 'ogg' %}
+        poster="{{ include.path | replace: '.webm', '.webp' | replace: '.mp4', '.webp' | replace: '.ogg', '.webp' | relative_url }}"
       {% endif %}
     />
 

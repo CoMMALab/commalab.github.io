@@ -57,3 +57,20 @@ $(document).ready(function () {
     trigger: "hover",
   });
 });
+
+// Videos carry their URL in data-src so nothing downloads until it scrolls near
+// the viewport; posters render immediately in the meantime.
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+        target.src = target.dataset.src;
+        delete target.dataset.src;
+        obs.unobserve(target);
+      });
+    },
+    { rootMargin: "300px" }
+  );
+  document.querySelectorAll("video[data-src]").forEach((v) => observer.observe(v));
+});
