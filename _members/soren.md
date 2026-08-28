@@ -7,7 +7,6 @@ pronouns: he/him
 github: "Soren-Turner"
 email: "turne507@purdue.edu"
 linkedin: "soren-turner"
-image: "soren.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
