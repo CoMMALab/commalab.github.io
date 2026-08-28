@@ -106,6 +106,14 @@ Our research broadly encompasses algorithms, methods, and software for complex r
 We are interested in techniques that generalize and apply to any robotic system, constraint, or environment and are fast, efficient, and easy to use within a broader system---we want our approaches to apply to robots that work in factories, the home, hospitals, and even space.
 We are also interested in the intersection between the theory and practice of robotics algorithms, finding where software engineering, hardware acceleration, and intelligent algorithm design can synergize to create a whole greater than the sum of its parts.
 
+{% if page.news and site.announcements.enabled %}
+<hr/>
+<h2>
+  <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+</h2>
+{% include news.liquid limit=true %}
+{% endif %}
+
 <hr/>
 <h2>Research Areas</h2>
 <p>
