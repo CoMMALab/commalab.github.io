@@ -102,9 +102,14 @@ Welcome to the <b class="highlight">Co</b>mputational <b class="highlight">M</b>
 
 ## About Us
 
-Our research broadly encompasses algorithms, methods, and software for complex robots or autonomous systems to achieve complicated tasks in the real world, focusing on how robots make decisions about what actions to do, in what sequence to do those actions, and how to move in the world to accomplish those actions.
-We are interested in techniques that generalize and apply to any robotic system, constraint, or environment and are fast, efficient, and easy to use within a broader system---we want our approaches to apply to robots that work in factories, the home, hospitals, and even space.
-We are also interested in the intersection between the theory and practice of robotics algorithms, finding where software engineering, hardware acceleration, and intelligent algorithm design can synergize to create a whole greater than the sum of its parts.
+**We make robots move!**
+
+Our research broadly covers algorithms, methods, and software that enable complex robots (or other autonomous systems) to achieve complicated tasks.
+Usually our research views problems through the lens of *planning*: we build or learn models of the robot and its environment, and use those models to reason over how actions move the robot, and thus how to achieve a goal.
+We are interested in techniques that generalize to any robot, constraint, task, or environment, and that are fast, efficient, and easy to use---we want our approaches to apply to robots that work in factories, homes, hospitals, and even space!
+We are also interested in the intersection of the theory and practice of robotics algorithms, finding where software engineering, hardware acceleration, and algorithm design work together to build systems fast enough to run in real time.
+
+Take a look at our [research](/projects), recent [publications](/publications), [code](/repositories), and [team](/members) for more information.
 
 {% if page.news and site.announcements.enabled %}
 <hr/>
