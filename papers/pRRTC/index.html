@@ -418,6 +418,11 @@
   }
   footer a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
   footer a:hover { color: var(--text-dim); }
+  .funding {
+    max-width: 680px; margin: 0 auto 1.5rem;
+    padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);
+    font-size: 0.74rem; line-height: 1.65; color: var(--text-muted);
+  }
 
   @media (max-width: 640px) {
     :root { --section-gap: 3.5rem; }
@@ -694,6 +699,12 @@
 
 <footer>
   <div class="container">
+    <div class="funding">
+      This material is based upon work supported by the National Science Foundation (under Award
+      <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2411369">2411369</a>).
+      Any opinions, findings, conclusions, or recommendations expressed in this material are those of the
+      authors and do not necessarily reflect those of the funding organizations.
+    </div>
     This website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
     Template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
   </div>
