@@ -343,6 +343,9 @@
     url: https://raymond-yeh.com/
 
 "zhang":
+  - firstname: ["Kevin"]
+    member: true
+    url: kevin
   - firstname: ["Kaidi"]
     url: https://aaronzkd.github.io/KaidiZhang.web/
   - firstname: ["Heng"]
