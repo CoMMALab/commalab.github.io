@@ -237,6 +237,34 @@
   title    = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
   year     = 2026
 }
+@misc{chen2026sweptvolume,
+  abbr          = {ARXIV},
+  abstract      = {Collision-free motion planning requires reliable collision models from sensed environments and validation of states along a continuous trajectory. To make this tractable, most planners check for collision at discrete states along continuous trajectories against a single determinized model of the environment, introducing a trade-off between safety and computational efficiency. While continuous collision checking approaches that approximate the swept volume of the robot exist, they are computationally expensive or overly conservative. Data-driven approaches can learn the swept volume; however, these neural models are susceptible to approximation errors and are therefore often limited to serving as coarse filters for downstream collision checkers. In this work, we propose to learn a signed distance function of the swept volume as a probabilistic field, enabling quantification of epistemic uncertainty, incorporation of perception noise, and eventual integration into a chance-constrained trajectory optimization framework. We demonstrate our approach on challenging high-dimensional manipulation problems with significant sensor noise, both in simulation and on real hardware.},
+  archiveprefix = {arXiv},
+  author        = {Qingyi Chen and Kevin Zhang and Lucas Chen and Zachary Kingston},
+  eprint        = {2609.21211},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2609.21211},
+  preview       = {swept-volume.png},
+  primaryclass  = {cs.RO},
+  projects      = {implicit},
+  title         = {Stochastic Neural Signed Swept Volume for Real-time Chance-Constrained Trajectory Optimization},
+  year          = 2026
+}
+@misc{chen2026inspo,
+  abbr          = {ARXIV},
+  abstract      = {Generative robot policies can represent diverse, multimodal behaviors, but adapting pretrained policies to deployment-time constraints such as collision avoidance and orientation maintenance remains challenging. Existing inference-time steering methods typically apply gradient guidance through iterative diffusion or flow processes, which can be computationally expensive for real-time control. We propose INSPO, which formulates inference-time steering of one-step generative policies as trajectory optimization in the policy's input noise space. By optimizing the input noise while evaluating constraints on the induced state trajectory, INSPO searches the policy-induced behavior space without directly modifying generated actions. The optimization includes a regularization term that encourages solutions to remain consistent with the policy's input distribution and is solved online using population-based particle optimization. We evaluate INSPO on state- and image-based task-specific policies and generalist vision-language-action policies across Push-T, Can pick-and-place, and LIBERO-Spatial. INSPO improves task success and constraint satisfaction over best-of-N sampling and action projection, while comparing favorably with gradient-guided generation at lower runtime.},
+  archiveprefix = {arXiv},
+  author        = {Qingyi Chen and Joey Ruan and Zachary Kingston},
+  eprint        = {2609.21220},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2609.21220},
+  preview       = {inspo.webm},
+  primaryclass  = {cs.RO},
+  projects      = {implicit},
+  title         = {Safe Real-Time Policy Steering via Noise-Space Trajectory Optimization for One-Step Generative Policies},
+  year          = 2026
+}
 @misc{agrawal2026skipvla,
   abbr          = {ARXIV},
   abstract      = {Vision-Language-Action (VLA) models are a class of generalist robot policies that map camera images and language instructions directly to robot actions. While promising, these models remain slow at test time, particularly for long-horizon tasks that require many queries to the policy. Recent efforts reduce VLA latency by distilling smaller models, overlapping asynchronous action chunks, or pairing the VLA with a fast low-level policy, but still run a learned policy for the entire task. In contrast to VLA, classical motion planners quickly find collision-free motions, but require an explicit goal and have no semantic understanding of the task. In this work, we present SkipVLA, a hybrid policy that combines a pretrained VLA with a classical motion planner, using the planner for free-space motion and querying the VLA only for contact-rich skills such as grasping and placing. SkipVLA reuses the frozen vision-language backbone of the VLA to predict a target pose for each planned motion, and learns this predictor without additional demonstrations introduced into the system by using what was already learnt by the large VLA. We evaluate SkipVLA with three VLAs on 13 LIBERO tasks in simulation and three pick-and-place tasks on a physical 6-DoF YAM arm, demonstrating up to 2.5x faster task completion and significantly lower energy consumption while achieving the same task success rate.},
