@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Andy Niu
-first_name: Andy
+first_name: Andrew
 last_name: Niu
 pronouns: he/him
 github: "aniu2240"

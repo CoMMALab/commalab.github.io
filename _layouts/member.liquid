@@ -81,6 +81,6 @@ layout: default
 
   <br style="clear:both" />
   <div class="publications">
-    {% bibliography --file papers -q @*[author~={{ page.last_name }} && author~={{ page.first_name }}] %}
+    {% bibliography --file papers -q @*[author~=\b{{ page.last_name }}\W+{{ page.first_name }}] %}
   </div>
 </div>

@@ -46,6 +46,11 @@
     member: true
     url: yitian
 
+"garrett":
+  - firstname: ["Austin", "Austin J."]
+    member: true
+    url: austin
+
 "iyer":
   - firstname: ["Shrutheesh", "Shrutheesh R.", "Shrutheesh Raman"]
     member: true
@@ -80,6 +85,11 @@
   - firstname: ["Miras"]
     member: true
     url: miras
+
+"niu":
+  - firstname: ["Andrew", "Andy"]
+    member: true
+    url: andy_niu
 
 "ruan":
   - firstname: ["Joseph"]

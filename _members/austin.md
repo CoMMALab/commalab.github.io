@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Austin J. Garrett
-first_name: Austin J.
+first_name: Austin
 last_name: Garrett
 pronouns: he/him
 github: "agarret7"

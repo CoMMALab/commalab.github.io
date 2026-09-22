@@ -237,6 +237,20 @@
   title    = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
   year     = 2026
 }
+@misc{chen2026fruitninja,
+  abbr          = {ARXIV},
+  abstract      = {Projectile interception is a challenging dynamic manipulation problem. Intercepting a thrown object with a robot arm requires reaching a point on the object's path as the object passes through it. Slicing also fixes the blade's velocity and orientation at contact. The goal is therefore a subset of the states of the robot and arrival times that moves as the object falls, and the arm must reach it within its actuator limits in milliseconds. We present FRUITNINJA, an anytime sampling-based planner that grows a tree on the GPU in batches toward the interception manifold. Each edge is an exact cubic whose travel time is found by a parallel search against the arm's dynamics, so every edge satisfies the actuator limits. Plans are ranked by a risk-aware objective over the uncertainty in the object's position and the arm's arrival time. We evaluate on a Franka Research 3 against six baselines in a calibrated real-time simulator, where FRUITNINJA cuts 96.7\% of tosses in the open and 68.3\% among five obstacles, versus the best baseline's 68.3\% and 35.0\% respectively.},
+  archiveprefix = {arXiv},
+  author        = {Lucas Chen and Austin Garrett and Andrew Niu and Zachary Kingston},
+  eprint        = {2609.22608},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2609.22608},
+  preview       = {fruit_ninja.webm},
+  primaryclass  = {cs.RO},
+  projects      = {realtime},
+  title         = {Becoming a Fruit Ninja: Real-Time Probabilistic Kinodynamic Planning for Manipulator Projectile Interception},
+  year          = 2026
+}
 @misc{chen2026sweptvolume,
   abbr          = {ARXIV},
   abstract      = {Collision-free motion planning requires reliable collision models from sensed environments and validation of states along a continuous trajectory. To make this tractable, most planners check for collision at discrete states along continuous trajectories against a single determinized model of the environment, introducing a trade-off between safety and computational efficiency. While continuous collision checking approaches that approximate the swept volume of the robot exist, they are computationally expensive or overly conservative. Data-driven approaches can learn the swept volume; however, these neural models are susceptible to approximation errors and are therefore often limited to serving as coarse filters for downstream collision checkers. In this work, we propose to learn a signed distance function of the swept volume as a probabilistic field, enabling quantification of epistemic uncertainty, incorporation of perception noise, and eventual integration into a chance-constrained trajectory optimization framework. We demonstrate our approach on challenging high-dimensional manipulation problems with significant sensor noise, both in simulation and on real hardware.},
