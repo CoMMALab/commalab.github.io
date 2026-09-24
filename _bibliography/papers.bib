@@ -203,8 +203,8 @@
   abstract = {The Open Motion Planning Library (OMPL), first released in 2008, has become a cornerstone of the motion planning community, providing implementations of a wide range of state-of-the-art sampling-based algorithms. Over almost two decades of continuous development, we have steadily expanded the library with new planners, state spaces, and problem formulations. These additions range from asymptotically optimal and lazy planners to constrained motion planning and planning with temporal-logic goals. Building on this foundation, we introduce OMPL 2.0, a major evolution of the library that targets real-time motion planning through hardware acceleration and integrates seamlessly with modern AI research workflows. We also reflect on how OMPL and the field of motion planning have grown together over the years, and discuss the library's broader impact on the research community.},
   author   = {Weihang Guo and Theodoros Tyrovouzis and Emiliano Flores and Clayton W. Ramsey and Zachary Kingston and Ioan A. Şucan and Mark Moll and Lydia E. Kavraki},
   code     = {https://github.com/ompl/ompl},
+  doi      = {10.1109/MRA.2026.3729668},
   journal  = ram,
-  note     = {To Appear},
   pdf      = {https://arxiv.org/abs/2605.29301},
   preview  = {ompl.jpg},
   projects = {software},
@@ -214,15 +214,15 @@
 }
 @article{duong2026akinopdf,
   abbr     = {TRO},
-  abstract      = {Motion planning under dynamics constraints, i.e., kinodynamic planning, enables safe robot operation by generating dynamically feasible trajectories that the robot can accurately track. For high-DoF robots such as manipulators, sampling-based motion planners are commonly used, especially for complex tasks in cluttered environments. However, enforcing constraints on robot dynamics in such planners requires solving either challenging two-point boundary value problems (BVPs) or propagating robot dynamics over time, both of which are computational bottlenecks that drastically increase planning times. Meanwhile, recent efforts have shown that sampling-based motion planners can generate plans in microseconds using parallelization, but are limited to geometric paths. This paper develops AkinoPDF, a fast parallelized sampling-based kinodynamic motion planning technique for a broad class of differentially flat robot systems, including manipulators, ground and aerial vehicles, and more. Differential flatness allows us to transform the motion planning problem from the original state space to a flat output space, where an analytical time-parameterized solution of the BVP and dynamics integration can be obtained. A trajectory in the flat output space is then converted back to a closed-form dynamically feasible trajectory in the original state space, enabling fast validation via ``single instruction, multiple data" parallelism. Our method is fast, exact, and compatible with any sampling-based motion planner. We extensively verify the effectiveness of our approach in both simulated benchmarks and real experiments with cluttered and dynamic environments, requiring mere microseconds to milliseconds of planning time.},
-  author        = {Thai Duong and Clayton W. Ramsey and Zachary Kingston and Wil Thomason and Lydia E. Kavraki},
+  abstract = {Motion planning under dynamics constraints, i.e., kinodynamic planning, enables safe robot operation by generating dynamically feasible trajectories that the robot can accurately track. For high-DoF robots such as manipulators, sampling-based motion planners are commonly used, especially for complex tasks in cluttered environments. However, enforcing constraints on robot dynamics in such planners requires solving either challenging two-point boundary value problems (BVPs) or propagating robot dynamics over time, both of which are computational bottlenecks that drastically increase planning times. Meanwhile, recent efforts have shown that sampling-based motion planners can generate plans in microseconds using parallelization, but are limited to geometric paths. This paper develops AkinoPDF, a fast parallelized sampling-based kinodynamic motion planning technique for a broad class of differentially flat robot systems, including manipulators, ground and aerial vehicles, and more. Differential flatness allows us to transform the motion planning problem from the original state space to a flat output space, where an analytical time-parameterized solution of the BVP and dynamics integration can be obtained. A trajectory in the flat output space is then converted back to a closed-form dynamically feasible trajectory in the original state space, enabling fast validation via ``single instruction, multiple data" parallelism. Our method is fast, exact, and compatible with any sampling-based motion planner. We extensively verify the effectiveness of our approach in both simulated benchmarks and real experiments with cluttered and dynamic environments, requiring mere microseconds to milliseconds of planning time.},
+  author   = {Thai Duong and Clayton W. Ramsey and Zachary Kingston and Wil Thomason and Lydia E. Kavraki},
+  doi      = {10.1109/TRO.2026.3737703},
   journal  = tro,
-  note          = {To Appear},
-  pdf           = {https://arxiv.org/abs/2603.16059},
-  preview       = {diffflat.webm},
-  projects      = {realtime},
-  title         = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
-  year          = 2026
+  pdf      = {https://arxiv.org/abs/2603.16059},
+  preview  = {diffflat.webm},
+  projects = {realtime},
+  title    = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
+  year     = 2026
 }
 @article{meng2026look,
   abbr     = {TRO},
@@ -306,10 +306,10 @@
   preview       = {peel.webm},
   primaryclass  = {cs.RO},
   projects      = {long-horizon},
+  projects      = {long-horizon},
   title         = {{PEEL}: Parallel Extraction for Long-Horizon Disassembly Planning via Scale-Invariant Sampling},
   video         = {https://peel-disassembly.surge.sh/#videos},
   website       = {https://peel-disassembly.surge.sh/},
-  projects      = {long-horizon},
   year          = 2026
 }
 @misc{bukhari2026meanflow,
