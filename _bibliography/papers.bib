@@ -237,6 +237,21 @@
   title    = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
   year     = 2026
 }
+@misc{iyer2026revamp,
+  abbr          = {ARXIV},
+  abstract      = {Robots often must satisfy one or more constraints during motion planning for real-world tasks. When such constraints reduce the valid configuration space to a measure-zero subset, sampling based planning algorithms require modifications to draw feasible samples. For many common end-effector constraints, parameterizations built on inverse kinematics (IK) provide an alternate formulation where the constraints are satisfied by construction, allowing directly sampling the feasible set. Despite their elegant approach, parameterized planners have remained slower than vector-accelerated implementations of projection-based approaches, leaving their performance ceiling an open question. We explore a new axis of vectorization built upon reparameterizing the planning space through analytic IK. This approach addresses existing inefficiencies in vectorized projection-based planners and exposes new opportunities for parallelism within the planner. We show that the planner can synthesize plans in microseconds to milliseconds for high dimensional systems (up to 20 dimensions), with complex constraints, up to 10x faster than the current state-of-the-art. Furthermore, we demonstrate how such planning speeds open up avenues for restructuring sequential manipulation pipelines.},
+  archiveprefix = {arXiv},
+  author        = {Shrutheesh R. Iyer and Thomas Cohn and Zachary Kingston},
+  eprint        = {2609.30213},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2609.30213},
+  preview       = {revamp.webm},
+  primaryclass  = {cs.RO},
+  projects      = {implicit},
+  title         = {ReVAMP: Vector-Accelerated Motion Planning for Kinematically-Constrained Systems via Reparameterization},
+  video         = {https://youtu.be/ykJyYrHBQ_8},
+  year          = 2026
+}
 @misc{bukhari2026rmfp,
   abbr          = {ARXIV},
   abstract      = {Visuomotor policies learn a direct map from raw sensory observations to robot action sequences. Policies based on Diffusion and Flow Matching capture the multimodal distribution over action sequences in an end-to-end manner. This expressivity comes at the cost of multi-step numerical integration of the learned vector field for action generation, which can be expensive and time-consuming, impeding fast control rates required in robotics applications. Furthermore, robot action sequences are usually defined on a smooth, differentiable manifold, requiring that the learned policy respects the intrinsic geometry of the robot's action space. Here, we present Riemannian MeanFlow Policy (RMFP), which learns the conditioned flow map of the probability path on the robot action manifold. Our formulation employs a flow map consistency objective grounded in the data by a Riemannian Conditional Flow Matching anchor. The flow map consistency condition is stable to train and constrains the learned model to finite-time transport, which yields on-manifold action sequence generation with as few as one network function evaluation. We present results on the spherical LASA and Push-T benchmarks, on the Tool Hang and Transport tasks of the Robomimic suite, and on the Franka Kitchen task with manifold-constrained action generation, and demonstrate that RMFP attains performance competitive with prior work at a lower sampling cost. We also employ RMFP on a real-world robotic manipulation task to demonstrate fast action generation under imperfect sensor measurements in the physical world.},
@@ -308,21 +323,6 @@
   primaryclass  = {cs.RO},
   projects      = {implicit},
   title         = {SkipVLA: Skipping VLA Steps with Classical Planning for Fast Robot Manipulation},
-  video         = {https://youtu.be/ykJyYrHBQ_8},
-  year          = 2026
-}
-@misc{iyer2026revampvectoracceleratedmotionplanning,
-  abbr          = {ARXIV},
-  abstract      = {Robots often must satisfy one or more constraints during motion planning for real-world tasks. When such constraints reduce the valid configuration space to a measure-zero subset, sampling based planning algorithms require modifications to draw feasible samples. For many common end-effector constraints, parameterizations built on inverse kinematics (IK) provide an alternate formulation where the constraints are satisfied by construction, allowing directly sampling the feasible set. Despite their elegant approach, parameterized planners have remained slower than vector-accelerated implementations of projection-based approaches, leaving their performance ceiling an open question. We explore a new axis of vectorization built upon reparameterizing the planning space through analytic IK. This approach addresses existing inefficiencies in vectorized projection-based planners and exposes new opportunities for parallelism within the planner. We show that the planner can synthesize plans in microseconds to milliseconds for high dimensional systems (up to 20 dimensions), with complex constraints, up to 10x faster than the current state-of-the-art. Furthermore, we demonstrate how such planning speeds open up avenues for restructuring sequential manipulation pipelines.},
-  archiveprefix = {arXiv},
-  author        = {Shrutheesh R. Iyer and Thomas Cohn and Zachary Kingston},
-  eprint        = {2609.30213},
-  note          = {Under Review},
-  pdf           = {https://arxiv.org/abs/2609.30213},
-  preview       = {revamp.mp4},
-  primaryclass  = {cs.RO},
-  projects      = {implicit},
-  title         = {ReVAMP: Vector-Accelerated Motion Planning for Kinematically-Constrained Systems via Reparameterization},
   video         = {https://youtu.be/ykJyYrHBQ_8},
   year          = 2026
 }
