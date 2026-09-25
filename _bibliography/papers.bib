@@ -311,6 +311,22 @@
   video         = {https://youtu.be/ykJyYrHBQ_8},
   year          = 2026
 }
+@misc{iyer2026revampvectoracceleratedmotionplanning,
+  abbr          = {ARXIV},
+  abstract      = {Robots often must satisfy one or more constraints during motion planning for real-world tasks. When such constraints reduce the valid configuration space to a measure-zero subset, sampling based planning algorithms require modifications to draw feasible samples. For many common end-effector constraints, parameterizations built on inverse kinematics (IK) provide an alternate formulation where the constraints are satisfied by construction, allowing directly sampling the feasible set. Despite their elegant approach, parameterized planners have remained slower than vector-accelerated implementations of projection-based approaches, leaving their performance ceiling an open question. We explore a new axis of vectorization built upon reparameterizing the planning space through analytic IK. This approach addresses existing inefficiencies in vectorized projection-based planners and exposes new opportunities for parallelism within the planner. We show that the planner can synthesize plans in microseconds to milliseconds for high dimensional systems (up to 20 dimensions), with complex constraints, up to 10x faster than the current state-of-the-art. Furthermore, we demonstrate how such planning speeds open up avenues for restructuring sequential manipulation pipelines.},
+  archiveprefix = {arXiv},
+  author        = {Shrutheesh R. Iyer and Thomas Cohn and Zachary Kingston},
+  eprint        = {2609.30213},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2609.30213},
+  preview       = {revamp.mp4},
+  primaryclass  = {cs.RO},
+  projects      = {implicit},
+  title         = {ReVAMP: Vector-Accelerated Motion Planning for Kinematically-Constrained Systems via Reparameterization},
+  video         = {https://youtu.be/ykJyYrHBQ_8},
+  year          = 2026
+}
+
 @misc{bayraktar2026peel,
   abbr          = {ARXIV},
   abstract      = {Long-horizon multi-part object disassembly requires robots to compute feasible sequences of collision-free removal motions, even in the presence of tight, narrow escape corridors. To efficiently solve such disassembly problems, we propose Parallel Extraction for Long-Horizon Disassembly (PEEL), an algorithm which efficiently computes disassembly motions for object assemblies and feeds them to a robot manipulator for execution. PEEL uses sampling-based motion planning to compute single-object motions through the use of a scale-invariant sampling scheme, where the object scale is estimated in a burn-in phase and a subsequent directional sampler exploits the scale. This sampling scheme is integrated into a multi-arm bandit rapidly-exploring random tree (MAB-RRT) planner, which switches between different samplers depending on the reward signal received. Using MAB-RRT, the PEEL algorithm runs a batch of planners in parallel to obtain an ordered graph specifying the sequence in which object parts have to be removed. We show that MAB-RRT can efficiently solve single-part disassemblies with 100 percent success rate on 76 assemblies, and that it is robust to its parameters. By integrating MAB-RRT into PEEL, we solve four long-horizon disassembly problems using the Fetch manipulator robot involving 10 to 17 individual object parts.},
