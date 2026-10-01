@@ -1,132 +1,33 @@
-{% assign letterstring = "a,b,c,d,e,f,g,h,i,j,k,l,m,n" %}
-{% assign letters = letterstring | split: ',' %}
 {% assign number = include.number | minus: 1 %}
-<div class="carousel__holder">
-    <div id="carousel{{ number }}" class="carousel">
-        {% for item in page.carousels[number].images %}
-          <input class="carousel__activator" type="radio" name="carousel{{ number }}" id="{{ number }}{{ letters[forloop.index0] }}" {% if forloop.first %}checked="checked"{% endif %} />
-        {% endfor %}
-        {% for item in page.carousels[number].images %}
-          {% if forloop.index == forloop.length %}
-            {% assign nextindex = 0 %}
-          {% else %}
-            {% assign nextindex = forloop.index0 | plus: 1 %}
-          {% endif %}
-          {% assign nextletter = letters[nextindex] %}
-          {% if forloop.index0 == 0 %}
-            {% assign previndex = forloop.length | minus: 1 %}
-          {% else %}
-            {% assign previndex = forloop.index0 | minus: 1 %}
-          {% endif %}
-          {% assign prevletter = letters[previndex] %}
-          <div class="carousel__controls">
-              <label class="carousel__control carousel__control--backward" for="{{ number }}{{ prevletter }}"></label>
-              <label class="carousel__control carousel__control--forward" for="{{ number }}{{ nextletter }}"></label>
-          </div>
-        {% endfor %}
-        <div class="carousel__track">
-          <ul>
-            {% for item in page.carousels[number].images %}
-              <li class="carousel__slide" data-bg="{{ item.image }}"{% if forloop.first %} style="background-image: url('{{ item.image }}');"{% endif %}>
-                <div class="carousel__label">{{ item.label }}</div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="carousel__indicators">
-            {% for item in page.carousels[number].images %}
-              <label class="carousel__indicator" for="{{ number }}{{ letters[forloop.index0] }}"></label>
-            {% endfor %}
-        </div>
-    </div>
+<div id="carousel{{ number }}" class="carousel">
+  <div class="carousel__viewport" style="padding-bottom: {{ include.height }}{{ include.unit }};">
+    <ul class="carousel__track">
+      {% for item in page.carousels[number].images %}
+        <li class="carousel__slide" data-bg="{{ item.image }}"{% if forloop.first %} style="background-image: url('{{ item.image }}');"{% endif %}>
+          {% if item.label %}<div class="carousel__label">{{ item.label }}</div>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <nav class="carousel__nav" aria-label="Photo navigation">
+    <button type="button" class="carousel__control" data-step="-1" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <div class="carousel__pages"></div>
+    <button type="button" class="carousel__control" data-step="1" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </nav>
 </div>
 
 <style>
-.carousel__holder {width: 100%; position: relative; padding-bottom: {{ include.height }}{{ include.unit }}; margin: 1rem 0 1rem;}
 .carousel {
-  height: 100%;
+  margin: 1rem 0;
+}
+.carousel__viewport {
+  position: relative;
   width: 100%;
   overflow: hidden;
-  text-align: left;
-  position: absolute;
-  padding: 0;
-}
-.carousel__controls,
-.carousel__activator {
-  display: none;
-}
-{% for item in page.carousels[number].images %}
-.carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__track {
-  -webkit-transform: translateX(-{{ forloop.index0 }}00%);
-          transform: translateX(-{{ forloop.index0 }}00%);
-}
-.carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__slide:nth-of-type({{ forloop.index }}) {
-  transition: opacity 0.5s, -webkit-transform 0.5s;
-  transition: opacity 0.5s, transform 0.5s;
-  transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__controls:nth-of-type({{ forloop.index }}) {
-  display: block;
-  opacity: 1;
-}
-.carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__indicators .carousel__indicator:nth-of-type({{ forloop.index }}) {
-  opacity: 1;
-}
-{% endfor %}
-
-.carousel__control {
-  height: 30px;
-  width: 30px;
-  margin-top: -15px;
-  top: 50%;
-  position: absolute;
-  display: block;
-  cursor: pointer;
-  border-width: 5px 5px 0 0;
-  border-style: solid;
-  border-color: #fafafa;
-  opacity: 0.35;
-  opacity: 1;
-  outline: 0;
-  z-index: 3;
-}
-.carousel__control:hover {
-  opacity: 1;
-}
-.carousel__control--backward {
-  left: 20px;
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-}
-.carousel__control--forward {
-  right: 20px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.carousel__indicators {
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  text-align: center;
-}
-.carousel__indicator {
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
-  display: inline-block;
-  z-index: 2;
-  cursor: pointer;
-  opacity: 0.35;
-  margin: 0 2.5px 0 2.5px;
-}
-.carousel__indicator:hover {
-  opacity: 0.75;
 }
 .carousel__track {
   position: absolute;
@@ -134,52 +35,19 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0;
+  display: flex;
   margin: 0;
-  transition: -webkit-transform 0.5s ease 0s;
-  transition: transform 0.5s ease 0s;
-  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
-}
-.carousel__track .carousel__slide {
-  display: block;
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 1;
-}
-{% for item in page.carousels[number].images %}
-.carousel__track .carousel__slide:nth-of-type({{ forloop.index }}) {
-  -webkit-transform: translateX({{ forloop.index0 }}00%);
-          transform: translateX({{ forloop.index0 }}00%);
-}
-{% endfor %}
-
-.carousel--scale .carousel__slide {
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  padding: 0;
+  list-style: none;
+  transition: transform 0.5s ease;
 }
 .carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
   height: 100%;
-  position: absolute;
-  opacity: 0;
-  overflow: hidden;
-}
-.carousel__slide .overlay {height: 100%;}
-.carousel--thumb .carousel__indicator {
-  height: 30px;
-  width: 30px;
-}
-.carousel__indicator {
-  background-color: #fafafa;
-}
-{% for item in page.carousels[number].images %}
-.carousel__slide:nth-of-type({{ forloop.index }}),
-.carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type({{ forloop.index }}) {
   background-size: cover;
   background-position: center;
 }
-{% endfor %}
-
 .carousel__label {
   position: absolute;
   bottom: 10px;
@@ -189,100 +57,169 @@
   color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
-  z-index: 2;
   font-size: 0.75rem;
+  white-space: nowrap;
+  max-width: calc(100% - 20px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.carousel__nav,
+.carousel__pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.carousel__nav {
+  margin-top: 0.5rem;
+}
+.carousel__pages {
+  justify-content: space-between;
+}
+.carousel__control,
+.carousel__page,
+.carousel__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.carousel__control,
+.carousel__page {
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background: none;
+  color: var(--global-text-color);
+  cursor: pointer;
+}
+.carousel__control:hover,
+.carousel__page:hover {
+  border-color: var(--global-divider-color);
+  color: var(--global-theme-color);
+}
+.carousel__page[aria-current="true"] {
+  background-color: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+.carousel__ellipsis {
+  color: var(--global-text-color-light);
+}
+.carousel__control svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel__track {
+    transition: none;
+  }
 }
 </style>
 
 <script>
-  function isVisible(el) {
-        while (el) {
-            if (el === document) {
-                return true;
-            }
+  (function () {
+    var root = document.getElementById("carousel{{ number }}");
+    if (!root) return;
 
-            var $style = window.getComputedStyle(el, null);
+    var track = root.querySelector(".carousel__track");
+    var slides = root.querySelectorAll(".carousel__slide");
+    var pages = root.querySelector(".carousel__pages");
+    var n = slides.length;
+    var duration = {{ include.duration | default: 0 }} * 1000;
+    var current = 0;
+    var timer = null;
 
-            if (!el) {
-                return false;
-            } else if (!$style) {
-                return false;
-            } else if ($style.display === 'none') {
-                return false;
-            } else if ($style.visibility === 'hidden') {
-                return false;
-            } else if (+$style.opacity === 0) {
-                return false;
-            } else if (($style.display === 'block' || $style.display === 'inline-block') &&
-                $style.height === '0px' && $style.overflow === 'hidden') {
-                return false;
-            } else {
-                return $style.position === 'fixed' || isVisible(el.parentNode);
-            }
+    if (n < 2) {
+      root.querySelector(".carousel__nav").hidden = true;
+      return;
+    }
+
+    // Always 7 entries (or n, if fewer): first, last, and the current slide's
+    // neighbors, padded out near either end so each entry keeps its position.
+    var slots = Math.min(n, 7);
+    pages.style.width = "calc(" + slots + " * 2rem + " + (slots - 1) + " * 0.25rem)";
+
+    function load(i) {
+      var slide = slides[(i + n) % n];
+      if (!slide.style.backgroundImage) {
+        slide.style.backgroundImage = "url('" + slide.dataset.bg + "')";
+      }
+    }
+
+    function range(a, b) {
+      var r = [];
+      for (var i = a; i <= b; i++) r.push(i);
+      return r;
+    }
+
+    function pageList() {
+      if (n <= 7) return range(0, n - 1);
+      if (current <= 3) return range(0, 4).concat([null, n - 1]);
+      if (current >= n - 4) return [0, null].concat(range(n - 5, n - 1));
+      return [0, null, current - 1, current, current + 1, null, n - 1];
+    }
+
+    function render() {
+      var refocus = pages.contains(document.activeElement);
+      pages.textContent = "";
+      pageList().forEach(function (i) {
+        var el;
+        if (i === null) {
+          el = document.createElement("span");
+          el.className = "carousel__ellipsis";
+          el.setAttribute("aria-hidden", "true");
+          el.textContent = "…";
+        } else {
+          el = document.createElement("button");
+          el.type = "button";
+          el.className = "carousel__page";
+          el.textContent = i + 1;
+          el.setAttribute("aria-label", "Photo " + (i + 1) + " of " + n);
+          if (i === current) el.setAttribute("aria-current", "true");
+          el.addEventListener("click", function () {
+            go(i);
+          });
         }
-  }
-  // Lazy load carousel images
-  (function() {
-    var carousel = document.getElementById('carousel{{ number }}');
-    if (!carousel) return;
+        pages.appendChild(el);
+      });
+      if (refocus) pages.querySelector("[aria-current]").focus();
+    }
 
-    var slides = carousel.querySelectorAll('.carousel__slide[data-bg]');
-    var radios = carousel.querySelectorAll('.carousel__activator');
-
-    function loadSlideImage(index) {
-      var slide = slides[index];
-      if (slide && slide.dataset.bg && !slide.style.backgroundImage) {
-        slide.style.backgroundImage = 'url(' + slide.dataset.bg + ')';
+    function schedule() {
+      clearTimeout(timer);
+      if (duration) {
+        timer = setTimeout(function () {
+          go(current + 1);
+        }, duration);
       }
     }
 
-    // Preload adjacent slides when a radio changes
-    radios.forEach(function(radio, index) {
-      radio.addEventListener('change', function() {
-        loadSlideImage(index);
-        // Preload next and previous
-        if (index > 0) loadSlideImage(index - 1);
-        if (index < slides.length - 1) loadSlideImage(index + 1);
+    function go(i) {
+      current = (i + n) % n;
+      track.style.transform = "translateX(" + -100 * current + "%)";
+      load(current);
+      load(current + 1);
+      load(current - 1);
+      render();
+      schedule();
+    }
+
+    root.querySelectorAll(".carousel__control").forEach(function (button) {
+      button.addEventListener("click", function () {
+        go(current + Number(button.dataset.step));
       });
     });
 
-    // Load first two slides initially
-    loadSlideImage(0);
-    loadSlideImage(1);
+    load(1);
+    render();
+    schedule();
   })();
-
-  {% if include.duration %}
-  (function() {
-    var carouselId = 'carousel{{ number }}';
-    var duration = {{ include.duration }}000;
-    var intervalId = null;
-
-    function advanceCarousel() {
-      var j = 0;
-      var elements = document.querySelectorAll('#' + carouselId + ' .carousel__control--forward');
-      for (var i = (elements.length - 1); i > -1; i--) {
-        if (isVisible(elements[i])) j = i;
-      }
-      elements[j].click();
-    }
-
-    function startTimer() {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-      intervalId = setInterval(advanceCarousel, duration);
-    }
-
-    // Start the initial timer
-    startTimer();
-
-    // Reset timer when user interacts with controls or indicators
-    var controls = document.querySelectorAll('#' + carouselId + ' .carousel__control, #' + carouselId + ' .carousel__indicator');
-    controls.forEach(function(control) {
-      control.addEventListener('click', function() {
-        startTimer();
-      });
-    });
-  })();
-  {% endif %}
 </script>

@@ -8,6 +8,8 @@ nav_rank: 2
 
 carousels:
   - images:
+    - image: /assets/img/group_photos/2026_10_01_iros.jpg
+      label: CoMMA Lab at IROS 2026
     - image: /assets/img/group_photos/2026_06_12_mwrw.jpg
       label: CoMMA Lab at MWRW 2026
     - image: /assets/img/group_photos/2026_06_07_icra.jpg

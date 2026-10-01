@@ -59,18 +59,43 @@ $(document).ready(function () {
 });
 
 // Videos carry their URL in data-src so nothing downloads until it scrolls near
-// the viewport; posters render immediately in the meantime.
+// the viewport; posters render immediately in the meantime. Autoplay videos only
+// play while near the viewport, and are restarted when the tab becomes visible
+// again since browsers pause or suspend media in background tabs.
 document.addEventListener("DOMContentLoaded", () => {
+  const visible = new Set();
+  const play = (v) => v.play().catch(() => {});
   const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach(({ isIntersecting, target }) => {
-        if (!isIntersecting) return;
-        target.src = target.dataset.src;
-        delete target.dataset.src;
-        obs.unobserve(target);
+    (entries) => {
+      entries.forEach(({ isIntersecting, target: v }) => {
+        if (isIntersecting) {
+          if (v.dataset.src) {
+            v.src = v.dataset.src;
+            delete v.dataset.src;
+          }
+          visible.add(v);
+          if (v.autoplay) play(v);
+        } else {
+          visible.delete(v);
+          if (v.autoplay) v.pause();
+        }
       });
     },
     { rootMargin: "300px" }
   );
-  document.querySelectorAll("video[data-src]").forEach((v) => observer.observe(v));
+  document.querySelectorAll("video[data-src]").forEach((v) => {
+    observer.observe(v);
+    v.addEventListener(
+      "error",
+      () => {
+        v.load();
+        if (v.autoplay) play(v);
+      },
+      { once: true }
+    );
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+    visible.forEach((v) => v.autoplay && v.paused && play(v));
+  });
 });
