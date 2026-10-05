@@ -7,8 +7,9 @@ pronouns: he/they
 github: "vindou"
 email: "chang940@purdue.edu"
 linkedin: "gilchang"
+website: "https://gilcha.com/"
 image: "gilcha.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
-I'm a fourth-year undergraduate student studying mechanical engineering and computer science. Previously, I've worked on humanoid robotic hands at 1X Technologies and Persona AI. My research interests broadly include bioinspired robotics and computational design.
+I'm a senior at Purdue University, majoring in mechanical engineering and computer science, with a concentration in computational science and engineering. I currently research computational design and simulation for robots, advised by Zachary Kingston (CoMMA Lab) and Lillian Chin (MERGe Lab)
