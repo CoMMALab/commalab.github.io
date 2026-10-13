@@ -242,6 +242,21 @@
   title    = {Look as You Leap: Planning Simultaneous Motion and Perception for High-{DoF} Robots},
   year     = 2026
 }
+@misc{gao2026wmplan,
+  abbr          = {ARXIV},
+  abstract      = {Visual world models predict the consequences of actions from images, but planning with them is typically done by optimizers such as CEM and MPPI. However, these optimizers stall on long-horizon tasks where progress requires motion the objective does not reward, such as moving around a block before pushing it. This paper revisits kinodynamic sampling-based motion planning for world models, using the learned model as the propagator of a tree search in latent space. Our key insight is that the sampling strategies devised for high-dimensional search in configuration space apply directly to the latent space of a world model, where they rapidly expand through intermediate states that myopic optimizers never sample. We present two exploration strategies for the high-dimensional latent space, nearest-neighbor-guided RRT and projection-based KPIECE, with GPU-native batched expansion for efficient device utilization. We evaluate with an off-the-shelf DINO-WM on four simulated domains and a real-world block-pushing task. Our approaches match or exceed the success rate of CEM and MPPI at up to 13.8x lower planning time in simulation, and improve the success rate by 20\% on the real robot.},
+  archiveprefix = {arXiv},
+  author        = {Yitian Gao and Hanlan Yang and Zachary Kingston},
+  eprint        = {2610.12910},
+  note          = {Under Review},
+  pdf           = {https://arxiv.org/abs/2610.12910},
+  preview       = {wmplan.webm},
+  primaryclass  = {cs.RO},
+  projects      = {implicit,long-horizon},
+  title         = {Sampling-based Kinodynamic Planning with World Models},
+  video         = {https://youtu.be/ig_HOc1KLJA},
+  year          = 2026
+}
 @misc{huang2026mrpop,
   abbr          = {ARXIV},
   abstract      = {Finding globally optimal paths remains a fundamental challenge in multi-robot motion planning. Despite acceleration of almost-surely asymptotically optimal (a.s.a.o.) planners via CPU-based parallelism, achieving both probabilistic convergence guarantees and strong computational performance, these algorithms still struggle to scale to multi-robot settings. As such, we introduce MR. POP, a GPU-based a.s.a.o. multi-robot planner based on dRRT and the AO-x meta-algorithm. MR. POP uses large-scale GPU-based SIMT-parallelism to simultaneously run hundreds of roadmap construction and tree search iterations with underlying parallel nearest neighbor search and collision checking operations. We show that this enables MR. POP to become the only planner achieving a 100\% solve rate while being faster than state-of-the-art a.s.a.o. planners in multi-robot systems up to 35-DOF. MR. POP also raises the success rate of downstream motion optimizers (e.g., from 4\% to 72\%), by creating high-quality, diverse seeds that help avoid local minima.},
