@@ -7,6 +7,7 @@ pronouns: he/him
 github: "pchitiveli"
 email: "pchitive@purdue.edu"
 linkedin: "pchitiveli"
+image: "pranav_chitiveli.jpg"
 group: Undergraduate Students
 group_rank: 5
 ---
