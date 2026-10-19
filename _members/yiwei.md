@@ -6,7 +6,7 @@ last_name: Wei
 pronouns: she/her
 github: "yiwei19"
 email: "wei577@purdue.edu"
-image: "yiwei.png"
+image: "yiwei.JPG"
 crop_top: true
 group: Undergraduate Students
 group_rank: 5
