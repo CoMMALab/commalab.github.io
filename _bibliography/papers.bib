@@ -231,6 +231,7 @@
   journal  = tro,
   pdf      = {https://arxiv.org/abs/2603.16059},
   preview  = {diffflat.webm},
+  website  = {https://kavrakilab.org/flask/},
   projects = {realtime},
   title    = {Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness},
   year     = 2026
@@ -448,6 +449,16 @@
   video         = {https://www.youtube.com/watch?v=8nfeQnN27jw},
   website       = {https://agentic1ab.github.io/},
   year          = 2026
+}
+@misc{huang2026paorrtc,
+  abbr      = {WKSP},
+  abstract  = {Finding globally optimal paths remains a fundamental challenge in motion planning. Almost-surely asymptotically optimal (a.s.a.o) planners provide probabilistic guarantees of convergence to globally optimal solutions, but their computational cost limits their real-time applicability. Recent efforts have explored CPU-based parallelism for the asymptotically optimal AO-x meta-algorithm to achieve both probabilistic convergence guarantees and strong computational performance. However, little has been done to utilize the massive parallelism available on modern GPUs. In this work, we propose pAORRTC, a GPU-based a.s.a.o planner based on RRT-Connect and the AO-x meta-algorithm. We redesigned pAORRTC for GPU-acceleration throughout, with SIMT-parallelism for running hundreds of planning iterations simultaneously along with parallel informed sampling, collision checking, and path simplification. We evaluate pAORRTC on the MotionBenchMaker dataset using the 8-DoF Fetch against state-of-the-art a.s.a.o planners. pAORRTC was able to find initial solutions in milliseconds for challenging manipulation tasks and optimize to low-cost paths faster.},
+  author    = {Chih H. Huang and Brian Plancher and Zachary Kingston},
+  booktitle = {IEEE ICRA 2026 Workshop---Frontiers of Optimization for Robotics, 2nd Edition},
+  pdf       = {https://openreview.net/pdf?id=CNzM4vPY0H},
+  projects  = {realtime},
+  title     = {{pAORRTC}: {GPU}-Parallel Almost-Surely Asymptotically Optimal Planning},
+  year      = 2026
 }
 @article{wilson2025aorrtc,
   abbr     = {RAL},
