@@ -1,4 +1,4 @@
-{% assign img_path = include.path | remove: '.jpg' | remove: '.jpeg' | remove: '.png' | remove: '.tiff' | remove: '.gif' %}
+{% assign img_path = include.path | regex_replace: '(?i)\.(jpe?g|png|tiff|gif)$', '' %}
 
 <figure
   {% if include.slot %}
@@ -68,7 +68,7 @@
       {% elsif site.lazy_loading_images %}
         loading="lazy"
       {% endif %}
-      onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
+      onerror="this.onerror=null; this.parentNode.querySelector('.responsive-img-srcset')?.remove();"
     >
   </picture>
 

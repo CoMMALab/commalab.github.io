@@ -113,7 +113,7 @@ carousels:
               {% assign member_image = "assets/img/commie.png" %}
             {% endif %}
             {% capture member_image_class %}student-image{% if member.crop_top %} crop-top{% endif %}{% endcapture %}
-            {% include figure.liquid loading="lazy" path=member_image class=member_image_class alt=member.title %}
+            {% include figure.liquid loading="lazy" path=member_image sizes="150px" class=member_image_class alt=member.title %}
             <div class="student-name">{{ member.title }}</div>
             {% if member.pronouns %}<div class="student-subtitle">({{ member.pronouns }})</div>{% endif %}
         </a>
