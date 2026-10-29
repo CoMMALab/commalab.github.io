@@ -1,0 +1,70 @@
+/* Adapted from the Nerfies project page (https://github.com/nerfies/nerfies.github.io). */
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.footer .icon-link {
+  font-size: 25px;
+  color: #000;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.method-name {
+  font-variant: small-caps;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-title,
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-note {
+  color: #555;
+}
+
+.figure img,
+.figure video {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.figure-narrow {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.figure-medium {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.figure-caption {
+  margin-top: 0.75rem;
+  color: #4a4a4a;
+}
