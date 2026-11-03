@@ -22,6 +22,8 @@
   - firstname: ["Gilbert"]
     member: true
     url: chang
+  - firstname: ["I-Chia"]
+    url: https://www.linkedin.com/in/i-chia-chang-880063256/
 
 "chen":
   - firstname: ["Lucas"]
@@ -135,10 +137,6 @@
 "chaudhuri":
   - firstname: ["Swarat"]
     url: https://www.cs.utexas.edu/~swarat/
-
-"chang":
-  - firstname: ["I-Chia"]
-    url: https://www.linkedin.com/in/i-chia-chang-880063256/
 
 "cohn":
   - firstname: ["Thomas"]
