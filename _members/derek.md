@@ -7,6 +7,8 @@ pronouns: he/him
 github: "DMcTume"
 email: "dmctume@purdue.edu"
 linkedin: "derek-mctume"
+image: "dmctume.jpg"
+crop_top: true
 group: Undergraduate Students
 group_rank: 5
 ---
