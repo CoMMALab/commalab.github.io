@@ -153,12 +153,21 @@ Jekyll::Hooks.register :site, :after_init do |site|
       css.load_string! doc.document.text
 
       # get the font-face rules
+      found = false
       css.each_rule_set do |rule_set|
-        # check if the rule set has a url
+        next unless rule_set['src'].include?('url(')
+        found = true
         download_and_change_rule_set_url(rule_set, 'src', File.join(dest, 'fonts'), File.join(lib_name, 'fonts'), config, file_types)
       end
 
+      # google fonts occasionally returns css without font urls; keep the remote url instead of failing
+      unless found
+        puts "Warning: no fonts found in #{url}, using remote url"
+        return nil
+      end
+
       # save the modified css file
+      FileUtils.mkdir_p(dest)
       puts "Saving modified css file to #{File.join(dest, file_name)}"
       File.write(File.join(dest, file_name), css.to_s)
     end
@@ -217,6 +226,7 @@ Jekyll::Hooks.register :site, :after_init do |site|
               if file_name.end_with?('css')
                 # if the file is a css file, download the css file, the fonts from it, and change information on the css file
                 file_name = download_fonts_from_css(site.config, url, File.join(site.source, 'assets', 'libs', key), key, font_file_types)
+                next unless file_name
                 # change the url to the local file, considering baseurl
                 if site.config['baseurl']
                   site.config['third_party_libraries'][key]['url'][type] = File.join(site.config['baseurl'], 'assets', 'libs', key, file_name)

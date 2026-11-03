@@ -450,6 +450,16 @@
   website       = {https://agentic1ab.github.io/},
   year          = 2026
 }
+@misc{huang2026flowmr,
+  abbr      = {WKSP},
+  abstract  = {Flow and diffusion models have shown great success in learning complex, multi-modal behaviors. Recent efforts to extend these models to multi-robot collaboration resolves inter-robot collisions with search-based planners such as Conflict-Based Search. Although this improves success rates, these approaches have focused on planar robots or rely on dual-robot interaction models that do not scale to larger teams. As such, we propose FlowMR, a multi-robot optimizing planner that combines flow models with the multi-robot planner dRRT and the AO-x meta-algorithm. To achieve scalability, we train flow models from single-robot data. FlowMR samples these flow models to construct a collision-free roadmap for each robot, and then searches over the tensor product of the resulting roadmaps using dRRT within the AO-x meta-algorithm. This resolves inter-robot collisions and iteratively reduces path cost in an anytime manner, retaining almost-surely asymptotic path optimality at the tree search level and enabling composition of single-robot models for multi-arm planning. As compared to baseline approaches, FlowMR achieves a 4.6x improvement in planning success rate, while its anytime optimization reduces path cost by 2.1x over the initial solution, with a trade-off of an 8.2 percentage point increase in deviation from demonstrated paths.},
+  author    = {Chih H. Huang and Zachary Kingston and Brian Plancher},
+  booktitle = {CoRL 2026 Workshop---Compositional Generalization for Real-World Robot Learning},
+  pdf       = {https://openreview.net/pdf?id=POWtPOxRiX},
+  projects  = {multi,implicit},
+  title     = {Multi-Robot Asymptotically Optimal Planning with Flow Models},
+  year      = 2026
+}
 @misc{huang2026paorrtc,
   abbr      = {WKSP},
   abstract  = {Finding globally optimal paths remains a fundamental challenge in motion planning. Almost-surely asymptotically optimal (a.s.a.o) planners provide probabilistic guarantees of convergence to globally optimal solutions, but their computational cost limits their real-time applicability. Recent efforts have explored CPU-based parallelism for the asymptotically optimal AO-x meta-algorithm to achieve both probabilistic convergence guarantees and strong computational performance. However, little has been done to utilize the massive parallelism available on modern GPUs. In this work, we propose pAORRTC, a GPU-based a.s.a.o planner based on RRT-Connect and the AO-x meta-algorithm. We redesigned pAORRTC for GPU-acceleration throughout, with SIMT-parallelism for running hundreds of planning iterations simultaneously along with parallel informed sampling, collision checking, and path simplification. We evaluate pAORRTC on the MotionBenchMaker dataset using the 8-DoF Fetch against state-of-the-art a.s.a.o planners. pAORRTC was able to find initial solutions in milliseconds for challenging manipulation tasks and optimize to low-cost paths faster.},
