@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VIZ-COAST uses the spatial reasoning of vision-language models to predict downward-refinement failures before planning and encodes them as task-planning constraints.">
+  <meta name="keywords" content="VIZ-COAST, task and motion planning, TAMP, vision-language models, VLM, SMT, constraints">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="VIZ-COAST: Using VLM Reasoning to Constrain Task and Motion Planning">
+  <meta property="og:description"
+        content="Vision-language models predict downward-refinement failures a priori and encode them as constraints for an SMT-based task planner.">
+  <meta property="og:image" content="https://commalab.org/papers/vizcoast/static/images/overview.png">
+  <meta property="og:url" content="https://commalab.org/papers/vizcoast/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>VIZ-COAST: Using VLM Reasoning to Constrain Task and Motion Planning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon_dark.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="./static/images/favicon.png" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://commalab.github.io">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">More Research</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../spasm">Particle Optimization for Sequential Manipulation</a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2509.25402">Search as Inference</a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2508.17482">Grasp Diffusion</a>
+          <a class="navbar-item" href="../pRRTC">GPU RRT-Connect</a>
+          <a class="navbar-item" href="../mcvamp">Constrained Vectorized Motion Planning</a>
+          <a class="navbar-item" href="../pakr">GPU-Accelerated Kinodynamic Planning</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  // Toggle the navbar menu on mobile.
+  document.querySelector('.navbar-burger').addEventListener('click', function () {
+    this.classList.toggle('is-active');
+    document.querySelector('.navbar-menu').classList.toggle('is-active');
+  });
+</script>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Using VLM Reasoning to Constrain Task and Motion Planning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://commalab.org/members/muyang/">Muyang Yan</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://commalab.org/members/miras/">Miras Mengdibayev</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://commalab.org/members/Ardon/">Ardon Floros</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.whguo.me/">Weihang Guo</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://profiles.rice.edu/faculty/lydia-e-kavraki">Lydia E. Kavraki</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://commalab.org/members/kingston/">Zachary Kingston</a><sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Robotics Institute, Carnegie Mellon University,</span>
+            <span class="author-block"><sup>2</sup>Department of Computer Science, Purdue University,</span>
+            <span class="author-block"><sup>3</sup>Department of Computer Science, Rice University</span>
+          </div>
+
+          <div class="is-size-6 publication-note">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2510.25548"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2510.25548"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/CoMMALab/VIZ-COAST"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="figure">
+        <img src="./static/images/overview.png"
+             alt="VIZ-COAST overview: a VLM reads an example instance and the PDDL domain, writes constraints.py, and the Z3 planner applies those constraints to an unseen instance.">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        <span class="method-name">VIZ-COAST</span> uses VLMs and SMT-based task planning to constrain
+        TAMP problems. Our constraints generalize to unseen problem instances within a broader domain.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In task and motion planning, high-level task planning is done over an abstraction of the
+            world to enable efficient search in long-horizon robotics problems. However, the
+            feasibility of these task-level plans relies on the downward refinability of the
+            abstraction into continuous motion. When a domain's refinability is poor, task-level plans
+            that appear valid may ultimately fail during motion planning, requiring replanning and
+            resulting in slower overall performance.
+          </p>
+          <p>
+            Prior works mitigate this by encoding refinement issues as constraints to prune infeasible
+            task plans. However, these approaches only add constraints upon refinement failure,
+            expending significant search effort on infeasible branches. We propose
+            <span class="method-name">VIZ-COAST</span>, a method of leveraging the common-sense spatial
+            reasoning of large pretrained Vision-Language Models to identify issues with downward
+            refinement <i>a priori</i>, bypassing the need to fix these failures during planning.
+          </p>
+          <p>
+            Experiments on three challenging TAMP domains show that our approach is able to extract
+            plausible constraints from images and domain descriptions, drastically reducing planning
+            times and, in some cases, eliminating downward refinement failures altogether,
+            generalizing to a diverse range of instances from the broader domain.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="columns is-vcentered">
+          <div class="column is-5">
+            <figure class="figure figure-narrow">
+              <img src="./static/images/architecture.png"
+                   alt="VIZ-COAST architecture: the Visual Reasoning Module produces constraints for the SMT-based task planner, whose plans are grounded by a streams-based planner.">
+            </figure>
+          </div>
+          <div class="column">
+            <div class="content has-text-justified">
+              <p><span class="method-name">VIZ-COAST</span> consists of three components:</p>
+              <ul>
+                <li>
+                  <b>SMT-based task planner.</b> A task planner built on the Z3 SMT solver with a
+                  Madagascar or SATPlan encoding, which allows flexible constraint specification
+                  while introducing minimal search overhead.
+                </li>
+                <li>
+                  <b>Visual Reasoning Module (VRM).</b> Before planning begins, the VRM uses a VLM to
+                  analyze an example scene (image and geometric state), the PDDL domain and problem,
+                  and the grasp specification. It foresees downward-refinement failures and infers
+                  general constraints to prevent them, written as a Python file of constraints on
+                  the SMT solver.
+                </li>
+                <li>
+                  <b>Stream-based grounding.</b> Task plans are grounded to motion with the streams
+                  framework used in PDDLStream and COAST.
+                </li>
+              </ul>
+              <p>
+                On a new problem, the task planner applies the constraints to block infeasible task
+                plans. After <i>K</i> refinement failures, the VRM revises its constraints using the
+                cached failure feedback.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="figure figure-medium">
+          <img src="./static/images/constraints_example.png"
+               alt="Paraphrased example of a VRM-generated constraints file that blocks picking from and placing into closed containers.">
+          <figcaption class="figure-caption has-text-centered">
+            Paraphrased example of a constraints file produced by the VRM to block picking and placing
+            from closed containers. The VRM produces a function that calls a high-level API to block
+            action assignments under certain conditions, constraining the search space of the task
+            planner.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Domains. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Domains</h2>
+        <figure class="figure">
+          <img src="./static/images/domains.png"
+               alt="The Shelf, Packing and Cooking domains in simulation.">
+        </figure>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              <b>Shelf.</b> Rearrange blocks in a restrictive shelf to move the red block to the
+              center tile. The shelf only allows grasps from one direction, so any block in the
+              approach corridor causes a collision, which the symbolic domain does not encode.
+            </li>
+            <li>
+              <b>Packing.</b> Pack slabs, big blocks and small blocks into a container and close the
+              lid. The symbolic domain ignores the container's limited volume, so items must be
+              stacked in a configuration that fits under the lid.
+            </li>
+            <li>
+              <b>Cooking.</b> Two arms use a frying pot and a steaming pot to cook and serve
+              ingredients. The symbolic domain neglects lids blocking pots, each arm's limited
+              reach, unstable lid stacking, and lids occupying plates.
+            </li>
+          </ul>
+        </div>
+        <figure class="figure figure-narrow has-text-centered">
+          <video autoplay muted loop playsinline>
+            <source src="/assets/img/publication_preview/viz_coast.webm" type="video/webm">
+          </video>
+          <figcaption class="figure-caption">
+            Executing a <span class="method-name">VIZ-COAST</span> plan in the Packing domain.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <!--/ Domains. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <h3 class="title is-4">Shelf</h3>
+        <figure class="figure">
+          <img src="./static/images/shelf.png"
+               alt="Success rates, refinement failures and planning times in the Shelf domain.">
+          <figcaption class="figure-caption has-text-justified">
+            <span class="method-name">VIZ-COAST</span> was prompted once on the first 3-block problem,
+            producing constraints that generalized to all 30 unique problems containing up to 8
+            blocks. It plans faster than COAST-based baselines while avoiding refinement failures.
+          </figcaption>
+        </figure>
+
+        <h3 class="title is-4">Packing</h3>
+        <figure class="figure">
+          <img src="./static/images/packing.png"
+               alt="Success rates, refinement failures and planning times in the Packing domain.">
+          <figcaption class="figure-caption has-text-justified">
+            <span class="method-name">VIZ-COAST</span> achieves 100% success and the fastest planning
+            times on larger problem instances, whereas COAST-based methods become increasingly slower
+            or fail completely. The failures of the no-feedback ablation on larger problems show the
+            importance of closing the constraint generation&ndash;planning loop. As
+            <span class="method-name">VIZ-COAST</span> refines its constraints over problems, it
+            encounters fewer refinement failures and plans faster.
+          </figcaption>
+        </figure>
+
+        <h3 class="title is-4">Cooking</h3>
+        <figure class="figure">
+          <img src="./static/images/cooking.png"
+               alt="Success rates, refinement failures and planning times in the Cooking domain.">
+          <figcaption class="figure-caption has-text-justified">
+            <span class="method-name">VIZ-COAST</span> achieves 100% success and the fastest planning
+            times, whereas COAST-based methods and the no-feedback ablation fail completely beyond 2
+            ingredients.
+          </figcaption>
+        </figure>
+
+        <h3 class="title is-4">Choice of VLM</h3>
+        <div class="content has-text-justified">
+          <p>
+            Success rate, average time per constraint update (Prompting), and average total
+            downward-refinement failures over 20 independent trials of 4 sequential Shelf problems
+            with 4&ndash;7 blocks. Metrics are averaged over runs in which all problems succeeded.
+          </p>
+        </div>
+        <div class="table-container">
+          <table class="table is-fullwidth is-striped is-narrow">
+            <thead>
+              <tr><th>VLM</th><th>Success</th><th>Prompting (s)</th><th>Ref. failures</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Gemini 3.5 Flash (high)</td><td><b>100%</b></td><td>49.41 &plusmn; 8.36</td><td>0.70 &plusmn; 0.57</td></tr>
+              <tr><td>Gemini 3.5 Flash (medium)</td><td><b>100%</b></td><td>39.91 &plusmn; 9.61</td><td>0.55 &plusmn; 0.94</td></tr>
+              <tr><td>Gemini 3.5 Flash (low)</td><td><b>100%</b></td><td>22.87 &plusmn; 4.37</td><td><b>0.10 &plusmn; 0.31</b></td></tr>
+              <tr><td>Gemini 3.5 Flash-Lite (low)</td><td><b>100%</b></td><td><b>6.28 &plusmn; 2.20</b></td><td>7.05 &plusmn; 8.87</td></tr>
+              <tr><td>GPT-5.6 Terra (high)</td><td><b>100%</b></td><td>81.17 &plusmn; 26.70</td><td>0.45 &plusmn; 0.51</td></tr>
+              <tr><td>GPT-5.6 Luna (medium)</td><td><b>100%</b></td><td>55.31 &plusmn; 36.85</td><td>0.85 &plusmn; 1.23</td></tr>
+              <tr><td>GPT-5.6 Luna (low)</td><td><b>100%</b></td><td>25.24 &plusmn; 9.77</td><td>2.22 &plusmn; 6.03</td></tr>
+              <tr><td>Qwen 3.7 Plus (medium)</td><td><b>100%</b></td><td>236.15 &plusmn; 84.42</td><td>0.35 &plusmn; 0.49</td></tr>
+              <tr><td>Qwen 3.5 Flash (medium)</td><td>73%</td><td>241.83 &plusmn; 108.52</td><td>1.38 &plusmn; 0.89</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--/ Results. -->
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{yan2025vizcoast,
+  title         = {Using {VLM} Reasoning to Constrain Task and Motion Planning},
+  author        = {Yan, Muyang and Mengdibayev, Miras and Floros, Ardon and Guo, Weihang and Kavraki, Lydia E. and Kingston, Zachary},
+  year          = {2025},
+  eprint        = {2510.25548},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2510.25548">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/CoMMALab/VIZ-COAST">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+            Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
