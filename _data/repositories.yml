@@ -8,27 +8,27 @@ github_repos:
     name: OMPL
     description: The Open Motion Planning Library.
     language: C++
-    stars: 2141
+    stars: 2209
   - repo: KavrakiLab/vamp
     name: VAMP
     description: SIMD-accelerated sampling-based motion planning.
     language: C++
-    stars: 476
+    stars: 509
   - repo: CoMMALab/pRRTC
     name: pRRTC
     description: GPU-parallel RRT-Connect.
     language: Cuda
-    stars: 79
+    stars: 86
   - repo: CoMMALab/cricket
     name: cricket
     description: Tracing compiler with CppAD and Pinocchio.
     language: C++
-    stars: 51
+    stars: 57
   - repo: CoMMALab/foam
     name: foam
     description: Convert URDF geometry to spheres.
     language: Python
-    stars: 186
+    stars: 194
   - repo: CoMMALab/DiffVineSimPy
     name: DiffVineSimPy
     description: Physics-grounded differentiable simulation for soft growing robots.
@@ -43,17 +43,17 @@ github_repos:
     name: pyroffi
     description: A modular toolkit for robot kinematic optimization.
     language: Python
-    stars: 7
+    stars: 9
   - repo: KavrakiLab/robowflex
     name: Robowflex
     description: Making MoveIt easy.
     language: C++
-    stars: 136
+    stars: 137
   - repo: KavrakiLab/motion_bench_maker
     name: MotionBenchMaker
     description: Generate and benchmark datasets for robot manipulation problems.
     language: C++
-    stars: 111
+    stars: 114
   - repo: KavrakiLab/capt
     name: CAPT
     description: Rust implementation of the Collision-Affording Point Tree for fast pointcloud collision checking.
